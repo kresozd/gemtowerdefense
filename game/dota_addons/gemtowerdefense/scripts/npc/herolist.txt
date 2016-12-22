@@ -1,0 +1,8 @@
+"CustomHeroList"
+{
+	"npc_dota_hero_abaddon"	"1"
+	"npc_dota_hero_puck"	"1"
+	"npc_dota_hero_wisp"	"1"
+	"npc_dota_hero_crystal_maiden"	"1"
+
+}

@@ -1,0 +1,9 @@
+<root>
+        <styles>
+                
+        </styles>
+        <Panel>
+                
+                <Image id="ix" class="imageSize" src="file://{images}/custom_game/loading_screen.png"/>
+        </Panel>
+</root>
