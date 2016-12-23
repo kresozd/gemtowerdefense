@@ -123,44 +123,6 @@ function Rounds:Spawn()
 end
 
 
-function Rounds:OnTouchGemCastle(trigger)
-
-	local unit = trigger.activator
-	local eHandle = unit:GetEntityHandle()
-
-	self.BaseHealth = self.BaseHealth - unit.Damage
-	self.TotalLeaked = self.TotalLeaked + 1
-
-
-	print("Health Point", self.BaseHealth)
-
-	CustomNetTables:SetTableValue( "game_state", "gem_castle_health", { value = self.BaseHealth } )
-	--CustomNetTables:SetTableValue( "game_state", "gem_castle_health", { value = self.BaseHealth } ) //Leak net tb
-
-
-	Rounds:DeleteByHandle(eHandle)
-	--unit:Destroy()
-
-	if self.BaseHealth <= 0 then
-
-		GameRules:SetGameWinner(DOTA_TEAM_BADGUYS)
-
-	end
-
-	self.AmountKilled = self.AmountKilled + 1
-
-	if self.AmountKilled == 10 then
-
-
-		self.RoundNumber = self.RoundNumber + 1
-		self.AmountKilled = 0
-		Rounds:Build()
-
-	end
-
-
-end
-
 function Rounds:AddHeroAbilitiesOnRound()
 
 	
@@ -235,5 +197,31 @@ end
 function Rounds:IncrementKillNumber()
 
 	self.AmountKilled = self.AmountKilled + 1
+
+end
+
+function Rounds:ResetKillNumber()
+
+	self.AmountKilled = 0
+
+end
+
+
+function Rounds:DecrementBaseHealth(value)
+
+	self.BaseHealth = self.BaseHealth - value
+
+end
+
+function Rounds:IncrementTotalLeaked()
+
+	self.TotalLeaked = self.TotalLeaked + 1
+
+
+end
+
+function Rounds:GetBaseHealth()
+
+	return self.BaseHealth
 
 end

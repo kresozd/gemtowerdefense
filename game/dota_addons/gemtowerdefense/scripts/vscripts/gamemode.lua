@@ -27,6 +27,7 @@ function GemTowerDefenseReborn:InitGameMode()
 	GameRules:SetGoldPerTick(0)
 	GameRules:SetGoldTickTime(0)
 	GameRules:SetStartingGold(0)
+--	setgold
 	
 	GameRules:SetCustomGameTeamMaxPlayers(DOTA_TEAM_GOODGUYS, 4)
 	GameRules:SetCustomGameTeamMaxPlayers(DOTA_TEAM_BADGUYS, 0)
