@@ -4,7 +4,7 @@
 			This is a reference to a script file located here:
 			content/dota_addons/ADDON_NAME/scripts/custom_game/my_script_name.js
 		-->
-		<include src="file://{resources}/scripts/custom_game/unit_select.js" />
+		
 		
 
 	</scripts>
