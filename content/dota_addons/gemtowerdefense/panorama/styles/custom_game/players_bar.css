@@ -1,0 +1,30 @@
+.players-bar-element {
+  width: 100%;
+}
+
+#players-bar {
+  horizontal-align: center;
+  margin-left: -250px;
+  flow-children: right;
+  min-width: 380px;
+}
+
+.player {
+  flow-children: down;
+  margin: 0 5px;
+  background-color: gradient( linear, 0% 0%, 0% 100%, from( #5a6c75 ), to( #3d4a50 ) );
+}
+
+.player.player-hidden {
+  visibility: collapse;
+}
+
+.player-avatar {
+  width: 62px;
+}
+
+.player-nickname {
+  font-size: 14px;
+  color: #fff;
+  padding: 5px;
+}

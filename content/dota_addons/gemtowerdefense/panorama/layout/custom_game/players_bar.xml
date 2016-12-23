@@ -1,0 +1,28 @@
+<root>
+  <styles>
+    <include src="file://{resources}/styles/custom_game/players_bar.css"/>  
+  </styles>
+  <scripts>
+    <include src="file://{resources}/scripts/custom_game/players_bar.js"/>
+  </scripts>
+  <Panel class="players-bar-element" hittest="false">
+    <Panel id="players-bar" hittest="false">
+      <Panel id="player-bar-0" class="player player-hidden" hittest="true">
+        <DOTAAvatarImage class="player-avatar" />
+        <DOTAUserName class="player-nickname" />
+      </Panel>
+      <Panel id="player-bar-1" class="player player-hidden" hittest="true">
+        <DOTAAvatarImage class="player-avatar" />
+        <DOTAUserName class="player-nickname" />
+      </Panel>
+      <Panel id="player-bar-2" class="player player-hidden" hittest="true">
+        <DOTAAvatarImage class="player-avatar" />
+        <DOTAUserName class="player-nickname" />
+      </Panel>
+      <Panel id="player-bar-3" class="player player-hidden" hittest="true">
+        <DOTAAvatarImage class="player-avatar" />
+        <DOTAUserName class="player-nickname" />
+      </Panel>
+    </Panel>
+  </Panel>
+</root>
