@@ -1,15 +1,16 @@
 <root>
     <styles>
-        <include src="file://{resources}/styles/custom_game/gem_info_nav.css"/>
+        <include src="file://{resources}/styles/custom_game/info_boards.css"/>
     </styles>
     <scripts>
-        <include src="file://{resources}/scripts/custom_game/gem_info_nav.js"/>
+        <include src="file://{resources}/scripts/custom_game/info_boards.js"/>
     </scripts>
-    <Panel hittest="false">
-        <Panel id="gem-nav"
+    <Panel class="info-boards-element" hittest="false">
+        <Panel id="boards-nav"
+            hittest="false"
             onmouseout="hideNav()"
             onmouseover="showNav()">
-            <Panel id="gem-nav-container">
+            <Panel id="boards-nav-container" hittest="false">
                 <Panel class="nav-button-about nav-button" onactivate="activateBoard('board-about')"> 
                     <Label class="nav-button-title" text="About"></Label>
                 </Panel>
@@ -24,18 +25,18 @@
                 </Panel>
             </Panel>
         </Panel>
-        <Panel id="board-about" class="gem-info-board board-hidden">
-            <Label class="gem-board-title" text="About"></Label>
+        <Panel id="board-about" class="info-board board-hidden">
+            <Label class="board-title" text="About"></Label>
         </Panel>
-        <Panel id="board-store" class="gem-info-board board-hidden">
-            <Label class="gem-board-title" text="Store"></Label>
+        <Panel id="board-store" class="info-board board-hidden">
+            <Label class="board-title" text="Store"></Label>
         </Panel>
-        <Panel id="board-rank" class="gem-info-board board-hidden">
-            <Label class="gem-board-title" text="Leadersboard"></Label>
+        <Panel id="board-rank" class="info-board board-hidden">
+            <Label class="board-title" text="Leadersboard"></Label>
         </Panel>
-        <Panel id="board-formula" class="gem-info-board board-hidden">
-            <Label class="gem-board-title" text="Formulas"></Label>
-            <Panel id="minify-toggle" class="minify-toggle" onactivate="changeFormulaLayout()">
+        <Panel id="board-formula" class="info-board board-hidden">
+            <Label class="board-title" text="Formulas"></Label>
+            <Panel id="minify-toggle" class="minify-toggle" onactivate="toggleFormulaLayout()">
                 <Label id="minify-label" text="minify table"></Label>
             </Panel>
             <Panel class="formula-row">
@@ -44,7 +45,7 @@
                         <Panel class="formula-tower-inner"></Panel>
                         <Label class="formula-component-tier" text="X"></Label>
                     </Panel>
-                    <Label class="component-name gem-text" text="component name"></Label>
+                    <Label class="component-name text" text="component name"></Label>
                 </Panel>
                 <Label class="formula-mark" text="+"></Label>
                 <Panel class="formula-item">
@@ -52,7 +53,7 @@
                         <Panel class="formula-tower-inner"></Panel>
                         <Label class="formula-component-tier" text="X"></Label>
                     </Panel>
-                    <Label class="component-name gem-text" text="component name"></Label>
+                    <Label class="component-name text" text="component name"></Label>
                 </Panel>
                 <Label class="formula-mark" text="+"></Label>
                 <Panel class="formula-item">
@@ -60,7 +61,7 @@
                         <Panel class="formula-tower-inner"></Panel>
                         <Label class="formula-component-tier" text="X"></Label>
                     </Panel>
-                    <Label class="component-name gem-text" text="component name"></Label>
+                    <Label class="component-name text" text="component name"></Label>
                 </Panel>
                 <Label class="formula-mark" text="="></Label>
                 <Panel class="formula-item">
@@ -68,7 +69,7 @@
                         <Panel class="formula-tower-inner"></Panel>
                         <Label class="formula-component-tier" text="X"></Label>
                     </Panel>
-                    <Label class="component-name gem-text" text="component name"></Label>
+                    <Label class="component-name text" text="component name"></Label>
                 </Panel>
             </Panel>
             <Panel class="formula-row">
@@ -77,7 +78,7 @@
                         <Panel class="formula-tower-inner"></Panel>
                         <Label class="formula-component-tier" text="X"></Label>
                     </Panel>
-                    <Label class="component-name gem-text" text="component name"></Label>
+                    <Label class="component-name text" text="component name"></Label>
                 </Panel>
                 <Label class="formula-mark" text="+"></Label>
                 <Panel class="formula-item">
@@ -85,7 +86,7 @@
                         <Panel class="formula-tower-inner"></Panel>
                         <Label class="formula-component-tier" text="X"></Label>
                     </Panel>
-                    <Label class="component-name gem-text" text="component name"></Label>
+                    <Label class="component-name text" text="component name"></Label>
                 </Panel>
                 <Label class="formula-mark" text="+"></Label>
                 <Panel class="formula-item">
@@ -93,7 +94,7 @@
                         <Panel class="formula-tower-inner"></Panel>
                         <Label class="formula-component-tier" text="X"></Label>
                     </Panel>
-                    <Label class="component-name gem-text" text="component name"></Label>
+                    <Label class="component-name text" text="component name"></Label>
                 </Panel>
                 <Label class="formula-mark" text="="></Label>
                 <Panel class="formula-item">
@@ -101,7 +102,7 @@
                         <Panel class="formula-tower-inner"></Panel>
                         <Label class="formula-component-tier" text="X"></Label>
                     </Panel>
-                    <Label class="component-name gem-text" text="component name"></Label>
+                    <Label class="component-name text" text="component name"></Label>
                 </Panel>
             </Panel>
             <Panel class="formula-row">
@@ -110,7 +111,7 @@
                         <Panel class="formula-tower-inner"></Panel>
                         <Label class="formula-component-tier" text="X"></Label>
                     </Panel>
-                    <Label class="component-name gem-text" text="component name"></Label>
+                    <Label class="component-name text" text="component name"></Label>
                 </Panel>
                 <Label class="formula-mark" text="+"></Label>
                 <Panel class="formula-item">
@@ -118,7 +119,7 @@
                         <Panel class="formula-tower-inner"></Panel>
                         <Label class="formula-component-tier" text="X"></Label>
                     </Panel>
-                    <Label class="component-name gem-text" text="component name"></Label>
+                    <Label class="component-name text" text="component name"></Label>
                 </Panel>
                 <Label class="formula-mark" text="+"></Label>
                 <Panel class="formula-item">
@@ -126,7 +127,7 @@
                         <Panel class="formula-tower-inner"></Panel>
                         <Label class="formula-component-tier" text="X"></Label>
                     </Panel>
-                    <Label class="component-name gem-text" text="component name"></Label>
+                    <Label class="component-name text" text="component name"></Label>
                 </Panel>
                 <Label class="formula-mark" text="="></Label>
                 <Panel class="formula-item">
@@ -134,7 +135,7 @@
                         <Panel class="formula-tower-inner"></Panel>
                         <Label class="formula-component-tier" text="X"></Label>
                     </Panel>
-                    <Label class="component-name gem-text" text="component name"></Label>
+                    <Label class="component-name text" text="component name"></Label>
                 </Panel>
             </Panel>
             <Panel class="formula-row">
@@ -143,7 +144,7 @@
                         <Panel class="formula-tower-inner"></Panel>
                         <Label class="formula-component-tier" text="X"></Label>
                     </Panel>
-                    <Label class="component-name gem-text" text="component name"></Label>
+                    <Label class="component-name text" text="component name"></Label>
                 </Panel>
                 <Label class="formula-mark" text="+"></Label>
                 <Panel class="formula-item">
@@ -151,7 +152,7 @@
                         <Panel class="formula-tower-inner"></Panel>
                         <Label class="formula-component-tier" text="X"></Label>
                     </Panel>
-                    <Label class="component-name gem-text" text="component name"></Label>
+                    <Label class="component-name text" text="component name"></Label>
                 </Panel>
                 <Label class="formula-mark" text="+"></Label>
                 <Panel class="formula-item">
@@ -159,7 +160,7 @@
                         <Panel class="formula-tower-inner"></Panel>
                         <Label class="formula-component-tier" text="X"></Label>
                     </Panel>
-                    <Label class="component-name gem-text" text="component name"></Label>
+                    <Label class="component-name text" text="component name"></Label>
                 </Panel>
                 <Label class="formula-mark" text="="></Label>
                 <Panel class="formula-item">
@@ -167,7 +168,7 @@
                         <Panel class="formula-tower-inner"></Panel>
                         <Label class="formula-component-tier" text="X"></Label>
                     </Panel>
-                    <Label class="component-name gem-text" text="component name"></Label>
+                    <Label class="component-name text" text="component name"></Label>
                 </Panel>
             </Panel>
             <Panel class="formula-row">
@@ -176,7 +177,7 @@
                         <Panel class="formula-tower-inner"></Panel>
                         <Label class="formula-component-tier" text="X"></Label>
                     </Panel>
-                    <Label class="component-name gem-text" text="component name"></Label>
+                    <Label class="component-name text" text="component name"></Label>
                 </Panel>
                 <Label class="formula-mark" text="+"></Label>
                 <Panel class="formula-item">
@@ -184,7 +185,7 @@
                         <Panel class="formula-tower-inner"></Panel>
                         <Label class="formula-component-tier" text="X"></Label>
                     </Panel>
-                    <Label class="component-name gem-text" text="component name"></Label>
+                    <Label class="component-name text" text="component name"></Label>
                 </Panel>
                 <Label class="formula-mark" text="+"></Label>
                 <Panel class="formula-item">
@@ -192,7 +193,7 @@
                         <Panel class="formula-tower-inner"></Panel>
                         <Label class="formula-component-tier" text="X"></Label>
                     </Panel>
-                    <Label class="component-name gem-text" text="component name"></Label>
+                    <Label class="component-name text" text="component name"></Label>
                 </Panel>
                 <Label class="formula-mark" text="="></Label>
                 <Panel class="formula-item">
@@ -200,7 +201,7 @@
                         <Panel class="formula-tower-inner"></Panel>
                         <Label class="formula-component-tier" text="X"></Label>
                     </Panel>
-                    <Label class="component-name gem-text" text="component name"></Label>
+                    <Label class="component-name text" text="component name"></Label>
                 </Panel>
             </Panel>
             <Panel class="formula-row">
@@ -209,7 +210,7 @@
                         <Panel class="formula-tower-inner"></Panel>
                         <Label class="formula-component-tier" text="X"></Label>
                     </Panel>
-                    <Label class="component-name gem-text" text="component name"></Label>
+                    <Label class="component-name text" text="component name"></Label>
                 </Panel>
                 <Label class="formula-mark" text="+"></Label>
                 <Panel class="formula-item">
@@ -217,7 +218,7 @@
                         <Panel class="formula-tower-inner"></Panel>
                         <Label class="formula-component-tier" text="X"></Label>
                     </Panel>
-                    <Label class="component-name gem-text" text="component name"></Label>
+                    <Label class="component-name text" text="component name"></Label>
                 </Panel>
                 <Label class="formula-mark" text="+"></Label>
                 <Panel class="formula-item">
@@ -225,7 +226,7 @@
                         <Panel class="formula-tower-inner"></Panel>
                         <Label class="formula-component-tier" text="X"></Label>
                     </Panel>
-                    <Label class="component-name gem-text" text="component name"></Label>
+                    <Label class="component-name text" text="component name"></Label>
                 </Panel>
                 <Label class="formula-mark" text="="></Label>
                 <Panel class="formula-item">
@@ -233,7 +234,7 @@
                         <Panel class="formula-tower-inner"></Panel>
                         <Label class="formula-component-tier" text="X"></Label>
                     </Panel>
-                    <Label class="component-name gem-text" text="component name"></Label>
+                    <Label class="component-name text" text="component name"></Label>
                 </Panel>
             </Panel>
             <Panel class="formula-row">
@@ -242,7 +243,7 @@
                         <Panel class="formula-tower-inner"></Panel>
                         <Label class="formula-component-tier" text="X"></Label>
                     </Panel>
-                    <Label class="component-name gem-text" text="component name"></Label>
+                    <Label class="component-name text" text="component name"></Label>
                 </Panel>
                 <Label class="formula-mark" text="+"></Label>
                 <Panel class="formula-item">
@@ -250,7 +251,7 @@
                         <Panel class="formula-tower-inner"></Panel>
                         <Label class="formula-component-tier" text="X"></Label>
                     </Panel>
-                    <Label class="component-name gem-text" text="component name"></Label>
+                    <Label class="component-name text" text="component name"></Label>
                 </Panel>
                 <Label class="formula-mark" text="+"></Label>
                 <Panel class="formula-item">
@@ -258,7 +259,7 @@
                         <Panel class="formula-tower-inner"></Panel>
                         <Label class="formula-component-tier" text="X"></Label>
                     </Panel>
-                    <Label class="component-name gem-text" text="component name"></Label>
+                    <Label class="component-name text" text="component name"></Label>
                 </Panel>
                 <Label class="formula-mark" text="="></Label>
                 <Panel class="formula-item">
@@ -266,7 +267,7 @@
                         <Panel class="formula-tower-inner"></Panel>
                         <Label class="formula-component-tier" text="X"></Label>
                     </Panel>
-                    <Label class="component-name gem-text" text="component name"></Label>
+                    <Label class="component-name text" text="component name"></Label>
                 </Panel>
             </Panel>
             <Panel class="formula-row">
@@ -275,7 +276,7 @@
                         <Panel class="formula-tower-inner"></Panel>
                         <Label class="formula-component-tier" text="X"></Label>
                     </Panel>
-                    <Label class="component-name gem-text" text="component name"></Label>
+                    <Label class="component-name text" text="component name"></Label>
                 </Panel>
                 <Label class="formula-mark" text="+"></Label>
                 <Panel class="formula-item">
@@ -283,7 +284,7 @@
                         <Panel class="formula-tower-inner"></Panel>
                         <Label class="formula-component-tier" text="X"></Label>
                     </Panel>
-                    <Label class="component-name gem-text" text="component name"></Label>
+                    <Label class="component-name text" text="component name"></Label>
                 </Panel>
                 <Label class="formula-mark" text="+"></Label>
                 <Panel class="formula-item">
@@ -291,7 +292,7 @@
                         <Panel class="formula-tower-inner"></Panel>
                         <Label class="formula-component-tier" text="X"></Label>
                     </Panel>
-                    <Label class="component-name gem-text" text="component name"></Label>
+                    <Label class="component-name text" text="component name"></Label>
                 </Panel>
                 <Label class="formula-mark" text="="></Label>
                 <Panel class="formula-item">
@@ -299,7 +300,7 @@
                         <Panel class="formula-tower-inner"></Panel>
                         <Label class="formula-component-tier" text="X"></Label>
                     </Panel>
-                    <Label class="component-name gem-text" text="component name"></Label>
+                    <Label class="component-name text" text="component name"></Label>
                 </Panel>
             </Panel>
             <Panel class="formula-row">
@@ -308,7 +309,7 @@
                         <Panel class="formula-tower-inner"></Panel>
                         <Label class="formula-component-tier" text="X"></Label>
                     </Panel>
-                    <Label class="component-name gem-text" text="component name"></Label>
+                    <Label class="component-name text" text="component name"></Label>
                 </Panel>
                 <Label class="formula-mark" text="+"></Label>
                 <Panel class="formula-item">
@@ -316,7 +317,7 @@
                         <Panel class="formula-tower-inner"></Panel>
                         <Label class="formula-component-tier" text="X"></Label>
                     </Panel>
-                    <Label class="component-name gem-text" text="component name"></Label>
+                    <Label class="component-name text" text="component name"></Label>
                 </Panel>
                 <Label class="formula-mark" text="+"></Label>
                 <Panel class="formula-item">
@@ -324,7 +325,7 @@
                         <Panel class="formula-tower-inner"></Panel>
                         <Label class="formula-component-tier" text="X"></Label>
                     </Panel>
-                    <Label class="component-name gem-text" text="component name"></Label>
+                    <Label class="component-name text" text="component name"></Label>
                 </Panel>
                 <Label class="formula-mark" text="="></Label>
                 <Panel class="formula-item">
@@ -332,7 +333,7 @@
                         <Panel class="formula-tower-inner"></Panel>
                         <Label class="formula-component-tier" text="X"></Label>
                     </Panel>
-                    <Label class="component-name gem-text" text="component name"></Label>
+                    <Label class="component-name text" text="component name"></Label>
                 </Panel>
             </Panel>
             <Panel class="formula-row">
@@ -341,7 +342,7 @@
                         <Panel class="formula-tower-inner"></Panel>
                         <Label class="formula-component-tier" text="X"></Label>
                     </Panel>
-                    <Label class="component-name gem-text" text="component name"></Label>
+                    <Label class="component-name text" text="component name"></Label>
                 </Panel>
                 <Label class="formula-mark" text="+"></Label>
                 <Panel class="formula-item">
@@ -349,7 +350,7 @@
                         <Panel class="formula-tower-inner"></Panel>
                         <Label class="formula-component-tier" text="X"></Label>
                     </Panel>
-                    <Label class="component-name gem-text" text="component name"></Label>
+                    <Label class="component-name text" text="component name"></Label>
                 </Panel>
                 <Label class="formula-mark" text="+"></Label>
                 <Panel class="formula-item">
@@ -357,7 +358,7 @@
                         <Panel class="formula-tower-inner"></Panel>
                         <Label class="formula-component-tier" text="X"></Label>
                     </Panel>
-                    <Label class="component-name gem-text" text="component name"></Label>
+                    <Label class="component-name text" text="component name"></Label>
                 </Panel>
                 <Label class="formula-mark" text="="></Label>
                 <Panel class="formula-item">
@@ -365,7 +366,7 @@
                         <Panel class="formula-tower-inner"></Panel>
                         <Label class="formula-component-tier" text="X"></Label>
                     </Panel>
-                    <Label class="component-name gem-text" text="component name"></Label>
+                    <Label class="component-name text" text="component name"></Label>
                 </Panel>
             </Panel>
             <Panel class="formula-row">
@@ -374,7 +375,7 @@
                         <Panel class="formula-tower-inner"></Panel>
                         <Label class="formula-component-tier" text="X"></Label>
                     </Panel>
-                    <Label class="component-name gem-text" text="component name"></Label>
+                    <Label class="component-name text" text="component name"></Label>
                 </Panel>
                 <Label class="formula-mark" text="+"></Label>
                 <Panel class="formula-item">
@@ -382,7 +383,7 @@
                         <Panel class="formula-tower-inner"></Panel>
                         <Label class="formula-component-tier" text="X"></Label>
                     </Panel>
-                    <Label class="component-name gem-text" text="component name"></Label>
+                    <Label class="component-name text" text="component name"></Label>
                 </Panel>
                 <Label class="formula-mark" text="+"></Label>
                 <Panel class="formula-item">
@@ -390,7 +391,7 @@
                         <Panel class="formula-tower-inner"></Panel>
                         <Label class="formula-component-tier" text="X"></Label>
                     </Panel>
-                    <Label class="component-name gem-text" text="component name"></Label>
+                    <Label class="component-name text" text="component name"></Label>
                 </Panel>
                 <Label class="formula-mark" text="="></Label>
                 <Panel class="formula-item">
@@ -398,7 +399,7 @@
                         <Panel class="formula-tower-inner"></Panel>
                         <Label class="formula-component-tier" text="X"></Label>
                     </Panel>
-                    <Label class="component-name gem-text" text="component name"></Label>
+                    <Label class="component-name text" text="component name"></Label>
                 </Panel>
             </Panel>
             <Panel class="formula-row">
@@ -407,7 +408,7 @@
                         <Panel class="formula-tower-inner"></Panel>
                         <Label class="formula-component-tier" text="X"></Label>
                     </Panel>
-                    <Label class="component-name gem-text" text="component name"></Label>
+                    <Label class="component-name text" text="component name"></Label>
                 </Panel>
                 <Label class="formula-mark" text="+"></Label>
                 <Panel class="formula-item">
@@ -415,7 +416,7 @@
                         <Panel class="formula-tower-inner"></Panel>
                         <Label class="formula-component-tier" text="X"></Label>
                     </Panel>
-                    <Label class="component-name gem-text" text="component name"></Label>
+                    <Label class="component-name text" text="component name"></Label>
                 </Panel>
                 <Label class="formula-mark" text="+"></Label>
                 <Panel class="formula-item">
@@ -423,7 +424,7 @@
                         <Panel class="formula-tower-inner"></Panel>
                         <Label class="formula-component-tier" text="X"></Label>
                     </Panel>
-                    <Label class="component-name gem-text" text="component name"></Label>
+                    <Label class="component-name text" text="component name"></Label>
                 </Panel>
                 <Label class="formula-mark" text="="></Label>
                 <Panel class="formula-item">
@@ -431,7 +432,7 @@
                         <Panel class="formula-tower-inner"></Panel>
                         <Label class="formula-component-tier" text="X"></Label>
                     </Panel>
-                    <Label class="component-name gem-text" text="component name"></Label>
+                    <Label class="component-name text" text="component name"></Label>
                 </Panel>
             </Panel>
             <Panel class="formula-row">
@@ -440,7 +441,7 @@
                         <Panel class="formula-tower-inner"></Panel>
                         <Label class="formula-component-tier" text="X"></Label>
                     </Panel>
-                    <Label class="component-name gem-text" text="component name"></Label>
+                    <Label class="component-name text" text="component name"></Label>
                 </Panel>
                 <Label class="formula-mark" text="+"></Label>
                 <Panel class="formula-item">
@@ -448,7 +449,7 @@
                         <Panel class="formula-tower-inner"></Panel>
                         <Label class="formula-component-tier" text="X"></Label>
                     </Panel>
-                    <Label class="component-name gem-text" text="component name"></Label>
+                    <Label class="component-name text" text="component name"></Label>
                 </Panel>
                 <Label class="formula-mark" text="+"></Label>
                 <Panel class="formula-item">
@@ -456,7 +457,7 @@
                         <Panel class="formula-tower-inner"></Panel>
                         <Label class="formula-component-tier" text="X"></Label>
                     </Panel>
-                    <Label class="component-name gem-text" text="component name"></Label>
+                    <Label class="component-name text" text="component name"></Label>
                 </Panel>
                 <Label class="formula-mark" text="="></Label>
                 <Panel class="formula-item">
@@ -464,7 +465,7 @@
                         <Panel class="formula-tower-inner"></Panel>
                         <Label class="formula-component-tier" text="X"></Label>
                     </Panel>
-                    <Label class="component-name gem-text" text="component name"></Label>
+                    <Label class="component-name text" text="component name"></Label>
                 </Panel>
             </Panel>
             <Panel class="formula-row">
@@ -473,7 +474,7 @@
                         <Panel class="formula-tower-inner"></Panel>
                         <Label class="formula-component-tier" text="X"></Label>
                     </Panel>
-                    <Label class="component-name gem-text" text="component name"></Label>
+                    <Label class="component-name text" text="component name"></Label>
                 </Panel>
                 <Label class="formula-mark" text="+"></Label>
                 <Panel class="formula-item">
@@ -481,7 +482,7 @@
                         <Panel class="formula-tower-inner"></Panel>
                         <Label class="formula-component-tier" text="X"></Label>
                     </Panel>
-                    <Label class="component-name gem-text" text="component name"></Label>
+                    <Label class="component-name text" text="component name"></Label>
                 </Panel>
                 <Label class="formula-mark" text="+"></Label>
                 <Panel class="formula-item">
@@ -489,7 +490,7 @@
                         <Panel class="formula-tower-inner"></Panel>
                         <Label class="formula-component-tier" text="X"></Label>
                     </Panel>
-                    <Label class="component-name gem-text" text="component name"></Label>
+                    <Label class="component-name text" text="component name"></Label>
                 </Panel>
                 <Label class="formula-mark" text="="></Label>
                 <Panel class="formula-item">
@@ -497,7 +498,7 @@
                         <Panel class="formula-tower-inner"></Panel>
                         <Label class="formula-component-tier" text="X"></Label>
                     </Panel>
-                    <Label class="component-name gem-text" text="component name"></Label>
+                    <Label class="component-name text" text="component name"></Label>
                 </Panel>
             </Panel>
             <Panel class="formula-row">
@@ -506,7 +507,7 @@
                         <Panel class="formula-tower-inner"></Panel>
                         <Label class="formula-component-tier" text="X"></Label>
                     </Panel>
-                    <Label class="component-name gem-text" text="component name"></Label>
+                    <Label class="component-name text" text="component name"></Label>
                 </Panel>
                 <Label class="formula-mark" text="+"></Label>
                 <Panel class="formula-item">
@@ -514,7 +515,7 @@
                         <Panel class="formula-tower-inner"></Panel>
                         <Label class="formula-component-tier" text="X"></Label>
                     </Panel>
-                    <Label class="component-name gem-text" text="component name"></Label>
+                    <Label class="component-name text" text="component name"></Label>
                 </Panel>
                 <Label class="formula-mark" text="+"></Label>
                 <Panel class="formula-item">
@@ -522,7 +523,7 @@
                         <Panel class="formula-tower-inner"></Panel>
                         <Label class="formula-component-tier" text="X"></Label>
                     </Panel>
-                    <Label class="component-name gem-text" text="component name"></Label>
+                    <Label class="component-name text" text="component name"></Label>
                 </Panel>
                 <Label class="formula-mark" text="="></Label>
                 <Panel class="formula-item">
@@ -530,7 +531,7 @@
                         <Panel class="formula-tower-inner"></Panel>
                         <Label class="formula-component-tier" text="X"></Label>
                     </Panel>
-                    <Label class="component-name gem-text" text="component name"></Label>
+                    <Label class="component-name text" text="component name"></Label>
                 </Panel>
             </Panel>
             <Panel class="formula-row">
@@ -539,7 +540,7 @@
                         <Panel class="formula-tower-inner"></Panel>
                         <Label class="formula-component-tier" text="X"></Label>
                     </Panel>
-                    <Label class="component-name gem-text" text="component name"></Label>
+                    <Label class="component-name text" text="component name"></Label>
                 </Panel>
                 <Label class="formula-mark" text="+"></Label>
                 <Panel class="formula-item">
@@ -547,7 +548,7 @@
                         <Panel class="formula-tower-inner"></Panel>
                         <Label class="formula-component-tier" text="X"></Label>
                     </Panel>
-                    <Label class="component-name gem-text" text="component name"></Label>
+                    <Label class="component-name text" text="component name"></Label>
                 </Panel>
                 <Label class="formula-mark" text="+"></Label>
                 <Panel class="formula-item">
@@ -555,7 +556,7 @@
                         <Panel class="formula-tower-inner"></Panel>
                         <Label class="formula-component-tier" text="X"></Label>
                     </Panel>
-                    <Label class="component-name gem-text" text="component name"></Label>
+                    <Label class="component-name text" text="component name"></Label>
                 </Panel>
                 <Label class="formula-mark" text="="></Label>
                 <Panel class="formula-item">
@@ -563,7 +564,7 @@
                         <Panel class="formula-tower-inner"></Panel>
                         <Label class="formula-component-tier" text="X"></Label>
                     </Panel>
-                    <Label class="component-name gem-text" text="component name"></Label>
+                    <Label class="component-name text" text="component name"></Label>
                 </Panel>
             </Panel>
             <Panel class="formula-row">
@@ -572,7 +573,7 @@
                         <Panel class="formula-tower-inner"></Panel>
                         <Label class="formula-component-tier" text="X"></Label>
                     </Panel>
-                    <Label class="component-name gem-text" text="component name"></Label>
+                    <Label class="component-name text" text="component name"></Label>
                 </Panel>
                 <Label class="formula-mark" text="+"></Label>
                 <Panel class="formula-item">
@@ -580,7 +581,7 @@
                         <Panel class="formula-tower-inner"></Panel>
                         <Label class="formula-component-tier" text="X"></Label>
                     </Panel>
-                    <Label class="component-name gem-text" text="component name"></Label>
+                    <Label class="component-name text" text="component name"></Label>
                 </Panel>
                 <Label class="formula-mark" text="+"></Label>
                 <Panel class="formula-item">
@@ -588,7 +589,7 @@
                         <Panel class="formula-tower-inner"></Panel>
                         <Label class="formula-component-tier" text="X"></Label>
                     </Panel>
-                    <Label class="component-name gem-text" text="component name"></Label>
+                    <Label class="component-name text" text="component name"></Label>
                 </Panel>
                 <Label class="formula-mark" text="="></Label>
                 <Panel class="formula-item">
@@ -596,7 +597,7 @@
                         <Panel class="formula-tower-inner"></Panel>
                         <Label class="formula-component-tier" text="X"></Label>
                     </Panel>
-                    <Label class="component-name gem-text" text="component name"></Label>
+                    <Label class="component-name text" text="component name"></Label>
                 </Panel>
             </Panel>
             <Panel class="formula-row">
@@ -605,7 +606,7 @@
                         <Panel class="formula-tower-inner"></Panel>
                         <Label class="formula-component-tier" text="X"></Label>
                     </Panel>
-                    <Label class="component-name gem-text" text="component name"></Label>
+                    <Label class="component-name text" text="component name"></Label>
                 </Panel>
                 <Label class="formula-mark" text="+"></Label>
                 <Panel class="formula-item">
@@ -613,7 +614,7 @@
                         <Panel class="formula-tower-inner"></Panel>
                         <Label class="formula-component-tier" text="X"></Label>
                     </Panel>
-                    <Label class="component-name gem-text" text="component name"></Label>
+                    <Label class="component-name text" text="component name"></Label>
                 </Panel>
                 <Label class="formula-mark" text="+"></Label>
                 <Panel class="formula-item">
@@ -621,7 +622,7 @@
                         <Panel class="formula-tower-inner"></Panel>
                         <Label class="formula-component-tier" text="X"></Label>
                     </Panel>
-                    <Label class="component-name gem-text" text="component name"></Label>
+                    <Label class="component-name text" text="component name"></Label>
                 </Panel>
                 <Label class="formula-mark" text="="></Label>
                 <Panel class="formula-item">
@@ -629,7 +630,7 @@
                         <Panel class="formula-tower-inner"></Panel>
                         <Label class="formula-component-tier" text="X"></Label>
                     </Panel>
-                    <Label class="component-name gem-text" text="component name"></Label>
+                    <Label class="component-name text" text="component name"></Label>
                 </Panel>
             </Panel>
             <Panel class="formula-row">
@@ -638,7 +639,7 @@
                         <Panel class="formula-tower-inner"></Panel>
                         <Label class="formula-component-tier" text="X"></Label>
                     </Panel>
-                    <Label class="component-name gem-text" text="component name"></Label>
+                    <Label class="component-name text" text="component name"></Label>
                 </Panel>
                 <Label class="formula-mark" text="+"></Label>
                 <Panel class="formula-item">
@@ -646,7 +647,7 @@
                         <Panel class="formula-tower-inner"></Panel>
                         <Label class="formula-component-tier" text="X"></Label>
                     </Panel>
-                    <Label class="component-name gem-text" text="component name"></Label>
+                    <Label class="component-name text" text="component name"></Label>
                 </Panel>
                 <Label class="formula-mark" text="+"></Label>
                 <Panel class="formula-item">
@@ -654,7 +655,7 @@
                         <Panel class="formula-tower-inner"></Panel>
                         <Label class="formula-component-tier" text="X"></Label>
                     </Panel>
-                    <Label class="component-name gem-text" text="component name"></Label>
+                    <Label class="component-name text" text="component name"></Label>
                 </Panel>
                 <Label class="formula-mark" text="="></Label>
                 <Panel class="formula-item">
@@ -662,7 +663,7 @@
                         <Panel class="formula-tower-inner"></Panel>
                         <Label class="formula-component-tier" text="X"></Label>
                     </Panel>
-                    <Label class="component-name gem-text" text="component name"></Label>
+                    <Label class="component-name text" text="component name"></Label>
                 </Panel>
             </Panel>
             <Panel class="formula-row">
@@ -671,7 +672,7 @@
                         <Panel class="formula-tower-inner"></Panel>
                         <Label class="formula-component-tier" text="X"></Label>
                     </Panel>
-                    <Label class="component-name gem-text" text="component name"></Label>
+                    <Label class="component-name text" text="component name"></Label>
                 </Panel>
                 <Label class="formula-mark" text="+"></Label>
                 <Panel class="formula-item">
@@ -679,7 +680,7 @@
                         <Panel class="formula-tower-inner"></Panel>
                         <Label class="formula-component-tier" text="X"></Label>
                     </Panel>
-                    <Label class="component-name gem-text" text="component name"></Label>
+                    <Label class="component-name text" text="component name"></Label>
                 </Panel>
                 <Label class="formula-mark" text="+"></Label>
                 <Panel class="formula-item">
@@ -687,7 +688,7 @@
                         <Panel class="formula-tower-inner"></Panel>
                         <Label class="formula-component-tier" text="X"></Label>
                     </Panel>
-                    <Label class="component-name gem-text" text="component name"></Label>
+                    <Label class="component-name text" text="component name"></Label>
                 </Panel>
                 <Label class="formula-mark" text="="></Label>
                 <Panel class="formula-item">
@@ -695,7 +696,7 @@
                         <Panel class="formula-tower-inner"></Panel>
                         <Label class="formula-component-tier" text="X"></Label>
                     </Panel>
-                    <Label class="component-name gem-text" text="component name"></Label>
+                    <Label class="component-name text" text="component name"></Label>
                 </Panel>
             </Panel>
             <Panel class="formula-row">
@@ -704,7 +705,7 @@
                         <Panel class="formula-tower-inner"></Panel>
                         <Label class="formula-component-tier" text="X"></Label>
                     </Panel>
-                    <Label class="component-name gem-text" text="component name"></Label>
+                    <Label class="component-name text" text="component name"></Label>
                 </Panel>
                 <Label class="formula-mark" text="+"></Label>
                 <Panel class="formula-item">
@@ -712,7 +713,7 @@
                         <Panel class="formula-tower-inner"></Panel>
                         <Label class="formula-component-tier" text="X"></Label>
                     </Panel>
-                    <Label class="component-name gem-text" text="component name"></Label>
+                    <Label class="component-name text" text="component name"></Label>
                 </Panel>
                 <Label class="formula-mark" text="+"></Label>
                 <Panel class="formula-item">
@@ -720,7 +721,7 @@
                         <Panel class="formula-tower-inner"></Panel>
                         <Label class="formula-component-tier" text="X"></Label>
                     </Panel>
-                    <Label class="component-name gem-text" text="component name"></Label>
+                    <Label class="component-name text" text="component name"></Label>
                 </Panel>
                 <Label class="formula-mark" text="="></Label>
                 <Panel class="formula-item">
@@ -728,7 +729,7 @@
                         <Panel class="formula-tower-inner"></Panel>
                         <Label class="formula-component-tier" text="X"></Label>
                     </Panel>
-                    <Label class="component-name gem-text" text="component name"></Label>
+                    <Label class="component-name text" text="component name"></Label>
                 </Panel>
             </Panel>
         </Panel>

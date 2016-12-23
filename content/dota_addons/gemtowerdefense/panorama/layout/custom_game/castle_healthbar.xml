@@ -1,0 +1,19 @@
+<root>
+  <styles>
+    <include src="file://{resources}/styles/custom_game/castle_healthbar.css"/>  
+  </styles>
+  <scripts>
+    <include src="file://{resources}/scripts/custom_game/castle_healthbar.js"/>
+  </scripts>
+  <Panel class="castle-health-element" hittest="false">
+    <Panel id="castle-health-container" hittest="false">
+      <Label id="castle-health-title" text="Castle health"></Label>
+      <Panel id="castle-health">
+        <Label id="castle-health-value" text="100%"/>
+        <Panel id="castle-health-inner">
+          <Panel id="castle-health-progress"></Panel>
+        </Panel>
+      </Panel>
+    </Panel>
+  </Panel>
+</root>

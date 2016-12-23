@@ -4,8 +4,7 @@
 			This is a reference to a script file located here:
 			content/dota_addons/ADDON_NAME/scripts/custom_game/my_script_name.js
 		-->
-		
-		
+
 
 	</scripts>
 	<script>
@@ -29,7 +28,9 @@
 		GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_ENDGAME, true );
 	</script>
 	<Panel>
-		<CustomUIElement type="HudTopBar" layoutfile="file://{resources}/layout/custom_game/gem_top_bar.xml" />
-		<CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/gem_info_nav.xml" />
+		<CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/round.xml" />
+		<CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/castle_healthbar.xml" />
+		<CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/players_bar.xml" />
+		<CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/info_boards.xml" />
 	</Panel>
 </root>

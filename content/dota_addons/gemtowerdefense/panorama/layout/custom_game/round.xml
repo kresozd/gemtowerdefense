@@ -1,0 +1,16 @@
+<root>
+  <styles>
+    <include src="file://{resources}/styles/custom_game/round.css"/>  
+  </styles>
+  <scripts>
+    <include src="file://{resources}/scripts/custom_game/round.js"/>
+  </scripts>
+  <Panel class="round-element" hittest="false">
+    <Panel class="round">
+      <Panel class="round-container">
+        <Label class="round-label" text="Wave" hittest="false"/>
+        <Label id="round-value" text="0" hittest="false"/>
+      </Panel>
+    </Panel>
+  </Panel>
+</root>
