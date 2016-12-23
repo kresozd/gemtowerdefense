@@ -16,7 +16,7 @@ function Builder:Init()
 
 	self.PickCount = 0
 	self.GlobalTowers = {} --After tower is picked , it goes into global pool
-	self.DummyTower = {} --For stone blocks
+	self.DummyTowers = {} --For stone blocks
 	self.TowerMergeable =
 	{
 		[0] = {},
@@ -130,7 +130,7 @@ function Builder:ConfirmTower(caster, owner, playerID)
 			local tower = CreateUnitByName("gem_dummy", position, false, nil, nil, DOTA_TEAM_GOODGUYS)
 			local eHandle = tower:GetEntityHandle()
 
-			self.DummyTower[eHandle] = tower
+			self.DummyTowers[eHandle] = tower
 
 			tower:SetAbsOrigin(CallibrateTreePosition(position))
 
@@ -175,7 +175,7 @@ function Builder:DowngradeTower(playerID, owner, caster)
 
 	local towerCurrentLevel = caster.Level
 	local entityName = caster.Name
-	local towerNewLevel = RandomDowngrade(tonumber(towerCurrentLevel))
+	local towerNewLevel = Random:Downgrade(tonumber(towerCurrentLevel))
 
 	for key, value in pairs(self.RoundTowers[playerID]) do
 
@@ -360,17 +360,17 @@ function Builder:CheckIfMergeable(playerID)
             	it2=it2+1
                 local fullTower = j:GetUnitName()
                 	
-                    if fullTower==checkTower.Recipe1  then
+                    if fullTower==checkTower["1"]  then
 	                    --towerTest[it2]=1
 	                    mergeTest[1]=true
 	                    print("True for:", fullTower)
 
-                    elseif fullTower==checkTower.Recipe2 then
+                    elseif fullTower==checkTower["2"] then
 	                    --towerTest[it2]=2
 	                    mergeTest[2]=true
 	                    print("True for:", fullTower)
 
-                    elseif fullTower==checkTower.Recipe3 then
+                    elseif fullTower==checkTower["3"] then
 						--towerTest[it2]=3
 	                    mergeTest[3]=true
 	                    print("True for:", fullTower)

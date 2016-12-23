@@ -17,11 +17,18 @@ function GemTowerDefenseReborn:OnPlayerPickHero(keys)
 
 end
 
+function GemTowerDefenseReborn:OnConnectFull(keys)
+
+
+
+
+end
 
 function GemTowerDefenseReborn:OnEntityKilled(keys)
 
 	local Player = PlayerResource:GetPlayer(0)
 	local Hero = Player:GetAssignedHero()
+	local PlayerID = Player:GetPlayerID()
 	
 
 	local killedUnit = EntIndexToHScript(keys.entindex_killed)
@@ -30,12 +37,14 @@ function GemTowerDefenseReborn:OnEntityKilled(keys)
 	print("Unit Handle is: ", eHandle)
 	
 	Hero:AddExperience(killedUnit.XPBounty, 0, false, false)
+	PlayerResource:ModifyGold(0, killedUnit.GoldBounty, false, 0)
 
 
 	Rounds:DeleteByHandle(eHandle)
 	Rounds:IncrementKillNumber()
 
-	killedUnit:Destroy()
+	killedUnit:Kill()
+
 
 	print("Amount of killed!: ", Rounds:GetAmountOfKilled())
 

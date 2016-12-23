@@ -14,6 +14,7 @@ function Rounds:Init()
     self.RoundNumber 	= 1
     self.SpawnPosition 	= Entities:FindByName(nil, "enemy_spawn"):GetAbsOrigin()
 	self.BaseHealth 	= 100
+	self.BuildLevel = 1
 
 	self.TotalKilled 	= 0
 	self.TotalLeaked 	= 0
@@ -23,30 +24,21 @@ function Rounds:Init()
 
 end
 
-function Rounds:WaveInit()
 
+function Rounds:WaveInit()
 
 	Rounds:SpawnUnits()
 
-
-
-
-
 end
-
 
 function Rounds:SpawnUnits()
 
 	local unitDamage 	= wavesKV[tostring(self.RoundNumber)]["Damage"]
 	local unitName 		= wavesKV[tostring(self.RoundNumber)]["Creep"]
 	local unitSpeed 	= wavesKV[tostring(self.RoundNumber)]["MoveSpeed"]
-	
 	local unitXPBounty 	= wavesKV[tostring(self.RoundNumber)]["XPBounty"]
-
-	print("UnitName", unitName)
-	print("UnitSpeed", unitSpeed)
-	print("UnitDamage", unitDamage)
-
+	local unitGoldBounty = wavesKV[tostring(self.RoundNumber)]["GoldBounty"]
+	local unitType 		= wavesKV[tostring(self.RoundNumber)]["Type"]
 
 	Timers:CreateTimer( function()
 		
@@ -60,6 +52,11 @@ function Rounds:SpawnUnits()
 		creep.Damage 			= unitDamage
 		creep.Name 				= unitName
 		creep.XPBounty			= unitXPBounty
+		creep.Speed 			= unitSpeed * 2
+		creep.GoldBounty 		= unitGoldBounty
+		creep.Type 				= unitType
+
+		creep:SetBaseMoveSpeed(creep.Speed)
 	
 
 		--creep:SetBaseMoveSpeed(unitSpeed*SpeedDifficulty)
@@ -68,7 +65,7 @@ function Rounds:SpawnUnits()
 			
 		creep:AddAbility("gem_collision_movement"):SetLevel(1)
 			
-		Grid:MoveUnit(creep)
+		Grid:MoveUnit(creep, creep.Type)
 
 		if self.AmountSpawned == 10 then
 

@@ -365,6 +365,69 @@ function Grid:ClearPath()
 
 end
 
+function Grid:MoveUnit(unitNPC, type)
+
+
+	if type == "GROUND" then
+
+	local unit = unitNPC
+	unit.Step = 1
+
+	Timers(function()
+
+		if  unit:IsNull() or not unit:IsAlive() then
+
+			print("DEBUG: Unit has been deleted!")
+			
+		else
+	
+			unit:SetThink(function() unit:MoveToPosition(self.VectorMap[unit.Step]) end)
+				
+			if (unit:GetAbsOrigin() - self.VectorMap[unit.Step]):Length2D() < 32 then
+
+				unit.Step = unit.Step + 1
+
+			end
+    	
+		return 0.1
+
+		end
+
+	end)
+
+	elseif type == "AIR" then
+
+		local unit = unitNPC
+		unit.Step = 1
+
+		Timers(function()
+
+			if unit:IsNull() or not unit:IsAlive() then
+
+				print("DEBUG: Unit has been deleted!")
+			
+			else
+	
+				unit:SetThink(function() unit:MoveToPosition(self.PathTargets[unit.Step]) end)
+				
+				if (unit:GetAbsOrigin() - self.PathTargets[unit.Step]):Length2D() < 32 then
+
+					unit.Step = unit.Step + 1
+
+				end
+    	
+			return 0.1
+
+			end
+
+		end)
+
+	end
+
+end
+
+
+--[[
 function Grid:MoveUnit(unitNPC)
 
 	local unit = unitNPC
@@ -394,6 +457,9 @@ function Grid:MoveUnit(unitNPC)
 	
 
 end
+
+]]--
+
 
 
 

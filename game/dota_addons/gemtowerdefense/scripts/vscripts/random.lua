@@ -8,7 +8,7 @@ end
 
 function Random:Init()
 
-	self.XPLevel 		= 1
+	self.XPLevel 		= 2
 
 
 end
@@ -26,48 +26,87 @@ function Random:GetXPLevel()
 end
 
 --ToRemake
-
 --[[
-function Random:Downgrade(towerLevel)
+  "DowngradeChances"
+    {
+        "2"
+        {
+            "1" "100"
 
-	local randomValue = RandomInt(1, 100)
-	local newLevel
+        }
+        "3"
+        {
+            "1" "40"
+            "2" "100"
 
-	if towerLevel == 2 then
+        }
+        "4"
+        {
+            "1" "20"
+            "2" "50"
+            "3" "100"
 
-		newLevel = 1
+        }
+        "5"
+        {
+            "1" "15"
+            "2" "30"
+            "3" "50"
+            "4" "100"
+        }	
+]]--
 
-	elseif towerLevel == 3 then
 
-		if randomValue <= 60 then
+function Random:Downgrade(level)
 
-			newLevel = 2
+	local downgradeTable = randomKV.DowngradeChances
+	local value = RandomInt(1,100)
+
+	print("Random Downgrade Called!")
+
+	if level == 2 then
+
+		print("Im here!")
+
+		local nLevel = 1
+		return nLevel
+
+	elseif level == 3 then
+
+		if value <= downgradeTable[level]["1"] then
+
+			local nLevel = 2
+			return nLevel
 
 		else
 
-			newLevel = 1
+			local nLevel = 1
+			return nLevel
 
 		end
 
-	elseif towerLevel == 4 then
+	elseif level == 4 then
 
-		if randomValue <= 50 then
+		if value <= downgradeTable.level["1"] then
 
-			newLevel = 3
+			local nLevel = 1
+			return nLevel
 
-		elseif randomValue > 50 and randomValue <= 80 then
+		elseif value > downgradeTable.level["1"] and value <= downgradeTable.level["2"] then
 
-			newLevel = 2
+			local nLevel = 2
+			return nLevel
 
 		else
 
-			newLevel = 1
+			nLevel = 3
+			return nLevel
 
 		end
 
-	elseif towerLevel == 5 then
+	elseif level == 5 then
 
-		if randomValue <= 50 then
+		if value <= downgradeTable.level["1"] then
 
 			newLevel = 4
 		
@@ -96,7 +135,7 @@ function Random:Downgrade(towerLevel)
 
 
 end
-]]--
+
 function Random:GenerateWardLevel()
 
 	local levelTable = randomKV.Chances
@@ -110,7 +149,7 @@ function Random:GenerateWardLevel()
 
 		local value = RandomInt(1,100)
 
-		if value <= levelTable[self.XPLevel]["1"] then
+		if value <= levelTable[tostring(self.XPLevel)]["1"] then
 
 			local level = 1
 			return level
@@ -212,20 +251,12 @@ function Random:GenerateWardLevel()
 end
 
 
-function ShitLevelTest()
-
-	local level = 1
-
-	return level
-
-end
-
 function Random:GenerateWardName()
 
-	local nameTable = {"gem_d", "gem_s", "gem_t"}
-	local generatedTower = tostring(nameTable[RandomInt(1, 3)])
+	local nameTable = randomKV.Base
+	local name = nameTable[tostring(RandomInt(1, 8))]
 
-	return generatedTower
+	return name
 
 end
 

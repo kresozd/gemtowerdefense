@@ -37,25 +37,20 @@ function GemTowerDefenseReborn:InitGameMode()
 	PlayerResource:SetCustomPlayerColor(2, 0, 0, 255)
 	PlayerResource:SetCustomPlayerColor(3, 255, 255, 255)
 
+
+	--SetCustomGameForceHero("npc_dota_hero_crystal_maiden")
 	--Event handlers
 
 	ListenToGameEvent('entity_killed', Dynamic_Wrap(GemTowerDefenseReborn, 'OnEntityKilled'), self)
 	ListenToGameEvent('dota_player_pick_hero', Dynamic_Wrap(GemTowerDefenseReborn, 'OnPlayerPickHero'), self)
 	ListenToGameEvent('dota_player_gained_level', Dynamic_Wrap(GemTowerDefenseReborn, 'OnPlayerLevelUp'), self)
+	ListenToGameEvent('player_connect_full', Dynamic_Wrap(GemTowerDefenseReborn, 'OnConnectFull'), self)
 
 
 	TOTAL_PLAYER_COUNT = 0
 
-	GameRules:GetGameModeEntity():SetCustomXPRequiredToReachNextLevel(
-		{
-			[1] = 0,
-			[2] = 200,
-			[3] = 550,
-			[4] = 1050,
-			[5] = 1700
-		}
-	)
-	
+	GameRules:GetGameModeEntity():SetCustomXPRequiredToReachNextLevel(settingsKV.CustomXPTable)
+	GameRules:SetUseCustomHeroXPValues(true)
 
 end
 
