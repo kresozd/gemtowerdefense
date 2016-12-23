@@ -26,7 +26,7 @@ end
 function Rounds:WaveInit()
 
 
-	Rounds.SpawnUnits()
+	Rounds:SpawnUnits()
 
 
 
@@ -35,11 +35,13 @@ function Rounds:WaveInit()
 end
 
 
-Rounds.SpawnUnits = function()
+function Rounds:SpawnUnits()
 
-	local unitDamage 	= wavesKV[tostring(1)]["Damage"]
-	local unitName 		= wavesKV[tostring(1)]["Creep"]
-	local unitSpeed 	= wavesKV[tostring(1)]["MoveSpeed"]
+	local unitDamage 	= wavesKV[tostring(self.RoundNumber)]["Damage"]
+	local unitName 		= wavesKV[tostring(self.RoundNumber)]["Creep"]
+	local unitSpeed 	= wavesKV[tostring(self.RoundNumber)]["MoveSpeed"]
+	
+	local unitXPBounty 	= wavesKV[tostring(self.RoundNumber)]["XPBounty"]
 
 	print("UnitName", unitName)
 	print("UnitSpeed", unitSpeed)
@@ -57,9 +59,10 @@ Rounds.SpawnUnits = function()
 		
 		creep.Damage 			= unitDamage
 		creep.Name 				= unitName
+		creep.XPBounty			= unitXPBounty
 	
 
-		creep:SetBaseMoveSpeed(unitSpeed*SpeedDifficulty)
+		--creep:SetBaseMoveSpeed(unitSpeed*SpeedDifficulty)
 
 		creep:SetHullRadius(0)
 			
@@ -128,12 +131,15 @@ function Rounds:OnTouchGemCastle(trigger)
 	self.BaseHealth = self.BaseHealth - unit.Damage
 	self.TotalLeaked = self.TotalLeaked + 1
 
+
+	print("Health Point", self.BaseHealth)
+
 	CustomNetTables:SetTableValue( "game_state", "gem_castle_health", { value = self.BaseHealth } )
 	--CustomNetTables:SetTableValue( "game_state", "gem_castle_health", { value = self.BaseHealth } ) //Leak net tb
 
 
 	Rounds:DeleteByHandle(eHandle)
-	unit:Destroy()
+	--unit:Destroy()
 
 	if self.BaseHealth <= 0 then
 
