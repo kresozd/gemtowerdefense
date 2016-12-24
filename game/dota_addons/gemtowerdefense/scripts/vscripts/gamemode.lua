@@ -21,7 +21,7 @@ function GemTowerDefenseReborn:InitGameMode()
 	randomKV	= LoadKeyValues("scripts/kv/random.kv") 
 
 	GameRules:SetTimeOfDay(0.5)
-	GameRules:GetGameModeEntity():SetCameraDistanceOverride(1400)
+	-- GameRules:GetGameModeEntity():SetCameraDistanceOverride(1400)
 	GameRules:SetHeroSelectionTime(20.0)
 	GameRules:SetPreGameTime(0)
 	GameRules:SetGoldPerTick(0)
