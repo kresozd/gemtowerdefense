@@ -1,6 +1,7 @@
 # Cache crap that Valve autogenerates
 *.bin
 *.cfg
+debug.log
 
 # Compiled formats
 *.vpcf_c
