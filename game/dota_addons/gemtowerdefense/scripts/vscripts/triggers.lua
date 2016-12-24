@@ -11,7 +11,7 @@ function OnTouchGemCastle(trigger)
 
 	--print("Health Point", self.BaseHealth)
 
-	CustomNetTables:SetTableValue( "game_state", "gem_castle_health", { Rounds:GetBaseHealth() } )
+	CustomNetTables:SetTableValue( "game_state", "gem_castle_health", { value = Rounds:GetBaseHealth() } )
 
 
 	unit:Destroy()
