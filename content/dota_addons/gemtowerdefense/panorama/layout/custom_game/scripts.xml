@@ -1,0 +1,8 @@
+<root>
+  <scripts>
+    <include src="file://{resources}/scripts/custom_game/clicks.js" /> 
+  </scripts>
+  <Panel hittest="false" class="base-hud" >
+    
+  </Panel>
+</root>
