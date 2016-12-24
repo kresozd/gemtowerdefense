@@ -142,6 +142,7 @@
 .formula-row {
   flow-children: right;
   margin-top: 7px;
+  margin-right: 8px;
   padding-left: 100px;
   background-color: #111920bb;
   border-top: 1px solid #ffffff05;
