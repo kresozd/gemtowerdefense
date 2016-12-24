@@ -43,9 +43,6 @@ function GemTowerDefenseReborn:OnEntityKilled(keys)
 	Rounds:DeleteByHandle(eHandle)
 	Rounds:IncrementKillNumber()
 
-	killedUnit:Kill()
-
-
 	print("Amount of killed!: ", Rounds:GetAmountOfKilled())
 
 	if Rounds:GetAmountOfKilled() == 10 then

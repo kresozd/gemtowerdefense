@@ -273,7 +273,7 @@ function Grid:IsPathTraversible()
   for i = 1,6 do 
 
 
-    --to replace with function
+   
     local startCoordX  = math.floor((self.PathTargets[i].x)     / 128) + 19
     local startCoordY  = math.floor((self.PathTargets[i].y)     / 128) + 19
     local endCoordX    = math.floor((self.PathTargets[i + 1].x) / 128) + 19
@@ -344,8 +344,6 @@ function Grid:FindPath()
 end
 
 
-
-
 function ConvertToVector(index)
 
 	local vector = (index * 128)
@@ -365,13 +363,13 @@ function Grid:ClearPath()
 
 end
 
-function Grid:MoveUnit(unitNPC, type)
-
-
-	if type == "GROUND" then
+function Grid:MoveUnit(unitNPC)
 
 	local unit = unitNPC
+	local type = unit.Type
 	unit.Step = 1
+
+	if type == "GROUND" then
 
 	Timers(function()
 

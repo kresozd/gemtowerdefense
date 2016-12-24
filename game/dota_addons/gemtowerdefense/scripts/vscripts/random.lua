@@ -8,7 +8,7 @@ end
 
 function Random:Init()
 
-	self.XPLevel 		= 2
+	self.XPLevel 		= 1
 
 
 end
