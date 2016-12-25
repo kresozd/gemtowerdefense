@@ -55,6 +55,23 @@ end
             "4" "100"
         }	
 ]]--
+function Random:SpawnElite()
+
+	local value = RandomInt(1,50)
+
+		if value == 1 then
+
+			return true
+
+		else
+
+			return false
+
+
+		end
+
+end
+
 
 
 function Random:Downgrade(level)

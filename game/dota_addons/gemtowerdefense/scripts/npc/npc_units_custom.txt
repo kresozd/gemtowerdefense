@@ -2374,7 +2374,7 @@
 		
 	"gem_round1_sheep"
 		{                                       
-			"Model"                 "models/courier/f2p_courier/f2p_courier_flying.vmdl" // Model.
+			"Model"                 "models/items/hex/sheep_hex/sheep_hex.vmdl" // Model.
 			"BaseClass"             "npc_dota_creature"
 			"Level"                 "7"
 			"ModelScale"                "1.4"
@@ -2552,6 +2552,82 @@
 			"StatusHealth"	"100"
 
 		}
+
+	"gem_round8_hamster"
+		{                                       
+			"Model"                 "models/items/courier/catakeet/catakeet.vmdl" // Model.
+			"BaseClass"             "npc_dota_creature"
+			"Level"                 "7"
+			"ModelScale"                "1"
+			
+			
+			
+			"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_FLY"
+			"MovementSpeed"             "1200"
+
+			"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_BASIC"
+			"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+			"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+			
+			"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"		// Hull type used for navigation/locomotion.
+			"ProjectileCollisionSize"	"50"
+			"RingRadius"				"1"
+			"HealthBarOffset"			"260"
+			
+			"StatusHealth"	"100"
+
+		}
+	"gem_round9_shroomy"
+		{                                       
+			"Model"                 "models/items/courier/shroomy/shroomy.vmdl" // Model.
+			"BaseClass"             "npc_dota_creature"
+			"Level"                 "7"
+			"ModelScale"                "1"
+			
+			
+			
+			"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_FLY"
+			"MovementSpeed"             "1200"
+
+			"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_BASIC"
+			"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+			"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+			
+			"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"		// Hull type used for navigation/locomotion.
+			"ProjectileCollisionSize"	"50"
+			"RingRadius"				"1"
+			"HealthBarOffset"			"260"
+			
+			"StatusHealth"	"100"
+
+		}
+
+	"gem_round10_rex"
+		{                                       
+			"Model"                 "models/items/courier/snapjaw/snapjaw.vmdl" // Model.
+			"BaseClass"             "npc_dota_creature"
+			"Level"                 "7"
+			"ModelScale"                "1.6"
+			
+			
+			
+			"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_FLY"
+			"MovementSpeed"             "1200"
+
+			"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_BASIC"
+			"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+			"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+			
+			"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"		// Hull type used for navigation/locomotion.
+			"ProjectileCollisionSize"	"50"
+			"RingRadius"				"1"
+			"HealthBarOffset"			"260"
+			
+			"StatusHealth"	"100"
+
+		}
+
+
 
 
 		"testward"

@@ -4,58 +4,98 @@ if Grid == nil then
 	
 end
 
+
 --Constructor
 function Grid:Init()
 
 	self.ArrayMap = Grid:InitMap()
 	self.VectorMap = {}
 	self.PathTargets = Grid:FindPathTargets(0, 6)
-	self.Parity = "odd"
 
 end
 
-
-function Grid:EvenSnapEntityToArrayGrid(coordinate)
+local function EvenSnapEntityToArrayGrid(coordinate)
 
 	return math.floor(coordinate / 128) * 128 + 64
 
 end
 
-function Grid:OddSnapEntityToVectorGrid(coordinate)
+local function OddSnapEntityToVectorGrid(coordinate)
 
 	return math.floor((coordinate + 64) / 128) * 128
 
 end
 
-function Grid:EvenSnapEntityToArrayGrid(coordinate)
+local function EvenSnapEntityToArrayGrid(coordinate)
 
 	return math.floor(coordinate / 128)
 
 end
 
-function Grid:OddSnapEntityToArrayGrid(coordinate)
+local function OddSnapEntityToArrayGrid(coordinate)
 
 	return math.floor(coordinate  / 128) + 19
 
 end
 
-function Grid:InitMap()
-	
-	local map = {}
-	
-	for i = 1, 37 do
-		
-		map[i] = {}
-		
-		for j = 1, 37 do 
-		
-			map[i][j] = 0
-		
-		end
-	
+function Grid:CenterEntityToGrid(location, parity)
+
+	if parity == "even" then
+
+		location.x = EvenSnapEntityToVectorGrid(location.x)
+		location.y = EvenSnapEntityToVectorGrid(location.y)
+
+		return location
+
+	elseif parity == "odd" then
+
+		location.x = OddSnapEntityToVectorGrid(location.x)
+		location.y = OddSnapEntityToVectorGrid(location.y)
+
+		return location		
+
 	end
-	
-	return map
+
+end
+
+function Grid:BlockNavigationSquare(location, parity)
+
+	if parity == "even" then
+
+		local x = EvenSnapEntityToArrayGrid(location.x)
+		local y = EvenSnapEntityToArrayGrid(location.y)
+
+		self.ArrayMap[y][x] = "BLOCKED"
+
+	elseif parity == "odd" then
+
+		local x = OddSnapEntityToArrayGrid(location.x)
+		local y = OddSnapEntityToArrayGrid(location.y)
+
+		self.ArrayMap[y][x] = "BLOCKED"
+
+	end
+
+end
+
+function Grid:FreeNavigationSquare(location, parity)
+
+	if parity == "even" then
+
+
+		local x = EvenSnapEntityToArrayGrid(location.x)
+		local y = EvenSnapEntityToArrayGrid(location.y)
+
+		self.ArrayMap[y][x] = "WALKABLE"
+
+	elseif parity == "odd" then
+
+		local x = OddSnapEntityToArrayGrid(location.x)
+		local y = OddSnapEntityToArrayGrid(location.y)
+
+		self.ArrayMap[y][x] = "WALKABLE"
+
+	end
 	
 end
 
@@ -76,68 +116,6 @@ function Grid:FindPathTargets(pathStart, pathEnd)
 
 end
 
-
-
-
-function Grid:CenterEntityToGrid(location)
-
-	if self.Parity == "even" then
-
-		location.x = Grid:EvenSnapEntityToVectorGrid(location.x)
-		location.y = EvenSnapEntityToVectorGrid(location.y)
-
-		return location
-
-	elseif self.Parity == "odd" then
-
-		location.x = Grid:OddSnapEntityToVectorGrid(location.x)
-		location.y = Grid:OddSnapEntityToVectorGrid(location.y)
-
-		return location		
-
-	end
-
-end
-
-function Grid:BlockNavigationSquare(location)
-
-	if self.Parity == "even" then
-
-		local x = Grid:EvenSnapEntityToArrayGrid(location.x)
-		local y = Grid:EvenSnapEntityToArrayGrid(location.y)
-
-		self.ArrayMap[y][x] = 1
-
-	elseif self.Parity == "odd" then
-
-		local x = Grid:OddSnapEntityToArrayGrid(location.x)
-		local y = Grid:OddSnapEntityToArrayGrid(location.y)
-
-		self.ArrayMap[y][x] = 1
-
-	end
-
-end
-
-function Grid:FreeNavigationSquare(location)
-
-	if self.Parity == "even" then
-
-		local x = Grid:EvenSnapEntityToArrayGrid(location.x)
-		local y = Grid:EvenSnapEntityToArrayGrid(location.y)
-
-		self.ArrayMap[y][x] = 0
-
-	elseif self.Parity == "odd" then
-
-		local x = Grid:OddSnapEntityToArrayGrid(location.x)
-		local y = Grid:OddSnapEntityToArrayGrid(location.y)
-
-		self.ArrayMap[y][x] = 0
-
-	end
-	
-end
 
 function Grid:CheckIfSquareIsBlocked(location, caster)
 
@@ -203,14 +181,32 @@ function Grid:CheckIfSquareIsBlocked(location, caster)
 	
 end
 
+function Grid:InitMap()
 
+	local map = {}
+	
+	for i = 1, 37 do
+		
+		map[i] = {}
+		
+		for j = 1, 37 do 
+		
+			map[i][j] = 0
+		
+		end
+	
+	end
+	
+	return map
+	
+end
 
 
 
 function Grid:IsPathTraversible()
 
  
-  local walkable = 0
+  local walkable = "WALKABLE"
 
 
   local Grid = require ("jumper.grid") 
@@ -257,7 +253,7 @@ function Grid:FindPath()
 
   end
 
-  local walkable = 0
+  local walkable = "WALKABLE"
 
   local Grid = require ("jumper.grid") 
   local Pathfinder = require ("jumper.pathfinder")

@@ -6,10 +6,10 @@
 
 
 function GemTowerDefenseReborn:InitGameMode()
-
+	
 	Grid:Init()
 	Builder:Init()
-	Rounds:Init()
+	Rounds:Init(wavesKV)
 	Random:Init()
 	
 	
@@ -52,7 +52,11 @@ function GemTowerDefenseReborn:InitGameMode()
 	GameRules:GetGameModeEntity():SetCustomXPRequiredToReachNextLevel(settingsKV.CustomXPTable)
 	GameRules:SetUseCustomHeroXPValues(true)
 
+	
+
+
 end
+
 
 GameRules.BaseHealthPoint = 100
 GameRules.IsBuildReady = true

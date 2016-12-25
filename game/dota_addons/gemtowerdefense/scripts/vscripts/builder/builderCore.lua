@@ -30,55 +30,21 @@ end
 
 function Builder:CreateTower(playerID, owner, position, caster)
 
-	local position = Grid:CenterEntityToGrid(position, "odd")
+	CustomNetTables:SetTableValue( "game_state", "current_round", { value = Rounds:GetRoundNumber() } )
 
-	Grid:BlockNavigationSquare(position, "odd", Grid.ArrayMap)
+	local generatedName = tostring(Random:GenerateWardName())	
+	local generatedLevel = tostring(Random:GenerateWardLevel())
+	local mergedName = tostring(generatedName..generatedLevel)
 
-	if(not Grid:CheckIfSquareIsBlocked(position, caster)) then
-		--Grid:IsPathTraversible(Grid.ArrayMap, Grid.PathTargets)
-		if Grid:IsPathTraversible() then
-		
-			local generatedName = tostring(Random:GenerateWardName())
-			print("Generated name:", generatedName)
-			
-			local generatedLevel = tostring(Random:GenerateWardLevel())
-			print("Generated level", generatedLevel)
+    local tower = CreateUnitByName(mergedName, position, false, nil, nil, DOTA_TEAM_GOODGUYS)
+	local eHandle = tower:GetEntityHandle()
+	
+	Builder:AddTowerProperties(tower, owner, playerID, position, generatedLevel, generatedName)
 
-			local mergedName = tostring(generatedName..generatedLevel)
-
-    		local tower = CreateUnitByName(mergedName, position, false, nil, nil, DOTA_TEAM_GOODGUYS)
-			local eHandle = tower:GetEntityHandle()
-			Builder:AddTowerProperties(tower, owner, playerID, position, generatedLevel, generatedName)
-
-			self.RoundTowers[playerID][eHandle] = tower
-
-			for k , v in pairs(self.RoundTowers[playerID]) do
-
-				print("EHANDLE: ", k, "Tower: ", v:GetUnitName())
-
-			end
-		
-			
-			Grid:FindPath()
-
-
-    		Builder:CheckTowerCount(caster, playerID)
-			
-		 	
-		else
-
-			Grid:FreeNavigationSquare(position, "odd")
-			caster:AddSpeechBubble(1, "Path is not traversable!", 2, 0, -15)
-
-		end
-
-	else
-
-		caster:AddSpeechBubble(1, "Square is blocked", 2, 0, -15)
-		
-
-	end
-
+	self.RoundTowers[playerID][eHandle] = tower
+	
+    Builder:CheckTowerCount(caster, playerID)
+	
 end
 
 function Builder:RemoveTower(caster, target, position)

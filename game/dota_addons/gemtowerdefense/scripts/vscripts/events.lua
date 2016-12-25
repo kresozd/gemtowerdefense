@@ -11,6 +11,9 @@ function GemTowerDefenseReborn:OnPlayerPickHero(keys)
 	local hero = EntIndexToHScript(keys.heroindex)
 	local player = EntIndexToHScript(keys.player)
 	local playerID = player:GetPlayerID()
+	
+
+
 
 	TOTAL_PLAYER_COUNT = PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_GOODGUYS)
 	print("PLAYER COUNT: ", TOTAL_PLAYER_COUNT)
@@ -19,7 +22,7 @@ end
 
 function GemTowerDefenseReborn:OnConnectFull(keys)
 
-
+	
 
 
 end
@@ -30,22 +33,16 @@ function GemTowerDefenseReborn:OnEntityKilled(keys)
 	local Hero = Player:GetAssignedHero()
 	local PlayerID = Player:GetPlayerID()
 	
+	local unit = EntIndexToHScript(keys.entindex_killed)
+	local eHandle = unit:GetEntityHandle()
 
-	local killedUnit = EntIndexToHScript(keys.entindex_killed)
-	local eHandle = killedUnit:GetEntityHandle()
+	Hero:AddExperience(unit.XPBounty, 0, false, false)
+	PlayerResource:ModifyGold(0, unit.GoldBounty, false, 0)
 
-	print("Unit Handle is: ", eHandle)
-	
-	Hero:AddExperience(killedUnit.XPBounty, 0, false, false)
-	PlayerResource:ModifyGold(0, killedUnit.GoldBounty, false, 0)
-
-
-	Rounds:DeleteByHandle(eHandle)
+	Rounds:DeleteUnit(eHandle)
 	Rounds:IncrementKillNumber()
 
-	print("Amount of killed!: ", Rounds:GetAmountOfKilled())
-
-	if Rounds:GetAmountOfKilled() == 10 then
+	if Rounds:IsRoundCleared() then
 
 		Rounds:ResetAmountOfKilled()
 		Rounds:IncrementRound()

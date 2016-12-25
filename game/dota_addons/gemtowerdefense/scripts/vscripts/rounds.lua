@@ -5,9 +5,10 @@ if Rounds == nil then
 end
 
 
-function Rounds:Init()
+function Rounds:Init(keyvalue)
 
-	self.State = "0"  	--0 Build Phase, 1 Wave Phase
+	self.Nocturnal = false
+	self.State = "BUILD"  	--"BUILD" Build Phase, "WAVE" Wave Phase
     self.AmountKilled 	= 0
 	self.AmountSpawned 	= 0
     self.SpawnedCreeps 	= {}
@@ -19,15 +20,29 @@ function Rounds:Init()
 	self.TotalKilled 	= 0
 	self.TotalLeaked 	= 0
 	self.DelayBetweenSpawn = 1
-	self.WaveData = wavesKV
+	self.Data 				= keyvalue
 
+	
+
+	
 
 end
 
 
 function Rounds:WaveInit()
 
-	Rounds:SpawnUnits()
+	if Rounds:IsBoss() then
+
+		Rounds:SpawnBoss()
+
+	else
+
+		Rounds:SpawnUnits()
+
+
+	end
+
+	
 
 end
 
@@ -39,6 +54,7 @@ function Rounds:SpawnUnits()
 	local unitXPBounty 	= wavesKV[tostring(self.RoundNumber)]["XPBounty"]
 	local unitGoldBounty = wavesKV[tostring(self.RoundNumber)]["GoldBounty"]
 	local unitType 		= wavesKV[tostring(self.RoundNumber)]["Type"]
+	local unitIsBoss 	= wavesKV[tostring(self.RoundNumber)]["Boss"]
 
 	Timers:CreateTimer( function()
 		
@@ -47,19 +63,19 @@ function Rounds:SpawnUnits()
 		local creep = CreateUnitByName(unitName, self.SpawnPosition, false, nil, nil, DOTA_TEAM_BADGUYS)
 		local eHandle = creep:GetEntityHandle()
 
+		--AddCreepProperties(creep)
+
 		Rounds:InsertByHandle(eHandle, creep)
-		
+	
 		creep.Damage 			= unitDamage
 		creep.Name 				= unitName
 		creep.XPBounty			= unitXPBounty
 		creep.Speed 			= unitSpeed * 2
 		creep.GoldBounty 		= unitGoldBounty
 		creep.Type 				= unitType
+		--creep.IsBoss 			=
 
 		creep:SetBaseMoveSpeed(creep.Speed)
-	
-
-		--creep:SetBaseMoveSpeed(unitSpeed*SpeedDifficulty)
 
 		creep:SetHullRadius(0)
 			
@@ -82,47 +98,36 @@ function Rounds:SpawnUnits()
 
 end
 
+function Rounds:SpawnBoss()
+
+	local unitDamage 	= wavesKV[tostring(self.RoundNumber)]["Damage"]
+	local unitName 		= wavesKV[tostring(self.RoundNumber)]["Creep"]
+	local unitSpeed 	= wavesKV[tostring(self.RoundNumber)]["MoveSpeed"]
+	local unitXPBounty 	= wavesKV[tostring(self.RoundNumber)]["XPBounty"]
+	local unitGoldBounty = wavesKV[tostring(self.RoundNumber)]["GoldBounty"]
+	local unitType 		= wavesKV[tostring(self.RoundNumber)]["Type"]
+	local unitIsBoss 	= wavesKV[tostring(self.RoundNumber)]["Boss"]
+
+	local boss = CreateUnitByName(unitName, self.SpawnPosition, false, nil, nil, DOTA_TEAM_BADGUYS)
+	local eHandle = boss:GetEntityHandle()
+
+	self.SpawnedCreeps[eHandle] = boss
+
+		boss.Damage 			= unitDamage
+		boss.Name 				= unitName
+		boss.XPBounty			= unitXPBounty
+		boss.Speed 				= unitSpeed * 2
+		boss.GoldBounty 		= unitGoldBounty
+		boss.Type 				= unitType
+
+	Grid:MoveUnit(boss, boss.type)
+	boss:AddAbility("gem_collision_movement"):SetLevel(1)
 
 
-function Rounds:Spawn()
-
-    Timers:CreateTimer( function()
-		
-		self.AmountSpawned = self.AmountSpawned + 1
-       
-		local creep = CreateUnitByName(unitName, self.SpawnPosition, false, nil, nil, DOTA_TEAM_BADGUYS)
-		local eHandle = creep:GetEntityHandle()
-
-		Rounds:InsertByHandle(eHandle, creep)
-		
-
-
-		creep:SetBaseMoveSpeed(unitSpeed*SpeedDifficulty)
-
-		creep:SetHullRadius(0)
-			
-		creep:AddAbility("gem_collision_movement"):SetLevel(1)
-			
-		Grid:MoveUnit(creep)
-
-		if self.AmountSpawned == 10 then
-
-			self.AmountSpawned = 0
-        	return nil
-				
-		else
-
-			return 1
-
-		end
-
-    end)
 end
-
 
 function Rounds:AddHeroAbilitiesOnRound()
 
-	
 	local Player = PlayerResource:GetPlayer(0)
 	local Hero = Player:GetAssignedHero()
 	Hero:AddAbility("gem_build_tower"):SetLevel(1)
@@ -147,6 +152,37 @@ function Rounds:AddBuildAbility(caster)
 
 end
 
+function Rounds:IsBoss()
+
+	if wavesKV[tostring(self.RoundNumber)]["Boss"] == "Yes" then
+
+		return true
+
+	else
+
+		return false
+
+	end
+
+
+
+end
+
+function Rounds:IsRoundCleared()
+
+	if self.AmountKilled == 10 then
+
+		self.AmountKilled = 0
+		return true
+
+	else
+
+		return false
+	
+	end
+
+
+end
 
 function Rounds:GetRoundNumber()
 
@@ -168,6 +204,9 @@ end
 
 function Rounds:Build()
 
+	print("Build called!")
+
+	CustomNetTables:SetTableValue( "game_state", "current_round", { value = Rounds:GetRoundNumber() } )
 	Rounds:AddHeroAbilitiesOnRound()
 
 end
@@ -179,7 +218,7 @@ function Rounds:InsertByHandle(index, unit)
 
 end
 
-function Rounds:DeleteByHandle(index)
+function Rounds:DeleteUnit(index)
 
 	self.SpawnedCreeps[index] = nil
 
@@ -204,7 +243,7 @@ function Rounds:ResetKillNumber()
 end
 
 
-function Rounds:DecrementBaseHealth(value)
+function Rounds:RemoveHP(value)
 
 	self.BaseHealth = self.BaseHealth - value
 
