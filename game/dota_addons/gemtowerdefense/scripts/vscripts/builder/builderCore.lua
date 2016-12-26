@@ -5,6 +5,7 @@ end
 
 function Builder:Init()
 
+	self.PlayerCount = 0
 	self.RoundTowers = --Used for storing only 5 towers during placement
 	{
 		[0] = {},
@@ -24,6 +25,13 @@ function Builder:Init()
 		[2] = {},
 		[3] = {}
 	}
+
+end
+
+function Builder:SetPlayerCount(count)
+
+	self.PlayerCount = count
+
 
 end
 
@@ -118,7 +126,7 @@ function Builder:ConfirmTower(caster, owner, playerID)
 
 	end
 
-	if self.PickCount == TOTAL_PLAYER_COUNT then
+	if self.PickCount == self.PlayerCount then
 
 		Builder:DeleteTowers(playerID)
 		self.PickCount = 0

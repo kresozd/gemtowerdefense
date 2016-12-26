@@ -7,32 +7,30 @@ end
 
 function Rounds:Init(keyvalue)
 
-	self.Nocturnal = false
-	self.State = "BUILD"  	--"BUILD" Build Phase, "WAVE" Wave Phase
-    self.AmountKilled 	= 0
-	self.AmountSpawned 	= 0
-    self.SpawnedCreeps 	= {}
-    self.RoundNumber 	= 1
-    self.SpawnPosition 	= Entities:FindByName(nil, "enemy_spawn"):GetAbsOrigin()
-	self.BaseHealth 	= 100
-	self.BuildLevel = 1
+	self.AllPicked 			= false
+	self.Players 			= {}
+	self.State 				= "BUILD"  	--"BUILD" Build Phase, "WAVE" Wave Phase
+    self.AmountKilled 		= 0
+	self.AmountSpawned 		= 0
+    self.SpawnedCreeps 		= {}
+    self.RoundNumber 		= 1
+    self.SpawnPosition 		= Entities:FindByName(nil, "enemy_spawn"):GetAbsOrigin()
+	self.BaseHealth 		= 100
+	self.BuildLevel 		= 1
 
-	self.TotalKilled 	= 0
-	self.TotalLeaked 	= 0
-	self.DelayBetweenSpawn = 1
+	self.TotalKilled 		= 0
+	self.TotalLeaked 		= 0
+	self.DelayBetweenSpawn 	= 1
 	self.Data 				= keyvalue
 
-	for k, v in pairs(self.Data) do
 
-
-		print("Printing self.Data", "key", k, "value", v)
-
-	end
 
 end
 
 
+
 function Rounds:WaveInit()
+
 
 	if Rounds:IsBoss() then
 
@@ -46,6 +44,39 @@ function Rounds:WaveInit()
 	end
 
 	
+
+end
+
+function Rounds:SetPlayer(playerID)
+
+	self.Players[playerID] = {}
+
+end
+
+function Rounds:AllPicked()
+
+	local total = Rounds:TableLength(self.Players)
+	local count = 0
+
+	for key, value in pairs(self.Players) do
+
+		if value == true then
+
+			count = count + 1
+
+		else
+
+			return false
+
+		end
+
+	end
+
+	if count == total then
+		
+		return true
+
+	end
 
 end
 
@@ -160,14 +191,37 @@ function Rounds:RemoveBuildAbility(caster)
 	
 end
 
-function Rounds:AddBuildAbility(caster)
+function Rounds:AddBuildAbility(hero)
 	
-	caster:AddAbility("gem_build_tower"):SetLevel(1)
-	caster:FindAbilityByName("gem_build_tower"):SetAbilityIndex(0)
-	caster:AddAbility("gem_remove_tower"):SetLevel(1)
-	caster:FindAbilityByName("gem_remove_tower"):SetAbilityIndex(1)
+	hero:AddAbility("gem_build_tower"):SetLevel(1)
+	hero:FindAbilityByName("gem_build_tower"):SetAbilityIndex(0)
+	hero:AddAbility("gem_remove_tower"):SetLevel(1)
+	hero:FindAbilityByName("gem_remove_tower"):SetAbilityIndex(1)
 
 end
+
+function Rounds:RemoveTalents(hero)
+
+	local start = 2
+
+	for i = 0,10 do
+
+		local ability = hero:GetAbilityByIndex(i)
+
+		if ability and string.match(ability:GetName(), "special_bonus") then
+
+			hero:RemoveAbility(ability:GetName())
+
+
+		end
+
+
+	end
+
+	
+
+end
+
 
 function Rounds:IsBoss()
 
@@ -277,4 +331,10 @@ function Rounds:GetBaseHealth()
 
 	return self.BaseHealth
 
+end
+
+function Rounds:TableLength(table)
+  local count = 0
+  for _ in pairs(table) do count = count + 1 end
+  return count
 end

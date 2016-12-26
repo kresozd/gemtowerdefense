@@ -5,12 +5,23 @@ function OnTouchGemCastle(trigger)
 
 	Rounds:RemoveHP(unit.Damage)
 	Rounds:IncrementTotalLeaked()
+	Rounds:IncrementKillNumber()
 
-	CustomNetTables:SetTableValue( "game_state", "castle_health", { value = Rounds:GetRoundNumber() } )
+	unit:Destroy()
 
-	unit:ForceKill(false)
+	print("Current HP is:", Rounds:GetBaseHealth())
+
+	CustomNetTables:SetTableValue( "game_state", "gem_castle_health", { value = tostring(Rounds:GetBaseHealth()) } )
+
+	
     
 	Rounds:DeleteUnit(eHandle)
+
+	if Rounds:IsRoundCleared() then
+
+		Rounds:AddHeroAbilitiesOnRound()
+
+	end
 
 end
 
