@@ -22,9 +22,12 @@ function Rounds:Init(keyvalue)
 	self.DelayBetweenSpawn = 1
 	self.Data 				= keyvalue
 
-	
+	for k, v in pairs(self.Data) do
 
-	
+
+		print("Printing self.Data", "key", k, "value", v)
+
+	end
 
 end
 
@@ -46,7 +49,19 @@ function Rounds:WaveInit()
 
 end
 
+function Rounds:AddUnitProperties(unit)
+
+	unit.Damage 			= self.Data[tostring(self.RoundNumber)]["Damage"]
+	unit.Name 				= self.Data[tostring(self.RoundNumber)]["unit"]
+	unit.XPBounty			= self.Data[tostring(self.RoundNumber)]["XPBounty"]
+	unit.Speed 				= self.Data[tostring(self.RoundNumber)]["MoveSpeed"]
+	unit.GoldBounty 		= self.Data[tostring(self.RoundNumber)]["GoldBounty"]
+	unit.Type 				= self.Data[tostring(self.RoundNumber)]["Type"]
+
+end
+
 function Rounds:SpawnUnits()
+
 
 	local unitDamage 	= wavesKV[tostring(self.RoundNumber)]["Damage"]
 	local unitName 		= wavesKV[tostring(self.RoundNumber)]["Creep"]
@@ -65,8 +80,8 @@ function Rounds:SpawnUnits()
 
 		--AddCreepProperties(creep)
 
+		Rounds:AddUnitProperties(creep)
 		Rounds:InsertByHandle(eHandle, creep)
-	
 		creep.Damage 			= unitDamage
 		creep.Name 				= unitName
 		creep.XPBounty			= unitXPBounty
@@ -75,7 +90,6 @@ function Rounds:SpawnUnits()
 		creep.Type 				= unitType
 		--creep.IsBoss 			=
 
-		creep:SetBaseMoveSpeed(creep.Speed)
 
 		creep:SetHullRadius(0)
 			
@@ -130,25 +144,28 @@ function Rounds:AddHeroAbilitiesOnRound()
 
 	local Player = PlayerResource:GetPlayer(0)
 	local Hero = Player:GetAssignedHero()
-	Hero:AddAbility("gem_build_tower"):SetLevel(1)
-	Hero:FindAbilityByName("gem_build_tower"):SetAbilityIndex(0)
-	Hero:AddAbility("gem_remove_tower"):SetLevel(1)
-	Hero:FindAbilityByName("gem_remove_tower"):SetAbilityIndex(1)
+	
+	Hero:FindAbilityByName("gem_build_tower"):SetLevel(1)
+	Hero:FindAbilityByName("gem_remove_tower"):SetLevel(1)
 	print("Ability adding succeeded....")
+	print("Ability Build Index,", Hero:FindAbilityByName("gem_build_tower"):GetAbilityIndex())
+	print("Ability Remove Index,", Hero:FindAbilityByName("gem_remove_tower"):GetAbilityIndex())
 	
 end
 
 function Rounds:RemoveBuildAbility(caster)
 
-	caster:RemoveAbility("gem_build_tower")
-	caster:RemoveAbility("gem_remove_tower")
+	caster:FindAbilityByName("gem_build_tower"):SetLevel(0)
+	caster:FindAbilityByName("gem_remove_tower"):SetLevel(0)
 	
 end
 
 function Rounds:AddBuildAbility(caster)
 	
 	caster:AddAbility("gem_build_tower"):SetLevel(1)
+	caster:FindAbilityByName("gem_build_tower"):SetAbilityIndex(0)
 	caster:AddAbility("gem_remove_tower"):SetLevel(1)
+	caster:FindAbilityByName("gem_remove_tower"):SetAbilityIndex(1)
 
 end
 

@@ -12,7 +12,7 @@ function GemTowerDefenseReborn:OnPlayerPickHero(keys)
 	local player = EntIndexToHScript(keys.player)
 	local playerID = player:GetPlayerID()
 	
-
+	--Rounds:AddHeroAbilitiesOnRound()
 
 
 	TOTAL_PLAYER_COUNT = PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_GOODGUYS)

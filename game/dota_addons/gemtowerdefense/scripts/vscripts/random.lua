@@ -182,12 +182,12 @@ function Random:GenerateWardLevel()
 
 		local value = RandomInt(1, 100)
 
-		if value <= levelTable[self.XPLevel]["1"] then
+		if value <= levelTable[tostring(self.XPLevel)]["1"] then
 
 			local level = 1
 			return level
 
-		elseif value >= levelTable[self.XPLevel]["2"] and value <= levelTable[self.XPLevel]["3"] then
+		elseif value >= levelTable[tostring(self.XPLevel)]["2"] and value <= levelTable[tostring(self.XPLevel)]["3"] then
 
 			local level = 2
 			return level

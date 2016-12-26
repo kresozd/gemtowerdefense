@@ -20,9 +20,7 @@ require('builder/builderAbilities')
 require('builder/towerAbilities')
 
 require('settings')
---require('jumperdota')
---require('movement')
---require('creeps')
+
 
 --Pathfinder
 
@@ -37,7 +35,7 @@ function Precache( context )
 			
 	]]
 
-	PrecacheResource("particle_folder", "particles/econ/events/snowball/snowball_projectile.vpcf", context)
+	PrecacheResource("particle", "particles/econ/events/snowball/snowball_projectile.vpcf", context)
 	PrecacheResource( "model", "models/props_tree/topiary/topiary001.vmdl", context )
 	
 end

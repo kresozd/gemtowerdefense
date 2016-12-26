@@ -6,12 +6,7 @@
 
 
 function GemTowerDefenseReborn:InitGameMode()
-	
-	Grid:Init()
-	Builder:Init()
-	Rounds:Init(wavesKV)
-	Random:Init()
-	
+
 	
 	print("DEBUG: TOTAL PLAYER COUNT ", PLAYER_COUNT)
 
@@ -19,6 +14,11 @@ function GemTowerDefenseReborn:InitGameMode()
 	wavesKV 	= LoadKeyValues("scripts/kv/waves.kv")
 	settingsKV 	= LoadKeyValues("scripts/kv/settings.kv")
 	randomKV	= LoadKeyValues("scripts/kv/random.kv") 
+
+	Grid:Init()
+	Builder:Init()
+	Rounds:Init(wavesKV)
+	Random:Init()
 
 	GameRules:SetTimeOfDay(0.5)
 	-- GameRules:GetGameModeEntity():SetCameraDistanceOverride(1400)
@@ -52,6 +52,7 @@ function GemTowerDefenseReborn:InitGameMode()
 	GameRules:GetGameModeEntity():SetCustomXPRequiredToReachNextLevel(settingsKV.CustomXPTable)
 	GameRules:SetUseCustomHeroXPValues(true)
 
+	CustomNetTables:SetTableValue( "game_state", "current_round", { value = 1 } )
 	
 
 

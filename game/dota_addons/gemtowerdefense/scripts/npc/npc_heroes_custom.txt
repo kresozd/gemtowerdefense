@@ -46,8 +46,8 @@
 	"npc_dota_hero_crystal_maiden"
 	{
 		"override_hero"					"npc_dota_hero_crystal_maiden"			// Hero to override
-		"Ability1"					"gem_remove_tower"		// Ability 1
-		"Ability2"					"gem_build_tower"		// Ability 1
+		"Ability1"					"gem_build_tower"		// Ability 1
+		"Ability2"					"gem_remove_tower"		// Ability 1
 		"Ability3"					""		// Ability 1
 		"Ability4"					""		// Ability 1
 		"VisionNighttimeRange"		"1800"										// Range of vision at night time.

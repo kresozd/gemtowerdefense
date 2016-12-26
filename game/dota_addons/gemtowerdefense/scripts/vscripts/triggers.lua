@@ -6,7 +6,7 @@ function OnTouchGemCastle(trigger)
 	Rounds:RemoveHP(unit.Damage)
 	Rounds:IncrementTotalLeaked()
 
-	
+	CustomNetTables:SetTableValue( "game_state", "castle_health", { value = Rounds:GetRoundNumber() } )
 
 	unit:ForceKill(false)
     

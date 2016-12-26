@@ -39,7 +39,7 @@
 
 		"AttackAcquisitionRange"	"1400"
 
-		"AttackRange"	"700"
+		"AttackRange"	"1200"
 		"ProjectileModel"	"particles/econ/events/snowball/snowball_projectile.vpcf"
 
 		"ProjectileSpeed"	"2000"
@@ -99,7 +99,7 @@
 		"AttackRate"	"0.5"
 		"AttackAnimationPoint"	"0"
 		"AttackAcquisitionRange"	"1400"
-		"AttackRange"	"700"
+		"AttackRange"	"1200"
 		
 		"ProjectileModel"	"particles/econ/events/snowball/snowball_projectile.vpcf"
 		"ProjectileSpeed"	"2000"
@@ -154,10 +154,11 @@
 		"AttackRate"	"1"
 		"AttackAnimationPoint"	"0"
 		"AttackAcquisitionRange"	"1400"
-		"AttackRange"	"700"
+		"AttackRange"	"1200"
 		
 		"ProjectileModel"	"particles/econ/events/snowball/snowball_projectile.vpcf"
 		"ProjectileSpeed"	"2000"
+		"EffectName" "particles/econ/events/snowball/snowball_projectile.vpcf"
 
 		"BoundsHullName"	"DOTA_HULL_SIZE_SMALL"
 		"RingRadius"	"64"
@@ -206,10 +207,11 @@
 		"AttackRate"	"0.2"
 		"AttackAnimationPoint"	"0"
 		"AttackAcquisitionRange"	"1400"
-		"AttackRange"	"700"
+		"AttackRange"	"1200"
 		
 		"ProjectileModel"	"particles/econ/events/snowball/snowball_projectile.vpcf"
 		"ProjectileSpeed"	"2000"
+		"EffectName" "particles/econ/events/snowball/snowball_projectile.vpcf"
 
 		"BoundsHullName"	"DOTA_HULL_SIZE_SMALL"
 		"RingRadius"	"64"
@@ -257,10 +259,11 @@
 		"AttackRate"	"0.5"
 		"AttackAnimationPoint"	"0"
 		"AttackAcquisitionRange"	"1400"
-		"AttackRange"	"700"
+		"AttackRange"	"1200"
 		
 		"ProjectileModel"	"particles/econ/events/snowball/snowball_projectile.vpcf"
 		"ProjectileSpeed"	"2000"
+		"EffectName" "particles/econ/events/snowball/snowball_projectile.vpcf"
 
 		"BoundsHullName"	"DOTA_HULL_SIZE_SMALL"
 		"RingRadius"	"64"
@@ -309,10 +312,11 @@
 		"AttackRate"	"0.5"
 		"AttackAnimationPoint"	"0"
 		"AttackAcquisitionRange"	"1400"
-		"AttackRange"	"700"
+		"AttackRange"	"1200"
 		
 		"ProjectileModel"	"particles/econ/events/snowball/snowball_projectile.vpcf"
 		"ProjectileSpeed"	"2000"
+		"EffectName" "particles/econ/events/snowball/snowball_projectile.vpcf"
 
 		"BoundsHullName"	"DOTA_HULL_SIZE_SMALL"
 		"RingRadius"	"64"
@@ -361,10 +365,11 @@
 		"AttackRate"	"0.5"
 		"AttackAnimationPoint"	"0"
 		"AttackAcquisitionRange"	"1400"
-		"AttackRange"	"700"
+		"AttackRange"	"1200"
 		
 		"ProjectileModel"	"particles/econ/events/snowball/snowball_projectile.vpcf"
 		"ProjectileSpeed"	"2000"
+		"EffectName" "particles/econ/events/snowball/snowball_projectile.vpcf"
 
 		"BoundsHullName"	"DOTA_HULL_SIZE_SMALL"
 		"RingRadius"	"64"
@@ -385,6 +390,10 @@
 		"UnitRelationshipClass"	"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
 
 		"VisionDaytimeRange"	"900"
+		"precache"
+		{
+    		"particle"  "particles/econ/events/snowball/snowball_projectile.vpcf"
+		}
 
 
 	}
@@ -412,10 +421,11 @@
 		"AttackRate"	"0.5"
 		"AttackAnimationPoint"	"0"
 		"AttackAcquisitionRange"	"1400"
-		"AttackRange"	"700"
+		"AttackRange"	"1200"
 		
 		"ProjectileModel"	"particles/econ/events/snowball/snowball_projectile.vpcf"
 		"ProjectileSpeed"	"2000"
+		"EffectName" "particles/econ/events/snowball/snowball_projectile.vpcf"
 
 		"BoundsHullName"	"DOTA_HULL_SIZE_SMALL"
 		"RingRadius"	"64"
@@ -436,6 +446,10 @@
 		"UnitRelationshipClass"	"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
 
 		"VisionDaytimeRange"	"900"
+		"precache"
+		{
+    		"particle"  "particles/econ/events/snowball/snowball_projectile.vpcf"
+		}
 
 
 	}
@@ -461,13 +475,14 @@
 		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
 		
 
-		"AttackRate"	"0.1"
+		"AttackRate"	"0.4"
 		"AttackAnimationPoint"	"0"
 		"AttackAcquisitionRange"	"1400"
-		"AttackRange"	"700"
+		"AttackRange"	"1200"
 		
 		"ProjectileModel"	"particles/econ/events/snowball/snowball_projectile.vpcf"
 		"ProjectileSpeed"	"2000"
+		"EffectName" "particles/econ/events/snowball/snowball_projectile.vpcf"
 
 		"BoundsHullName"	"DOTA_HULL_SIZE_SMALL"
 		"RingRadius"	"64"
@@ -494,7 +509,7 @@
     		"particle"  "particles/econ/events/snowball/snowball_projectile.vpcf"
 		}
 			
-		"ProjectileModel"	"particles/econ/events/snowball/snowball_projectile.vpcf"
+	
 
 
 	}
@@ -522,10 +537,11 @@
 		"AttackRate"	"0.2"
 		"AttackAnimationPoint"	"0"
 		"AttackAcquisitionRange"	"1400"
-		"AttackRange"	"700"
+		"AttackRange"	"1200"
 		
 		"ProjectileModel"	"particles/econ/events/snowball/snowball_projectile.vpcf"
 		"ProjectileSpeed"	"2000"
+		"EffectName" "particles/econ/events/snowball/snowball_projectile.vpcf"
 
 		"BoundsHullName"	"DOTA_HULL_SIZE_SMALL"
 		"RingRadius"	"64"
@@ -576,7 +592,7 @@
 		"AttackRate"	"0.5"
 		"AttackAnimationPoint"	"0"
 		"AttackAcquisitionRange"	"1400"
-		"AttackRange"	"700"
+		"AttackRange"	"1200"
 		
 		"ProjectileModel"	"particles/econ/events/snowball/snowball_projectile.vpcf"
 		"ProjectileSpeed"	"2000"
@@ -627,7 +643,7 @@
 		"AttackRate"	"0.5"
 		"AttackAnimationPoint"	"0"
 		"AttackAcquisitionRange"	"1400"
-		"AttackRange"	"700"
+		"AttackRange"	"1200"
 		
 		"ProjectileModel"	"particles/econ/events/snowball/snowball_projectile.vpcf"
 		"ProjectileSpeed"	"2000"
@@ -679,7 +695,7 @@
 		"AttackRate"	"0.5"
 		"AttackAnimationPoint"	"0"
 		"AttackAcquisitionRange"	"1400"
-		"AttackRange"	"700"
+		"AttackRange"	"1200"
 		
 		"ProjectileModel"	"particles/econ/events/snowball/snowball_projectile.vpcf"
 		"ProjectileSpeed"	"2000"
@@ -730,7 +746,7 @@
 		"AttackRate"	"0.5"
 		"AttackAnimationPoint"	"0"
 		"AttackAcquisitionRange"	"1400"
-		"AttackRange"	"700"
+		"AttackRange"	"1200"
 		
 		"ProjectileModel"	"particles/econ/events/snowball/snowball_projectile.vpcf"
 		"ProjectileSpeed"	"2000"
@@ -781,7 +797,7 @@
 		"AttackRate"	"0.5"
 		"AttackAnimationPoint"	"0"
 		"AttackAcquisitionRange"	"1400"
-		"AttackRange"	"700"
+		"AttackRange"	"1200"
 		
 		"ProjectileModel"	"particles/econ/events/snowball/snowball_projectile.vpcf"
 		"ProjectileSpeed"	"2000"
@@ -833,7 +849,7 @@
 		"AttackRate"	"0.5"
 		"AttackAnimationPoint"	"0"
 		"AttackAcquisitionRange"	"1400"
-		"AttackRange"	"700"
+		"AttackRange"	"1200"
 		
 		"ProjectileModel"	"particles/econ/events/snowball/snowball_projectile.vpcf"
 		"ProjectileSpeed"	"2000"
@@ -884,7 +900,7 @@
 		"AttackRate"	"0.5"
 		"AttackAnimationPoint"	"0"
 		"AttackAcquisitionRange"	"1400"
-		"AttackRange"	"700"
+		"AttackRange"	"1200"
 		
 		"ProjectileModel"	"particles/econ/events/snowball/snowball_projectile.vpcf"
 		"ProjectileSpeed"	"2000"
@@ -935,7 +951,7 @@
 		"AttackRate"	"0.5"
 		"AttackAnimationPoint"	"0"
 		"AttackAcquisitionRange"	"1400"
-		"AttackRange"	"700"
+		"AttackRange"	"1200"
 		
 		"ProjectileModel"	"particles/econ/events/snowball/snowball_projectile.vpcf"
 		"ProjectileSpeed"	"2000"
@@ -988,7 +1004,7 @@
 		"AttackRate"	"0.5"
 		"AttackAnimationPoint"	"0"
 		"AttackAcquisitionRange"	"1400"
-		"AttackRange"	"700"
+		"AttackRange"	"1200"
 		
 		"ProjectileModel"	"particles/econ/events/snowball/snowball_projectile.vpcf"
 		"ProjectileSpeed"	"2000"
@@ -1039,7 +1055,7 @@
 		"AttackRate"	"0.5"
 		"AttackAnimationPoint"	"0"
 		"AttackAcquisitionRange"	"1400"
-		"AttackRange"	"700"
+		"AttackRange"	"1200"
 		
 		"ProjectileModel"	"particles/econ/events/snowball/snowball_projectile.vpcf"
 		"ProjectileSpeed"	"2000"
@@ -1091,7 +1107,7 @@
 		"AttackRate"	"0.5"
 		"AttackAnimationPoint"	"0"
 		"AttackAcquisitionRange"	"1400"
-		"AttackRange"	"700"
+		"AttackRange"	"1200"
 		
 		"ProjectileModel"	"particles/econ/events/snowball/snowball_projectile.vpcf"
 		"ProjectileSpeed"	"2000"
@@ -1142,7 +1158,7 @@
 		"AttackRate"	"0.5"
 		"AttackAnimationPoint"	"0"
 		"AttackAcquisitionRange"	"1400"
-		"AttackRange"	"700"
+		"AttackRange"	"1200"
 		
 		"ProjectileModel"	"particles/econ/events/snowball/snowball_projectile.vpcf"
 		"ProjectileSpeed"	"2000"
@@ -1193,7 +1209,7 @@
 		"AttackRate"	"0.5"
 		"AttackAnimationPoint"	"0"
 		"AttackAcquisitionRange"	"1400"
-		"AttackRange"	"700"
+		"AttackRange"	"1200"
 		
 		"ProjectileModel"	"particles/econ/events/snowball/snowball_projectile.vpcf"
 		"ProjectileSpeed"	"2000"
@@ -1245,7 +1261,7 @@
 		"AttackRate"	"0.5"
 		"AttackAnimationPoint"	"0"
 		"AttackAcquisitionRange"	"1400"
-		"AttackRange"	"700"
+		"AttackRange"	"1200"
 		
 		"ProjectileModel"	"particles/econ/events/snowball/snowball_projectile.vpcf"
 		"ProjectileSpeed"	"2000"
@@ -1296,7 +1312,7 @@
 		"AttackRate"	"0.5"
 		"AttackAnimationPoint"	"0"
 		"AttackAcquisitionRange"	"1400"
-		"AttackRange"	"700"
+		"AttackRange"	"1200"
 		
 		"ProjectileModel"	"particles/econ/events/snowball/snowball_projectile.vpcf"
 		"ProjectileSpeed"	"2000"
@@ -1353,7 +1369,7 @@
 		"AttackRate"	"0.5"
 		"AttackAnimationPoint"	"0"
 		"AttackAcquisitionRange"	"1400"
-		"AttackRange"	"700"
+		"AttackRange"	"1200"
 		
 		"ProjectileModel"	"particles/econ/events/snowball/snowball_projectile.vpcf"
 		"ProjectileSpeed"	"2000"
@@ -1405,7 +1421,7 @@
 		"AttackRate"	"0.5"
 		"AttackAnimationPoint"	"0"
 		"AttackAcquisitionRange"	"1400"
-		"AttackRange"	"700"
+		"AttackRange"	"1200"
 		
 		"ProjectileModel"	"particles/econ/events/snowball/snowball_projectile.vpcf"
 		"ProjectileSpeed"	"2000"
@@ -1456,7 +1472,7 @@
 		"AttackRate"	"0.5"
 		"AttackAnimationPoint"	"0"
 		"AttackAcquisitionRange"	"1400"
-		"AttackRange"	"700"
+		"AttackRange"	"1200"
 		
 		"ProjectileModel"	"particles/econ/events/snowball/snowball_projectile.vpcf"
 		"ProjectileSpeed"	"2000"
@@ -1508,7 +1524,7 @@
 		"AttackRate"	"0.5"
 		"AttackAnimationPoint"	"0"
 		"AttackAcquisitionRange"	"1400"
-		"AttackRange"	"700"
+		"AttackRange"	"1200"
 		
 		"ProjectileModel"	"particles/econ/events/snowball/snowball_projectile.vpcf"
 		"ProjectileSpeed"	"2000"
@@ -1559,7 +1575,7 @@
 		"AttackRate"	"0.5"
 		"AttackAnimationPoint"	"0"
 		"AttackAcquisitionRange"	"1400"
-		"AttackRange"	"700"
+		"AttackRange"	"1200"
 		
 		"ProjectileModel"	"particles/econ/events/snowball/snowball_projectile.vpcf"
 		"ProjectileSpeed"	"2000"
@@ -1610,7 +1626,7 @@
 		"AttackRate"	"0.5"
 		"AttackAnimationPoint"	"0"
 		"AttackAcquisitionRange"	"1400"
-		"AttackRange"	"700"
+		"AttackRange"	"1200"
 		
 		"ProjectileModel"	"particles/econ/events/snowball/snowball_projectile.vpcf"
 		"ProjectileSpeed"	"2000"
@@ -1662,7 +1678,7 @@
 		"AttackRate"	"0.5"
 		"AttackAnimationPoint"	"0"
 		"AttackAcquisitionRange"	"1400"
-		"AttackRange"	"700"
+		"AttackRange"	"1200"
 		
 		"ProjectileModel"	"particles/econ/events/snowball/snowball_projectile.vpcf"
 		"ProjectileSpeed"	"2000"
@@ -1713,7 +1729,7 @@
 		"AttackRate"	"0.5"
 		"AttackAnimationPoint"	"0"
 		"AttackAcquisitionRange"	"1400"
-		"AttackRange"	"700"
+		"AttackRange"	"1200"
 		
 		"ProjectileModel"	"particles/econ/events/snowball/snowball_projectile.vpcf"
 		"ProjectileSpeed"	"2000"
@@ -1770,7 +1786,7 @@
 		"AttackRate"	"0.5"
 		"AttackAnimationPoint"	"0"
 		"AttackAcquisitionRange"	"1400"
-		"AttackRange"	"700"
+		"AttackRange"	"1200"
 		
 		"ProjectileModel"	"particles/econ/events/snowball/snowball_projectile.vpcf"
 		"ProjectileSpeed"	"2000"
@@ -1822,7 +1838,7 @@
 		"AttackRate"	"0.5"
 		"AttackAnimationPoint"	"0"
 		"AttackAcquisitionRange"	"1400"
-		"AttackRange"	"700"
+		"AttackRange"	"1200"
 		
 		"ProjectileModel"	"particles/econ/events/snowball/snowball_projectile.vpcf"
 		"ProjectileSpeed"	"2000"
@@ -1873,7 +1889,7 @@
 		"AttackRate"	"0.5"
 		"AttackAnimationPoint"	"0"
 		"AttackAcquisitionRange"	"1400"
-		"AttackRange"	"700"
+		"AttackRange"	"1200"
 		
 		"ProjectileModel"	"particles/econ/events/snowball/snowball_projectile.vpcf"
 		"ProjectileSpeed"	"2000"
@@ -1925,7 +1941,7 @@
 		"AttackRate"	"0.5"
 		"AttackAnimationPoint"	"0"
 		"AttackAcquisitionRange"	"1400"
-		"AttackRange"	"700"
+		"AttackRange"	"1200"
 		
 		"ProjectileModel"	"particles/econ/events/snowball/snowball_projectile.vpcf"
 		"ProjectileSpeed"	"2000"
@@ -1976,7 +1992,7 @@
 		"AttackRate"	"0.5"
 		"AttackAnimationPoint"	"0"
 		"AttackAcquisitionRange"	"1400"
-		"AttackRange"	"700"
+		"AttackRange"	"1200"
 		
 		"ProjectileModel"	"particles/econ/events/snowball/snowball_projectile.vpcf"
 		"ProjectileSpeed"	"2000"
@@ -2027,7 +2043,7 @@
 		"AttackRate"	"0.5"
 		"AttackAnimationPoint"	"0"
 		"AttackAcquisitionRange"	"1400"
-		"AttackRange"	"700"
+		"AttackRange"	"1200"
 		
 		"ProjectileModel"	"particles/econ/events/snowball/snowball_projectile.vpcf"
 		"ProjectileSpeed"	"2000"
@@ -2079,7 +2095,7 @@
 		"AttackRate"	"0.5"
 		"AttackAnimationPoint"	"0"
 		"AttackAcquisitionRange"	"1400"
-		"AttackRange"	"700"
+		"AttackRange"	"1200"
 		
 		"ProjectileModel"	"particles/econ/events/snowball/snowball_projectile.vpcf"
 		"ProjectileSpeed"	"2000"
@@ -2130,7 +2146,7 @@
 		"AttackRate"	"0.5"
 		"AttackAnimationPoint"	"0"
 		"AttackAcquisitionRange"	"1400"
-		"AttackRange"	"700"
+		"AttackRange"	"1200"
 		
 		"ProjectileModel"	"particles/econ/events/snowball/snowball_projectile.vpcf"
 		"ProjectileSpeed"	"2000"
@@ -2187,7 +2203,7 @@
 		"AttackRate"	"0.5"
 		"AttackAnimationPoint"	"0"
 		"AttackAcquisitionRange"	"1400"
-		"AttackRange"	"700"
+		"AttackRange"	"1200"
 		
 		"ProjectileModel"	"particles/econ/events/snowball/snowball_projectile.vpcf"
 		"ProjectileSpeed"	"2000"
@@ -2239,7 +2255,7 @@
 		"AttackRate"	"0.5"
 		"AttackAnimationPoint"	"0"
 		"AttackAcquisitionRange"	"1400"
-		"AttackRange"	"700"
+		"AttackRange"	"1200"
 		
 		"ProjectileModel"	"particles/econ/events/snowball/snowball_projectile.vpcf"
 		"ProjectileSpeed"	"2000"
@@ -2290,7 +2306,7 @@
 		"AttackRate"	"0.5"
 		"AttackAnimationPoint"	"0"
 		"AttackAcquisitionRange"	"1400"
-		"AttackRange"	"700"
+		"AttackRange"	"1200"
 		
 		"ProjectileModel"	"particles/econ/events/snowball/snowball_projectile.vpcf"
 		"ProjectileSpeed"	"2000"
@@ -2341,7 +2357,7 @@
 		"AttackRate"	"0.5"
 		"AttackAnimationPoint"	"0"
 		"AttackAcquisitionRange"	"1400"
-		"AttackRange"	"700"
+		"AttackRange"	"1200"
 		
 		"ProjectileModel"	"particles/econ/events/snowball/snowball_projectile.vpcf"
 		"ProjectileSpeed"	"2000"
@@ -2406,7 +2422,7 @@
 			"Model"                 "models/creeps/lane_creeps/creep_bad_melee_diretide/creep_bad_melee_diretide.vmdl" // Model.
 			"BaseClass"             "npc_dota_creature"
 			"Level"                 "7"
-			"ModelScale"                "1"
+			"ModelScale"                "1.4"
 			
 			
 			
@@ -2432,7 +2448,7 @@
 			"Model"                 "models/items/courier/faceless_rex/faceless_rex.vmdl" // Model.
 			"BaseClass"             "npc_dota_creature"
 			"Level"                 "7"
-			"ModelScale"                "1"
+			"ModelScale"                "1.4"
 			
 			
 			
@@ -2457,7 +2473,7 @@
 			"Model"                 "models/items/courier/nexon_turtle_01_grey/nexon_turtle_01_grey.vmdl" // Model.
 			"BaseClass"             "npc_dota_creature"
 			"Level"                 "7"
-			"ModelScale"                "1"
+			"ModelScale"                "1.4"
 			
 			
 			
@@ -2483,7 +2499,7 @@
 			"Model"                 "models/items/courier/mlg_courier_wraith/mlg_courier_wraith_flying.vmdl" // Model.
 			"BaseClass"             "npc_dota_creature"
 			"Level"                 "7"
-			"ModelScale"                "1"
+			"ModelScale"                "1.4"
 			
 			
 			
@@ -2508,11 +2524,11 @@
 			"Model"                 "models/items/courier/fei_lian_blue/fei_lian_blue.vmdl" // Model.
 			"BaseClass"             "npc_dota_creature"
 			"Level"                 "7"
-			"ModelScale"                "1"
+			"ModelScale"                "1.4"
 			
 			
 			
-			"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_FLY"
+			"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
 			"MovementSpeed"             "1200"
 
 			"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_BASIC"
@@ -2533,11 +2549,11 @@
 			"Model"                 "models/items/courier/snowl/snowl.vmdl" // Model.
 			"BaseClass"             "npc_dota_creature"
 			"Level"                 "7"
-			"ModelScale"                "1"
+			"ModelScale"                "1.4"
 			
 			
 			
-			"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_FLY"
+			"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
 			"MovementSpeed"             "1200"
 
 			"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_BASIC"
@@ -2558,11 +2574,11 @@
 			"Model"                 "models/items/courier/catakeet/catakeet.vmdl" // Model.
 			"BaseClass"             "npc_dota_creature"
 			"Level"                 "7"
-			"ModelScale"                "1"
+			"ModelScale"                "1.4"
 			
 			
 			
-			"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_FLY"
+			"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
 			"MovementSpeed"             "1200"
 
 			"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_BASIC"
@@ -2581,12 +2597,12 @@
 		{                                       
 			"Model"                 "models/items/courier/shroomy/shroomy.vmdl" // Model.
 			"BaseClass"             "npc_dota_creature"
-			"Level"                 "7"
-			"ModelScale"                "1"
+			"Level"                 "5"
+			"ModelScale"                "1.4"
 			
 			
 			
-			"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_FLY"
+			"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
 			"MovementSpeed"             "1200"
 
 			"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_BASIC"
@@ -2607,11 +2623,11 @@
 			"Model"                 "models/items/courier/snapjaw/snapjaw.vmdl" // Model.
 			"BaseClass"             "npc_dota_creature"
 			"Level"                 "7"
-			"ModelScale"                "1.6"
+			"ModelScale"                "2.4"
 			
 			
 			
-			"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_FLY"
+			"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
 			"MovementSpeed"             "1200"
 
 			"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_BASIC"
@@ -2626,7 +2642,30 @@
 			"StatusHealth"	"100"
 
 		}
+	"gem_round11_shroomy"
+		{                                       
+			"Model"                 "models/items/courier/shroomy/shroomy.vmdl" // Model.
+			"BaseClass"             "npc_dota_creature"
+			"Level"                 "5"
+			"ModelScale"                "1.4"
+			
+			
+			
+			"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
+			"MovementSpeed"             "1200"
 
+			"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_BASIC"
+			"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+			"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+			
+			"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"		// Hull type used for navigation/locomotion.
+			"ProjectileCollisionSize"	"50"
+			"RingRadius"				"1"
+			"HealthBarOffset"			"260"
+			
+			"StatusHealth"	"100"
+
+		}
 
 
 
