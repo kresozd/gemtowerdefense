@@ -19,6 +19,7 @@ function GemTowerDefenseReborn:InitGameMode()
 	Builder:Init()
 	Rounds:Init(wavesKV)
 	Random:Init()
+	Players:Init()
 
 	GameRules:SetTimeOfDay(0.5)
 	-- GameRules:GetGameModeEntity():SetCameraDistanceOverride(1400)
@@ -47,6 +48,10 @@ function GemTowerDefenseReborn:InitGameMode()
 	ListenToGameEvent('player_connect_full', Dynamic_Wrap(GemTowerDefenseReborn, 'OnConnectFull'), self)
 
 
+	CustomGameEventManager:RegisterListener( "wave_end", Dynamic_Wrap(GemTowerDefenseReborn, "OnWaveEnd"))
+	CustomGameEventManager:RegisterListener( "all_picked", Dynamic_Wrap(GemTowerDefenseReborn, "OnAllPicked"))
+
+
 	TOTAL_PLAYER_COUNT = 0
 
 	GameRules:GetGameModeEntity():SetCustomXPRequiredToReachNextLevel(settingsKV.CustomXPTable)
@@ -63,9 +68,6 @@ GameRules.BaseHealthPoint = 100
 GameRules.IsBuildReady = true
 GameRules.EnemyKillCount = 0
 GameRules.Enemies = {}
-
-
-
 
 
 

@@ -20,6 +20,7 @@ require('builder/builderAbilities')
 require('builder/towerAbilities')
 
 require('settings')
+require('players')
 
 
 --Pathfinder

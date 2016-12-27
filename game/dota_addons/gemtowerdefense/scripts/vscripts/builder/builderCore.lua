@@ -66,15 +66,13 @@ function Builder:RemoveTower(caster, target, position)
 		
 	else
 
-		caster:AddSpeechBubble(1,"Can't remove Gem!'",1,0,-30)
-	
 	end
 
 end
 
 function Builder:ConfirmTower(caster, owner, playerID)
 
-	self.PickCount = self.PickCount + 1
+	CustomNetTables:SetTableValue("picked", playerID, { value = true })
 	
 	local entityHandle = caster:GetEntityHandle()
 	local entityIndex = caster:GetEntityIndex()
