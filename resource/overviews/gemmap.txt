@@ -1,0 +1,8 @@
+gemmap
+{
+	material materials/overviews/gemmap.vmat
+	pos_x -2368
+	pos_y 2368
+	scale 4.625
+}
+

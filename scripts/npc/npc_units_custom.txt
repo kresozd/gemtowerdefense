@@ -1,0 +1,2703 @@
+// Dota Units File
+"DOTAUnits"
+{
+	"Version"	"1"	
+ 
+ 
+
+ "gem_dummy_tree"
+	{
+
+		"BaseClass"	"npc_dota_creature"
+		"Model"	"models/props_stone/stone_column002a.vmdl"
+		"ModelScale"	"0.37"
+		
+		"SoundSet"	"Hero_Lina"
+		"MinimapIcon"	"minimap_creep"
+		"MinimapIconSize"	"256"
+		"Level"	"6"
+		"AbilityLayout"	"6"
+
+		"Ability1"	"REMOVE_HP_BAR"
+
+		"Ability2"	""
+
+
+		"ArmorPhysical"	"0"
+		"MagicalResistance"	"0"
+
+		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
+
+		"AttackDamageMin"	"80"
+
+		"AttackDamageMax"	"80"
+		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
+
+		"AttackRate"	"0.5"
+
+		"AttackAnimationPoint"	"0"
+
+		"AttackAcquisitionRange"	"1400"
+
+		"AttackRange"	"1200"
+		"ProjectileModel"	"particles/econ/events/snowball/snowball_projectile.vpcf"
+
+		"ProjectileSpeed"	"2000"
+
+		"BoundsHullName"	"DOTA_HULL_SIZE_SMALL"
+		"RingRadius"	"64"
+		"HealthBarOffset"	"260"
+
+		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_NONE"
+
+		"MovementSpeed"	"0"
+
+		"MovementTurnRate"	"10"
+
+		"StatusHealth"	"500"
+		// Health regeneration rate.
+		"StatusHealthRegen"	"0"
+		// Base mana.
+		"StatusMana"	"0"
+		// Mana regeneration rate.
+		"StatusManaRegen"	"0"
+		// Team
+		// ----------------------------------------------------------------
+		// Team name.
+		"TeamName"	"DOTA_TEAM_GOODGUYS"
+		"CombatClassAttack"	"DOTA_COMBAT_CLASS_ATTACK_SIEGE"
+		"CombatClassDefend"	"DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
+		"UnitRelationshipClass"	"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_TREE"
+		// Vision
+		// ----------------------------------------------------------------
+		// Range of vision during day light.
+		"VisionDaytimeRange"	"900"
+
+	}
+ 
+ 	"gem_dummy"
+	{
+		// General
+		//
+		// Class of entity of link to.
+		"BaseClass"	"npc_dota_creature"
+		"Model"	"models/tree_clean.vmdl"
+		"ModelScale"	"1"
+		"MinimapIcon"	"minimap_creep"
+		"MinimapIconSize"	"256"
+		"Level"	"1"
+		"AbilityLayout"	"6"
+		"Ability1"	"REMOVE_HP_BAR"
+		"Ability2"	""
+
+		"AttackCapabilities"	"DOTA_UNIT_CAP_NO_ATTACK"
+		"AttackDamageMin"	"5"
+		"AttackDamageMax"	"5"
+		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
+		
+
+		"AttackRate"	"0.5"
+		"AttackAnimationPoint"	"0"
+		"AttackAcquisitionRange"	"1400"
+		"AttackRange"	"1200"
+		
+		"ProjectileModel"	"particles/econ/events/snowball/snowball_projectile.vpcf"
+		"ProjectileSpeed"	"2000"
+
+		"RingRadius"	"64"
+		"HealthBarOffset"	"260"
+
+		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_NONE"
+		"MovementSpeed"	"0"
+		"MovementTurnRate"	"15"
+
+		"StatusHealth"	"5"
+		"StatusHealthRegen"	"0"
+		"StatusMana"	"0"
+		"StatusManaRegen"	"0"
+
+		"TeamName"	"DOTA_TEAM_GOODGUYS"
+		"CombatClassAttack"	"DOTA_COMBAT_CLASS_ATTACK_SIEGE"
+		"CombatClassDefend"	"DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
+		"UnitRelationshipClass"	"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
+
+		"VisionDaytimeRange"	"900"
+
+
+
+	}
+ 
+ 
+ 
+ 
+	"gem_a1"
+	{
+
+		"BaseClass"	"npc_dota_creature"
+		"Model"	"models/items/wards/deadwatch_ward/deadwatch_ward.vmdl"
+		"ModelScale"	"1.2"
+
+
+		"MinimapIcon"	"minimap_creep"
+		"MinimapIconSize"	"256"
+		"Level"	"1"
+		"AbilityLayout"	"6"
+		"Ability1"	"REMOVE_HP_BAR"
+		"Ability2"	""
+
+		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"	"75"
+		"AttackDamageMax"	"75"
+		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
+		
+
+		"AttackRate"	"1"
+		"AttackAnimationPoint"	"0"
+		"AttackAcquisitionRange"	"1400"
+		"AttackRange"	"1200"
+		
+		"ProjectileModel"	"particles/econ/events/snowball/snowball_projectile.vpcf"
+		"ProjectileSpeed"	"2000"
+		"EffectName" "particles/econ/events/snowball/snowball_projectile.vpcf"
+
+		"BoundsHullName"	"DOTA_HULL_SIZE_SMALL"
+		"RingRadius"	"64"
+		"HealthBarOffset"	"260"
+
+		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_NONE"
+		"MovementSpeed"	"0"
+		"MovementTurnRate"	"15"
+
+		"StatusHealth"	"5"
+		"StatusHealthRegen"	"0"
+		"StatusMana"	"0"
+		"StatusManaRegen"	"0"
+
+		"TeamName"	"DOTA_TEAM_GOODGUYS"
+		"CombatClassAttack"	"DOTA_COMBAT_CLASS_ATTACK_SIEGE"
+		"CombatClassDefend"	"DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
+		"UnitRelationshipClass"	"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
+
+		"VisionDaytimeRange"	"900"
+
+
+	}
+
+
+	"gem_d1"
+	{
+
+		"BaseClass"	"npc_dota_creature"
+		"Model"	"models/items/wards/blood_seeker_ward/bloodseeker_ward.vmdl"
+		"ModelScale"	"1.2"
+
+		"MinimapIcon"	"minimap_creep"
+		"MinimapIconSize"	"256"
+		"Level"	"1"
+		"AbilityLayout"	"6"
+		"Ability1"	"REMOVE_HP_BAR"
+		"Ability2"	""
+
+		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"	"70"
+		"AttackDamageMax"	"70"
+		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
+		
+
+		"AttackRate"	"0.2"
+		"AttackAnimationPoint"	"0"
+		"AttackAcquisitionRange"	"1400"
+		"AttackRange"	"1200"
+		
+		"ProjectileModel"	"particles/econ/events/snowball/snowball_projectile.vpcf"
+		"ProjectileSpeed"	"2000"
+		"EffectName" "particles/econ/events/snowball/snowball_projectile.vpcf"
+
+		"BoundsHullName"	"DOTA_HULL_SIZE_SMALL"
+		"RingRadius"	"64"
+		"HealthBarOffset"	"260"
+
+		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_NONE"
+		"MovementSpeed"	"0"
+		"MovementTurnRate"	"15"
+
+		"StatusHealth"	"5"
+		"StatusHealthRegen"	"0"
+		"StatusMana"	"0"
+		"StatusManaRegen"	"0"
+
+		"TeamName"	"DOTA_TEAM_GOODGUYS"
+		"CombatClassAttack"	"DOTA_COMBAT_CLASS_ATTACK_SIEGE"
+		"CombatClassDefend"	"DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
+		"UnitRelationshipClass"	"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
+
+		"VisionDaytimeRange"	"900"
+
+
+	}
+
+	"gem_e1"
+	{
+
+		"BaseClass"	"npc_dota_creature"
+		"Model"	"models/items/wards/drow_ward/drow_ward.vmdl"
+		"ModelScale"	"1.2"
+
+		"MinimapIcon"	"minimap_creep"
+		"MinimapIconSize"	"256"
+		"Level"	"1"
+		"AbilityLayout"	"6"
+		"Ability1"	"REMOVE_HP_BAR"
+		"Ability2"	""
+
+		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"	"5"
+		"AttackDamageMax"	"5"
+		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
+		
+
+		"AttackRate"	"0.5"
+		"AttackAnimationPoint"	"0"
+		"AttackAcquisitionRange"	"1400"
+		"AttackRange"	"1200"
+		
+		"ProjectileModel"	"particles/econ/events/snowball/snowball_projectile.vpcf"
+		"ProjectileSpeed"	"2000"
+		"EffectName" "particles/econ/events/snowball/snowball_projectile.vpcf"
+
+		"BoundsHullName"	"DOTA_HULL_SIZE_SMALL"
+		"RingRadius"	"64"
+		"HealthBarOffset"	"260"
+
+		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_NONE"
+		"MovementSpeed"	"0"
+		"MovementTurnRate"	"15"
+
+		"StatusHealth"	"5"
+		"StatusHealthRegen"	"0"
+		"StatusMana"	"0"
+		"StatusManaRegen"	"0"
+
+		"TeamName"	"DOTA_TEAM_GOODGUYS"
+		"CombatClassAttack"	"DOTA_COMBAT_CLASS_ATTACK_SIEGE"
+		"CombatClassDefend"	"DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
+		"UnitRelationshipClass"	"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
+
+		"VisionDaytimeRange"	"900"
+
+
+	}
+
+
+	"gem_o1"
+	{
+
+		"BaseClass"	"npc_dota_creature"
+		"Model"	"models/props_gameplay/rune_invisibility01.vmdl"
+		"ModelScale"	"1.2"
+
+		"MinimapIcon"	"minimap_creep"
+		"MinimapIconSize"	"256"
+		"Level"	"1"
+		"AbilityLayout"	"6"
+		"Ability1"	"REMOVE_HP_BAR"
+		"Ability2"	""
+
+		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"	"5"
+		"AttackDamageMax"	"5"
+		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
+		
+
+		"AttackRate"	"0.5"
+		"AttackAnimationPoint"	"0"
+		"AttackAcquisitionRange"	"1400"
+		"AttackRange"	"1200"
+		
+		"ProjectileModel"	"particles/econ/events/snowball/snowball_projectile.vpcf"
+		"ProjectileSpeed"	"2000"
+		"EffectName" "particles/econ/events/snowball/snowball_projectile.vpcf"
+
+		"BoundsHullName"	"DOTA_HULL_SIZE_SMALL"
+		"RingRadius"	"64"
+		"HealthBarOffset"	"260"
+
+		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_NONE"
+		"MovementSpeed"	"0"
+		"MovementTurnRate"	"15"
+
+		"StatusHealth"	"5"
+		"StatusHealthRegen"	"0"
+		"StatusMana"	"0"
+		"StatusManaRegen"	"0"
+
+		"TeamName"	"DOTA_TEAM_GOODGUYS"
+		"CombatClassAttack"	"DOTA_COMBAT_CLASS_ATTACK_SIEGE"
+		"CombatClassDefend"	"DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
+		"UnitRelationshipClass"	"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
+
+		"VisionDaytimeRange"	"900"
+
+
+	}
+
+
+	"gem_q1"
+	{
+
+		"BaseClass"	"npc_dota_creature"
+		"Model"	"models/items/wards/deep_observer/deep_observer.vmdl"
+		"ModelScale"	"1.2"
+
+		"MinimapIcon"	"minimap_creep"
+		"MinimapIconSize"	"256"
+		"Level"	"1"
+		"AbilityLayout"	"6"
+		"Ability1"	"REMOVE_HP_BAR"
+		"Ability2"	""
+
+		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"	"5"
+		"AttackDamageMax"	"5"
+		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
+		
+
+		"AttackRate"	"0.5"
+		"AttackAnimationPoint"	"0"
+		"AttackAcquisitionRange"	"1400"
+		"AttackRange"	"1200"
+		
+		"ProjectileModel"	"particles/econ/events/snowball/snowball_projectile.vpcf"
+		"ProjectileSpeed"	"2000"
+		"EffectName" "particles/econ/events/snowball/snowball_projectile.vpcf"
+
+		"BoundsHullName"	"DOTA_HULL_SIZE_SMALL"
+		"RingRadius"	"64"
+		"HealthBarOffset"	"260"
+
+		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_NONE"
+		"MovementSpeed"	"0"
+		"MovementTurnRate"	"15"
+
+		"StatusHealth"	"5"
+		"StatusHealthRegen"	"0"
+		"StatusMana"	"0"
+		"StatusManaRegen"	"0"
+
+		"TeamName"	"DOTA_TEAM_GOODGUYS"
+		"CombatClassAttack"	"DOTA_COMBAT_CLASS_ATTACK_SIEGE"
+		"CombatClassDefend"	"DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
+		"UnitRelationshipClass"	"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
+
+		"VisionDaytimeRange"	"900"
+		"precache"
+		{
+    		"particle"  "particles/econ/events/snowball/snowball_projectile.vpcf"
+		}
+
+
+	}
+
+	"gem_r1"
+	{
+
+		"BaseClass"	"npc_dota_creature"
+		"Model"	"models/props_gameplay/rune_haste01.vmdl"
+		"ModelScale"	"1.2"
+
+		"MinimapIcon"	"minimap_creep"
+		"MinimapIconSize"	"256"
+		"Level"	"1"
+		"AbilityLayout"	"6"
+		"Ability1"	"REMOVE_HP_BAR"
+		"Ability2"	""
+
+		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"	"5"
+		"AttackDamageMax"	"5"
+		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
+		
+
+		"AttackRate"	"0.5"
+		"AttackAnimationPoint"	"0"
+		"AttackAcquisitionRange"	"1400"
+		"AttackRange"	"1200"
+		
+		"ProjectileModel"	"particles/econ/events/snowball/snowball_projectile.vpcf"
+		"ProjectileSpeed"	"2000"
+		"EffectName" "particles/econ/events/snowball/snowball_projectile.vpcf"
+
+		"BoundsHullName"	"DOTA_HULL_SIZE_SMALL"
+		"RingRadius"	"64"
+		"HealthBarOffset"	"260"
+
+		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_NONE"
+		"MovementSpeed"	"0"
+		"MovementTurnRate"	"15"
+
+		"StatusHealth"	"5"
+		"StatusHealthRegen"	"0"
+		"StatusMana"	"0"
+		"StatusManaRegen"	"0"
+
+		"TeamName"	"DOTA_TEAM_GOODGUYS"
+		"CombatClassAttack"	"DOTA_COMBAT_CLASS_ATTACK_SIEGE"
+		"CombatClassDefend"	"DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
+		"UnitRelationshipClass"	"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
+
+		"VisionDaytimeRange"	"900"
+		"precache"
+		{
+    		"particle"  "particles/econ/events/snowball/snowball_projectile.vpcf"
+		}
+
+
+	}
+
+
+	"gem_s1"
+	{
+
+		"BaseClass"	"npc_dota_creature"
+		"Model"	"models/items/wards/chen_ward/chen_ward.vmdl"
+		"ModelScale"	"1.2"
+
+		"MinimapIcon"	"minimap_creep"
+		"MinimapIconSize"	"256"
+		"Level"	"1"
+		"AbilityLayout"	"6"
+		"Ability1"	"REMOVE_HP_BAR"
+		"Ability2"	""
+
+		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"	"70"
+		"AttackDamageMax"	"70"
+		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
+		
+
+		"AttackRate"	"0.4"
+		"AttackAnimationPoint"	"0"
+		"AttackAcquisitionRange"	"1400"
+		"AttackRange"	"1200"
+		
+		"ProjectileModel"	"particles/econ/events/snowball/snowball_projectile.vpcf"
+		"ProjectileSpeed"	"2000"
+		"EffectName" "particles/econ/events/snowball/snowball_projectile.vpcf"
+
+		"BoundsHullName"	"DOTA_HULL_SIZE_SMALL"
+		"RingRadius"	"64"
+		"HealthBarOffset"	"260"
+
+		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_NONE"
+		"MovementSpeed"	"0"
+		"MovementTurnRate"	"15"
+
+		"StatusHealth"	"5"
+		"StatusHealthRegen"	"0"
+		"StatusMana"	"0"
+		"StatusManaRegen"	"0"
+
+		"TeamName"	"DOTA_TEAM_GOODGUYS"
+		"CombatClassAttack"	"DOTA_COMBAT_CLASS_ATTACK_SIEGE"
+		"CombatClassDefend"	"DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
+		"UnitRelationshipClass"	"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
+
+		"VisionDaytimeRange"	"900"
+
+		"precache"
+		{
+    		"particle"  "particles/econ/events/snowball/snowball_projectile.vpcf"
+		}
+			
+	
+
+
+	}
+
+	"gem_t1"
+	{
+
+		"BaseClass"	"npc_dota_creature"
+		"Model"	"models/items/wards/ocula/ocula.vmdl"
+		"ModelScale"	"1.2"
+
+		"MinimapIcon"	"minimap_creep"
+		"MinimapIconSize"	"256"
+		"Level"	"1"
+		"AbilityLayout"	"6"
+		"Ability1"	"REMOVE_HP_BAR"
+		"Ability2"	""
+
+		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"	"70"
+		"AttackDamageMax"	"70"
+		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
+		
+
+		"AttackRate"	"0.2"
+		"AttackAnimationPoint"	"0"
+		"AttackAcquisitionRange"	"1400"
+		"AttackRange"	"1200"
+		
+		"ProjectileModel"	"particles/econ/events/snowball/snowball_projectile.vpcf"
+		"ProjectileSpeed"	"2000"
+		"EffectName" "particles/econ/events/snowball/snowball_projectile.vpcf"
+
+		"BoundsHullName"	"DOTA_HULL_SIZE_SMALL"
+		"RingRadius"	"64"
+		"HealthBarOffset"	"260"
+
+		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_NONE"
+		"MovementSpeed"	"0"
+		"MovementTurnRate"	"15"
+
+		"StatusHealth"	"5"
+		"StatusHealthRegen"	"0"
+		"StatusMana"	"0"
+		"StatusManaRegen"	"0"
+
+		"TeamName"	"DOTA_TEAM_GOODGUYS"
+		"CombatClassAttack"	"DOTA_COMBAT_CLASS_ATTACK_SIEGE"
+		"CombatClassDefend"	"DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
+		"UnitRelationshipClass"	"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
+
+		"VisionDaytimeRange"	"900"
+
+
+	}
+
+
+
+	"gem_a2"
+	{
+
+		"BaseClass"	"npc_dota_creature"
+		"Model"	"models/items/wards/deadwatch_ward/deadwatch_ward.vmdl"
+		"ModelScale"	"1.3"
+
+
+		"MinimapIcon"	"minimap_creep"
+		"MinimapIconSize"	"256"
+		"Level"	"1"
+		"AbilityLayout"	"6"
+		"Ability1"	"REMOVE_HP_BAR"
+		"Ability2"	""
+
+		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"	"5"
+		"AttackDamageMax"	"5"
+		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
+		
+
+		"AttackRate"	"0.5"
+		"AttackAnimationPoint"	"0"
+		"AttackAcquisitionRange"	"1400"
+		"AttackRange"	"1200"
+		
+		"ProjectileModel"	"particles/econ/events/snowball/snowball_projectile.vpcf"
+		"ProjectileSpeed"	"2000"
+
+		"BoundsHullName"	"DOTA_HULL_SIZE_SMALL"
+		"RingRadius"	"64"
+		"HealthBarOffset"	"260"
+
+		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_NONE"
+		"MovementSpeed"	"0"
+		"MovementTurnRate"	"15"
+
+		"StatusHealth"	"5"
+		"StatusHealthRegen"	"0"
+		"StatusMana"	"0"
+		"StatusManaRegen"	"0"
+
+		"TeamName"	"DOTA_TEAM_GOODGUYS"
+		"CombatClassAttack"	"DOTA_COMBAT_CLASS_ATTACK_SIEGE"
+		"CombatClassDefend"	"DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
+		"UnitRelationshipClass"	"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
+
+		"VisionDaytimeRange"	"900"
+
+
+	}
+
+"gem_d2"
+	{
+
+		"BaseClass"	"npc_dota_creature"
+		"Model"	"models/items/wards/ward_clockwerk_watcher/ward_clockwerk_watcher.vmdl"
+		"ModelScale"	"1.3"
+
+		"MinimapIcon"	"minimap_creep"
+		"MinimapIconSize"	"256"
+		"Level"	"1"
+		"AbilityLayout"	"6"
+		"Ability1"	"REMOVE_HP_BAR"
+		"Ability2"	""
+
+		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"	"5"
+		"AttackDamageMax"	"5"
+		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
+		
+
+		"AttackRate"	"0.5"
+		"AttackAnimationPoint"	"0"
+		"AttackAcquisitionRange"	"1400"
+		"AttackRange"	"1200"
+		
+		"ProjectileModel"	"particles/econ/events/snowball/snowball_projectile.vpcf"
+		"ProjectileSpeed"	"2000"
+
+		"BoundsHullName"	"DOTA_HULL_SIZE_SMALL"
+		"RingRadius"	"64"
+		"HealthBarOffset"	"260"
+
+		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_NONE"
+		"MovementSpeed"	"0"
+		"MovementTurnRate"	"15"
+
+		"StatusHealth"	"5"
+		"StatusHealthRegen"	"0"
+		"StatusMana"	"0"
+		"StatusManaRegen"	"0"
+
+		"TeamName"	"DOTA_TEAM_GOODGUYS"
+		"CombatClassAttack"	"DOTA_COMBAT_CLASS_ATTACK_SIEGE"
+		"CombatClassDefend"	"DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
+		"UnitRelationshipClass"	"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
+
+		"VisionDaytimeRange"	"900"
+
+
+	}
+
+
+	"gem_e2"
+	{
+
+		"BaseClass"	"npc_dota_creature"
+		"Model"	"models/items/wards/drow_ward/drow_ward.vmdl"
+		"ModelScale"	"1.3"
+
+		"MinimapIcon"	"minimap_creep"
+		"MinimapIconSize"	"256"
+		"Level"	"1"
+		"AbilityLayout"	"6"
+		"Ability1"	"REMOVE_HP_BAR"
+		"Ability2"	""
+
+		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"	"5"
+		"AttackDamageMax"	"5"
+		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
+		
+
+		"AttackRate"	"0.5"
+		"AttackAnimationPoint"	"0"
+		"AttackAcquisitionRange"	"1400"
+		"AttackRange"	"1200"
+		
+		"ProjectileModel"	"particles/econ/events/snowball/snowball_projectile.vpcf"
+		"ProjectileSpeed"	"2000"
+
+		"BoundsHullName"	"DOTA_HULL_SIZE_SMALL"
+		"RingRadius"	"64"
+		"HealthBarOffset"	"260"
+
+		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_NONE"
+		"MovementSpeed"	"0"
+		"MovementTurnRate"	"15"
+
+		"StatusHealth"	"5"
+		"StatusHealthRegen"	"0"
+		"StatusMana"	"0"
+		"StatusManaRegen"	"0"
+
+		"TeamName"	"DOTA_TEAM_GOODGUYS"
+		"CombatClassAttack"	"DOTA_COMBAT_CLASS_ATTACK_SIEGE"
+		"CombatClassDefend"	"DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
+		"UnitRelationshipClass"	"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
+
+		"VisionDaytimeRange"	"900"
+
+
+	}
+
+	"gem_o2"
+	{
+
+		"BaseClass"	"npc_dota_creature"
+		"Model"	"models/props_gameplay/rune_invisibility01.vmdl"
+		"ModelScale"	"1.3"
+
+		"MinimapIcon"	"minimap_creep"
+		"MinimapIconSize"	"256"
+		"Level"	"1"
+		"AbilityLayout"	"6"
+		"Ability1"	"REMOVE_HP_BAR"
+		"Ability2"	""
+
+		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"	"5"
+		"AttackDamageMax"	"5"
+		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
+		
+
+		"AttackRate"	"0.5"
+		"AttackAnimationPoint"	"0"
+		"AttackAcquisitionRange"	"1400"
+		"AttackRange"	"1200"
+		
+		"ProjectileModel"	"particles/econ/events/snowball/snowball_projectile.vpcf"
+		"ProjectileSpeed"	"2000"
+
+		"BoundsHullName"	"DOTA_HULL_SIZE_SMALL"
+		"RingRadius"	"64"
+		"HealthBarOffset"	"260"
+
+		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_NONE"
+		"MovementSpeed"	"0"
+		"MovementTurnRate"	"15"
+
+		"StatusHealth"	"5"
+		"StatusHealthRegen"	"0"
+		"StatusMana"	"0"
+		"StatusManaRegen"	"0"
+
+		"TeamName"	"DOTA_TEAM_GOODGUYS"
+		"CombatClassAttack"	"DOTA_COMBAT_CLASS_ATTACK_SIEGE"
+		"CombatClassDefend"	"DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
+		"UnitRelationshipClass"	"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
+
+		"VisionDaytimeRange"	"900"
+
+
+	}
+
+	"gem_q2"
+	{
+
+		"BaseClass"	"npc_dota_creature"
+		"Model"	"models/items/wards/deep_observer/deep_observer.vmdl"
+		"ModelScale"	"1.3"
+
+		"MinimapIcon"	"minimap_creep"
+		"MinimapIconSize"	"256"
+		"Level"	"1"
+		"AbilityLayout"	"6"
+		"Ability1"	"REMOVE_HP_BAR"
+		"Ability2"	""
+
+		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"	"5"
+		"AttackDamageMax"	"5"
+		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
+		
+
+		"AttackRate"	"0.5"
+		"AttackAnimationPoint"	"0"
+		"AttackAcquisitionRange"	"1400"
+		"AttackRange"	"1200"
+		
+		"ProjectileModel"	"particles/econ/events/snowball/snowball_projectile.vpcf"
+		"ProjectileSpeed"	"2000"
+
+		"BoundsHullName"	"DOTA_HULL_SIZE_SMALL"
+		"RingRadius"	"64"
+		"HealthBarOffset"	"260"
+
+		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_NONE"
+		"MovementSpeed"	"0"
+		"MovementTurnRate"	"15"
+
+		"StatusHealth"	"5"
+		"StatusHealthRegen"	"0"
+		"StatusMana"	"0"
+		"StatusManaRegen"	"0"
+
+		"TeamName"	"DOTA_TEAM_GOODGUYS"
+		"CombatClassAttack"	"DOTA_COMBAT_CLASS_ATTACK_SIEGE"
+		"CombatClassDefend"	"DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
+		"UnitRelationshipClass"	"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
+
+		"VisionDaytimeRange"	"900"
+
+
+	}
+
+
+	"gem_r2"
+	{
+
+		"BaseClass"	"npc_dota_creature"
+		"Model"	"models/props_gameplay/rune_haste01.vmdl"
+		"ModelScale"	"1.3"
+
+		"MinimapIcon"	"minimap_creep"
+		"MinimapIconSize"	"256"
+		"Level"	"1"
+		"AbilityLayout"	"6"
+		"Ability1"	"REMOVE_HP_BAR"
+		"Ability2"	""
+
+		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"	"5"
+		"AttackDamageMax"	"5"
+		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
+		
+
+		"AttackRate"	"0.5"
+		"AttackAnimationPoint"	"0"
+		"AttackAcquisitionRange"	"1400"
+		"AttackRange"	"1200"
+		
+		"ProjectileModel"	"particles/econ/events/snowball/snowball_projectile.vpcf"
+		"ProjectileSpeed"	"2000"
+
+		"BoundsHullName"	"DOTA_HULL_SIZE_SMALL"
+		"RingRadius"	"64"
+		"HealthBarOffset"	"260"
+
+		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_NONE"
+		"MovementSpeed"	"0"
+		"MovementTurnRate"	"15"
+
+		"StatusHealth"	"5"
+		"StatusHealthRegen"	"0"
+		"StatusMana"	"0"
+		"StatusManaRegen"	"0"
+
+		"TeamName"	"DOTA_TEAM_GOODGUYS"
+		"CombatClassAttack"	"DOTA_COMBAT_CLASS_ATTACK_SIEGE"
+		"CombatClassDefend"	"DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
+		"UnitRelationshipClass"	"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
+
+		"VisionDaytimeRange"	"900"
+
+
+	}
+
+	"gem_s2"
+	{
+
+		"BaseClass"	"npc_dota_creature"
+		"Model"	"models/items/wards/crystal_maiden_ward/crystal_maiden_ward.vmdl"
+		"ModelScale"	"1.3"
+
+		"MinimapIcon"	"minimap_creep"
+		"MinimapIconSize"	"256"
+		"Level"	"1"
+		"AbilityLayout"	"6"
+		"Ability1"	"REMOVE_HP_BAR"
+		"Ability2"	""
+
+		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"	"5"
+		"AttackDamageMax"	"5"
+		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
+		
+
+		"AttackRate"	"0.5"
+		"AttackAnimationPoint"	"0"
+		"AttackAcquisitionRange"	"1400"
+		"AttackRange"	"1200"
+		
+		"ProjectileModel"	"particles/econ/events/snowball/snowball_projectile.vpcf"
+		"ProjectileSpeed"	"2000"
+
+		"BoundsHullName"	"DOTA_HULL_SIZE_SMALL"
+		"RingRadius"	"64"
+		"HealthBarOffset"	"260"
+
+		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_NONE"
+		"MovementSpeed"	"0"
+		"MovementTurnRate"	"15"
+
+		"StatusHealth"	"5"
+		"StatusHealthRegen"	"0"
+		"StatusMana"	"0"
+		"StatusManaRegen"	"0"
+
+		"TeamName"	"DOTA_TEAM_GOODGUYS"
+		"CombatClassAttack"	"DOTA_COMBAT_CLASS_ATTACK_SIEGE"
+		"CombatClassDefend"	"DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
+		"UnitRelationshipClass"	"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
+
+		"VisionDaytimeRange"	"900"
+
+
+	}
+
+	"gem_t2"
+	{
+
+		"BaseClass"	"npc_dota_creature"
+		"Model"	"models/items/wards/ocula/ocula.vmdl"
+		"ModelScale"	"1.3"
+
+		"MinimapIcon"	"minimap_creep"
+		"MinimapIconSize"	"256"
+		"Level"	"1"
+		"AbilityLayout"	"6"
+		"Ability1"	"REMOVE_HP_BAR"
+		"Ability2"	""
+
+		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"	"5"
+		"AttackDamageMax"	"5"
+		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
+		
+
+		"AttackRate"	"0.5"
+		"AttackAnimationPoint"	"0"
+		"AttackAcquisitionRange"	"1400"
+		"AttackRange"	"1200"
+		
+		"ProjectileModel"	"particles/econ/events/snowball/snowball_projectile.vpcf"
+		"ProjectileSpeed"	"2000"
+
+		"BoundsHullName"	"DOTA_HULL_SIZE_SMALL"
+		"RingRadius"	"64"
+		"HealthBarOffset"	"260"
+
+		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_NONE"
+		"MovementSpeed"	"0"
+		"MovementTurnRate"	"15"
+
+		"StatusHealth"	"5"
+		"StatusHealthRegen"	"0"
+		"StatusMana"	"0"
+		"StatusManaRegen"	"0"
+
+		"TeamName"	"DOTA_TEAM_GOODGUYS"
+		"CombatClassAttack"	"DOTA_COMBAT_CLASS_ATTACK_SIEGE"
+		"CombatClassDefend"	"DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
+		"UnitRelationshipClass"	"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
+
+		"VisionDaytimeRange"	"900"
+
+
+	}
+
+
+	"gem_a3"
+	{
+
+		"BaseClass"	"npc_dota_creature"
+		"Model"	"models/items/wards/deadwatch_ward/deadwatch_ward.vmdl"
+		"ModelScale"	"1.4"
+
+
+		"MinimapIcon"	"minimap_creep"
+		"MinimapIconSize"	"256"
+		"Level"	"1"
+		"AbilityLayout"	"6"
+		"Ability1"	"REMOVE_HP_BAR"
+		"Ability2"	""
+
+		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"	"5"
+		"AttackDamageMax"	"5"
+		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
+		
+
+		"AttackRate"	"0.5"
+		"AttackAnimationPoint"	"0"
+		"AttackAcquisitionRange"	"1400"
+		"AttackRange"	"1200"
+		
+		"ProjectileModel"	"particles/econ/events/snowball/snowball_projectile.vpcf"
+		"ProjectileSpeed"	"2000"
+
+		"BoundsHullName"	"DOTA_HULL_SIZE_SMALL"
+		"RingRadius"	"64"
+		"HealthBarOffset"	"260"
+
+		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_NONE"
+		"MovementSpeed"	"0"
+		"MovementTurnRate"	"15"
+
+		"StatusHealth"	"5"
+		"StatusHealthRegen"	"0"
+		"StatusMana"	"0"
+		"StatusManaRegen"	"0"
+
+		"TeamName"	"DOTA_TEAM_GOODGUYS"
+		"CombatClassAttack"	"DOTA_COMBAT_CLASS_ATTACK_SIEGE"
+		"CombatClassDefend"	"DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
+		"UnitRelationshipClass"	"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
+
+		"VisionDaytimeRange"	"900"
+
+
+	}
+
+"gem_d3"
+	{
+
+		"BaseClass"	"npc_dota_creature"
+		"Model"	"models/items/wards/ward_clockwerk_watcher/ward_clockwerk_watcher.vmdl"
+		"ModelScale"	"1.4"
+
+		"MinimapIcon"	"minimap_creep"
+		"MinimapIconSize"	"256"
+		"Level"	"1"
+		"AbilityLayout"	"6"
+		"Ability1"	"REMOVE_HP_BAR"
+		"Ability2"	""
+
+		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"	"5"
+		"AttackDamageMax"	"5"
+		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
+		
+
+		"AttackRate"	"0.5"
+		"AttackAnimationPoint"	"0"
+		"AttackAcquisitionRange"	"1400"
+		"AttackRange"	"1200"
+		
+		"ProjectileModel"	"particles/econ/events/snowball/snowball_projectile.vpcf"
+		"ProjectileSpeed"	"2000"
+
+		"BoundsHullName"	"DOTA_HULL_SIZE_SMALL"
+		"RingRadius"	"64"
+		"HealthBarOffset"	"260"
+
+		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_NONE"
+		"MovementSpeed"	"0"
+		"MovementTurnRate"	"15"
+
+		"StatusHealth"	"5"
+		"StatusHealthRegen"	"0"
+		"StatusMana"	"0"
+		"StatusManaRegen"	"0"
+
+		"TeamName"	"DOTA_TEAM_GOODGUYS"
+		"CombatClassAttack"	"DOTA_COMBAT_CLASS_ATTACK_SIEGE"
+		"CombatClassDefend"	"DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
+		"UnitRelationshipClass"	"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
+
+		"VisionDaytimeRange"	"900"
+
+
+	}
+
+
+	"gem_e3"
+	{
+
+		"BaseClass"	"npc_dota_creature"
+		"Model"	"models/items/wards/drow_ward/drow_ward.vmdl"
+		"ModelScale"	"1.4"
+
+		"MinimapIcon"	"minimap_creep"
+		"MinimapIconSize"	"256"
+		"Level"	"1"
+		"AbilityLayout"	"6"
+		"Ability1"	"REMOVE_HP_BAR"
+		"Ability2"	""
+
+		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"	"5"
+		"AttackDamageMax"	"5"
+		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
+		
+
+		"AttackRate"	"0.5"
+		"AttackAnimationPoint"	"0"
+		"AttackAcquisitionRange"	"1400"
+		"AttackRange"	"1200"
+		
+		"ProjectileModel"	"particles/econ/events/snowball/snowball_projectile.vpcf"
+		"ProjectileSpeed"	"2000"
+
+		"BoundsHullName"	"DOTA_HULL_SIZE_SMALL"
+		"RingRadius"	"64"
+		"HealthBarOffset"	"260"
+
+		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_NONE"
+		"MovementSpeed"	"0"
+		"MovementTurnRate"	"15"
+
+		"StatusHealth"	"5"
+		"StatusHealthRegen"	"0"
+		"StatusMana"	"0"
+		"StatusManaRegen"	"0"
+
+		"TeamName"	"DOTA_TEAM_GOODGUYS"
+		"CombatClassAttack"	"DOTA_COMBAT_CLASS_ATTACK_SIEGE"
+		"CombatClassDefend"	"DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
+		"UnitRelationshipClass"	"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
+
+		"VisionDaytimeRange"	"900"
+
+
+	}
+
+	"gem_o3"
+	{
+
+		"BaseClass"	"npc_dota_creature"
+		"Model"	"models/props_gameplay/rune_invisibility01.vmdl"
+		"ModelScale"	"1.4"
+
+		"MinimapIcon"	"minimap_creep"
+		"MinimapIconSize"	"256"
+		"Level"	"1"
+		"AbilityLayout"	"6"
+		"Ability1"	"REMOVE_HP_BAR"
+		"Ability2"	""
+
+		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"	"5"
+		"AttackDamageMax"	"5"
+		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
+		
+
+		"AttackRate"	"0.5"
+		"AttackAnimationPoint"	"0"
+		"AttackAcquisitionRange"	"1400"
+		"AttackRange"	"1200"
+		
+		"ProjectileModel"	"particles/econ/events/snowball/snowball_projectile.vpcf"
+		"ProjectileSpeed"	"2000"
+
+		"BoundsHullName"	"DOTA_HULL_SIZE_SMALL"
+		"RingRadius"	"64"
+		"HealthBarOffset"	"260"
+
+		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_NONE"
+		"MovementSpeed"	"0"
+		"MovementTurnRate"	"15"
+
+		"StatusHealth"	"5"
+		"StatusHealthRegen"	"0"
+		"StatusMana"	"0"
+		"StatusManaRegen"	"0"
+
+		"TeamName"	"DOTA_TEAM_GOODGUYS"
+		"CombatClassAttack"	"DOTA_COMBAT_CLASS_ATTACK_SIEGE"
+		"CombatClassDefend"	"DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
+		"UnitRelationshipClass"	"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
+
+		"VisionDaytimeRange"	"900"
+
+
+	}
+
+	"gem_q3"
+	{
+
+		"BaseClass"	"npc_dota_creature"
+		"Model"	"models/items/wards/deep_observer/deep_observer.vmdl"
+		"ModelScale"	"1.4"
+
+		"MinimapIcon"	"minimap_creep"
+		"MinimapIconSize"	"256"
+		"Level"	"1"
+		"AbilityLayout"	"6"
+		"Ability1"	"REMOVE_HP_BAR"
+		"Ability2"	""
+
+		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"	"5"
+		"AttackDamageMax"	"5"
+		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
+		
+
+		"AttackRate"	"0.5"
+		"AttackAnimationPoint"	"0"
+		"AttackAcquisitionRange"	"1400"
+		"AttackRange"	"1200"
+		
+		"ProjectileModel"	"particles/econ/events/snowball/snowball_projectile.vpcf"
+		"ProjectileSpeed"	"2000"
+
+		"BoundsHullName"	"DOTA_HULL_SIZE_SMALL"
+		"RingRadius"	"64"
+		"HealthBarOffset"	"260"
+
+		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_NONE"
+		"MovementSpeed"	"0"
+		"MovementTurnRate"	"15"
+
+		"StatusHealth"	"5"
+		"StatusHealthRegen"	"0"
+		"StatusMana"	"0"
+		"StatusManaRegen"	"0"
+
+		"TeamName"	"DOTA_TEAM_GOODGUYS"
+		"CombatClassAttack"	"DOTA_COMBAT_CLASS_ATTACK_SIEGE"
+		"CombatClassDefend"	"DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
+		"UnitRelationshipClass"	"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
+
+		"VisionDaytimeRange"	"900"
+
+
+	}
+
+
+	"gem_r3"
+	{
+
+		"BaseClass"	"npc_dota_creature"
+		"Model"	"models/props_gameplay/rune_haste01.vmdl"
+		"ModelScale"	"1.4"
+
+		"MinimapIcon"	"minimap_creep"
+		"MinimapIconSize"	"256"
+		"Level"	"1"
+		"AbilityLayout"	"6"
+		"Ability1"	"REMOVE_HP_BAR"
+		"Ability2"	""
+
+		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"	"5"
+		"AttackDamageMax"	"5"
+		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
+		
+
+		"AttackRate"	"0.5"
+		"AttackAnimationPoint"	"0"
+		"AttackAcquisitionRange"	"1400"
+		"AttackRange"	"1200"
+		
+		"ProjectileModel"	"particles/econ/events/snowball/snowball_projectile.vpcf"
+		"ProjectileSpeed"	"2000"
+
+		"BoundsHullName"	"DOTA_HULL_SIZE_SMALL"
+		"RingRadius"	"64"
+		"HealthBarOffset"	"260"
+
+		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_NONE"
+		"MovementSpeed"	"0"
+		"MovementTurnRate"	"15"
+
+		"StatusHealth"	"5"
+		"StatusHealthRegen"	"0"
+		"StatusMana"	"0"
+		"StatusManaRegen"	"0"
+
+		"TeamName"	"DOTA_TEAM_GOODGUYS"
+		"CombatClassAttack"	"DOTA_COMBAT_CLASS_ATTACK_SIEGE"
+		"CombatClassDefend"	"DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
+		"UnitRelationshipClass"	"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
+
+		"VisionDaytimeRange"	"900"
+
+
+	}
+
+	"gem_s3"
+	{
+
+		"BaseClass"	"npc_dota_creature"
+		"Model"	"models/items/wards/crystal_maiden_ward/crystal_maiden_ward.vmdl"
+		"ModelScale"	"1.4"
+
+		"MinimapIcon"	"minimap_creep"
+		"MinimapIconSize"	"256"
+		"Level"	"1"
+		"AbilityLayout"	"6"
+		"Ability1"	"REMOVE_HP_BAR"
+		"Ability2"	""
+
+		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"	"5"
+		"AttackDamageMax"	"5"
+		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
+		
+
+		"AttackRate"	"0.5"
+		"AttackAnimationPoint"	"0"
+		"AttackAcquisitionRange"	"1400"
+		"AttackRange"	"1200"
+		
+		"ProjectileModel"	"particles/econ/events/snowball/snowball_projectile.vpcf"
+		"ProjectileSpeed"	"2000"
+
+		"BoundsHullName"	"DOTA_HULL_SIZE_SMALL"
+		"RingRadius"	"64"
+		"HealthBarOffset"	"260"
+
+		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_NONE"
+		"MovementSpeed"	"0"
+		"MovementTurnRate"	"15"
+
+		"StatusHealth"	"5"
+		"StatusHealthRegen"	"0"
+		"StatusMana"	"0"
+		"StatusManaRegen"	"0"
+
+		"TeamName"	"DOTA_TEAM_GOODGUYS"
+		"CombatClassAttack"	"DOTA_COMBAT_CLASS_ATTACK_SIEGE"
+		"CombatClassDefend"	"DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
+		"UnitRelationshipClass"	"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
+
+		"VisionDaytimeRange"	"900"
+
+
+	}
+
+	"gem_t3"
+	{
+
+		"BaseClass"	"npc_dota_creature"
+		"Model"	"models/items/wards/ocula/ocula.vmdl"
+		"ModelScale"	"1.4"
+
+		"SoundSet"	"Hero_Lina"
+
+		"MinimapIcon"	"minimap_creep"
+		"MinimapIconSize"	"256"
+		"Level"	"1"
+		"AbilityLayout"	"6"
+		
+		"Ability1"	"REMOVE_HP_BAR"
+		"Ability2"	""
+
+		"ArmorPhysical"	"10"
+		"MagicalResistance"	"0"
+
+		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"	"5"
+		"AttackDamageMax"	"5"
+		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
+		
+
+		"AttackRate"	"0.5"
+		"AttackAnimationPoint"	"0"
+		"AttackAcquisitionRange"	"1400"
+		"AttackRange"	"1200"
+		
+		"ProjectileModel"	"particles/econ/events/snowball/snowball_projectile.vpcf"
+		"ProjectileSpeed"	"2000"
+
+		"BoundsHullName"	"DOTA_HULL_SIZE_SMALL"
+		"RingRadius"	"64"
+		"HealthBarOffset"	"260"
+
+		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_NONE"
+		"MovementSpeed"	"0"
+		"MovementTurnRate"	"15"
+
+		"StatusHealth"	"5"
+		"StatusHealthRegen"	"0"
+		"StatusMana"	"0"
+		"StatusManaRegen"	"0"
+
+		"TeamName"	"DOTA_TEAM_GOODGUYS"
+		"CombatClassAttack"	"DOTA_COMBAT_CLASS_ATTACK_SIEGE"
+		"CombatClassDefend"	"DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
+		"UnitRelationshipClass"	"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
+
+		"VisionDaytimeRange"	"900"
+
+
+	}
+
+		"gem_a4"
+	{
+
+		"BaseClass"	"npc_dota_creature"
+		"Model"	"models/items/wards/deadwatch_ward/deadwatch_ward.vmdl"
+		"ModelScale"	"1.5"
+
+
+		"MinimapIcon"	"minimap_creep"
+		"MinimapIconSize"	"256"
+		"Level"	"1"
+		"AbilityLayout"	"6"
+		"Ability1"	"REMOVE_HP_BAR"
+		"Ability2"	""
+
+		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"	"5"
+		"AttackDamageMax"	"5"
+		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
+		
+
+		"AttackRate"	"0.5"
+		"AttackAnimationPoint"	"0"
+		"AttackAcquisitionRange"	"1400"
+		"AttackRange"	"1200"
+		
+		"ProjectileModel"	"particles/econ/events/snowball/snowball_projectile.vpcf"
+		"ProjectileSpeed"	"2000"
+
+		"BoundsHullName"	"DOTA_HULL_SIZE_SMALL"
+		"RingRadius"	"64"
+		"HealthBarOffset"	"260"
+
+		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_NONE"
+		"MovementSpeed"	"0"
+		"MovementTurnRate"	"15"
+
+		"StatusHealth"	"5"
+		"StatusHealthRegen"	"0"
+		"StatusMana"	"0"
+		"StatusManaRegen"	"0"
+
+		"TeamName"	"DOTA_TEAM_GOODGUYS"
+		"CombatClassAttack"	"DOTA_COMBAT_CLASS_ATTACK_SIEGE"
+		"CombatClassDefend"	"DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
+		"UnitRelationshipClass"	"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
+
+		"VisionDaytimeRange"	"900"
+
+
+	}
+
+"gem_d4"
+	{
+
+		"BaseClass"	"npc_dota_creature"
+		"Model"	"models/items/wards/ward_clockwerk_watcher/ward_clockwerk_watcher.vmdl"
+		"ModelScale"	"1.5"
+
+		"MinimapIcon"	"minimap_creep"
+		"MinimapIconSize"	"256"
+		"Level"	"1"
+		"AbilityLayout"	"6"
+		"Ability1"	"REMOVE_HP_BAR"
+		"Ability2"	""
+
+		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"	"5"
+		"AttackDamageMax"	"5"
+		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
+		
+
+		"AttackRate"	"0.5"
+		"AttackAnimationPoint"	"0"
+		"AttackAcquisitionRange"	"1400"
+		"AttackRange"	"1200"
+		
+		"ProjectileModel"	"particles/econ/events/snowball/snowball_projectile.vpcf"
+		"ProjectileSpeed"	"2000"
+
+		"BoundsHullName"	"DOTA_HULL_SIZE_SMALL"
+		"RingRadius"	"64"
+		"HealthBarOffset"	"260"
+
+		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_NONE"
+		"MovementSpeed"	"0"
+		"MovementTurnRate"	"15"
+
+		"StatusHealth"	"5"
+		"StatusHealthRegen"	"0"
+		"StatusMana"	"0"
+		"StatusManaRegen"	"0"
+
+		"TeamName"	"DOTA_TEAM_GOODGUYS"
+		"CombatClassAttack"	"DOTA_COMBAT_CLASS_ATTACK_SIEGE"
+		"CombatClassDefend"	"DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
+		"UnitRelationshipClass"	"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
+
+		"VisionDaytimeRange"	"900"
+
+
+	}
+
+
+	"gem_e4"
+	{
+
+		"BaseClass"	"npc_dota_creature"
+		"Model"	"models/items/wards/drow_ward/drow_ward.vmdl"
+		"ModelScale"	"1.5"
+
+		"MinimapIcon"	"minimap_creep"
+		"MinimapIconSize"	"256"
+		"Level"	"1"
+		"AbilityLayout"	"6"
+		"Ability1"	"REMOVE_HP_BAR"
+		"Ability2"	""
+
+		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"	"5"
+		"AttackDamageMax"	"5"
+		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
+		
+
+		"AttackRate"	"0.5"
+		"AttackAnimationPoint"	"0"
+		"AttackAcquisitionRange"	"1400"
+		"AttackRange"	"1200"
+		
+		"ProjectileModel"	"particles/econ/events/snowball/snowball_projectile.vpcf"
+		"ProjectileSpeed"	"2000"
+
+		"BoundsHullName"	"DOTA_HULL_SIZE_SMALL"
+		"RingRadius"	"64"
+		"HealthBarOffset"	"260"
+
+		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_NONE"
+		"MovementSpeed"	"0"
+		"MovementTurnRate"	"15"
+
+		"StatusHealth"	"5"
+		"StatusHealthRegen"	"0"
+		"StatusMana"	"0"
+		"StatusManaRegen"	"0"
+
+		"TeamName"	"DOTA_TEAM_GOODGUYS"
+		"CombatClassAttack"	"DOTA_COMBAT_CLASS_ATTACK_SIEGE"
+		"CombatClassDefend"	"DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
+		"UnitRelationshipClass"	"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
+
+		"VisionDaytimeRange"	"900"
+
+
+	}
+
+	"gem_o4"
+	{
+
+		"BaseClass"	"npc_dota_creature"
+		"Model"	"models/props_gameplay/rune_invisibility01.vmdl"
+		"ModelScale"	"1.5"
+
+		"MinimapIcon"	"minimap_creep"
+		"MinimapIconSize"	"256"
+		"Level"	"1"
+		"AbilityLayout"	"6"
+		"Ability1"	"REMOVE_HP_BAR"
+		"Ability2"	""
+
+		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"	"5"
+		"AttackDamageMax"	"5"
+		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
+		
+
+		"AttackRate"	"0.5"
+		"AttackAnimationPoint"	"0"
+		"AttackAcquisitionRange"	"1400"
+		"AttackRange"	"1200"
+		
+		"ProjectileModel"	"particles/econ/events/snowball/snowball_projectile.vpcf"
+		"ProjectileSpeed"	"2000"
+
+		"BoundsHullName"	"DOTA_HULL_SIZE_SMALL"
+		"RingRadius"	"64"
+		"HealthBarOffset"	"260"
+
+		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_NONE"
+		"MovementSpeed"	"0"
+		"MovementTurnRate"	"15"
+
+		"StatusHealth"	"5"
+		"StatusHealthRegen"	"0"
+		"StatusMana"	"0"
+		"StatusManaRegen"	"0"
+
+		"TeamName"	"DOTA_TEAM_GOODGUYS"
+		"CombatClassAttack"	"DOTA_COMBAT_CLASS_ATTACK_SIEGE"
+		"CombatClassDefend"	"DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
+		"UnitRelationshipClass"	"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
+
+		"VisionDaytimeRange"	"900"
+
+
+	}
+
+	"gem_q4"
+	{
+
+		"BaseClass"	"npc_dota_creature"
+		"Model"	"models/items/wards/deep_observer/deep_observer.vmdl"
+		"ModelScale"	"1.5"
+
+		"MinimapIcon"	"minimap_creep"
+		"MinimapIconSize"	"256"
+		"Level"	"1"
+		"AbilityLayout"	"6"
+		"Ability1"	"REMOVE_HP_BAR"
+		"Ability2"	""
+
+		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"	"5"
+		"AttackDamageMax"	"5"
+		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
+		
+
+		"AttackRate"	"0.5"
+		"AttackAnimationPoint"	"0"
+		"AttackAcquisitionRange"	"1400"
+		"AttackRange"	"1200"
+		
+		"ProjectileModel"	"particles/econ/events/snowball/snowball_projectile.vpcf"
+		"ProjectileSpeed"	"2000"
+
+		"BoundsHullName"	"DOTA_HULL_SIZE_SMALL"
+		"RingRadius"	"64"
+		"HealthBarOffset"	"260"
+
+		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_NONE"
+		"MovementSpeed"	"0"
+		"MovementTurnRate"	"15"
+
+		"StatusHealth"	"5"
+		"StatusHealthRegen"	"0"
+		"StatusMana"	"0"
+		"StatusManaRegen"	"0"
+
+		"TeamName"	"DOTA_TEAM_GOODGUYS"
+		"CombatClassAttack"	"DOTA_COMBAT_CLASS_ATTACK_SIEGE"
+		"CombatClassDefend"	"DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
+		"UnitRelationshipClass"	"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
+
+		"VisionDaytimeRange"	"900"
+
+
+	}
+
+
+	"gem_r4"
+	{
+
+		"BaseClass"	"npc_dota_creature"
+		"Model"	"models/props_gameplay/rune_haste01.vmdl"
+		"ModelScale"	"1.5"
+
+		"MinimapIcon"	"minimap_creep"
+		"MinimapIconSize"	"256"
+		"Level"	"1"
+		"AbilityLayout"	"6"
+		"Ability1"	"REMOVE_HP_BAR"
+		"Ability2"	""
+
+		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"	"5"
+		"AttackDamageMax"	"5"
+		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
+		
+
+		"AttackRate"	"0.5"
+		"AttackAnimationPoint"	"0"
+		"AttackAcquisitionRange"	"1400"
+		"AttackRange"	"1200"
+		
+		"ProjectileModel"	"particles/econ/events/snowball/snowball_projectile.vpcf"
+		"ProjectileSpeed"	"2000"
+
+		"BoundsHullName"	"DOTA_HULL_SIZE_SMALL"
+		"RingRadius"	"64"
+		"HealthBarOffset"	"260"
+
+		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_NONE"
+		"MovementSpeed"	"0"
+		"MovementTurnRate"	"15"
+
+		"StatusHealth"	"5"
+		"StatusHealthRegen"	"0"
+		"StatusMana"	"0"
+		"StatusManaRegen"	"0"
+
+		"TeamName"	"DOTA_TEAM_GOODGUYS"
+		"CombatClassAttack"	"DOTA_COMBAT_CLASS_ATTACK_SIEGE"
+		"CombatClassDefend"	"DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
+		"UnitRelationshipClass"	"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
+
+		"VisionDaytimeRange"	"900"
+
+
+	}
+
+	"gem_s4"
+	{
+
+		"BaseClass"	"npc_dota_creature"
+		"Model"	"models/items/wards/crystal_maiden_ward/crystal_maiden_ward.vmdl"
+		"ModelScale"	"1.5"
+
+		"MinimapIcon"	"minimap_creep"
+		"MinimapIconSize"	"256"
+		"Level"	"1"
+		"AbilityLayout"	"6"
+		"Ability1"	"REMOVE_HP_BAR"
+		"Ability2"	""
+
+		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"	"5"
+		"AttackDamageMax"	"5"
+		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
+		
+
+		"AttackRate"	"0.5"
+		"AttackAnimationPoint"	"0"
+		"AttackAcquisitionRange"	"1400"
+		"AttackRange"	"1200"
+		
+		"ProjectileModel"	"particles/econ/events/snowball/snowball_projectile.vpcf"
+		"ProjectileSpeed"	"2000"
+
+		"BoundsHullName"	"DOTA_HULL_SIZE_SMALL"
+		"RingRadius"	"64"
+		"HealthBarOffset"	"260"
+
+		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_NONE"
+		"MovementSpeed"	"0"
+		"MovementTurnRate"	"15"
+
+		"StatusHealth"	"5"
+		"StatusHealthRegen"	"0"
+		"StatusMana"	"0"
+		"StatusManaRegen"	"0"
+
+		"TeamName"	"DOTA_TEAM_GOODGUYS"
+		"CombatClassAttack"	"DOTA_COMBAT_CLASS_ATTACK_SIEGE"
+		"CombatClassDefend"	"DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
+		"UnitRelationshipClass"	"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
+
+		"VisionDaytimeRange"	"900"
+
+
+	}
+
+	"gem_t4"
+	{
+
+		"BaseClass"	"npc_dota_creature"
+		"Model"	"models/items/wards/ocula/ocula.vmdl"
+		"ModelScale"	"1.5"
+
+		"SoundSet"	"Hero_Lina"
+
+		"MinimapIcon"	"minimap_creep"
+		"MinimapIconSize"	"256"
+		"Level"	"1"
+		"AbilityLayout"	"6"
+		
+		"Ability1"	"REMOVE_HP_BAR"
+		"Ability2"	""
+
+		"ArmorPhysical"	"10"
+		"MagicalResistance"	"0"
+
+		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"	"5"
+		"AttackDamageMax"	"5"
+		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
+		
+
+		"AttackRate"	"0.5"
+		"AttackAnimationPoint"	"0"
+		"AttackAcquisitionRange"	"1400"
+		"AttackRange"	"1200"
+		
+		"ProjectileModel"	"particles/econ/events/snowball/snowball_projectile.vpcf"
+		"ProjectileSpeed"	"2000"
+
+		"BoundsHullName"	"DOTA_HULL_SIZE_SMALL"
+		"RingRadius"	"64"
+		"HealthBarOffset"	"260"
+
+		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_NONE"
+		"MovementSpeed"	"0"
+		"MovementTurnRate"	"15"
+
+		"StatusHealth"	"5"
+		"StatusHealthRegen"	"0"
+		"StatusMana"	"0"
+		"StatusManaRegen"	"0"
+
+		"TeamName"	"DOTA_TEAM_GOODGUYS"
+		"CombatClassAttack"	"DOTA_COMBAT_CLASS_ATTACK_SIEGE"
+		"CombatClassDefend"	"DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
+		"UnitRelationshipClass"	"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
+
+		"VisionDaytimeRange"	"900"
+
+
+	}
+
+		"gem_a5"
+	{
+
+		"BaseClass"	"npc_dota_creature"
+		"Model"	"models/items/wards/deadwatch_ward/deadwatch_ward.vmdl"
+		"ModelScale"	"1.6"
+
+
+		"MinimapIcon"	"minimap_creep"
+		"MinimapIconSize"	"256"
+		"Level"	"1"
+		"AbilityLayout"	"6"
+		"Ability1"	"REMOVE_HP_BAR"
+		"Ability2"	""
+
+		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"	"5"
+		"AttackDamageMax"	"5"
+		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
+		
+
+		"AttackRate"	"0.5"
+		"AttackAnimationPoint"	"0"
+		"AttackAcquisitionRange"	"1400"
+		"AttackRange"	"1200"
+		
+		"ProjectileModel"	"particles/econ/events/snowball/snowball_projectile.vpcf"
+		"ProjectileSpeed"	"2000"
+
+		"BoundsHullName"	"DOTA_HULL_SIZE_SMALL"
+		"RingRadius"	"64"
+		"HealthBarOffset"	"260"
+
+		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_NONE"
+		"MovementSpeed"	"0"
+		"MovementTurnRate"	"15"
+
+		"StatusHealth"	"5"
+		"StatusHealthRegen"	"0"
+		"StatusMana"	"0"
+		"StatusManaRegen"	"0"
+
+		"TeamName"	"DOTA_TEAM_GOODGUYS"
+		"CombatClassAttack"	"DOTA_COMBAT_CLASS_ATTACK_SIEGE"
+		"CombatClassDefend"	"DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
+		"UnitRelationshipClass"	"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
+
+		"VisionDaytimeRange"	"900"
+
+
+	}
+
+"gem_d5"
+	{
+
+		"BaseClass"	"npc_dota_creature"
+		"Model"	"models/items/wards/ward_clockwerk_watcher/ward_clockwerk_watcher.vmdl"
+		"ModelScale"	"1.6"
+
+		"MinimapIcon"	"minimap_creep"
+		"MinimapIconSize"	"256"
+		"Level"	"1"
+		"AbilityLayout"	"6"
+		"Ability1"	"REMOVE_HP_BAR"
+		"Ability2"	""
+
+		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"	"5"
+		"AttackDamageMax"	"5"
+		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
+		
+
+		"AttackRate"	"0.5"
+		"AttackAnimationPoint"	"0"
+		"AttackAcquisitionRange"	"1400"
+		"AttackRange"	"1200"
+		
+		"ProjectileModel"	"particles/econ/events/snowball/snowball_projectile.vpcf"
+		"ProjectileSpeed"	"2000"
+
+		"BoundsHullName"	"DOTA_HULL_SIZE_SMALL"
+		"RingRadius"	"64"
+		"HealthBarOffset"	"260"
+
+		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_NONE"
+		"MovementSpeed"	"0"
+		"MovementTurnRate"	"15"
+
+		"StatusHealth"	"5"
+		"StatusHealthRegen"	"0"
+		"StatusMana"	"0"
+		"StatusManaRegen"	"0"
+
+		"TeamName"	"DOTA_TEAM_GOODGUYS"
+		"CombatClassAttack"	"DOTA_COMBAT_CLASS_ATTACK_SIEGE"
+		"CombatClassDefend"	"DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
+		"UnitRelationshipClass"	"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
+
+		"VisionDaytimeRange"	"900"
+
+
+	}
+
+
+	"gem_e5"
+	{
+
+		"BaseClass"	"npc_dota_creature"
+		"Model"	"models/items/wards/drow_ward/drow_ward.vmdl"
+		"ModelScale"	"1.6"
+
+		"MinimapIcon"	"minimap_creep"
+		"MinimapIconSize"	"256"
+		"Level"	"1"
+		"AbilityLayout"	"6"
+		"Ability1"	"REMOVE_HP_BAR"
+		"Ability2"	""
+
+		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"	"5"
+		"AttackDamageMax"	"5"
+		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
+		
+
+		"AttackRate"	"0.5"
+		"AttackAnimationPoint"	"0"
+		"AttackAcquisitionRange"	"1400"
+		"AttackRange"	"1200"
+		
+		"ProjectileModel"	"particles/econ/events/snowball/snowball_projectile.vpcf"
+		"ProjectileSpeed"	"2000"
+
+		"BoundsHullName"	"DOTA_HULL_SIZE_SMALL"
+		"RingRadius"	"64"
+		"HealthBarOffset"	"260"
+
+		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_NONE"
+		"MovementSpeed"	"0"
+		"MovementTurnRate"	"15"
+
+		"StatusHealth"	"5"
+		"StatusHealthRegen"	"0"
+		"StatusMana"	"0"
+		"StatusManaRegen"	"0"
+
+		"TeamName"	"DOTA_TEAM_GOODGUYS"
+		"CombatClassAttack"	"DOTA_COMBAT_CLASS_ATTACK_SIEGE"
+		"CombatClassDefend"	"DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
+		"UnitRelationshipClass"	"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
+
+		"VisionDaytimeRange"	"900"
+
+
+	}
+
+	"gem_o5"
+	{
+
+		"BaseClass"	"npc_dota_creature"
+		"Model"	"models/props_gameplay/rune_invisibility01.vmdl"
+		"ModelScale"	"1.6"
+
+		"MinimapIcon"	"minimap_creep"
+		"MinimapIconSize"	"256"
+		"Level"	"1"
+		"AbilityLayout"	"6"
+		"Ability1"	"REMOVE_HP_BAR"
+		"Ability2"	""
+
+		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"	"5"
+		"AttackDamageMax"	"5"
+		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
+		
+
+		"AttackRate"	"0.5"
+		"AttackAnimationPoint"	"0"
+		"AttackAcquisitionRange"	"1400"
+		"AttackRange"	"1200"
+		
+		"ProjectileModel"	"particles/econ/events/snowball/snowball_projectile.vpcf"
+		"ProjectileSpeed"	"2000"
+
+		"BoundsHullName"	"DOTA_HULL_SIZE_SMALL"
+		"RingRadius"	"64"
+		"HealthBarOffset"	"260"
+
+		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_NONE"
+		"MovementSpeed"	"0"
+		"MovementTurnRate"	"15"
+
+		"StatusHealth"	"5"
+		"StatusHealthRegen"	"0"
+		"StatusMana"	"0"
+		"StatusManaRegen"	"0"
+
+		"TeamName"	"DOTA_TEAM_GOODGUYS"
+		"CombatClassAttack"	"DOTA_COMBAT_CLASS_ATTACK_SIEGE"
+		"CombatClassDefend"	"DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
+		"UnitRelationshipClass"	"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
+
+		"VisionDaytimeRange"	"900"
+
+
+	}
+
+	"gem_q5"
+	{
+
+		"BaseClass"	"npc_dota_creature"
+		"Model"	"models/items/wards/deep_observer/deep_observer.vmdl"
+		"ModelScale"	"1.6"
+
+		"MinimapIcon"	"minimap_creep"
+		"MinimapIconSize"	"256"
+		"Level"	"1"
+		"AbilityLayout"	"6"
+		"Ability1"	"REMOVE_HP_BAR"
+		"Ability2"	""
+
+		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"	"5"
+		"AttackDamageMax"	"5"
+		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
+		
+
+		"AttackRate"	"0.5"
+		"AttackAnimationPoint"	"0"
+		"AttackAcquisitionRange"	"1400"
+		"AttackRange"	"1200"
+		
+		"ProjectileModel"	"particles/econ/events/snowball/snowball_projectile.vpcf"
+		"ProjectileSpeed"	"2000"
+
+		"BoundsHullName"	"DOTA_HULL_SIZE_SMALL"
+		"RingRadius"	"64"
+		"HealthBarOffset"	"260"
+
+		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_NONE"
+		"MovementSpeed"	"0"
+		"MovementTurnRate"	"15"
+
+		"StatusHealth"	"5"
+		"StatusHealthRegen"	"0"
+		"StatusMana"	"0"
+		"StatusManaRegen"	"0"
+
+		"TeamName"	"DOTA_TEAM_GOODGUYS"
+		"CombatClassAttack"	"DOTA_COMBAT_CLASS_ATTACK_SIEGE"
+		"CombatClassDefend"	"DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
+		"UnitRelationshipClass"	"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
+
+		"VisionDaytimeRange"	"900"
+
+
+	}
+
+
+	"gem_r5"
+	{
+
+		"BaseClass"	"npc_dota_creature"
+		"Model"	"models/props_gameplay/rune_haste01.vmdl"
+		"ModelScale"	"1.6"
+
+		"MinimapIcon"	"minimap_creep"
+		"MinimapIconSize"	"256"
+		"Level"	"1"
+		"AbilityLayout"	"6"
+		"Ability1"	"REMOVE_HP_BAR"
+		"Ability2"	""
+
+		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"	"5"
+		"AttackDamageMax"	"5"
+		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
+		
+
+		"AttackRate"	"0.5"
+		"AttackAnimationPoint"	"0"
+		"AttackAcquisitionRange"	"1400"
+		"AttackRange"	"1200"
+		
+		"ProjectileModel"	"particles/econ/events/snowball/snowball_projectile.vpcf"
+		"ProjectileSpeed"	"2000"
+
+		"BoundsHullName"	"DOTA_HULL_SIZE_SMALL"
+		"RingRadius"	"64"
+		"HealthBarOffset"	"260"
+
+		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_NONE"
+		"MovementSpeed"	"0"
+		"MovementTurnRate"	"15"
+
+		"StatusHealth"	"5"
+		"StatusHealthRegen"	"0"
+		"StatusMana"	"0"
+		"StatusManaRegen"	"0"
+
+		"TeamName"	"DOTA_TEAM_GOODGUYS"
+		"CombatClassAttack"	"DOTA_COMBAT_CLASS_ATTACK_SIEGE"
+		"CombatClassDefend"	"DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
+		"UnitRelationshipClass"	"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
+
+		"VisionDaytimeRange"	"900"
+
+
+	}
+
+	"gem_s5"
+	{
+
+		"BaseClass"	"npc_dota_creature"
+		"Model"	"models/items/wards/crystal_maiden_ward/crystal_maiden_ward.vmdl"
+		"ModelScale"	"1.6"
+
+		"MinimapIcon"	"minimap_creep"
+		"MinimapIconSize"	"256"
+		"Level"	"1"
+		"AbilityLayout"	"6"
+		"Ability1"	"REMOVE_HP_BAR"
+		"Ability2"	""
+
+		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"	"5"
+		"AttackDamageMax"	"5"
+		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
+		
+
+		"AttackRate"	"0.5"
+		"AttackAnimationPoint"	"0"
+		"AttackAcquisitionRange"	"1400"
+		"AttackRange"	"1200"
+		
+		"ProjectileModel"	"particles/econ/events/snowball/snowball_projectile.vpcf"
+		"ProjectileSpeed"	"2000"
+
+		"BoundsHullName"	"DOTA_HULL_SIZE_SMALL"
+		"RingRadius"	"64"
+		"HealthBarOffset"	"260"
+
+		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_NONE"
+		"MovementSpeed"	"0"
+		"MovementTurnRate"	"15"
+
+		"StatusHealth"	"5"
+		"StatusHealthRegen"	"0"
+		"StatusMana"	"0"
+		"StatusManaRegen"	"0"
+
+		"TeamName"	"DOTA_TEAM_GOODGUYS"
+		"CombatClassAttack"	"DOTA_COMBAT_CLASS_ATTACK_SIEGE"
+		"CombatClassDefend"	"DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
+		"UnitRelationshipClass"	"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
+
+		"VisionDaytimeRange"	"900"
+
+
+	}
+
+	"gem_t5"
+	{
+
+		"BaseClass"	"npc_dota_creature"
+		"Model"	"models/items/wards/ocula/ocula.vmdl"
+		"ModelScale"	"1.6"
+
+		"SoundSet"	"Hero_Lina"
+
+		"MinimapIcon"	"minimap_creep"
+		"MinimapIconSize"	"256"
+		"Level"	"1"
+		"AbilityLayout"	"6"
+		
+		"Ability1"	"REMOVE_HP_BAR"
+		"Ability2"	""
+
+		"ArmorPhysical"	"10"
+		"MagicalResistance"	"0"
+
+		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"	"5"
+		"AttackDamageMax"	"5"
+		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
+		
+
+		"AttackRate"	"0.5"
+		"AttackAnimationPoint"	"0"
+		"AttackAcquisitionRange"	"1400"
+		"AttackRange"	"1200"
+		
+		"ProjectileModel"	"particles/econ/events/snowball/snowball_projectile.vpcf"
+		"ProjectileSpeed"	"2000"
+
+		"BoundsHullName"	"DOTA_HULL_SIZE_SMALL"
+		"RingRadius"	"64"
+		"HealthBarOffset"	"260"
+
+		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_NONE"
+		"MovementSpeed"	"0"
+		"MovementTurnRate"	"15"
+
+		"StatusHealth"	"5"
+		"StatusHealthRegen"	"0"
+		"StatusMana"	"0"
+		"StatusManaRegen"	"0"
+
+		"TeamName"	"DOTA_TEAM_GOODGUYS"
+		"CombatClassAttack"	"DOTA_COMBAT_CLASS_ATTACK_SIEGE"
+		"CombatClassDefend"	"DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
+		"UnitRelationshipClass"	"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
+
+		"VisionDaytimeRange"	"900"
+
+
+	}
+
+	"gem_Silver"
+	{
+
+		"BaseClass"	"npc_dota_creature"
+		"Model"	"models/items/wards/esl_wardchest_direling_ward/esl_wardchest_direling_ward.vmdl"
+		"ModelScale"	"1.5"
+
+
+		"MinimapIcon"	"minimap_creep"
+		"MinimapIconSize"	"256"
+		"Level"	"1"
+		"AbilityLayout"	"6"
+		"Ability1"	"REMOVE_HP_BAR"
+		"Ability2"	""
+
+		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"	"5"
+		"AttackDamageMax"	"5"
+		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
+		
+
+		"AttackRate"	"0.5"
+		"AttackAnimationPoint"	"0"
+		"AttackAcquisitionRange"	"1400"
+		"AttackRange"	"1200"
+		
+		"ProjectileModel"	"particles/econ/events/snowball/snowball_projectile.vpcf"
+		"ProjectileSpeed"	"2000"
+
+		"BoundsHullName"	"DOTA_HULL_SIZE_SMALL"
+		"RingRadius"	"64"
+		"HealthBarOffset"	"260"
+
+		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_NONE"
+		"MovementSpeed"	"0"
+		"MovementTurnRate"	"15"
+
+		"StatusHealth"	"5"
+		"StatusHealthRegen"	"0"
+		"StatusMana"	"0"
+		"StatusManaRegen"	"0"
+
+		"TeamName"	"DOTA_TEAM_GOODGUYS"
+		"CombatClassAttack"	"DOTA_COMBAT_CLASS_ATTACK_SIEGE"
+		"CombatClassDefend"	"DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
+		"UnitRelationshipClass"	"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
+
+		"VisionDaytimeRange"	"900"
+
+
+	}
+	"gem_Malachite"
+	{
+
+		"BaseClass"	"npc_dota_creature"
+		"Model"	"models/items/wards/fairy_dragon/fairy_dragon.vmdl"
+		"ModelScale"	"1.5"
+
+
+		"MinimapIcon"	"minimap_creep"
+		"MinimapIconSize"	"256"
+		"Level"	"1"
+		"AbilityLayout"	"6"
+		"Ability1"	"REMOVE_HP_BAR"
+		"Ability2"	""
+
+		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"	"5"
+		"AttackDamageMax"	"5"
+		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
+		
+
+		"AttackRate"	"0.5"
+		"AttackAnimationPoint"	"0"
+		"AttackAcquisitionRange"	"1400"
+		"AttackRange"	"1200"
+		
+		"ProjectileModel"	"particles/econ/events/snowball/snowball_projectile.vpcf"
+		"ProjectileSpeed"	"2000"
+
+		"BoundsHullName"	"DOTA_HULL_SIZE_SMALL"
+		"RingRadius"	"64"
+		"HealthBarOffset"	"260"
+
+		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_NONE"
+		"MovementSpeed"	"0"
+		"MovementTurnRate"	"15"
+
+		"StatusHealth"	"5"
+		"StatusHealthRegen"	"0"
+		"StatusMana"	"0"
+		"StatusManaRegen"	"0"
+
+		"TeamName"	"DOTA_TEAM_GOODGUYS"
+		"CombatClassAttack"	"DOTA_COMBAT_CLASS_ATTACK_SIEGE"
+		"CombatClassDefend"	"DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
+		"UnitRelationshipClass"	"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
+
+		"VisionDaytimeRange"	"900"
+
+
+	}
+	"gem_Asteriated_Ruby"
+	{
+
+		"BaseClass"	"npc_dota_creature"
+		"Model"	"models/items/wards/fairy_dragon/fairy_dragon.vmdl"
+		"ModelScale"	"1.5"
+
+
+		"MinimapIcon"	"minimap_creep"
+		"MinimapIconSize"	"256"
+		"Level"	"1"
+		"AbilityLayout"	"6"
+		"Ability1"	"REMOVE_HP_BAR"
+		"Ability2"	""
+
+		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"	"5"
+		"AttackDamageMax"	"5"
+		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
+		
+
+		"AttackRate"	"0.5"
+		"AttackAnimationPoint"	"0"
+		"AttackAcquisitionRange"	"1400"
+		"AttackRange"	"1200"
+		
+		"ProjectileModel"	"particles/econ/events/snowball/snowball_projectile.vpcf"
+		"ProjectileSpeed"	"2000"
+
+		"BoundsHullName"	"DOTA_HULL_SIZE_SMALL"
+		"RingRadius"	"64"
+		"HealthBarOffset"	"260"
+
+		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_NONE"
+		"MovementSpeed"	"0"
+		"MovementTurnRate"	"15"
+
+		"StatusHealth"	"5"
+		"StatusHealthRegen"	"0"
+		"StatusMana"	"0"
+		"StatusManaRegen"	"0"
+
+		"TeamName"	"DOTA_TEAM_GOODGUYS"
+		"CombatClassAttack"	"DOTA_COMBAT_CLASS_ATTACK_SIEGE"
+		"CombatClassDefend"	"DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
+		"UnitRelationshipClass"	"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
+
+		"VisionDaytimeRange"	"900"
+
+
+	}
+
+
+	//ROUND UNITS DEFINITON
+		
+	"gem_round1_sheep"
+		{                                       
+			"Model"                 "models/items/hex/sheep_hex/sheep_hex.vmdl" // Model.
+			"BaseClass"             "npc_dota_creature"
+			"Level"                 "7"
+			"ModelScale"                "1.4"
+			"IsAncient"	"1"
+			
+			"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
+			"DisableClumpingBehavior"	"1"
+			
+			"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
+			"MovementSpeed"             "400"
+
+			"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_BASIC"
+			"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+			"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+			
+
+			"ProjectileCollisionSize"	"50"
+			"RingRadius"				"64"
+			"HealthBarOffset"			"260"
+			"BoundsHullName"			"DOTA_HULL_SIZE_FILLER"
+			
+			"StatusHealth"	"100"
+			"HasAggressiveStance"         "1"
+			"VisionDaytimeRange"	"10000"
+		}
+
+	"gem_round2_zombie"
+		{                                       
+			"Model"                 "models/creeps/lane_creeps/creep_bad_melee_diretide/creep_bad_melee_diretide.vmdl" // Model.
+			"BaseClass"             "npc_dota_creature"
+			"Level"                 "7"
+			"ModelScale"                "1.4"
+			
+			
+			
+			"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
+			"MovementSpeed"             "1200"
+
+			"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_BASIC"
+			"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+			"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+			
+			"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"		// Hull type used for navigation/locomotion.
+			"ProjectileCollisionSize"	"50"
+			"RingRadius"				"1"
+			"HealthBarOffset"			"260"
+			
+			"StatusHealth"	"100"
+
+		}
+
+
+	"gem_round3_pinkrex"
+		{                                       
+			"Model"                 "models/items/courier/faceless_rex/faceless_rex.vmdl" // Model.
+			"BaseClass"             "npc_dota_creature"
+			"Level"                 "7"
+			"ModelScale"                "1.4"
+			
+			
+			
+			"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
+			"MovementSpeed"             "1200"
+
+			"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_BASIC"
+			"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+			"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+			
+			"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"		// Hull type used for navigation/locomotion.
+			"ProjectileCollisionSize"	"50"
+			"RingRadius"				"1"
+			"HealthBarOffset"			"260"
+			
+			"StatusHealth"	"100"
+
+		}
+
+	"gem_round4_greyturtle"
+		{                                       
+			"Model"                 "models/items/courier/nexon_turtle_01_grey/nexon_turtle_01_grey.vmdl" // Model.
+			"BaseClass"             "npc_dota_creature"
+			"Level"                 "7"
+			"ModelScale"                "1.4"
+			
+			
+			
+			"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
+			"MovementSpeed"             "1200"
+
+			"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_BASIC"
+			"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+			"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+			
+			"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"		// Hull type used for navigation/locomotion.
+			"ProjectileCollisionSize"	"50"
+			"RingRadius"				"1"
+			"HealthBarOffset"			"260"
+			
+			"StatusHealth"	"100"
+
+		}
+		
+
+	"gem_round5_wraith"
+		{                                       
+			"Model"                 "models/items/courier/mlg_courier_wraith/mlg_courier_wraith_flying.vmdl" // Model.
+			"BaseClass"             "npc_dota_creature"
+			"Level"                 "7"
+			"ModelScale"                "1.4"
+			
+			
+			
+			"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_FLY"
+			"MovementSpeed"             "1200"
+
+			"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_BASIC"
+			"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+			"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+			
+			"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"		// Hull type used for navigation/locomotion.
+			"ProjectileCollisionSize"	"50"
+			"RingRadius"				"1"
+			"HealthBarOffset"			"260"
+			
+			"StatusHealth"	"100"
+
+		}
+
+	"gem_round6_fei_lian"
+		{                                       
+			"Model"                 "models/items/courier/fei_lian_blue/fei_lian_blue.vmdl" // Model.
+			"BaseClass"             "npc_dota_creature"
+			"Level"                 "7"
+			"ModelScale"                "1.4"
+			
+			
+			
+			"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
+			"MovementSpeed"             "1200"
+
+			"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_BASIC"
+			"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+			"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+			
+			"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"		// Hull type used for navigation/locomotion.
+			"ProjectileCollisionSize"	"50"
+			"RingRadius"				"1"
+			"HealthBarOffset"			"260"
+			
+			"StatusHealth"	"100"
+
+		}
+
+	"gem_round7_snowl"
+		{                                       
+			"Model"                 "models/items/courier/snowl/snowl.vmdl" // Model.
+			"BaseClass"             "npc_dota_creature"
+			"Level"                 "7"
+			"ModelScale"                "1.4"
+			
+			
+			
+			"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
+			"MovementSpeed"             "1200"
+
+			"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_BASIC"
+			"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+			"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+			
+			"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"		// Hull type used for navigation/locomotion.
+			"ProjectileCollisionSize"	"50"
+			"RingRadius"				"1"
+			"HealthBarOffset"			"260"
+			
+			"StatusHealth"	"100"
+
+		}
+
+	"gem_round8_hamster"
+		{                                       
+			"Model"                 "models/items/courier/catakeet/catakeet.vmdl" // Model.
+			"BaseClass"             "npc_dota_creature"
+			"Level"                 "7"
+			"ModelScale"                "1.4"
+			
+			
+			
+			"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
+			"MovementSpeed"             "1200"
+
+			"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_BASIC"
+			"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+			"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+			
+			"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"		// Hull type used for navigation/locomotion.
+			"ProjectileCollisionSize"	"50"
+			"RingRadius"				"1"
+			"HealthBarOffset"			"260"
+			
+			"StatusHealth"	"100"
+
+		}
+	"gem_round9_shroomy"
+		{                                       
+			"Model"                 "models/items/courier/shroomy/shroomy.vmdl" // Model.
+			"BaseClass"             "npc_dota_creature"
+			"Level"                 "5"
+			"ModelScale"                "1.4"
+			
+			
+			
+			"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
+			"MovementSpeed"             "1200"
+
+			"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_BASIC"
+			"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+			"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+			
+			"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"		// Hull type used for navigation/locomotion.
+			"ProjectileCollisionSize"	"50"
+			"RingRadius"				"1"
+			"HealthBarOffset"			"260"
+			
+			"StatusHealth"	"100"
+
+		}
+
+	"gem_round10_rex"
+		{                                       
+			"Model"                 "models/items/courier/snapjaw/snapjaw.vmdl" // Model.
+			"BaseClass"             "npc_dota_creature"
+			"Level"                 "7"
+			"ModelScale"                "2.4"
+			
+			
+			
+			"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
+			"MovementSpeed"             "1200"
+
+			"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_BASIC"
+			"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+			"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+			
+			"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"		// Hull type used for navigation/locomotion.
+			"ProjectileCollisionSize"	"50"
+			"RingRadius"				"1"
+			"HealthBarOffset"			"260"
+			
+			"StatusHealth"	"100"
+
+		}
+	"gem_round11_shroomy"
+		{                                       
+			"Model"                 "models/items/courier/shroomy/shroomy.vmdl" // Model.
+			"BaseClass"             "npc_dota_creature"
+			"Level"                 "5"
+			"ModelScale"                "1.4"
+			
+			
+			
+			"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
+			"MovementSpeed"             "1200"
+
+			"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_BASIC"
+			"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+			"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+			
+			"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"		// Hull type used for navigation/locomotion.
+			"ProjectileCollisionSize"	"50"
+			"RingRadius"				"1"
+			"HealthBarOffset"			"260"
+			
+			"StatusHealth"	"100"
+
+		}
+
+
+
+		"testward"
+		{                                       
+			"Model"                 "models/items/wards/jinnie_v2/jinnie_v2.vmdl" // Model.
+			"BaseClass"             "npc_dota_creature"
+			"Level"                 "7"
+			"ModelScale"                "1"
+			
+			
+			"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+			"AttackDamageMin"			"5"		// Damage range min.
+			"AttackDamageMax"			"5"		// Damage range max.
+			"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
+			"AttackRate"				"0.25"			// Speed of attack.
+			
+			"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
+			"MovementSpeed"             "250"
+
+			"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_BASIC"
+			"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+			"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+			
+			"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"			// Hull type used for navigation/locomotion.
+			"ProjectileCollisionSize"	"50"
+			"RingRadius"				"64"
+			"HealthBarOffset"			"260"
+			
+		}
+
+
+		
+		
+}
