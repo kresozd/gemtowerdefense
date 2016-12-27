@@ -18,6 +18,8 @@ function GemTowerDefenseReborn:OnPlayerPickHero(keys)
 	local playerID = player:GetPlayerID()
 
 	Players:SetPicked(playerID, true)
+
+	Players:CheckIfAllPicked()
 	
 	Rounds:RemoveTalents(hero)
 	Rounds:AddBuildAbility(hero)
@@ -82,9 +84,6 @@ end
 
 function GemTowerDefenseReborn:OnAllPicked()
 
-	--pass playerID
 	print("Panorama Event. All Picked!")
-
-
 
 end

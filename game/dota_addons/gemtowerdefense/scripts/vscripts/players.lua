@@ -20,28 +20,24 @@ function Players:SetPicked(playerID, bool)
 
     self.Picked[playerID] = bool
 
-    
-
 end
 
 
 function Players:CheckIfAllPicked()
 
     for k, v in pairs(self.Picked) do
+        
+        if v == false then
 
-        for i, j in pairs(v) do
-
-            if j == false then
-
-                return false
-
-            end
+            return false
 
         end
-
     end
 
+    CustomNetTables:SetTableValue( "game_state", "all_picked", { value = "pick" } )
+    print("All Picked!")
     return true
+    
 
 
 end

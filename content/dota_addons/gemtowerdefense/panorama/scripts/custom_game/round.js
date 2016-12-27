@@ -1,7 +1,5 @@
 
 var units_killed = 1
-var joinedHero   = 0
-
 
 function updateRound(table, key, data) {
   if (key == 'current_round') {
@@ -11,15 +9,12 @@ function updateRound(table, key, data) {
 
 function AllPicked(table, key, data)
 {
-  var playerAmount = GetMaxPlayers()
-  $.Msg( "Players on server: ", playerAmount );
-  if(key == "pick_hero")
+  
+  if(key == "all_picked")
   {
-    joinedHero++;
-    if(joinedHero == playerAmount)
-    {
-      GameEvens.SendCustomGameEventToServer("all_picked", {"key":"value"})
-    }
+     GameEvents.SendCustomGameEventToServer("all_picked", {"key":"value"})
+    $.Msg( "In all Picked function panorama! ");
+      
   }
 
 }
@@ -27,7 +22,7 @@ function AllPicked(table, key, data)
 
 function WaveEnded(table, key, data)
 {
-  if(key == "unit_killed")
+  if(key == "unit_killed")  
   {
     $.Msg( "units_killed update: ", units_killed );
     units_killed++;
@@ -50,5 +45,5 @@ function WaveEnded(table, key, data)
 })();
 
 (function() {
-  CustomNetTables.SubscribeNetTableListener('pickedHero', AllPicked);
+  CustomNetTables.SubscribeNetTableListener('game_state', AllPicked);
 })();
