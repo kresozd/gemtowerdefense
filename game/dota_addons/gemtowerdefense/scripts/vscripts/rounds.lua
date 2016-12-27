@@ -237,6 +237,14 @@ function Rounds:IsBoss()
 
 end
 
+--[[
+	Rounds:ResetAmountOfKilled()
+	Rounds:IncrementRound()
+	CustomNetTables:SetTableValue( "game_state", "current_round", { value = Rounds:GetRoundNumber() } )
+	Rounds:Build()
+]]--
+
+
 function Rounds:IsRoundCleared()
 
 	if self.AmountKilled == 10 then
@@ -272,8 +280,6 @@ function Rounds:ResetAmountOfKilled()
 end
 
 function Rounds:Build()
-
-	print("Build called!")
 
 	CustomNetTables:SetTableValue( "game_state", "current_round", { value = Rounds:GetRoundNumber() } )
 	Rounds:AddHeroAbilitiesOnRound()

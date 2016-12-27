@@ -18,16 +18,21 @@ function GemTowerDefenseReborn:OnPlayerPickHero(keys)
 	local playerID = player:GetPlayerID()
 
 	Players:SetPicked(playerID, true)
-
+	Players:SetHero(playerID, hero)
 	Players:CheckIfAllPicked()
 	
-	Rounds:RemoveTalents(hero)
-	Rounds:AddBuildAbility(hero)
-	Rounds:SetPlayer(playerID)
+	Players:RemoveTalents(hero)
+	Players:AddLockedAbilitiesOnStart(hero)
 	
 	hero:SetAbilityPoints(0)
 
---	Players:UpdateChosenHero()
+	if Players:CheckIfAllPicked() then
+
+		Players:UnlockAbilities()
+
+
+	end
+
 
 end
 
@@ -57,12 +62,8 @@ function GemTowerDefenseReborn:OnEntityKilled(keys)
 	local Hero = Player:GetAssignedHero()
 	local PlayerID = Player:GetPlayerID()
 
-	
-	
 	local unit = EntIndexToHScript(keys.entindex_killed)
 	local eHandle = unit:GetEntityHandle()
-
-	CustomNetTables:SetTableValue( "game_state", "unit_killed", { value = eHandle } )
 
 	Hero:AddExperience(unit.XPBounty, 0, false, false)
 	PlayerResource:ModifyGold(0, unit.GoldBounty, false, 0)
@@ -70,20 +71,16 @@ function GemTowerDefenseReborn:OnEntityKilled(keys)
 	Rounds:DeleteUnit(eHandle)
 	Rounds:IncrementKillNumber()
 
-end
-
-
-function GemTowerDefenseReborn:OnWaveEnd()
-
 	Rounds:ResetAmountOfKilled()
 	Rounds:IncrementRound()
-	CustomNetTables:SetTableValue( "game_state", "current_round", { value = Rounds:GetRoundNumber() } )
+	--CustomNetTables:SetTableValue( "game_state", "current_round", { value = Rounds:GetRoundNumber() } )
 	Rounds:Build()
 
 end
 
-function GemTowerDefenseReborn:OnAllPicked()
+function GemTowerDefenseReborn:OnStateChange(keys)
 
-	print("Panorama Event. All Picked!")
+	DeepPrintTable(keys)
+
 
 end

@@ -16,6 +16,7 @@ function OnTouchGemCastle(trigger)
 	
     
 	Rounds:DeleteUnit(eHandle)
+	Rounds:IncrementKillNumber()
 
 	if Rounds:IsRoundCleared() then
 

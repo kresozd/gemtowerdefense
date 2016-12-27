@@ -7,43 +7,7 @@ function updateRound(table, key, data) {
   }
 }
 
-function AllPicked(table, key, data)
-{
-  
-  if(key == "all_picked")
-  {
-     GameEvents.SendCustomGameEventToServer("all_picked", {"key":"value"})
-    $.Msg( "In all Picked function panorama! ");
-      
-  }
-
-}
-
-
-function WaveEnded(table, key, data)
-{
-  if(key == "unit_killed")  
-  {
-    $.Msg( "units_killed update: ", units_killed );
-    units_killed++;
-    if (units_killed % 10 == 0)
-    {
-        GameEvents.SendCustomGameEventToServer("wave_end", {"key":"value"})
-    }
-
-  }
-
-}
 
 (function() {
   CustomNetTables.SubscribeNetTableListener('game_state', updateRound);
-})();
-
-(function()
-{
-  CustomNetTables.SubscribeNetTableListener('game_state', WaveEnded);
-})();
-
-(function() {
-  CustomNetTables.SubscribeNetTableListener('game_state', AllPicked);
 })();

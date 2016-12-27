@@ -46,13 +46,9 @@ function GemTowerDefenseReborn:InitGameMode()
 	ListenToGameEvent('dota_player_pick_hero', Dynamic_Wrap(GemTowerDefenseReborn, 'OnPlayerPickHero'), self)
 	ListenToGameEvent('dota_player_gained_level', Dynamic_Wrap(GemTowerDefenseReborn, 'OnPlayerLevelUp'), self)
 	ListenToGameEvent('player_connect_full', Dynamic_Wrap(GemTowerDefenseReborn, 'OnConnectFull'), self)
+	ListenToGameEvent('game_rules_state_change', Dynamic_Wrap(GemTowerDefenseReborn, 'OnStateChange'), self)
 
-
-	CustomGameEventManager:RegisterListener( "wave_end", Dynamic_Wrap(GemTowerDefenseReborn, "OnWaveEnd"))
-	CustomGameEventManager:RegisterListener( "all_picked", Dynamic_Wrap(GemTowerDefenseReborn, "OnAllPicked"))
-
-
-	TOTAL_PLAYER_COUNT = 0
+	--TOTAL_PLAYER_COUNT = 0
 
 	GameRules:GetGameModeEntity():SetCustomXPRequiredToReachNextLevel(settingsKV.CustomXPTable)
 	GameRules:SetUseCustomHeroXPValues(true)
