@@ -33,7 +33,6 @@ function toggleFormulaLayout() {
 
 function hideNav() {
   if (!$('#board-formula').BHasClass('board-hidden')) {
-    $.Msg('hello hide');
     $('#boards-nav-container').SetHasClass('hidden', true);
     $('#boards-nav').hittest = true;
   }
@@ -43,7 +42,6 @@ function hideNav() {
 function showNav() {
   var navContainer = $('#boards-nav-container');
   if (!$('#board-formula').BHasClass('board-hidden') || navContainer.BHasClass('hidden')) {
-    $.Msg('hello showe');
     navContainer.SetHasClass('hidden', false);
     navContainer.hittest = false;
   }

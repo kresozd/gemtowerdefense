@@ -1,51 +1,43 @@
-.round-element {
-  width: 100%;
-}
-
 .round {
   horizontal-align: left;
   vertical-align: top;
-  margin-left: 370px;
+  margin-top: 100px;
 }
 
 .round-container {
-  flow-children: down;
-  width: 100px;
-  height: 100px;
-  background-image: url("file://{images}/custom_game/goal_logo.psd");
-  background-repeat: no-repeat;
-  background-position: 50% 50%;
-  background-size: 100% 100%;
+  flow-children: right;
+  padding: 10px 0 10px 7px;
+  background-color: gradient( linear, 0% 0%, 100% 0%, from( #425663cc ), color-stop( .5, #42566355 ), to( #0000 ) );
 }
 
-.aspect-ratio16x10 .round {
-  /*margin-left: 370px;*/
+.round-text {
+  vertical-align: middle;
+  color: #fff;
+  font-size: 21px;
+  font-family: Radiance;
+  /*text-shadow: 1px 1px 2px 2.5 #00000055;*/
+  text-shadow: 1px 1px 1px 2.0 #2b2b2bb3;
 }
 
-.aspect-ratio4x3 .round {
-  /*margin-left: 225px;*/
+.round-glowing {
+  color: #FFDB6F;
+  text-shadow: 0px 1px 16px 5 #CF5B15;
 }
+
 
 .round-label {
-  margin-top: 4px;
-  font-size: 17px;
-  font-weight: bold;
-  color: #9e7305;
-  text-align: center;
-  width: 100%;
   text-transform: uppercase;
-  text-overflow: clip;
+}
+
+#round-name {
+  font-size: 20px;
 }
 
 #round-value {
-  margin-top: -15px;
-  horizontal-align: center;
-  vertical-align: middle;
-  font-weight: bold;
-  font-family: Radiance;
-  font-size: 63px;
-  color: white;
-  text-shadow: 2px 2px 2px #7b612b;
-  color: gradient( linear, 0% 0%, 0% 100%, from( #c88423), color-stop( 0.25, #c88423), color-stop( 0.5, #fffb84), color-stop( 0.75, #c88423), to( #9a6717));
-  text-overflow: clip;
+  font-family: RadianceM;
+  margin-right: 10px;
+  margin-left: 1px;
+  transition-property: color, text-shadow;
+  transition-duration: 0.7s;
+  transition-timing-function: ease-out;
 }
