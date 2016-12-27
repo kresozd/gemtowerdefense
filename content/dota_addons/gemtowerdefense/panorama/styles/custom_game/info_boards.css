@@ -12,7 +12,7 @@
 
 #boards-nav {
   z-index: 10;
-  margin-top: 130px;
+  margin-top: 220px;
   padding: 10px 30px 0 10px;
 }
 
@@ -82,7 +82,7 @@
   background-color: #21262ef7;
   margin-top: 130px;
   margin-bottom: 200px;
-  overflow: scroll;
+  overflow: clip scroll;
   z-index: 5;
   padding: 25px 15px 20px 100px;
   transition-property: transform;
@@ -111,7 +111,7 @@
 #board-formula {
   width: fit-children;
   margin: 0;
-  padding: 25px 0 10px;
+  padding: 25px 8px 10px 0;
 }
 
 .minify-toggle {
@@ -142,12 +142,14 @@
 .formula-row {
   flow-children: right;
   margin-top: 7px;
-  margin-right: 8px;
-  padding-left: 100px;
-  background-color: #111920bb;
+  background-color: #111920aa;
   border-top: 1px solid #ffffff05;
   border-bottom: 1px solid #ffffff03;
   padding: 12px 12px 6px 8px;
+}
+
+.formula-tower {
+  width: 100%;
 }
 
 .formula-tower-inner {
@@ -159,10 +161,6 @@
   border: 4px solid#A4A4A4;
 }
 
-.formula-tower {
-  width: 100%;
-}
-
 .formula-item {
   flow-children: down;
   width: 115px;
@@ -172,12 +170,12 @@
   vertical-align: bottom;
   horizontal-align: right;
   margin-right: 14px;
-  padding-top: 7px;
+  padding-top: 6px;
   width: 31px;
   height: 31px;
   background-color: #2B2B2B;
   border-radius: 50%;
-  border: 2px solid#A4A4A4; 
+  border: 2px solid #A4A4A4; 
   text-align: center;
   font-weight: bold;
   font-size: 13px;
