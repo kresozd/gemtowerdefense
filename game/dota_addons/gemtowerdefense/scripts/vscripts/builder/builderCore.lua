@@ -72,7 +72,9 @@ end
 
 function Builder:ConfirmTower(caster, owner, playerID)
 
-	CustomNetTables:SetTableValue("picked", playerID, { value = true })
+	self.PickCount = self.PickCount + 1
+
+--CustomNetTables:SetTableValue("picked", playerID, { value = true })
 	
 	local entityHandle = caster:GetEntityHandle()
 	local entityIndex = caster:GetEntityIndex()

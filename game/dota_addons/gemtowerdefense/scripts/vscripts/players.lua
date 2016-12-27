@@ -6,16 +6,42 @@ end
 function Players:Init()
 
     self.pAmount = 0
-
-    print("Players amount in class:", self.Amount)
+    self.Picked = {}
 
 end
 
 function Players:SetAmount(value)
 
     self.pAmount = value
+
+end
+
+function Players:SetPicked(playerID, bool)
+
+    self.Picked[playerID] = bool
+
     
 
 end
 
 
+function Players:CheckIfAllPicked()
+
+    for k, v in pairs(self.Picked) do
+
+        for i, j in pairs(v) do
+
+            if j == false then
+
+                return false
+
+            end
+
+        end
+
+    end
+
+    return true
+
+
+end

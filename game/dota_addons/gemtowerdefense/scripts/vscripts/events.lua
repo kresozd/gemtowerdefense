@@ -16,7 +16,8 @@ function GemTowerDefenseReborn:OnPlayerPickHero(keys)
 	local hero = EntIndexToHScript(keys.heroindex)
 	local player = EntIndexToHScript(keys.player)
 	local playerID = player:GetPlayerID()
-	
+
+	Players:SetPicked(playerID, true)
 	
 	Rounds:RemoveTalents(hero)
 	Rounds:AddBuildAbility(hero)
@@ -33,12 +34,16 @@ function GemTowerDefenseReborn:OnConnectFull(keys)
 	local entIndex = keys.index+1
   	local player = EntIndexToHScript(entIndex)
 
+	print("Entity index in event is:", entIndex)
+
 	Builder:SetPlayerCount(entIndex)
   
   	local playerID = player:GetPlayerID()
-	  print("PLAYER ID ON CONNECT:", playerID)
+
 
 	Players:SetAmount(entIndex)
+	Players:SetPicked(playerID, false)
+	
 	Rounds:SetPlayer(playerID)
 
 
