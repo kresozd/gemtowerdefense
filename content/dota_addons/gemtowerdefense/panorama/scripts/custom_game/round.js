@@ -21,10 +21,4 @@ function updateRound(table, key, data) {
 
 (function() {
   CustomNetTables.SubscribeNetTableListener('game_state', updateRound);
-<<<<<<< HEAD
 })();
-=======
-  CustomNetTables.SubscribeNetTableListener('game_state', WaveEnded);
-  CustomNetTables.SubscribeNetTableListener('game_state', AllPicked);
-})();
->>>>>>> 862be99c01bd8a82ad934fb738311ab244ced742
