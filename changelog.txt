@@ -1,0 +1,26 @@
+Notes on editing
+
+Changed gamemode.lua
+	added line (31) to remove fog of war
+	
+Changed trigger.lua to check if the unit actually has a damage value
+
+Changed herolist.txt to remove extraneous heros
+
+Changed npc_heros_custom.txt to make it a bit more standard
+
+Changed npc_units_custom.txt to replace all towers ability 1 with REMOVE_HP_BAR to make it cleaner
+
+Changed builderCore.lua line 383 ability name to gem_merge_tower
+	Added to AddMergeAbility function to allow for multiple mergings, tried to create a system where the order to the modifiers would tell you which
+	tower the merge button refers to. Have not tested this.
+
+Changed npc_abilities_custom.txt line 137 ability name to gem_merge_tower
+	Added a second merge ability for when a tower can merge into more than one
+		So far only two possible merges for a single tower
+
+Changed towers.kv to add in the rest of the merging
+
+Changed random.lua, generate ward name function so it will always give out wards in a certain order
+
+Added an item in npc_items_custom, which will allow us to create modifiers which will tell the player which towers can be merged, and what into
