@@ -28,7 +28,7 @@ function GemTowerDefenseReborn:InitGameMode()
 	GameRules:SetGoldPerTick(0)
 	GameRules:SetGoldTickTime(0)
 	GameRules:SetStartingGold(0)
---	setgold
+
 	
 	GameRules:SetCustomGameTeamMaxPlayers(DOTA_TEAM_GOODGUYS, 4)
 	GameRules:SetCustomGameTeamMaxPlayers(DOTA_TEAM_BADGUYS, 0)
@@ -38,17 +38,12 @@ function GemTowerDefenseReborn:InitGameMode()
 	PlayerResource:SetCustomPlayerColor(2, 0, 0, 255)
 	PlayerResource:SetCustomPlayerColor(3, 255, 255, 255)
 
-
-	--SetCustomGameForceHero("npc_dota_hero_crystal_maiden")
-	--Event handlers
-
-	ListenToGameEvent('entity_killed', Dynamic_Wrap(GemTowerDefenseReborn, 'OnEntityKilled'), self)
+	--ListenToGameEvent('entity_killed', Dynamic_Wrap(GemTowerDefenseReborn, 'OnEntityKilled'), self)
 	ListenToGameEvent('dota_player_pick_hero', Dynamic_Wrap(GemTowerDefenseReborn, 'OnPlayerPickHero'), self)
 	ListenToGameEvent('dota_player_gained_level', Dynamic_Wrap(GemTowerDefenseReborn, 'OnPlayerLevelUp'), self)
 	ListenToGameEvent('player_connect_full', Dynamic_Wrap(GemTowerDefenseReborn, 'OnConnectFull'), self)
 	ListenToGameEvent('game_rules_state_change', Dynamic_Wrap(GemTowerDefenseReborn, 'OnStateChange'), self)
 
-	--TOTAL_PLAYER_COUNT = 0
 
 	GameRules:GetGameModeEntity():SetCustomXPRequiredToReachNextLevel(settingsKV.CustomXPTable)
 	GameRules:SetUseCustomHeroXPValues(true)

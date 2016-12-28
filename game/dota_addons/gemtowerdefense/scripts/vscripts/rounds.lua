@@ -7,8 +7,11 @@ end
 
 function Rounds:Init(keyvalue)
 
+
+	ListenToGameEvent('entity_killed', Dynamic_Wrap(Rounds, 'OnEntityKilled'), self)
+
+	self.PlayerCount 	= 0
 	self.AllPicked 			= false
-	self.Players 			= {}
 	self.State 				= "BUILD"  	--"BUILD" Build Phase, "WAVE" Wave Phase
     self.AmountKilled 		= 0
 	self.AmountSpawned 		= 0
@@ -23,7 +26,12 @@ function Rounds:Init(keyvalue)
 	self.DelayBetweenSpawn 	= 1
 	self.Data 				= keyvalue
 
+end
 
+function Rounds:InitBuild()
+
+	CustomNetTables:SetTableValue( "game_state", "current_round", { value = tostring(self.RoundNumber) } )
+	Builder:AddHeroAbilitiesOnRound()
 
 end
 
@@ -38,41 +46,6 @@ function Rounds:WaveInit()
 
 		Rounds:SpawnUnits()
 
-
-	end
-
-	
-
-end
-
-function Rounds:SetPlayer(playerID)
-
-	self.Players[playerID] = {}
-
-end
-
-function Rounds:AllPicked()
-
-	local total = Rounds:TableLength(self.Players)
-	local count = 0
-
-	for key, value in pairs(self.Players) do
-
-		if value == true then
-
-			count = count + 1
-
-		else
-
-			return false
-
-		end
-
-	end
-
-	if count == total then
-		
-		return true
 
 	end
 
@@ -91,6 +64,7 @@ end
 
 function Rounds:SpawnUnits()
 
+	self.State = "WAVE"
 
 	local unitDamage 	= wavesKV[tostring(self.RoundNumber)]["Damage"]
 	local unitName 		= wavesKV[tostring(self.RoundNumber)]["Creep"]
@@ -107,10 +81,8 @@ function Rounds:SpawnUnits()
 		local creep = CreateUnitByName(unitName, self.SpawnPosition, false, nil, nil, DOTA_TEAM_BADGUYS)
 		local eHandle = creep:GetEntityHandle()
 
-		--AddCreepProperties(creep)
+		self.SpawnedCreeps[eHandle] = creep
 
-		Rounds:AddUnitProperties(creep)
-		Rounds:InsertByHandle(eHandle, creep)
 		creep.Damage 			= unitDamage
 		creep.Name 				= unitName
 		creep.XPBounty			= unitXPBounty
@@ -138,6 +110,7 @@ function Rounds:SpawnUnits()
 		end
 
     end)
+
 
 end
 
@@ -169,34 +142,7 @@ function Rounds:SpawnBoss()
 
 end
 
-function Rounds:AddHeroAbilitiesOnRound()
 
-	local Player = PlayerResource:GetPlayer(0)
-	local Hero = Player:GetAssignedHero()
-	
-	Hero:FindAbilityByName("gem_build_tower"):SetLevel(1)
-	Hero:FindAbilityByName("gem_remove_tower"):SetLevel(1)
-	print("Ability adding succeeded....")
-	print("Ability Build Index,", Hero:FindAbilityByName("gem_build_tower"):GetAbilityIndex())
-	print("Ability Remove Index,", Hero:FindAbilityByName("gem_remove_tower"):GetAbilityIndex())
-	
-end
-
-function Rounds:RemoveBuildAbility(caster)
-
-	caster:FindAbilityByName("gem_build_tower"):SetLevel(0)
-	caster:FindAbilityByName("gem_remove_tower"):SetLevel(0)
-	
-end
-
-function Rounds:AddBuildAbility(hero)
-	
-	hero:AddAbility("gem_build_tower"):SetLevel(1)
-	hero:FindAbilityByName("gem_build_tower"):SetAbilityIndex(0)
-	hero:AddAbility("gem_remove_tower"):SetLevel(1)
-	hero:FindAbilityByName("gem_remove_tower"):SetAbilityIndex(1)
-
-end
 
 function Rounds:RemoveTalents(hero)
 
@@ -210,16 +156,10 @@ function Rounds:RemoveTalents(hero)
 
 			hero:RemoveAbility(ability:GetName())
 
-
 		end
-
-
 	end
 
-	
-
 end
-
 
 function Rounds:IsBoss()
 
@@ -233,33 +173,8 @@ function Rounds:IsBoss()
 
 	end
 
-
-
 end
 
---[[
-	Rounds:ResetAmountOfKilled()
-	Rounds:IncrementRound()
-	CustomNetTables:SetTableValue( "game_state", "current_round", { value = Rounds:GetRoundNumber() } )
-	Rounds:Build()
-]]--
-
-
-function Rounds:IsRoundCleared()
-
-	if self.AmountKilled == 10 then
-
-		self.AmountKilled = 0
-		return true
-
-	else
-
-		return false
-	
-	end
-
-
-end
 
 function Rounds:GetRoundNumber()
 
@@ -267,24 +182,7 @@ function Rounds:GetRoundNumber()
 
 end
 
-function Rounds:GetAmountOfKilled()
 
-	return self.AmountKilled
-
-end
-
-function Rounds:ResetAmountOfKilled()
-
-	self.AmountKilled = 0
-
-end
-
-function Rounds:Build()
-
-	CustomNetTables:SetTableValue( "game_state", "current_round", { value = Rounds:GetRoundNumber() } )
-	Rounds:AddHeroAbilitiesOnRound()
-
-end
 
 
 function Rounds:InsertByHandle(index, unit)
@@ -337,8 +235,68 @@ function Rounds:GetBaseHealth()
 
 end
 
-function Rounds:TableLength(table)
-  local count = 0
-  for _ in pairs(table) do count = count + 1 end
-  return count
+function Rounds:OnTouchGemCastle(trigger)
+
+	local unit = trigger.activator
+	local eHandle = unit:GetEntityHandle()
+
+	if unit and string.match(unit:GetUnitName(), "gem_round") then
+
+		self.SpawnedCreeps[eHandle] = nil
+
+		self.BaseHealth = self.BaseHealth - unit.Damage
+		self.TotalLeaked = self.TotalLeaked + 1
+		self.AmountKilled = self.AmountKilled + 1
+
+		unit:Destroy()
+
+		CustomNetTables:SetTableValue( "game_state", "gem_castle_health", { value = tostring(self.BaseHealth) } )
+
+
+		if self.AmountKilled == 10 then
+
+			self.State = "BUILD"
+			self.RoundNumber = self.RoundNumber + 1
+			Rounds:InitBuild()
+
+		end
+
+	else
+
+		--Hero stepped in
+
+	end
+
+end
+
+
+
+function Rounds:OnEntityKilled(keys)
+
+	local Player = PlayerResource:GetPlayer(0)
+	local Hero = Player:GetAssignedHero()
+	local PlayerID = Player:GetPlayerID()
+
+	print("Entity killed called!")
+
+	local unit = EntIndexToHScript(keys.entindex_killed)
+	local eHandle = unit:GetEntityHandle()
+
+	self.SpawnedCreeps[eHandle] = nil
+
+	Hero:AddExperience(unit.XPBounty, 0, false, false)
+	PlayerResource:ModifyGold(0, unit.GoldBounty, false, 0)
+
+	self.AmountKilled = self.AmountKilled + 1
+
+	if self.AmountKilled == 10 then
+
+		self.State = "BUILD"
+		self.AmountKilled = 0
+		self.RoundNumber = self.RoundNumber + 1
+
+		Rounds:InitBuild()
+
+	end
+
 end

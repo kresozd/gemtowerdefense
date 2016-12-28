@@ -125,32 +125,24 @@ function Random:Downgrade(level)
 
 		if value <= downgradeTable.level["1"] then
 
-			newLevel = 4
+			newLevel = 1
 		
-		elseif randomValue > 50 and randomValue <= 75 then
-
-			newLevel = 3
-
-
-		elseif randomValue > 75 and randomValue <= 90 then
+		elseif value > downgradeTable.level["1"] and value <= downgradeTable.level["2"] then
 
 			newLevel = 2
 
+
+		elseif value > downgradeTable.level["2"] and randomValue <= downgradeTable.level["3"] then
+
+			newLevel = 3
+
 		else
 
-			newLevel = 1
+			newLevel = 4
 
 		end
 
 	end
-
-	print("Returning new level...", newLevel)
-
-	return newLevel
-
-
-
-
 end
 
 function Random:GenerateWardLevel()
@@ -205,17 +197,17 @@ function Random:GenerateWardLevel()
 
 		local value = RandomInt(1, 100)
 
-		if value <= levelTable[self.XPLevel]["1"] then
+		if value <= levelTable[tostring(self.XPLevel)]["1"] then
 
 			local level = 1
 			return level
 
-		elseif value >= levelTable[self.XPLevel]["2"] and value <= levelTable[self.XPLevel]["3"] then
+		elseif value >= levelTable[tostring(self.XPLevel)]["2"] and value <= levelTable[tostring(self.XPLevel)]["3"] then
 
 			local level = 2
 			return level
 
-		elseif value >= levelTable[self.XPLevel]["3"] and value <= levelTable[self.XPLevel]["4"] then
+		elseif value >= levelTable[tostring(self.XPLevel)]["3"] and value <= levelTable[tostring(self.XPLevel)]["4"] then
 
 			local level = 3
 			return level
@@ -233,22 +225,22 @@ function Random:GenerateWardLevel()
 
 		local value = RandomInt(1, 100)
 
-		if value <= levelTable[self.XPLevel]["1"] then
+		if value <= levelTable[tostring(self.XPLevel)]["1"] then
 
 			local level = 1
 			return level
 
-		elseif value >= levelTable[self.XPLevel]["2"] and value <= levelTable[self.XPLevel]["3"] then
+		elseif value >= levelTable[tostring(self.XPLevel)]["2"] and value <= levelTable[tostring(self.XPLevel)]["3"] then
 
 			local level = 2
 			return level
 
-		elseif value >= levelTable[self.XPLevel]["3"] and value <= levelTable[self.XPLevel]["4"] then
+		elseif value >= levelTable[tostring(self.XPLevel)]["3"] and value <= levelTable[tostring(self.XPLevel)]["4"] then
 
 			local level = 3
 			return level
 
-		elseif value >= levelTable[self.XPLevel]["4"] and value <= levelTable[self.XPLevel]["5"] then
+		elseif value >= levelTable[tostring(self.XPLevel)]["4"] and value <= levelTable[tostring(self.XPLevel)]["5"] then
 
 			local level = 4
 			return level

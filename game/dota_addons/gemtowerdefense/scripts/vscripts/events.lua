@@ -11,27 +11,21 @@ function GemTowerDefenseReborn:OnPlayerLevelUp(keys)
 
 end
 
+
 function GemTowerDefenseReborn:OnPlayerPickHero(keys)
+
+	Builder:IncrementPlayerCount()
 
 	local hero = EntIndexToHScript(keys.heroindex)
 	local player = EntIndexToHScript(keys.player)
 	local playerID = player:GetPlayerID()
 
-	Players:SetPicked(playerID, true)
-	Players:SetHero(playerID, hero)
-	Players:CheckIfAllPicked()
-	
 	Players:RemoveTalents(hero)
-	Players:AddLockedAbilitiesOnStart(hero)
+	Builder:AddAbilitiesOnStart(hero)
 	
 	hero:SetAbilityPoints(0)
 
-	if Players:CheckIfAllPicked() then
 
-		Players:UnlockAbilities()
-
-
-	end
 
 
 end
@@ -40,47 +34,24 @@ function GemTowerDefenseReborn:OnConnectFull(keys)
 
 	local entIndex = keys.index+1
   	local player = EntIndexToHScript(entIndex)
-
-	print("Entity index in event is:", entIndex)
-
-	Builder:SetPlayerCount(entIndex)
-  
   	local playerID = player:GetPlayerID()
-
-
-	Players:SetAmount(entIndex)
-	Players:SetPicked(playerID, false)
-	
-	Rounds:SetPlayer(playerID)
-
-
-end
-
-function GemTowerDefenseReborn:OnEntityKilled(keys)
-
-	local Player = PlayerResource:GetPlayer(0)
-	local Hero = Player:GetAssignedHero()
-	local PlayerID = Player:GetPlayerID()
-
-	local unit = EntIndexToHScript(keys.entindex_killed)
-	local eHandle = unit:GetEntityHandle()
-
-	Hero:AddExperience(unit.XPBounty, 0, false, false)
-	PlayerResource:ModifyGold(0, unit.GoldBounty, false, 0)
-
-	Rounds:DeleteUnit(eHandle)
-	Rounds:IncrementKillNumber()
-
-	Rounds:ResetAmountOfKilled()
-	Rounds:IncrementRound()
-	--CustomNetTables:SetTableValue( "game_state", "current_round", { value = Rounds:GetRoundNumber() } )
-	Rounds:Build()
 
 end
 
 function GemTowerDefenseReborn:OnStateChange(keys)
 
-	DeepPrintTable(keys)
+	local state = GameRules:State_Get()
 
+	if state == DOTA_GAMERULES_STATE_HERO_SELECTION then
+		
+	elseif state == DOTA_GAMERULES_STATE_PRE_GAME then
+		
+    elseif state == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
+
+		--local pAmount = PlayerResource:GetTeamPlayerCount()
+		
+		--Builder:SetPlayerCount(pAmount)
+
+	end
 
 end

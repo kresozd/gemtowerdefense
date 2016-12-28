@@ -15,7 +15,7 @@ require('abilities')
 require('libraries/selection')
 require('rounds')
 
-require('builder/builderCore')
+require('builder/builder')
 require('builder/builderAbilities')
 require('builder/towerAbilities')
 

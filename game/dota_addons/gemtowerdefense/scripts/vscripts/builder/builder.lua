@@ -6,19 +6,18 @@ end
 function Builder:Init()
 
 	self.PlayerCount = 0
-	self.RoundTowers = --Used for storing only 5 towers during placement
-	{
+	self.RoundTowers =
+	 {
 		[0] = {},
 		[1] = {},
 		[2] = {},
 		[3] = {}
-
-	}
+	 } 
 
 	self.PickCount = 0
-	self.GlobalTowers = {} --After tower is picked , it goes into global pool
-	self.DummyTowers = {} --For stone blocks
-	self.TowerMergeable =
+	self.GlobalTowers = {} 
+	self.DummyTowers = {} 
+	self.TowerMergeable = 
 	{
 		[0] = {},
 		[1] = {},
@@ -32,9 +31,13 @@ function Builder:SetPlayerCount(count)
 
 	self.PlayerCount = count
 
-
 end
 
+function Builder:IncrementPlayerCount()
+
+	self.PlayerCount = self.PlayerCount + 1
+
+end
 
 function Builder:CreateTower(playerID, owner, position, caster)
 
@@ -74,8 +77,6 @@ function Builder:ConfirmTower(caster, owner, playerID)
 
 	self.PickCount = self.PickCount + 1
 
---CustomNetTables:SetTableValue("picked", playerID, { value = true })
-	
 	local entityHandle = caster:GetEntityHandle()
 	local entityIndex = caster:GetEntityIndex()
 	local entityName = caster:GetUnitName()
@@ -120,6 +121,13 @@ function Builder:ConfirmTower(caster, owner, playerID)
 
 	end
 
+	for key, value in pairs(self.RoundTowers[playerID]) do
+
+		self.RoundTowers[playerID][key] = nil
+
+	end
+
+
 	for key, value in pairs(self.TowerMergeable[playerID]) do
 
 		self.TowerMergeable[playerID][key] = nil
@@ -128,7 +136,6 @@ function Builder:ConfirmTower(caster, owner, playerID)
 
 	if self.PickCount == self.PlayerCount then
 
-		Builder:DeleteTowers(playerID)
 		self.PickCount = 0
 		Rounds:WaveInit()
 
@@ -194,7 +201,6 @@ function Builder:DowngradeTower(playerID, owner, caster)
 	
 	if self.PickCount == TOTAL_PLAYER_COUNT then
 
-		Builder:DeleteTowers(playerID)
 		self.PickCount = 0
 		Rounds:WaveInit()
 
@@ -229,7 +235,7 @@ function Builder:CheckTowerCount(caster, playerID)
 
 		caster:AddSpeechBubble(1, "Select a Gem!", 1,0, -15)
 		
-		Rounds:RemoveBuildAbility(caster)
+		Builder:RemoveBuildAbility(caster)
 		Builder:AbilityAddPick(playerID, table1)
 		Builder:AddDowngradeAbility(playerID, table1)
 
@@ -400,6 +406,8 @@ end
 
 function Builder:CreateMergeableTower(playerID, caster, owner)
 
+	self.PickCount = self.PickCount + 1
+
 	local entityIndex = caster:GetEntityIndex()
 
 	for key, value in pairs(self.TowerMergeable[playerID]) do
@@ -445,16 +453,54 @@ function Builder:CreateMergeableTower(playerID, caster, owner)
 
 	end
 
+	for key, value in pairs(self.RoundTowers[playerID]) do
 
+		self.TowerMergeable[playerID][key] = nil
 
-		Builder:DeleteTowers(playerID)
+	end
+
+	if self.PickCount == self.PlayerCount then
+	
 		self.PickCount = 0
 		Rounds:WaveInit()
+
+		end
+
+end
+
+
+function Builder:AddHeroAbilitiesOnRound()
+	
+	for i = 0, self.PlayerCount - 1 do
+
+		local Player = PlayerResource:GetPlayer(i)
+		local Hero = Player:GetAssignedHero()
+	
+		Hero:FindAbilityByName("gem_build_tower"):SetLevel(1)
+		Hero:FindAbilityByName("gem_remove_tower"):SetLevel(1)
+
+
+	end
 
 
 
 end
 
+function Builder:AddAbilitiesOnStart(hero)
+
+    hero:AddAbility("gem_build_tower"):SetLevel(1)
+	hero:FindAbilityByName("gem_build_tower"):SetAbilityIndex(0)
+	hero:AddAbility("gem_remove_tower"):SetLevel(1)
+	hero:FindAbilityByName("gem_remove_tower"):SetAbilityIndex(1)
+
+end
+
+function Builder:RemoveBuildAbility(caster)
+
+	caster:FindAbilityByName("gem_build_tower"):SetLevel(0)
+	caster:FindAbilityByName("gem_remove_tower"):SetLevel(0)
+	
+end
 
 
 --[[

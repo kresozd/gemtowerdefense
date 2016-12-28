@@ -65,14 +65,7 @@ function Players:RemoveTalents(hero)
 end
 
 
-function Players:AddLockedAbilitiesOnStart(hero)
 
-    hero:AddAbility("gem_build_tower"):SetLevel(0)
-	hero:FindAbilityByName("gem_build_tower"):SetAbilityIndex(0)
-	hero:AddAbility("gem_remove_tower"):SetLevel(0)
-	hero:FindAbilityByName("gem_remove_tower"):SetAbilityIndex(1)
-
-end
 
 function Players:UnlockAbilities()
 
