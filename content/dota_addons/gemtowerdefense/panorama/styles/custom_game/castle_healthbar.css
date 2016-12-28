@@ -1,5 +1,6 @@
 .castle-health-element {
   width: 100%;
+  height: 100%;
 }
 
 #castle-health-container {
@@ -53,4 +54,60 @@
   width: 100%;
   border-right: 1px solid #425d25;
   height: 100%;
+}
+
+#castle-health-status {
+  width: 100%;
+  height: 70px;
+}
+
+.health-changed {
+  align: center top;
+  width: 100px;
+}
+
+.health-changed-wrap Label {
+  transform: translateY(-20px);
+  opacity: 0;
+  transition-property: transform, opacity;
+  transition-duration: 0.18s, 0.12s;
+  transition-delay: 0.0s;
+  transition-timing-function: ease-in;
+}
+
+#castle-health-status .health-changed-value {
+  font-size: 33px;
+  font-weight: bold;
+  font-family: Radiance;
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 1px 2.0 #33333377;
+  text-align: center;
+  opacity: 1;
+  transform: translateY(0px);
+}
+
+#health-damaged .health-changed-value {
+  color: #ee4f30;
+}
+
+#health-healed .health-changed-value {
+  color: #6acc51;
+}
+
+#health-healed {
+  position: 62px 0 0;
+}
+
+
+.test-container {
+  flow-children: down;
+  align: right center;
+}
+
+.btn-test {
+  background-color: #fff;
+  margin: 10px;
+  color: #1c1c1c;
+  padding: 7px 10px;
+  font-size: 16px;
 }

@@ -13,6 +13,7 @@
   flow-children: down;
   margin: 0 5px;
   background-color: gradient( linear, 0% 0%, 0% 100%, from( #5a6c75 ), to( #3d4a50 ) );
+  padding: 3px;
 }
 
 .player.player-hidden {
@@ -20,11 +21,12 @@
 }
 
 .player-avatar {
-  width: 62px;
+  width: 60px;
 }
 
 .player-nickname {
   font-size: 14px;
   color: #fff;
   padding: 5px;
+  visibility: collapse;
 }

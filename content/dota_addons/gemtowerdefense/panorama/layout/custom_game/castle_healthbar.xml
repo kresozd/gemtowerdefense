@@ -7,13 +7,29 @@
   </scripts>
   <Panel class="castle-health-element" hittest="false">
     <Panel id="castle-health-container" hittest="false">
-      <Label id="castle-health-title" text="Castle health"></Label>
+      <Label id="castle-health-title" text="Castle health" />
       <Panel id="castle-health">
         <Label id="castle-health-value" text="100%"/>
         <Panel id="castle-health-inner">
           <Panel id="castle-health-progress"></Panel>
         </Panel>
       </Panel>
+      <Panel id="castle-health-status">
+        <Panel class="health-changed" hittest="false" hittestchildren="false">
+          <Panel id="health-damaged" class="health-changed-wrap">
+          </Panel>
+          <Panel id="health-healed" class="health-changed-wrap">
+          </Panel>
+        </Panel>
+      </Panel>
+    </Panel>
+    <Panel class="test-container">
+      <Button class="btn-test" id="button-dmg" onactivate="triggerHealth(-1, -15)">
+        <Label text="dmg" />
+      </Button>
+      <Button class="btn-test" id="button-heal" onactivate="triggerHealth(1, 15)">
+        <Label text="heal" />
+      </Button>
     </Panel>
   </Panel>
 </root>
