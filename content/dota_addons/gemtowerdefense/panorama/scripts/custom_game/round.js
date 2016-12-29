@@ -11,7 +11,7 @@ function updateRound(table, key, data) {
     var round = $('#round-value');
     round.AddClass('round-glowing');
     round.text = data.value;
-    $.Schedule(2.35, function() {
+    $.Schedule(2.2, function() {
       round.RemoveClass('round-glowing');
     });
   }

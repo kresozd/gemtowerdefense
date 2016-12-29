@@ -49,6 +49,10 @@
   transition-timing-function: linear;
 }
 
+#button-formula {
+  tooltip-position: bottom;
+}
+
 .nav-button:hover,
 .nav-button.activated,
 .minify-toggle:hover {

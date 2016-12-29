@@ -21,7 +21,11 @@
                 <Panel class="nav-button-rank nav-button" onactivate="activateBoard('board-rank')">
                     <Label class="nav-button-title" text="Rank" />
                 </Panel>
-                <Panel class="nav-button-formula nav-button" onactivate="activateBoard('board-formula')">
+                <Panel id="button-formula" 
+                    class="nav-button-formula nav-button" 
+                    onmouseover="showHotkeyTooltip()" 
+                    onmouseout="hideHotkeyTooltip()"
+                    onactivate="activateBoard('board-formula')">
                     <Label class="nav-button-title" text="Form" />
                 </Panel>
             </Panel>

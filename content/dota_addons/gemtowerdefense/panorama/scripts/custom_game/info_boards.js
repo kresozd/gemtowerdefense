@@ -55,7 +55,7 @@ function initTooltips() {
   for (var i = 0; i < results.length; i++) {
     
     resultContainer = results[i].GetParent();
-    
+
     resultContainer.SetPanelEvent(
       "onmouseover",
       function(resultContainer) {
@@ -76,6 +76,15 @@ function initTooltips() {
       }
     ); 
   }
+}
+
+
+function showHotkeyTooltip() {
+  $.DispatchEvent("DOTAShowTextTooltip", $("#button-formula"), "Hotkey info");
+}
+
+function hideHotkeyTooltip() {
+  $.DispatchEvent("DOTAHideTextTooltip", $("#button-formula"));
 }
 
 
