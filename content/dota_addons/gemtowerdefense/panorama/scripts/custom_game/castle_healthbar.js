@@ -16,14 +16,13 @@ function updateCastleHealth(table, key, data) {
 
 function showDistinction(oldHealth, updHealth) {
   
-  var parent;
+  var isPositive = false;
+  var parent = $("#health-changed");
   var distinction = updHealth - oldHealth;
-  
-  if (distinction < 0 )
-    parent = $('#health-damaged');
-  else {
-    parent = $('#health-healed');
+
+  if (distinction >= 0 ) {
     distinction = '+' + distinction;
+    isPositive = true;
   }
   
   if (parent.GetChildCount() > 0)
@@ -32,6 +31,7 @@ function showDistinction(oldHealth, updHealth) {
   var valueLabel = $.CreatePanel('Label', parent, '');
   valueLabel.text = distinction;
   valueLabel.AddClass('health-changed-value');
+  valueLabel.SetHasClass("health-changed-healed", isPositive);
   
   $.Schedule(1.25, function() {
       valueLabel.DeleteAsync(0);

@@ -63,10 +63,10 @@
 
 .health-changed {
   align: center top;
-  width: 100px;
+  padding-right: 5px;
 }
 
-.health-changed-wrap Label {
+.health-changed Label {
   transform: translateY(-20px);
   opacity: 0;
   transition-property: transform, opacity;
@@ -75,7 +75,8 @@
   transition-timing-function: ease-in;
 }
 
-#castle-health-status .health-changed-value {
+#health-changed .health-changed-value {
+  color: #f34d40;
   font-size: 32px;
   font-weight: bold;
   font-family: Radiance;
@@ -86,16 +87,8 @@
   transform: translateY(0px);
 }
 
-#health-damaged .health-changed-value {
-  color: #f34d40;
-}
-
-#health-healed .health-changed-value {
+#health-changed .health-changed-healed {
   color: #4caf50;
-}
-
-#health-healed {
-  position: 62px 0 0;
 }
 
 
