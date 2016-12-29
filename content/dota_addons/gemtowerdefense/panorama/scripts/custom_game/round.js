@@ -5,7 +5,6 @@ var newUI = HUDElements.FindChildTraverse("lower_hud");
 quickstats.FindChildTraverse("QuickStatsContainer").style.visibility = "collapse";
 newUI.FindChildTraverse("GlyphScanContainer").style.visibility = "collapse";
 
-var units_killed = 1
 
 function updateRound(table, key, data) {
   if (key == 'current_round') {

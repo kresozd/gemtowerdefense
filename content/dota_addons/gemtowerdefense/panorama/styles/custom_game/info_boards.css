@@ -111,7 +111,7 @@
 #board-formula {
   width: fit-children;
   margin: 0;
-  padding: 25px 8px 10px 0;
+  padding: 25px 8px 0 0;
 }
 
 .minify-toggle {
@@ -159,6 +159,10 @@
   background-color: #49585F;
   border-radius: 50%;
   border: 4px solid#A4A4A4;
+  background-image: url("file://{resources}/images/custom_game/gems/gem_ruby.png");
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
 }
 
 .formula-item {
@@ -174,6 +178,7 @@
   width: 31px;
   height: 31px;
   background-color: #2B2B2B;
+  color: #f34d40;
   border-radius: 50%;
   border: 2px solid #A4A4A4; 
   text-align: center;
@@ -192,6 +197,7 @@
   horizontal-align: center;
   vertical-align: bottom;
   margin-top: 5px;
+  color: #CCCCCC;
 }
 
 .formula-mark {

@@ -76,7 +76,7 @@
 }
 
 #castle-health-status .health-changed-value {
-  font-size: 33px;
+  font-size: 32px;
   font-weight: bold;
   font-family: Radiance;
   letter-spacing: 1px;
@@ -87,11 +87,11 @@
 }
 
 #health-damaged .health-changed-value {
-  color: #ee4f30;
+  color: #f34d40;
 }
 
 #health-healed .health-changed-value {
-  color: #6acc51;
+  color: #4caf50;
 }
 
 #health-healed {
