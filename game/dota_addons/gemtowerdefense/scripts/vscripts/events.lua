@@ -1,11 +1,11 @@
 
 function GemTowerDefenseReborn:OnPlayerLevelUp(keys)
 
-	local player = keys.player
 	local level = keys.level
+	local player = EntIndexToHScript(keys.player)
 	
 	local hero = player:GetAssignedHero()
-	hero:SetAbilityPoints(iPoints)
+	hero:SetAbilityPoints(0)
 	
 	Random:SetXPLevel(level)
 
@@ -27,9 +27,6 @@ function GemTowerDefenseReborn:OnPlayerPickHero(keys)
 	Builder:AddAbilitiesOnStart(hero)
 	
 	hero:SetAbilityPoints(0)
-
-
-
 
 end
 

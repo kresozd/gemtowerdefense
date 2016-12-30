@@ -6,731 +6,736 @@
     <scripts>
         <include src="file://{resources}/scripts/custom_game/info_boards.js"/>
     </scripts>
-    <Panel class="info-boards-element" hittest="false">
+    <Panel class="info-boards-element boards-hidden" hittest="false">
         <Panel id="boards-nav"
-            hittest="false"
+            hittest="true"
             onmouseout="hideNav()"
             onmouseover="showNav()">
             <Panel id="boards-nav-container" hittest="false">
                 <Panel class="nav-button-about nav-button" onactivate="activateBoard('board-about')"> 
-                    <Label class="nav-button-title" text="About"></Label>
+                    <Label class="nav-button-title" text="About" />
                 </Panel>
                 <Panel class="nav-button-store nav-button" onactivate="activateBoard('board-store')"> 
-                    <Label class="nav-button-title" text="Store"></Label>
+                    <Label class="nav-button-title" text="Store" />
                 </Panel>
                 <Panel class="nav-button-rank nav-button" onactivate="activateBoard('board-rank')">
-                    <Label class="nav-button-title" text="Rank"></Label>
+                    <Label class="nav-button-title" text="Rank" />
                 </Panel>
-                <Panel class="nav-button-formula nav-button" onactivate="activateBoard('board-formula')">
-                    <Label class="nav-button-title" text="Form"></Label>
+                <Panel id="button-formula" 
+                    class="nav-button-formula nav-button" 
+                    onmouseover="showHotkeyTooltip()" 
+                    onmouseout="hideHotkeyTooltip()"
+                    onactivate="activateBoard('board-formula')">
+                    <Label class="nav-button-title" text="Form" />
                 </Panel>
             </Panel>
         </Panel>
         <Panel id="board-about" class="info-board board-hidden">
-            <Label class="board-title" text="About"></Label>
+            <Label class="board-title" text="#addon_game_name" />
         </Panel>
         <Panel id="board-store" class="info-board board-hidden">
-            <Label class="board-title" text="Store"></Label>
+            <Label class="board-title" text="Store" />
         </Panel>
         <Panel id="board-rank" class="info-board board-hidden">
-            <Label class="board-title" text="Leadersboard"></Label>
+            <Label class="board-title" text="Leadersboard" />
         </Panel>
         <Panel id="board-formula" class="info-board board-hidden">
-            <Label class="board-title" text="Formulas"></Label>
+            <Label class="board-title" text="Formulas" />
             <Panel id="minify-toggle" class="minify-toggle" onactivate="toggleFormulaLayout()">
-                <Label id="minify-label" text="minify table"></Label>
+                <Label id="minify-label" text="minify table" />
             </Panel>
             <Panel class="formula-row">
-                <Panel class="formula-item">
+                <Panel class="formula-item formula-item-pulled">
                     <Panel class="formula-tower formula-component">
                         <Panel class="formula-tower-inner"></Panel>
-                        <Label class="formula-component-tier" text="X"></Label>
+                        <Label class="formula-component-tier" text="X" />
                     </Panel>
-                    <Label class="component-name text" text="component name"></Label>
+                    <Label class="component-name text" text="component name" />
                 </Panel>
-                <Label class="formula-mark" text="+"></Label>
-                <Panel class="formula-item">
+                <Label class="formula-mark" text="+" />
+                <Panel class="formula-item formula-item-picked">
                     <Panel class="formula-tower formula-component">
                         <Panel class="formula-tower-inner"></Panel>
-                        <Label class="formula-component-tier" text="X"></Label>
+                        <Label class="formula-component-tier" text="X" />
                     </Panel>
-                    <Label class="component-name text" text="component name"></Label>
+                    <Label class="component-name text" text="component name" />
                 </Panel>
-                <Label class="formula-mark" text="+"></Label>
-                <Panel class="formula-item">
+                <Label class="formula-mark" text="+" />
+                <Panel class="formula-item formula-item-pulled formula-item-picked">
                     <Panel class="formula-component formula-tower">
                         <Panel class="formula-tower-inner"></Panel>
-                        <Label class="formula-component-tier" text="X"></Label>
+                        <Label class="formula-component-tier" text="X" />
                     </Panel>
-                    <Label class="component-name text" text="component name"></Label>
+                    <Label class="component-name text" text="component name" />
                 </Panel>
-                <Label class="formula-mark" text="="></Label>
-                <Panel class="formula-item">
+                <Label class="formula-mark" text="=" />
+                <Panel id="a1" class="formula-item">
                     <Panel class="formula-tower formula-result">
-                        <Panel class="formula-tower-inner"></Panel>
-                        <Label class="formula-component-tier" text="X"></Label>
+                        <Panel class="formula-tower-inner"
+                        ></Panel>
+                        <Label class="formula-component-tier" text="X" />
                     </Panel>
-                    <Label class="component-name text" text="component name"></Label>
-                </Panel>
-            </Panel>
-            <Panel class="formula-row">
-                <Panel class="formula-item">
-                    <Panel class="formula-tower formula-component">
-                        <Panel class="formula-tower-inner"></Panel>
-                        <Label class="formula-component-tier" text="X"></Label>
-                    </Panel>
-                    <Label class="component-name text" text="component name"></Label>
-                </Panel>
-                <Label class="formula-mark" text="+"></Label>
-                <Panel class="formula-item">
-                    <Panel class="formula-tower formula-component">
-                        <Panel class="formula-tower-inner"></Panel>
-                        <Label class="formula-component-tier" text="X"></Label>
-                    </Panel>
-                    <Label class="component-name text" text="component name"></Label>
-                </Panel>
-                <Label class="formula-mark" text="+"></Label>
-                <Panel class="formula-item">
-                    <Panel class="formula-component formula-tower">
-                        <Panel class="formula-tower-inner"></Panel>
-                        <Label class="formula-component-tier" text="X"></Label>
-                    </Panel>
-                    <Label class="component-name text" text="component name"></Label>
-                </Panel>
-                <Label class="formula-mark" text="="></Label>
-                <Panel class="formula-item">
-                    <Panel class="formula-tower formula-result">
-                        <Panel class="formula-tower-inner"></Panel>
-                        <Label class="formula-component-tier" text="X"></Label>
-                    </Panel>
-                    <Label class="component-name text" text="component name"></Label>
+                    <Label class="component-name text" text="component name" />
                 </Panel>
             </Panel>
             <Panel class="formula-row">
                 <Panel class="formula-item">
                     <Panel class="formula-tower formula-component">
                         <Panel class="formula-tower-inner"></Panel>
-                        <Label class="formula-component-tier" text="X"></Label>
+                        <Label class="formula-component-tier" text="X" />
                     </Panel>
-                    <Label class="component-name text" text="component name"></Label>
+                    <Label class="component-name text" text="component name" />
                 </Panel>
-                <Label class="formula-mark" text="+"></Label>
+                <Label class="formula-mark" text="+" />
                 <Panel class="formula-item">
                     <Panel class="formula-tower formula-component">
                         <Panel class="formula-tower-inner"></Panel>
-                        <Label class="formula-component-tier" text="X"></Label>
+                        <Label class="formula-component-tier" text="X" />
                     </Panel>
-                    <Label class="component-name text" text="component name"></Label>
+                    <Label class="component-name text" text="component name" />
                 </Panel>
-                <Label class="formula-mark" text="+"></Label>
+                <Label class="formula-mark" text="+" />
                 <Panel class="formula-item">
                     <Panel class="formula-component formula-tower">
                         <Panel class="formula-tower-inner"></Panel>
-                        <Label class="formula-component-tier" text="X"></Label>
+                        <Label class="formula-component-tier" text="X" />
                     </Panel>
-                    <Label class="component-name text" text="component name"></Label>
+                    <Label class="component-name text" text="component name" />
                 </Panel>
-                <Label class="formula-mark" text="="></Label>
-                <Panel class="formula-item">
+                <Label class="formula-mark" text="=" />
+                <Panel id="o1" class="formula-item">
                     <Panel class="formula-tower formula-result">
                         <Panel class="formula-tower-inner"></Panel>
-                        <Label class="formula-component-tier" text="X"></Label>
+                        <Label class="formula-component-tier" text="X" />
                     </Panel>
-                    <Label class="component-name text" text="component name"></Label>
+                    <Label class="component-name text" text="component name" />
                 </Panel>
             </Panel>
             <Panel class="formula-row">
                 <Panel class="formula-item">
                     <Panel class="formula-tower formula-component">
                         <Panel class="formula-tower-inner"></Panel>
-                        <Label class="formula-component-tier" text="X"></Label>
+                        <Label class="formula-component-tier" text="X" />
                     </Panel>
-                    <Label class="component-name text" text="component name"></Label>
+                    <Label class="component-name text" text="component name" />
                 </Panel>
-                <Label class="formula-mark" text="+"></Label>
+                <Label class="formula-mark" text="+" />
                 <Panel class="formula-item">
                     <Panel class="formula-tower formula-component">
                         <Panel class="formula-tower-inner"></Panel>
-                        <Label class="formula-component-tier" text="X"></Label>
+                        <Label class="formula-component-tier" text="X" />
                     </Panel>
-                    <Label class="component-name text" text="component name"></Label>
+                    <Label class="component-name text" text="component name" />
                 </Panel>
-                <Label class="formula-mark" text="+"></Label>
+                <Label class="formula-mark" text="+" />
                 <Panel class="formula-item">
                     <Panel class="formula-component formula-tower">
                         <Panel class="formula-tower-inner"></Panel>
-                        <Label class="formula-component-tier" text="X"></Label>
+                        <Label class="formula-component-tier" text="X" />
                     </Panel>
-                    <Label class="component-name text" text="component name"></Label>
+                    <Label class="component-name text" text="component name" />
                 </Panel>
-                <Label class="formula-mark" text="="></Label>
-                <Panel class="formula-item">
+                <Label class="formula-mark" text="=" />
+                <Panel id="gem3" class="formula-item">
                     <Panel class="formula-tower formula-result">
                         <Panel class="formula-tower-inner"></Panel>
-                        <Label class="formula-component-tier" text="X"></Label>
+                        <Label class="formula-component-tier" text="X" />
                     </Panel>
-                    <Label class="component-name text" text="component name"></Label>
+                    <Label class="component-name text" text="component name" />
                 </Panel>
             </Panel>
             <Panel class="formula-row">
                 <Panel class="formula-item">
                     <Panel class="formula-tower formula-component">
                         <Panel class="formula-tower-inner"></Panel>
-                        <Label class="formula-component-tier" text="X"></Label>
+                        <Label class="formula-component-tier" text="X" />
                     </Panel>
-                    <Label class="component-name text" text="component name"></Label>
+                    <Label class="component-name text" text="component name" />
                 </Panel>
-                <Label class="formula-mark" text="+"></Label>
+                <Label class="formula-mark" text="+" />
                 <Panel class="formula-item">
                     <Panel class="formula-tower formula-component">
                         <Panel class="formula-tower-inner"></Panel>
-                        <Label class="formula-component-tier" text="X"></Label>
+                        <Label class="formula-component-tier" text="X" />
                     </Panel>
-                    <Label class="component-name text" text="component name"></Label>
+                    <Label class="component-name text" text="component name" />
                 </Panel>
-                <Label class="formula-mark" text="+"></Label>
+                <Label class="formula-mark" text="+" />
                 <Panel class="formula-item">
                     <Panel class="formula-component formula-tower">
                         <Panel class="formula-tower-inner"></Panel>
-                        <Label class="formula-component-tier" text="X"></Label>
+                        <Label class="formula-component-tier" text="X" />
                     </Panel>
-                    <Label class="component-name text" text="component name"></Label>
+                    <Label class="component-name text" text="component name" />
                 </Panel>
-                <Label class="formula-mark" text="="></Label>
-                <Panel class="formula-item">
+                <Label class="formula-mark" text="=" />
+                <Panel id="gem4" class="formula-item">
                     <Panel class="formula-tower formula-result">
                         <Panel class="formula-tower-inner"></Panel>
-                        <Label class="formula-component-tier" text="X"></Label>
+                        <Label class="formula-component-tier" text="X" />
                     </Panel>
-                    <Label class="component-name text" text="component name"></Label>
+                    <Label class="component-name text" text="component name" />
                 </Panel>
             </Panel>
             <Panel class="formula-row">
                 <Panel class="formula-item">
                     <Panel class="formula-tower formula-component">
                         <Panel class="formula-tower-inner"></Panel>
-                        <Label class="formula-component-tier" text="X"></Label>
+                        <Label class="formula-component-tier" text="X" />
                     </Panel>
-                    <Label class="component-name text" text="component name"></Label>
+                    <Label class="component-name text" text="component name" />
                 </Panel>
-                <Label class="formula-mark" text="+"></Label>
+                <Label class="formula-mark" text="+" />
                 <Panel class="formula-item">
                     <Panel class="formula-tower formula-component">
                         <Panel class="formula-tower-inner"></Panel>
-                        <Label class="formula-component-tier" text="X"></Label>
+                        <Label class="formula-component-tier" text="X" />
                     </Panel>
-                    <Label class="component-name text" text="component name"></Label>
+                    <Label class="component-name text" text="component name" />
                 </Panel>
-                <Label class="formula-mark" text="+"></Label>
+                <Label class="formula-mark" text="+" />
                 <Panel class="formula-item">
                     <Panel class="formula-component formula-tower">
                         <Panel class="formula-tower-inner"></Panel>
-                        <Label class="formula-component-tier" text="X"></Label>
+                        <Label class="formula-component-tier" text="X" />
                     </Panel>
-                    <Label class="component-name text" text="component name"></Label>
+                    <Label class="component-name text" text="component name" />
                 </Panel>
-                <Label class="formula-mark" text="="></Label>
-                <Panel class="formula-item">
+                <Label class="formula-mark" text="=" />
+                <Panel id="gem5" class="formula-item">
                     <Panel class="formula-tower formula-result">
                         <Panel class="formula-tower-inner"></Panel>
-                        <Label class="formula-component-tier" text="X"></Label>
+                        <Label class="formula-component-tier" text="X" />
                     </Panel>
-                    <Label class="component-name text" text="component name"></Label>
+                    <Label class="component-name text" text="component name" />
                 </Panel>
             </Panel>
             <Panel class="formula-row">
                 <Panel class="formula-item">
                     <Panel class="formula-tower formula-component">
                         <Panel class="formula-tower-inner"></Panel>
-                        <Label class="formula-component-tier" text="X"></Label>
+                        <Label class="formula-component-tier" text="X" />
                     </Panel>
-                    <Label class="component-name text" text="component name"></Label>
+                    <Label class="component-name text" text="component name" />
                 </Panel>
-                <Label class="formula-mark" text="+"></Label>
+                <Label class="formula-mark" text="+" />
                 <Panel class="formula-item">
                     <Panel class="formula-tower formula-component">
                         <Panel class="formula-tower-inner"></Panel>
-                        <Label class="formula-component-tier" text="X"></Label>
+                        <Label class="formula-component-tier" text="X" />
                     </Panel>
-                    <Label class="component-name text" text="component name"></Label>
+                    <Label class="component-name text" text="component name" />
                 </Panel>
-                <Label class="formula-mark" text="+"></Label>
+                <Label class="formula-mark" text="+" />
                 <Panel class="formula-item">
                     <Panel class="formula-component formula-tower">
                         <Panel class="formula-tower-inner"></Panel>
-                        <Label class="formula-component-tier" text="X"></Label>
+                        <Label class="formula-component-tier" text="X" />
                     </Panel>
-                    <Label class="component-name text" text="component name"></Label>
+                    <Label class="component-name text" text="component name" />
                 </Panel>
-                <Label class="formula-mark" text="="></Label>
-                <Panel class="formula-item">
+                <Label class="formula-mark" text="=" />
+                <Panel id="gem6" class="formula-item">
                     <Panel class="formula-tower formula-result">
                         <Panel class="formula-tower-inner"></Panel>
-                        <Label class="formula-component-tier" text="X"></Label>
+                        <Label class="formula-component-tier" text="X" />
                     </Panel>
-                    <Label class="component-name text" text="component name"></Label>
+                    <Label class="component-name text" text="component name" />
                 </Panel>
             </Panel>
             <Panel class="formula-row">
                 <Panel class="formula-item">
                     <Panel class="formula-tower formula-component">
                         <Panel class="formula-tower-inner"></Panel>
-                        <Label class="formula-component-tier" text="X"></Label>
+                        <Label class="formula-component-tier" text="X" />
                     </Panel>
-                    <Label class="component-name text" text="component name"></Label>
+                    <Label class="component-name text" text="component name" />
                 </Panel>
-                <Label class="formula-mark" text="+"></Label>
+                <Label class="formula-mark" text="+" />
                 <Panel class="formula-item">
                     <Panel class="formula-tower formula-component">
                         <Panel class="formula-tower-inner"></Panel>
-                        <Label class="formula-component-tier" text="X"></Label>
+                        <Label class="formula-component-tier" text="X" />
                     </Panel>
-                    <Label class="component-name text" text="component name"></Label>
+                    <Label class="component-name text" text="component name" />
                 </Panel>
-                <Label class="formula-mark" text="+"></Label>
+                <Label class="formula-mark" text="+" />
                 <Panel class="formula-item">
                     <Panel class="formula-component formula-tower">
                         <Panel class="formula-tower-inner"></Panel>
-                        <Label class="formula-component-tier" text="X"></Label>
+                        <Label class="formula-component-tier" text="X" />
                     </Panel>
-                    <Label class="component-name text" text="component name"></Label>
+                    <Label class="component-name text" text="component name" />
                 </Panel>
-                <Label class="formula-mark" text="="></Label>
-                <Panel class="formula-item">
+                <Label class="formula-mark" text="=" />
+                <Panel id="gem7" class="formula-item">
                     <Panel class="formula-tower formula-result">
                         <Panel class="formula-tower-inner"></Panel>
-                        <Label class="formula-component-tier" text="X"></Label>
+                        <Label class="formula-component-tier" text="X" />
                     </Panel>
-                    <Label class="component-name text" text="component name"></Label>
+                    <Label class="component-name text" text="component name" />
                 </Panel>
             </Panel>
             <Panel class="formula-row">
                 <Panel class="formula-item">
                     <Panel class="formula-tower formula-component">
                         <Panel class="formula-tower-inner"></Panel>
-                        <Label class="formula-component-tier" text="X"></Label>
+                        <Label class="formula-component-tier" text="X" />
                     </Panel>
-                    <Label class="component-name text" text="component name"></Label>
+                    <Label class="component-name text" text="component name" />
                 </Panel>
-                <Label class="formula-mark" text="+"></Label>
+                <Label class="formula-mark" text="+" />
                 <Panel class="formula-item">
                     <Panel class="formula-tower formula-component">
                         <Panel class="formula-tower-inner"></Panel>
-                        <Label class="formula-component-tier" text="X"></Label>
+                        <Label class="formula-component-tier" text="X" />
                     </Panel>
-                    <Label class="component-name text" text="component name"></Label>
+                    <Label class="component-name text" text="component name" />
                 </Panel>
-                <Label class="formula-mark" text="+"></Label>
+                <Label class="formula-mark" text="+" />
                 <Panel class="formula-item">
                     <Panel class="formula-component formula-tower">
                         <Panel class="formula-tower-inner"></Panel>
-                        <Label class="formula-component-tier" text="X"></Label>
+                        <Label class="formula-component-tier" text="X" />
                     </Panel>
-                    <Label class="component-name text" text="component name"></Label>
+                    <Label class="component-name text" text="component name" />
                 </Panel>
-                <Label class="formula-mark" text="="></Label>
-                <Panel class="formula-item">
+                <Label class="formula-mark" text="=" />
+                <Panel id="gem8" class="formula-item">
                     <Panel class="formula-tower formula-result">
                         <Panel class="formula-tower-inner"></Panel>
-                        <Label class="formula-component-tier" text="X"></Label>
+                        <Label class="formula-component-tier" text="X" />
                     </Panel>
-                    <Label class="component-name text" text="component name"></Label>
+                    <Label class="component-name text" text="component name" />
                 </Panel>
             </Panel>
             <Panel class="formula-row">
                 <Panel class="formula-item">
                     <Panel class="formula-tower formula-component">
                         <Panel class="formula-tower-inner"></Panel>
-                        <Label class="formula-component-tier" text="X"></Label>
+                        <Label class="formula-component-tier" text="X" />
                     </Panel>
-                    <Label class="component-name text" text="component name"></Label>
+                    <Label class="component-name text" text="component name" />
                 </Panel>
-                <Label class="formula-mark" text="+"></Label>
+                <Label class="formula-mark" text="+" />
                 <Panel class="formula-item">
                     <Panel class="formula-tower formula-component">
                         <Panel class="formula-tower-inner"></Panel>
-                        <Label class="formula-component-tier" text="X"></Label>
+                        <Label class="formula-component-tier" text="X" />
                     </Panel>
-                    <Label class="component-name text" text="component name"></Label>
+                    <Label class="component-name text" text="component name" />
                 </Panel>
-                <Label class="formula-mark" text="+"></Label>
+                <Label class="formula-mark" text="+" />
                 <Panel class="formula-item">
                     <Panel class="formula-component formula-tower">
                         <Panel class="formula-tower-inner"></Panel>
-                        <Label class="formula-component-tier" text="X"></Label>
+                        <Label class="formula-component-tier" text="X" />
                     </Panel>
-                    <Label class="component-name text" text="component name"></Label>
+                    <Label class="component-name text" text="component name" />
                 </Panel>
-                <Label class="formula-mark" text="="></Label>
-                <Panel class="formula-item">
+                <Label class="formula-mark" text="=" />
+                <Panel id="gem9" class="formula-item">
                     <Panel class="formula-tower formula-result">
                         <Panel class="formula-tower-inner"></Panel>
-                        <Label class="formula-component-tier" text="X"></Label>
+                        <Label class="formula-component-tier" text="X" />
                     </Panel>
-                    <Label class="component-name text" text="component name"></Label>
+                    <Label class="component-name text" text="component name" />
                 </Panel>
             </Panel>
             <Panel class="formula-row">
                 <Panel class="formula-item">
                     <Panel class="formula-tower formula-component">
                         <Panel class="formula-tower-inner"></Panel>
-                        <Label class="formula-component-tier" text="X"></Label>
+                        <Label class="formula-component-tier" text="X" />
                     </Panel>
-                    <Label class="component-name text" text="component name"></Label>
+                    <Label class="component-name text" text="component name" />
                 </Panel>
-                <Label class="formula-mark" text="+"></Label>
+                <Label class="formula-mark" text="+" />
                 <Panel class="formula-item">
                     <Panel class="formula-tower formula-component">
                         <Panel class="formula-tower-inner"></Panel>
-                        <Label class="formula-component-tier" text="X"></Label>
+                        <Label class="formula-component-tier" text="X" />
                     </Panel>
-                    <Label class="component-name text" text="component name"></Label>
+                    <Label class="component-name text" text="component name" />
                 </Panel>
-                <Label class="formula-mark" text="+"></Label>
+                <Label class="formula-mark" text="+" />
                 <Panel class="formula-item">
                     <Panel class="formula-component formula-tower">
                         <Panel class="formula-tower-inner"></Panel>
-                        <Label class="formula-component-tier" text="X"></Label>
+                        <Label class="formula-component-tier" text="X" />
                     </Panel>
-                    <Label class="component-name text" text="component name"></Label>
+                    <Label class="component-name text" text="component name" />
                 </Panel>
-                <Label class="formula-mark" text="="></Label>
-                <Panel class="formula-item">
+                <Label class="formula-mark" text="=" />
+                <Panel id="gem10" class="formula-item">
                     <Panel class="formula-tower formula-result">
                         <Panel class="formula-tower-inner"></Panel>
-                        <Label class="formula-component-tier" text="X"></Label>
+                        <Label class="formula-component-tier" text="X" />
                     </Panel>
-                    <Label class="component-name text" text="component name"></Label>
+                    <Label class="component-name text" text="component name" />
                 </Panel>
             </Panel>
             <Panel class="formula-row">
                 <Panel class="formula-item">
                     <Panel class="formula-tower formula-component">
                         <Panel class="formula-tower-inner"></Panel>
-                        <Label class="formula-component-tier" text="X"></Label>
+                        <Label class="formula-component-tier" text="X" />
                     </Panel>
-                    <Label class="component-name text" text="component name"></Label>
+                    <Label class="component-name text" text="component name" />
                 </Panel>
-                <Label class="formula-mark" text="+"></Label>
+                <Label class="formula-mark" text="+" />
                 <Panel class="formula-item">
                     <Panel class="formula-tower formula-component">
                         <Panel class="formula-tower-inner"></Panel>
-                        <Label class="formula-component-tier" text="X"></Label>
+                        <Label class="formula-component-tier" text="X" />
                     </Panel>
-                    <Label class="component-name text" text="component name"></Label>
+                    <Label class="component-name text" text="component name" />
                 </Panel>
-                <Label class="formula-mark" text="+"></Label>
+                <Label class="formula-mark" text="+" />
                 <Panel class="formula-item">
                     <Panel class="formula-component formula-tower">
                         <Panel class="formula-tower-inner"></Panel>
-                        <Label class="formula-component-tier" text="X"></Label>
+                        <Label class="formula-component-tier" text="X" />
                     </Panel>
-                    <Label class="component-name text" text="component name"></Label>
+                    <Label class="component-name text" text="component name" />
                 </Panel>
-                <Label class="formula-mark" text="="></Label>
-                <Panel class="formula-item">
+                <Label class="formula-mark" text="=" />
+                <Panel id="gem11" class="formula-item">
                     <Panel class="formula-tower formula-result">
                         <Panel class="formula-tower-inner"></Panel>
-                        <Label class="formula-component-tier" text="X"></Label>
+                        <Label class="formula-component-tier" text="X" />
                     </Panel>
-                    <Label class="component-name text" text="component name"></Label>
+                    <Label class="component-name text" text="component name" />
                 </Panel>
             </Panel>
             <Panel class="formula-row">
                 <Panel class="formula-item">
                     <Panel class="formula-tower formula-component">
                         <Panel class="formula-tower-inner"></Panel>
-                        <Label class="formula-component-tier" text="X"></Label>
+                        <Label class="formula-component-tier" text="X" />
                     </Panel>
-                    <Label class="component-name text" text="component name"></Label>
+                    <Label class="component-name text" text="component name" />
                 </Panel>
-                <Label class="formula-mark" text="+"></Label>
+                <Label class="formula-mark" text="+" />
                 <Panel class="formula-item">
                     <Panel class="formula-tower formula-component">
                         <Panel class="formula-tower-inner"></Panel>
-                        <Label class="formula-component-tier" text="X"></Label>
+                        <Label class="formula-component-tier" text="X" />
                     </Panel>
-                    <Label class="component-name text" text="component name"></Label>
+                    <Label class="component-name text" text="component name" />
                 </Panel>
-                <Label class="formula-mark" text="+"></Label>
+                <Label class="formula-mark" text="+" />
                 <Panel class="formula-item">
                     <Panel class="formula-component formula-tower">
                         <Panel class="formula-tower-inner"></Panel>
-                        <Label class="formula-component-tier" text="X"></Label>
+                        <Label class="formula-component-tier" text="X" />
                     </Panel>
-                    <Label class="component-name text" text="component name"></Label>
+                    <Label class="component-name text" text="component name" />
                 </Panel>
-                <Label class="formula-mark" text="="></Label>
-                <Panel class="formula-item">
+                <Label class="formula-mark" text="=" />
+                <Panel id="gem12" class="formula-item">
                     <Panel class="formula-tower formula-result">
                         <Panel class="formula-tower-inner"></Panel>
-                        <Label class="formula-component-tier" text="X"></Label>
+                        <Label class="formula-component-tier" text="X" />
                     </Panel>
-                    <Label class="component-name text" text="component name"></Label>
+                    <Label class="component-name text" text="component name" />
                 </Panel>
             </Panel>
             <Panel class="formula-row">
                 <Panel class="formula-item">
                     <Panel class="formula-tower formula-component">
                         <Panel class="formula-tower-inner"></Panel>
-                        <Label class="formula-component-tier" text="X"></Label>
+                        <Label class="formula-component-tier" text="X" />
                     </Panel>
-                    <Label class="component-name text" text="component name"></Label>
+                    <Label class="component-name text" text="component name" />
                 </Panel>
-                <Label class="formula-mark" text="+"></Label>
+                <Label class="formula-mark" text="+" />
                 <Panel class="formula-item">
                     <Panel class="formula-tower formula-component">
                         <Panel class="formula-tower-inner"></Panel>
-                        <Label class="formula-component-tier" text="X"></Label>
+                        <Label class="formula-component-tier" text="X" />
                     </Panel>
-                    <Label class="component-name text" text="component name"></Label>
+                    <Label class="component-name text" text="component name" />
                 </Panel>
-                <Label class="formula-mark" text="+"></Label>
+                <Label class="formula-mark" text="+" />
                 <Panel class="formula-item">
                     <Panel class="formula-component formula-tower">
                         <Panel class="formula-tower-inner"></Panel>
-                        <Label class="formula-component-tier" text="X"></Label>
+                        <Label class="formula-component-tier" text="X" />
                     </Panel>
-                    <Label class="component-name text" text="component name"></Label>
+                    <Label class="component-name text" text="component name" />
                 </Panel>
-                <Label class="formula-mark" text="="></Label>
-                <Panel class="formula-item">
+                <Label class="formula-mark" text="=" />
+                <Panel id="gem13" class="formula-item">
                     <Panel class="formula-tower formula-result">
                         <Panel class="formula-tower-inner"></Panel>
-                        <Label class="formula-component-tier" text="X"></Label>
+                        <Label class="formula-component-tier" text="X" />
                     </Panel>
-                    <Label class="component-name text" text="component name"></Label>
+                    <Label class="component-name text" text="component name" />
                 </Panel>
             </Panel>
             <Panel class="formula-row">
                 <Panel class="formula-item">
                     <Panel class="formula-tower formula-component">
                         <Panel class="formula-tower-inner"></Panel>
-                        <Label class="formula-component-tier" text="X"></Label>
+                        <Label class="formula-component-tier" text="X" />
                     </Panel>
-                    <Label class="component-name text" text="component name"></Label>
+                    <Label class="component-name text" text="component name" />
                 </Panel>
-                <Label class="formula-mark" text="+"></Label>
+                <Label class="formula-mark" text="+" />
                 <Panel class="formula-item">
                     <Panel class="formula-tower formula-component">
                         <Panel class="formula-tower-inner"></Panel>
-                        <Label class="formula-component-tier" text="X"></Label>
+                        <Label class="formula-component-tier" text="X" />
                     </Panel>
-                    <Label class="component-name text" text="component name"></Label>
+                    <Label class="component-name text" text="component name" />
                 </Panel>
-                <Label class="formula-mark" text="+"></Label>
+                <Label class="formula-mark" text="+" />
                 <Panel class="formula-item">
                     <Panel class="formula-component formula-tower">
                         <Panel class="formula-tower-inner"></Panel>
-                        <Label class="formula-component-tier" text="X"></Label>
+                        <Label class="formula-component-tier" text="X" />
                     </Panel>
-                    <Label class="component-name text" text="component name"></Label>
+                    <Label class="component-name text" text="component name" />
                 </Panel>
-                <Label class="formula-mark" text="="></Label>
-                <Panel class="formula-item">
+                <Label class="formula-mark" text="=" />
+                <Panel id="gem14" class="formula-item">
                     <Panel class="formula-tower formula-result">
                         <Panel class="formula-tower-inner"></Panel>
-                        <Label class="formula-component-tier" text="X"></Label>
+                        <Label class="formula-component-tier" text="X" />
                     </Panel>
-                    <Label class="component-name text" text="component name"></Label>
+                    <Label class="component-name text" text="component name" />
                 </Panel>
             </Panel>
             <Panel class="formula-row">
                 <Panel class="formula-item">
                     <Panel class="formula-tower formula-component">
                         <Panel class="formula-tower-inner"></Panel>
-                        <Label class="formula-component-tier" text="X"></Label>
+                        <Label class="formula-component-tier" text="X" />
                     </Panel>
-                    <Label class="component-name text" text="component name"></Label>
+                    <Label class="component-name text" text="component name" />
                 </Panel>
-                <Label class="formula-mark" text="+"></Label>
+                <Label class="formula-mark" text="+" />
                 <Panel class="formula-item">
                     <Panel class="formula-tower formula-component">
                         <Panel class="formula-tower-inner"></Panel>
-                        <Label class="formula-component-tier" text="X"></Label>
+                        <Label class="formula-component-tier" text="X" />
                     </Panel>
-                    <Label class="component-name text" text="component name"></Label>
+                    <Label class="component-name text" text="component name" />
                 </Panel>
-                <Label class="formula-mark" text="+"></Label>
+                <Label class="formula-mark" text="+" />
                 <Panel class="formula-item">
                     <Panel class="formula-component formula-tower">
                         <Panel class="formula-tower-inner"></Panel>
-                        <Label class="formula-component-tier" text="X"></Label>
+                        <Label class="formula-component-tier" text="X" />
                     </Panel>
-                    <Label class="component-name text" text="component name"></Label>
+                    <Label class="component-name text" text="component name" />
                 </Panel>
-                <Label class="formula-mark" text="="></Label>
-                <Panel class="formula-item">
+                <Label class="formula-mark" text="=" />
+                <Panel id="gem15" class="formula-item">
                     <Panel class="formula-tower formula-result">
                         <Panel class="formula-tower-inner"></Panel>
-                        <Label class="formula-component-tier" text="X"></Label>
+                        <Label class="formula-component-tier" text="X" />
                     </Panel>
-                    <Label class="component-name text" text="component name"></Label>
+                    <Label class="component-name text" text="component name" />
                 </Panel>
             </Panel>
             <Panel class="formula-row">
                 <Panel class="formula-item">
                     <Panel class="formula-tower formula-component">
                         <Panel class="formula-tower-inner"></Panel>
-                        <Label class="formula-component-tier" text="X"></Label>
+                        <Label class="formula-component-tier" text="X" />
                     </Panel>
-                    <Label class="component-name text" text="component name"></Label>
+                    <Label class="component-name text" text="component name" />
                 </Panel>
-                <Label class="formula-mark" text="+"></Label>
+                <Label class="formula-mark" text="+" />
                 <Panel class="formula-item">
                     <Panel class="formula-tower formula-component">
                         <Panel class="formula-tower-inner"></Panel>
-                        <Label class="formula-component-tier" text="X"></Label>
+                        <Label class="formula-component-tier" text="X" />
                     </Panel>
-                    <Label class="component-name text" text="component name"></Label>
+                    <Label class="component-name text" text="component name" />
                 </Panel>
-                <Label class="formula-mark" text="+"></Label>
+                <Label class="formula-mark" text="+" />
                 <Panel class="formula-item">
                     <Panel class="formula-component formula-tower">
                         <Panel class="formula-tower-inner"></Panel>
-                        <Label class="formula-component-tier" text="X"></Label>
+                        <Label class="formula-component-tier" text="X" />
                     </Panel>
-                    <Label class="component-name text" text="component name"></Label>
+                    <Label class="component-name text" text="component name" />
                 </Panel>
-                <Label class="formula-mark" text="="></Label>
-                <Panel class="formula-item">
+                <Label class="formula-mark" text="=" />
+                <Panel id="gem16" class="formula-item">
                     <Panel class="formula-tower formula-result">
                         <Panel class="formula-tower-inner"></Panel>
-                        <Label class="formula-component-tier" text="X"></Label>
+                        <Label class="formula-component-tier" text="X" />
                     </Panel>
-                    <Label class="component-name text" text="component name"></Label>
+                    <Label class="component-name text" text="component name" />
                 </Panel>
             </Panel>
             <Panel class="formula-row">
                 <Panel class="formula-item">
                     <Panel class="formula-tower formula-component">
                         <Panel class="formula-tower-inner"></Panel>
-                        <Label class="formula-component-tier" text="X"></Label>
+                        <Label class="formula-component-tier" text="X" />
                     </Panel>
-                    <Label class="component-name text" text="component name"></Label>
+                    <Label class="component-name text" text="component name" />
                 </Panel>
-                <Label class="formula-mark" text="+"></Label>
+                <Label class="formula-mark" text="+" />
                 <Panel class="formula-item">
                     <Panel class="formula-tower formula-component">
                         <Panel class="formula-tower-inner"></Panel>
-                        <Label class="formula-component-tier" text="X"></Label>
+                        <Label class="formula-component-tier" text="X" />
                     </Panel>
-                    <Label class="component-name text" text="component name"></Label>
+                    <Label class="component-name text" text="component name" />
                 </Panel>
-                <Label class="formula-mark" text="+"></Label>
+                <Label class="formula-mark" text="+" />
                 <Panel class="formula-item">
                     <Panel class="formula-component formula-tower">
                         <Panel class="formula-tower-inner"></Panel>
-                        <Label class="formula-component-tier" text="X"></Label>
+                        <Label class="formula-component-tier" text="X" />
                     </Panel>
-                    <Label class="component-name text" text="component name"></Label>
+                    <Label class="component-name text" text="component name" />
                 </Panel>
-                <Label class="formula-mark" text="="></Label>
-                <Panel class="formula-item">
+                <Label class="formula-mark" text="=" />
+                <Panel id="gem17" class="formula-item">
                     <Panel class="formula-tower formula-result">
                         <Panel class="formula-tower-inner"></Panel>
-                        <Label class="formula-component-tier" text="X"></Label>
+                        <Label class="formula-component-tier" text="X" />
                     </Panel>
-                    <Label class="component-name text" text="component name"></Label>
+                    <Label class="component-name text" text="component name" />
                 </Panel>
             </Panel>
             <Panel class="formula-row">
                 <Panel class="formula-item">
                     <Panel class="formula-tower formula-component">
                         <Panel class="formula-tower-inner"></Panel>
-                        <Label class="formula-component-tier" text="X"></Label>
+                        <Label class="formula-component-tier" text="X" />
                     </Panel>
-                    <Label class="component-name text" text="component name"></Label>
+                    <Label class="component-name text" text="component name" />
                 </Panel>
-                <Label class="formula-mark" text="+"></Label>
+                <Label class="formula-mark" text="+" />
                 <Panel class="formula-item">
                     <Panel class="formula-tower formula-component">
                         <Panel class="formula-tower-inner"></Panel>
-                        <Label class="formula-component-tier" text="X"></Label>
+                        <Label class="formula-component-tier" text="X" />
                     </Panel>
-                    <Label class="component-name text" text="component name"></Label>
+                    <Label class="component-name text" text="component name" />
                 </Panel>
-                <Label class="formula-mark" text="+"></Label>
+                <Label class="formula-mark" text="+" />
                 <Panel class="formula-item">
                     <Panel class="formula-component formula-tower">
                         <Panel class="formula-tower-inner"></Panel>
-                        <Label class="formula-component-tier" text="X"></Label>
+                        <Label class="formula-component-tier" text="X" />
                     </Panel>
-                    <Label class="component-name text" text="component name"></Label>
+                    <Label class="component-name text" text="component name" />
                 </Panel>
-                <Label class="formula-mark" text="="></Label>
-                <Panel class="formula-item">
+                <Label class="formula-mark" text="=" />
+                <Panel id="gem18" class="formula-item">
                     <Panel class="formula-tower formula-result">
                         <Panel class="formula-tower-inner"></Panel>
-                        <Label class="formula-component-tier" text="X"></Label>
+                        <Label class="formula-component-tier" text="X" />
                     </Panel>
-                    <Label class="component-name text" text="component name"></Label>
+                    <Label class="component-name text" text="component name" />
                 </Panel>
             </Panel>
             <Panel class="formula-row">
                 <Panel class="formula-item">
                     <Panel class="formula-tower formula-component">
                         <Panel class="formula-tower-inner"></Panel>
-                        <Label class="formula-component-tier" text="X"></Label>
+                        <Label class="formula-component-tier" text="X" />
                     </Panel>
-                    <Label class="component-name text" text="component name"></Label>
+                    <Label class="component-name text" text="component name" />
                 </Panel>
-                <Label class="formula-mark" text="+"></Label>
+                <Label class="formula-mark" text="+" />
                 <Panel class="formula-item">
                     <Panel class="formula-tower formula-component">
                         <Panel class="formula-tower-inner"></Panel>
-                        <Label class="formula-component-tier" text="X"></Label>
+                        <Label class="formula-component-tier" text="X" />
                     </Panel>
-                    <Label class="component-name text" text="component name"></Label>
+                    <Label class="component-name text" text="component name" />
                 </Panel>
-                <Label class="formula-mark" text="+"></Label>
+                <Label class="formula-mark" text="+" />
                 <Panel class="formula-item">
                     <Panel class="formula-component formula-tower">
                         <Panel class="formula-tower-inner"></Panel>
-                        <Label class="formula-component-tier" text="X"></Label>
+                        <Label class="formula-component-tier" text="X" />
                     </Panel>
-                    <Label class="component-name text" text="component name"></Label>
+                    <Label class="component-name text" text="component name" />
                 </Panel>
-                <Label class="formula-mark" text="="></Label>
-                <Panel class="formula-item">
+                <Label class="formula-mark" text="=" />
+                <Panel id="gem19" class="formula-item">
                     <Panel class="formula-tower formula-result">
                         <Panel class="formula-tower-inner"></Panel>
-                        <Label class="formula-component-tier" text="X"></Label>
+                        <Label class="formula-component-tier" text="X" />
                     </Panel>
-                    <Label class="component-name text" text="component name"></Label>
+                    <Label class="component-name text" text="component name" />
                 </Panel>
             </Panel>
             <Panel class="formula-row">
                 <Panel class="formula-item">
                     <Panel class="formula-tower formula-component">
                         <Panel class="formula-tower-inner"></Panel>
-                        <Label class="formula-component-tier" text="X"></Label>
+                        <Label class="formula-component-tier" text="X" />
                     </Panel>
-                    <Label class="component-name text" text="component name"></Label>
+                    <Label class="component-name text" text="component name" />
                 </Panel>
-                <Label class="formula-mark" text="+"></Label>
+                <Label class="formula-mark" text="+" />
                 <Panel class="formula-item">
                     <Panel class="formula-tower formula-component">
                         <Panel class="formula-tower-inner"></Panel>
-                        <Label class="formula-component-tier" text="X"></Label>
+                        <Label class="formula-component-tier" text="X" />
                     </Panel>
-                    <Label class="component-name text" text="component name"></Label>
+                    <Label class="component-name text" text="component name" />
                 </Panel>
-                <Label class="formula-mark" text="+"></Label>
+                <Label class="formula-mark" text="+" />
                 <Panel class="formula-item">
                     <Panel class="formula-component formula-tower">
                         <Panel class="formula-tower-inner"></Panel>
-                        <Label class="formula-component-tier" text="X"></Label>
+                        <Label class="formula-component-tier" text="X" />
                     </Panel>
-                    <Label class="component-name text" text="component name"></Label>
+                    <Label class="component-name text" text="component name" />
                 </Panel>
-                <Label class="formula-mark" text="="></Label>
-                <Panel class="formula-item">
+                <Label class="formula-mark" text="=" />
+                <Panel id="gem20" class="formula-item">
                     <Panel class="formula-tower formula-result">
                         <Panel class="formula-tower-inner"></Panel>
-                        <Label class="formula-component-tier" text="X"></Label>
+                        <Label class="formula-component-tier" text="X" />
                     </Panel>
-                    <Label class="component-name text" text="component name"></Label>
+                    <Label class="component-name text" text="component name" />
+                </Panel>
+            </Panel>
+            <Panel class="formula-row">
+                <Panel class="formula-item">
+                    <Panel class="formula-tower formula-component">
+                        <Panel class="formula-tower-inner"></Panel>
+                        <Label class="formula-component-tier" text="X" />
+                    </Panel>
+                    <Label class="component-name text" text="component name" />
+                </Panel>
+                <Label class="formula-mark" text="+" />
+                <Panel class="formula-item">
+                    <Panel class="formula-tower formula-component">
+                        <Panel class="formula-tower-inner"></Panel>
+                        <Label class="formula-component-tier" text="X" />
+                    </Panel>
+                    <Label class="component-name text" text="component name" />
+                </Panel>
+                <Label class="formula-mark" text="+" />
+                <Panel class="formula-item">
+                    <Panel class="formula-component formula-tower">
+                        <Panel class="formula-tower-inner"></Panel>
+                        <Label class="formula-component-tier" text="X" />
+                    </Panel>
+                    <Label class="component-name text" text="component name" />
+                </Panel>
+                <Label class="formula-mark" text="=" />
+                <Panel id="gem21" class="formula-item">
+                    <Panel class="formula-tower formula-result">
+                        <Panel class="formula-tower-inner"></Panel>
+                        <Label class="formula-component-tier" text="X" />
+                    </Panel>
+                    <Label class="component-name text" text="component name" />
                 </Panel>
             </Panel>
         </Panel>

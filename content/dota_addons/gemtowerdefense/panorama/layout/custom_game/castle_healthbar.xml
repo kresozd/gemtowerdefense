@@ -14,13 +14,8 @@
           <Panel id="castle-health-progress"></Panel>
         </Panel>
       </Panel>
-      <Panel id="castle-health-status">
-        <Panel class="health-changed" hittest="false" hittestchildren="false">
-          <Panel id="health-damaged" class="health-changed-wrap">
-          </Panel>
-          <Panel id="health-healed" class="health-changed-wrap">
-          </Panel>
-        </Panel>
+      <Panel id="castle-health-status" hittest="false">
+        <Panel id="health-changed" class="health-changed" hittest="false"></Panel>
       </Panel>
     </Panel>
     <Panel class="test-container">

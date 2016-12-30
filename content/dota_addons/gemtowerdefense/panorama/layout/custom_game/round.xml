@@ -5,12 +5,12 @@
   <scripts>
     <include src="file://{resources}/scripts/custom_game/round.js"/>
   </scripts>
-  <Panel class="round-element">
-    <Panel class="round">
-      <Panel class="round-container">
-        <Label class="round-label round-text" text="Wave:"/>
-        <Label id="round-value" class="round-text" text="0"/>
-        <Label id="round-name" class="round-text" text="Current wave name" />
+  <Panel class="round-element" hittest="false">
+    <Panel class="round" hittest="false">
+      <Panel class="round-container" hittest="false">
+        <Label class="round-label round-text" text="Wave:" hittest="false"/>
+        <Label id="round-value" class="round-text" text="0" hittest="false"/>
+        <Label id="round-name" class="round-text" text="Current wave name" hittest="false" />
       </Panel>
     </Panel>
   </Panel>

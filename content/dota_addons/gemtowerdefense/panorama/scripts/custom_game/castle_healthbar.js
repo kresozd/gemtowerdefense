@@ -7,28 +7,22 @@ function updateCastleHealth(table, key, data) {
     health = data.value;
 
     if (health > 100) health = 100;
-
-    $("#castle-health-value").text = health > 0 ? health + '%' : '0%';
-    $("#castle-health-progress").style.width = health > 0 ? health + '%' : '0%';
+    var healthStr = health > 0 ? health + '%' : '0%';
+    $("#castle-health-value").text = healthStr;
+    $("#castle-health-progress").style.width = healthStr;
   }
 }
 
 
 function showDistinction(oldHealth, updHealth) {
   
-  var distinction;
-  var parent;
-  
-  if ( updHealth > 0 || oldHealth > 0 )
-    distinction = -Math.abs(oldHealth) + Number(updHealth);
-  else
-    distinction = Math.abs(oldHealth) + Number(updHealth);
-  
-  if (distinction < 0 )
-    parent = $('#health-damaged');
-  else {
-    parent = $('#health-healed');
+  var isPositive = false;
+  var parent = $("#health-changed");
+  var distinction = updHealth - oldHealth;
+
+  if (distinction >= 0 ) {
     distinction = '+' + distinction;
+    isPositive = true;
   }
   
   if (parent.GetChildCount() > 0)
@@ -37,14 +31,9 @@ function showDistinction(oldHealth, updHealth) {
   var valueLabel = $.CreatePanel('Label', parent, '');
   valueLabel.text = distinction;
   valueLabel.AddClass('health-changed-value');
+  valueLabel.SetHasClass("health-changed-healed", isPositive);
   
-  $.Schedule(1.3, function() {
-      if (valueLabel.deleted) {
-        $.Msg('debug');
-        return;    
-      }
-      
-      valueLabel.deleted = true;
+  $.Schedule(1.25, function() {
       valueLabel.DeleteAsync(0);
   }); 
 }
@@ -55,7 +44,7 @@ function triggerHealth(min, max) {
   var random = Math.floor(Math.random() * (max - min + 1)) + min;
   
   var data = {
-    value: health + random
+    value: Number(health) + random
   }
 
   updateCastleHealth('table', 'gem_castle_health', data)

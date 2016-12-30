@@ -1,0 +1,20 @@
+
+.Contents {
+    min-width: 80px;
+    max-width: 340px;
+    flow-children: down;
+}
+
+#Contents {
+    
+}
+
+#TooltipTitle {
+    color: #fff;
+    font-size: 21px;
+}
+
+Label {
+  text-overflow: clip; 
+  margin-bottom: 4px; 
+}
