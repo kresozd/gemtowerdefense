@@ -14,11 +14,14 @@ end
 
 function GemTowerDefenseReborn:OnPlayerPickHero(keys)
 
-	Builder:IncrementPlayerCount()
-
 	local hero = EntIndexToHScript(keys.heroindex)
 	local player = EntIndexToHScript(keys.player)
 	local playerID = player:GetPlayerID()
+
+
+	Builder:IncrementPlayerCount()
+
+
 
 	Players:RemoveTalents(hero)
 	Builder:AddAbilitiesOnStart(hero)

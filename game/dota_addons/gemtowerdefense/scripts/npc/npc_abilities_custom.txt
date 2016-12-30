@@ -134,7 +134,7 @@
 
 	}
 
-	"gem_merge_gem_Silver"
+	"gem_merge_tower"
 	{
 
 		"BaseClass"	"ability_datadriven"
@@ -156,6 +156,92 @@
 				"ScriptFile"	"scripts/vscripts/builder/towerAbilities.lua"
 				"Target" "CASTER"
 				"Function"	"AbilityMergeTower"
+				
+			}
+		}
+
+	}
+
+
+
+	"gem_merge_tower_2"
+	{
+
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"gem_merge_2"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"HotKeyOverride"	"E"
+		"MaxLevel"	"1"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"AbilityChannelTime"	"0.4"
+
+		"OnSpellStart"
+		{
+			
+			"RunScript"
+			{
+				
+				"ScriptFile"	"scripts/vscripts/builder/towerAbilities.lua"
+				"Target" "CASTER"
+				"Function"	"AbilityMergeTower"
+				
+			}
+		}
+
+	}
+
+	"gem_oneShotUpgrade"
+	{
+
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"gem_upgrade_1"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"HotKeyOverride"	"E"
+		"MaxLevel"	"1"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"AbilityChannelTime"	"0.4"
+
+		"OnSpellStart"
+		{
+			
+			"RunScript"
+			{
+				
+				"ScriptFile"	"scripts/vscripts/builder/towerAbilities.lua"
+				"Target" "CASTER"
+				"Function"	"AbilityOneShotUpgradeTower"
+				
+			}
+		}
+
+	}
+
+	"gem_oneShotUpgrade_2"
+	{
+
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"gem_upgrade_2"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"HotKeyOverride"	"E"
+		"MaxLevel"	"1"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"AbilityChannelTime"	"0.4"
+
+		"OnSpellStart"
+		{
+			
+			"RunScript"
+			{
+				
+				"ScriptFile"	"scripts/vscripts/builder/towerAbilities.lua"
+				"Target" "CASTER"
+				"Function"	"AbilityOneShotUpgradeTower_2"
 				
 			}
 		}
@@ -195,7 +281,7 @@
 				"IsHidden"	"1"
 				"States"
 				{
-					"MODIFIER_STATE_NO_UNIT_COLLISION"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_HEALTH_BAR"	"MODIFIER_STATE_VALUE_ENABLED"
 				}
 			}
 		}

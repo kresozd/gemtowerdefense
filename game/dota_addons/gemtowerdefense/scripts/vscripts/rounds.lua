@@ -7,6 +7,23 @@ end
 
 function Rounds:Init(keyvalue)
 
+	function AddHeroReward()
+
+		local playerAmount = PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_GOODGUYS)
+
+		for i = 0, playerAmount - 1 do
+
+			local player = PlayerResource:GetPlayer(i)
+			local hero = player:GetAssignedHero()
+
+			hero:AddExperience(unit.XPBounty, 0, false, false)
+			PlayerResource:ModifyGold(0, unit.GoldBounty, false, 0)
+
+		end
+
+	end
+
+
 
 	ListenToGameEvent('entity_killed', Dynamic_Wrap(Rounds, 'OnEntityKilled'), self)
 
@@ -48,17 +65,6 @@ function Rounds:WaveInit()
 
 
 	end
-
-end
-
-function Rounds:AddUnitProperties(unit)
-
-	unit.Damage 			= self.Data[tostring(self.RoundNumber)]["Damage"]
-	unit.Name 				= self.Data[tostring(self.RoundNumber)]["unit"]
-	unit.XPBounty			= self.Data[tostring(self.RoundNumber)]["XPBounty"]
-	unit.Speed 				= self.Data[tostring(self.RoundNumber)]["MoveSpeed"]
-	unit.GoldBounty 		= self.Data[tostring(self.RoundNumber)]["GoldBounty"]
-	unit.Type 				= self.Data[tostring(self.RoundNumber)]["Type"]
 
 end
 
@@ -271,21 +277,16 @@ end
 
 
 
+
+
 function Rounds:OnEntityKilled(keys)
-
-	local Player = PlayerResource:GetPlayer(0)
-	local Hero = Player:GetAssignedHero()
-	local PlayerID = Player:GetPlayerID()
-
-	print("Entity killed called!")
 
 	local unit = EntIndexToHScript(keys.entindex_killed)
 	local eHandle = unit:GetEntityHandle()
 
 	self.SpawnedCreeps[eHandle] = nil
 
-	Hero:AddExperience(unit.XPBounty, 0, false, false)
-	PlayerResource:ModifyGold(0, unit.GoldBounty, false, 0)
+
 
 	self.AmountKilled = self.AmountKilled + 1
 

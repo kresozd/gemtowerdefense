@@ -19,7 +19,7 @@ function AbilityDowngradeTower(keys)
 	local owner = caster:GetOwner()
 	local playerID = owner:GetPlayerID()
 
-	Builder:DowngradeTower(playerID, owner, caster)
+	Builder:DowngradeTower(caster, owner, playerID)
 	
 end
 
@@ -39,4 +39,22 @@ function CallibrateTreePosition(Vector)
 
 	return Vector
 
+end
+
+function AbilityOneShotUpgradeTower(keys)
+	local caster = keys.caster
+	local owner =  caster:GetOwner()
+	local playerID = owner:GetPlayerID()
+
+	
+	Builder:OneShotUpgradeTower(caster, owner, playerID)
+end
+
+function AbilityOneShotUpgradeTower_2(keys)
+	local caster = keys.caster
+	local owner =  caster:GetOwner()
+	local playerID = owner:GetPlayerID()
+
+	
+	Builder:OneShotUpgradeTower_2(caster, owner, playerID)
 end
