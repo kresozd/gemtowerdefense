@@ -9,20 +9,26 @@
 
 		// Abilities
 
-		"Ability1"					""		// Ability 1
-		"Ability2"					""		// Ability 1
-		"Ability3"					""		// Ability 1
-		"Ability4"					""		// Ability 1
+		"Ability1"					""								// Ability 1
+		"Ability2"					""								// Ability 1
+		"Ability3"					""								// Ability 1
+		"Ability4"					""								// Ability 1
 
 		// Attack
 
 		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
+		"AttackDamageMin"			"0"
+		"AttackDamageMax"			"0"
+
+		// Vision
 
 		"VisionNighttimeRange"		"1800"							// Range of vision at night time.
 		"VisionDaytimeRange"		"100000"
 
 		// Movement
 
+		"MovementSpeed"				"500"
+		"MovementTurnRate"			"1"
 		"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_FLY"
 	}
 
@@ -32,14 +38,16 @@
 
 		// Abilities
 
-		"Ability1"					""		// Ability 1
-		"Ability2"					""		// Ability 1
-		"Ability3"					""		// Ability 1
-		"Ability4"					""		// Ability 1
+		"Ability1"					""								// Ability 1
+		"Ability2"					""								// Ability 1
+		"Ability3"					""								// Ability 1
+		"Ability4"					""								// Ability 1
 
 		// Attack
 
 		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
+		"AttackDamageMin"			"0"
+		"AttackDamageMax"			"0"
 
 		// Vision
 
@@ -48,6 +56,8 @@
 
 		// Movement
 
+		"MovementSpeed"				"500"
+		"MovementTurnRate"			"1"
 		"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_FLY"
 	}
 
@@ -57,14 +67,16 @@
 
 		// Abilities
 
-		"Ability1"					""		// Ability 1
-		"Ability2"					""		// Ability 1
-		"Ability3"					""		// Ability 1
-		"Ability4"					""		// Ability 1
+		"Ability1"					""								// Ability 1
+		"Ability2"					""								// Ability 1
+		"Ability3"					""								// Ability 1
+		"Ability4"					""								// Ability 1
 
 		// Attack
 
 		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
+		"AttackDamageMin"			"0"
+		"AttackDamageMax"			"0"
 
 		// Vision
 
@@ -73,6 +85,8 @@
 
 		// Movement
 
+		"MovementSpeed"				"500"
+		"MovementTurnRate"			"1"
 		"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_FLY"
 	}
 
@@ -82,14 +96,16 @@
 
 		// Abilities
 
-		"Ability1"					""		// Ability 1
-		"Ability2"					""		// Ability 1
-		"Ability3"					""		// Ability 1
-		"Ability4"					""		// Ability 1
+		"Ability1"					""								// Ability 1
+		"Ability2"					""								// Ability 1
+		"Ability3"					""								// Ability 1
+		"Ability4"					""								// Ability 1
 
 		// Attack
 
 		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
+		"AttackDamageMin"			"0"
+		"AttackDamageMax"			"0"
 		
 		// Vision
 
@@ -98,6 +114,8 @@
 
 		// Movement
 
+		"MovementSpeed"				"500"
+		"MovementTurnRate"			"1"
 		"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_FLY"
 	}
 
