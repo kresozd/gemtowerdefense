@@ -2,7 +2,7 @@ function closeAllBoards() {
   $('#board-about').AddClass('board-hidden');
   $('#board-store').AddClass('board-hidden');
   $('#board-rank').AddClass('board-hidden');
-  $('#board-formula').AddClass('board-hidden'); 
+  $('#board-formula').AddClass('board-hidden');
 }
 
 
@@ -10,9 +10,11 @@ function activateBoard(boardName) {
   var board = $('#' + boardName);
   if (!board.BHasClass('board-hidden')) {
     board.AddClass('board-hidden');
+    $.GetContextPanel().AddClass('boards-hidden');
   } else {
     closeAllBoards();
     board.RemoveClass('board-hidden');
+    $.GetContextPanel().RemoveClass('boards-hidden');
   }
 }
 
@@ -32,7 +34,7 @@ function toggleFormulaLayout() {
 
 
 function hideNav() {
-  if (!$('#board-formula').BHasClass('board-hidden')) {
+  if (!$.GetContextPanel().BHasClass('boards-hidden')) {
     $('#boards-nav-container').SetHasClass('hidden', true);
     $('#boards-nav').hittest = true;
   }
@@ -41,7 +43,7 @@ function hideNav() {
 
 function showNav() {
   var navContainer = $('#boards-nav-container');
-  if (!$('#board-formula').BHasClass('board-hidden') || navContainer.BHasClass('hidden')) {
+  if (!$.GetContextPanel().BHasClass('boards-hidden') || navContainer.BHasClass('hidden')) {
     navContainer.SetHasClass('hidden', false);
     navContainer.hittest = false;
   }

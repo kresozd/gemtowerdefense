@@ -44,7 +44,7 @@ function triggerHealth(min, max) {
   var random = Math.floor(Math.random() * (max - min + 1)) + min;
   
   var data = {
-    value: health + random
+    value: Number(health) + random
   }
 
   updateCastleHealth('table', 'gem_castle_health', data)
