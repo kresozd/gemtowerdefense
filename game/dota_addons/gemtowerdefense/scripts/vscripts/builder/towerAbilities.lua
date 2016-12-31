@@ -24,12 +24,28 @@ function AbilityDowngradeTower(keys)
 end
 
 function AbilityMergeTower(keys)
+	print("Merging in "..Rounds.State)
+	local caster = keys.caster
+	local owner = caster:GetOwner()
+	local playerID = owner:GetPlayerID()
+	if Rounds.State == "BUILD" then
+		Builder:CreateMergeableTower(playerID, caster, owner)
+	else
+		Builder:WaveCreateMergedTower(playerID, caster, owner)
+	end
+
+end
+
+function AbilityMergeTower_2(keys)
 
 	local caster = keys.caster
 	local owner = caster:GetOwner()
 	local playerID = owner:GetPlayerID()
-
-	Builder:CreateMergeableTower(playerID, caster, owner)
+	if Rounds.State == "BUILD" then
+		Builder:CreateMergeableTower_2(playerID, caster, owner)
+	else
+		Builder:WaveCreateMergedTower_2(playerID, caster, owner)
+	end
 
 end
 

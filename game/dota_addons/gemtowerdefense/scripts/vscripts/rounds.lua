@@ -260,7 +260,8 @@ function Rounds:OnTouchGemCastle(trigger)
 
 	local unit = trigger.activator
 	local eHandle = unit:GetEntityHandle()
-	if unit.Damage ~= nil then
+	
+		
 		if unit and string.match(unit:GetUnitName(), "gem_round") then
 
 			self.SpawnedCreeps[eHandle] = nil
@@ -284,6 +285,7 @@ function Rounds:OnTouchGemCastle(trigger)
 				
 				if self.AmountKilled == 10 then
 
+				self.AmountKilled = 0
 				self.State = "BUILD"
 				self.RoundNumber = self.RoundNumber + 1
 				Rounds:InitBuild()
@@ -296,7 +298,7 @@ function Rounds:OnTouchGemCastle(trigger)
 			--Hero stepped in
 
 		end
-	end
+	
 
 end
 

@@ -57,7 +57,7 @@ function Builder:Init()
 
 	function AllPicked()
 
-		if self.PickCount == PlayerResource:GetTeamPlayerCount() then
+		if self.PickCount == self.PlayerCount then
 			
 			return true
 
@@ -72,7 +72,7 @@ function Builder:Init()
 
 	function CheckIfMergeable(playerID)
 
-
+		
 
     	for key, tower in pairs(self.RoundTowers[playerID]) do
     		local mergeTest =	{false,false,false}
@@ -98,7 +98,7 @@ function Builder:Init()
 
 
         	for k, v in pairs(mergesInto) do
-
+        		local secondMerge = false
             	print("Key:", k, "value: ", v)
 
             	local checkTower = towersKV[tostring(v)]["Requirements"]
@@ -134,7 +134,14 @@ function Builder:Init()
 		    	print("Requirement 3 ", mergeTest[3])
 		    	if mergeTest[1] and mergeTest[2] and mergeTest[3] then
 
-                	tower.MergesInto = tostring(v)
+                	
+                	if secondMerge then
+                		tower.MergesInto2 = tostring(v)
+                		secondMerge = false
+                	else
+                		tower.MergesInto = tostring(v)
+                		secondMerge = true
+                	end
 					table.insert(self.TowerMergeable[playerID], tower)
 
 		    	end
@@ -151,19 +158,19 @@ function Builder:Init()
 			print("Merge value in Builder:AddMergeAbility:", value.MergesInto)
 
 			local mergeName = value.MergesInto
+			local mergeName2 = value.MergesInto2
 
 			if value then
 
-				print("Tower name:", value:GetUnitName())
+				print("Merge Tower name:", mergeName)
 				if value:FindAbilityByName("gem_merge_tower") then
 					value:AddAbility("gem_merge_tower_2"):SetLevel(1)
 					local ModMaster = CreateItem("item_modifier_master", nil, nil) 
-					--ModMaster:ApplyDataDrivenModifier(value, value, "modifier_"..tostring(mergeName),nil)
-
+					ModMaster:ApplyDataDrivenModifier(value, value, "modifier_merge_"..mergeName2,nil)
 				else
 					value:AddAbility("gem_merge_tower"):SetLevel(1)
 					local ModMaster2 = CreateItem("item_modifier_master", nil, nil) 
-					--ModMaster2:ApplyDataDrivenModifier(value, value, "modifier_"..tostring(mergeName),nil)
+					ModMaster2:ApplyDataDrivenModifier(value, value, "modifier_merge_"..mergeName,nil)
 				end
 			else
 
@@ -184,7 +191,7 @@ function Builder:Init()
 
 	self.PickCount = 0
 	self.GlobalTowers = {}
-	self.GlobalMergeable = {} 
+	self.GlobalCount = 0 
 	self.DummyTowers = {} 
 	self.TowerMergeable = 
 	{
@@ -258,7 +265,7 @@ end
 function Builder:ConfirmTower(caster, owner, playerID)
 
 	self.PickCount = self.PickCount + 1
-
+	self.GlobalCount = self.GlobalCount + 1
 	local entityHandle = caster:GetEntityHandle()
 	local entityIndex = caster:GetEntityIndex()
 	local entityName = caster:GetUnitName()
@@ -276,7 +283,8 @@ function Builder:ConfirmTower(caster, owner, playerID)
 			tower:SetControllableByPlayer(playerID, true)
 			tower:SetOwner(owner)
 			tower:SetHullRadius(TOWER_HULL_RADIUS)
-			self.GlobalTowers[eHandle] = tower
+
+			self.GlobalTowers[self.GlobalCount] = tower
 
 
 		else
@@ -316,7 +324,6 @@ function Builder:ConfirmTower(caster, owner, playerID)
 
 	if self.PickCount >= self.PlayerCount then
 
-		Builder:WaveCheckIfMergeable()
 		self.PickCount = 0
 		Rounds:WaveInit()
 
@@ -326,7 +333,7 @@ end
 function Builder:OneShotUpgradeTower(caster, owner, playerID)
 
 	self.PickCount = self.PickCount + 1
-
+	self.GlobalCount = self.GlobalCount + 1
 	local entityHandle = caster:GetEntityHandle()
 	local entityIndex = caster:GetEntityIndex()
 	local towerCurrentLevel = caster.Level
@@ -347,7 +354,7 @@ function Builder:OneShotUpgradeTower(caster, owner, playerID)
 			tower:SetControllableByPlayer(playerID, true)
 			tower:SetOwner(owner)
 			tower:SetHullRadius(TOWER_HULL_RADIUS)
-			self.GlobalTowers[eHandle] = tower
+			self.GlobalTowers[self.GlobalCount] = tower
 
 
 		else
@@ -396,7 +403,7 @@ end
 function Builder:OneShotUpgradeTower_2(caster, owner, playerID)
 
 	self.PickCount = self.PickCount + 1
-
+	self.GlobalCount = self.GlobalCount + 1
 	local entityHandle = caster:GetEntityHandle()
 	local entityIndex = caster:GetEntityIndex()
 	local towerCurrentLevel = caster.Level
@@ -417,7 +424,7 @@ function Builder:OneShotUpgradeTower_2(caster, owner, playerID)
 			tower:SetControllableByPlayer(playerID, true)
 			tower:SetOwner(owner)
 			tower:SetHullRadius(TOWER_HULL_RADIUS)
-			self.GlobalTowers[eHandle] = tower
+			self.GlobalTowers[self.GlobalCount] = tower
 
 
 		else
@@ -467,7 +474,7 @@ end
 function Builder:DowngradeTower(caster, owner, playerID)
 
 	self.PickCount = self.PickCount + 1
-
+	self.GlobalCount = self.GlobalCount + 1
 	local entityHandle = caster:GetEntityHandle()
 	local entityIndex = caster:GetEntityIndex()
 	local towerCurrentLevel = caster.Level
@@ -489,7 +496,7 @@ function Builder:DowngradeTower(caster, owner, playerID)
 			tower:SetOwner(owner) 
 			tower:SetHullRadius(TOWER_HULL_RADIUS)
 
-			self.GlobalTowers[eHandle] = tower
+			self.GlobalTowers[self.GlobalCount] = tower
 
 
 		else
@@ -564,7 +571,7 @@ end
 function Builder:CreateMergeableTower(playerID, caster, owner)
 
 	self.PickCount = self.PickCount + 1
-
+	self.GlobalCount = self.GlobalCount + 1
 	local entityIndex = caster:GetEntityIndex()
 
 	for key, value in pairs(self.TowerMergeable[playerID]) do
@@ -579,14 +586,104 @@ function Builder:CreateMergeableTower(playerID, caster, owner)
 			tower:SetOwner(owner)
 			tower:SetHullRadius(TOWER_HULL_RADIUS)
 
-			self.GlobalTowers[eHandle] = tower
+			self.GlobalTowers[self.GlobalCount] = tower
 
 			value:Destroy()
 
 		else
 
 			local position = value:GetAbsOrigin()
-			self.GlobalTowers[value:GetEntityHandle()] = nil
+
+
+			local tower = CreateUnitByName("gem_dummy", position, false, nil, nil, DOTA_TEAM_GOODGUYS)
+			local eHandle = tower:GetEntityHandle()
+
+			self.DummyTowers[eHandle] = tower
+
+			value:Destroy()
+
+			tower:SetRenderColor(103, 135, 35)
+			tower:SetOwner(owner) 
+			tower:SetHullRadius(TOWER_HULL_RADIUS)
+			tower:SetAbsOrigin(CallibrateTreePosition(position))
+
+			Builder:CallibrateTreePosition(position)
+
+		end
+
+	end
+
+	for key, value in pairs(self.RoundTowers[playerID]) do
+
+		if not value:IsNull() then
+
+			local position = value:GetAbsOrigin()
+			local tower = CreateUnitByName("gem_dummy", position, false, nil, nil, DOTA_TEAM_GOODGUYS)
+			local eHandle = tower:GetEntityHandle()
+
+			self.DummyTowers[eHandle] = tower
+
+			tower:SetAbsOrigin(CallibrateTreePosition(position))
+
+			tower:SetRenderColor(103, 135, 35)
+			tower:SetHullRadius(TOWER_HULL_RADIUS)
+			tower:SetOwner(owner) 
+			tower:SetHullRadius(TOWER_HULL_RADIUS)
+
+			value:Destroy()
+
+			Builder:CallibrateTreePosition(position)
+		end
+
+	end
+	
+	for key, value in pairs(self.TowerMergeable[playerID]) do
+
+		self.TowerMergeable[playerID][key] = nil
+
+	end
+
+	for key, value in pairs(self.RoundTowers[playerID]) do
+
+		self.RoundTowers[playerID][key] = nil
+	end
+
+	print(Rounds.State)
+	if self.PickCount == self.PlayerCount and Rounds.State ~= "WAVE" then
+	print("Start Wave")
+		self.PickCount = 0
+		Rounds:WaveInit()
+
+	end
+
+end
+
+function Builder:CreateMergeableTower_2(playerID, caster, owner)
+
+	self.PickCount = self.PickCount + 1
+	self.GlobalCount = self.GlobalCount + 1
+	local entityIndex = caster:GetEntityIndex()
+
+	for key, value in pairs(self.TowerMergeable[playerID]) do
+
+		if entityIndex == value:GetEntityIndex() then
+
+			local position = value:GetAbsOrigin()
+			local tower = CreateUnitByName(value.MergesInto2, position, false, nil, nil, DOTA_TEAM_GOODGUYS)
+			local eHandle = tower:GetEntityHandle()
+
+			tower:SetControllableByPlayer(playerID, true)
+			tower:SetOwner(owner)
+			tower:SetHullRadius(TOWER_HULL_RADIUS)
+
+			self.GlobalTowers[self.GlobalCount] = tower
+
+			value:Destroy()
+
+		else
+
+			local position = value:GetAbsOrigin()
+
 
 			local tower = CreateUnitByName("gem_dummy", position, false, nil, nil, DOTA_TEAM_GOODGUYS)
 			local eHandle = tower:GetEntityHandle()
@@ -702,7 +799,7 @@ function Builder:WaveCheckIfMergeable()
 
 
     	for k, v in pairs(mergesInto) do
-
+ 		local secondMerge = false
         	print("Key:", k, "value: ", v)
 
         	local checkTower = towersKV[tostring(v)]["Requirements"]
@@ -738,8 +835,14 @@ function Builder:WaveCheckIfMergeable()
 	    	print("Requirement 3 ", mergeTest[3])
 	    	if mergeTest[1] and mergeTest[2] and mergeTest[3] then
 
-            	tower.MergesInto = tostring(v)
-				table.insert(self.GlobalMergeable, tower)
+				if secondMerge then
+					tower.MergesInto2 = tostring(v)
+					secondMerge = false
+				else
+					tower.MergesInto = tostring(v)
+					secondMerge = true
+				end
+				table.insert(self.TowerMergeable[0], tower)
 
 	    	end
     	end
@@ -750,39 +853,297 @@ end
 
 function Builder:WaveAddTowerMergeAbility()
 
-	for key, value in pairs(self.GlobalMergeable) do
+	for key, value in pairs(self.TowerMergeable[0]) do
 
 		print("Merge value in Builder:WaveAddTowerMergeAbility:", value.MergesInto)
 
 		local mergeName = value.MergesInto
-
+		local mergeName2 = value.MergesInto2
 		if value then
 
-			value:AddAbility("gem_merge_"..tostring(mergeName))
-
-		end
-
-	end
-
-
-end
-
-
---[[
-			print("Tower name:", value:GetUnitName())
+			print("Merge Tower name:", mergeName)
 			if value:FindAbilityByName("gem_merge_tower") then
 				value:AddAbility("gem_merge_tower_2"):SetLevel(1)
 				local ModMaster = CreateItem("item_modifier_master", nil, nil) 
-				ModMaster:ApplyDataDrivenModifier(value, value, "modifier_"..tostring(mergeName),{duration=10})
-
+				ModMaster:ApplyDataDrivenModifier(value, value, "modifier_merge_"..mergeName2,nil)
 			else
 				value:AddAbility("gem_merge_tower"):SetLevel(1)
 				local ModMaster2 = CreateItem("item_modifier_master", nil, nil) 
-				ModMaster2:ApplyDataDrivenModifier(value, value, "modifier_"..tostring(mergeName),{duration=10})
+				ModMaster2:ApplyDataDrivenModifier(value, value, "modifier_merge_"..mergeName,nil)
 			end
 		else
 
 			print("No towers to add!")
 		end
 	end
-]]--
+end
+
+function Builder:WaveCreateMergedTower(playerID, caster, owner)
+
+	self.PickCount = self.PickCount + 1
+
+	local entityIndex = caster:GetEntityIndex()
+
+	local fullTower = caster:GetUnitName()
+	local mergeTest = {false,false,false}
+	local mergeSkip = true
+	local checkTower = towersKV[caster.MergesInto]["Requirements"]
+
+	if fullTower==checkTower["1"]  then
+			mergeTest[1]=true
+			print("True for:", fullTower)
+		elseif fullTower==checkTower["2"] then
+
+			mergeTest[2]=true
+			print("True for:", fullTower)
+		elseif fullTower==checkTower["3"] then
+			mergeTest[3]=true
+			print("True for:", fullTower)
+		else
+			print("Is not a part of this merging")
+	end
+
+
+	for key, value in pairs(self.TowerMergeable[0]) do
+
+		if entityIndex == value:GetEntityIndex() then
+
+			local position = value:GetAbsOrigin()
+			local tower = CreateUnitByName(value.MergesInto, position, false, nil, nil, DOTA_TEAM_GOODGUYS)
+			local eHandle = tower:GetEntityHandle()
+
+			tower:SetControllableByPlayer(playerID, true)
+			tower:SetOwner(owner)
+			tower:SetHullRadius(TOWER_HULL_RADIUS)
+			
+			local removeTest = false
+			for i, j in pairs(self.GlobalTowers) do
+				if removeTest then
+					i=i-1
+				end
+				if j:GetEntityHandle()==value:GetEntityHandle() then
+					self.GlobalTowers[i] = nil
+					removeTest = true
+					self.GlobalCount=self.GlobalCount-1
+				end
+			end
+			self.GlobalTowers[self.GlobalCount] = tower
+
+			value:Destroy()
+			self.TowerMergeable[0][key]=nil
+		end
+	end
+
+	for key, value in pairs(self.TowerMergeable[0]) do
+
+		if entityIndex ~= value:GetEntityIndex() then
+			if mergeTest[1] and mergeTest[2] and mergeTest[3] then
+				print("Done merging")
+			else
+				local towerName = value:GetUnitName()	
+				if towerName==checkTower["1"] and not mergeTest[1] then
+						mergeTest[1]=true
+						print("True for:", fullTower)
+						mergeSkip = false
+					elseif towerName==checkTower["2"] and not mergeTest[2] then
+						mergeTest[2]=true
+						print("True for:", fullTower)
+						mergeSkip = false
+					elseif towerName==checkTower["3"] and not mergeTest[3] then
+						mergeTest[3]=true
+						print("True for:", fullTower)
+						mergeSkip=false
+					else
+						print("Is not a part of this merging")
+						mergeSkip=true
+				end
+				if not mergeSkip then
+					local position = value:GetAbsOrigin()
+					local removeTest = false
+					for i, j in pairs(self.GlobalTowers) do
+						if removeTest then
+							i=i-1
+						end
+						if j:GetEntityHandle()==value:GetEntityHandle() then
+							self.GlobalTowers[i] = nil
+							removeTest = true
+							self.GlobalCount=self.GlobalCount-1
+						end
+					end
+
+					local tower = CreateUnitByName("gem_dummy", position, false, nil, nil, DOTA_TEAM_GOODGUYS)
+					local eHandle = tower:GetEntityHandle()
+
+					self.DummyTowers[eHandle] = tower
+
+					value:Destroy()
+
+					tower:SetRenderColor(103, 135, 35)
+					tower:SetOwner(owner) 
+					tower:SetHullRadius(TOWER_HULL_RADIUS)
+					tower:SetAbsOrigin(CallibrateTreePosition(position))
+
+					Builder:CallibrateTreePosition(position)
+				end
+			end
+		end
+	end
+	
+	for key, value in pairs(self.TowerMergeable[0]) do
+		self.TowerMergeable[0][key] = nil
+	end
+	Builder:ClearWaveAbilities()
+	Builder:WaveCheckIfMergeable()
+	Builder:WaveAddTowerMergeAbility()
+end
+
+function Builder:WaveCreateMergedTower_2(playerID, caster, owner)
+
+	self.PickCount = self.PickCount + 1
+
+	local entityIndex = caster:GetEntityIndex()
+
+	local fullTower = caster:GetUnitName()
+	local mergeTest = {false,false,false}
+	local mergeSkip = true
+	local checkTower = towersKV[caster.MergesInto2]["Requirements"]
+
+	if fullTower==checkTower["1"]  then
+			mergeTest[1]=true
+			print("True for:", fullTower)
+		elseif fullTower==checkTower["2"] then
+
+			mergeTest[2]=true
+			print("True for:", fullTower)
+		elseif fullTower==checkTower["3"] then
+			mergeTest[3]=true
+			print("True for:", fullTower)
+		else
+			print("Is not a part of this merging")
+	end
+
+
+	for key, value in pairs(self.TowerMergeable[0]) do
+
+		if entityIndex == value:GetEntityIndex() then
+
+			local position = value:GetAbsOrigin()
+			local tower = CreateUnitByName(value.MergesInto2, position, false, nil, nil, DOTA_TEAM_GOODGUYS)
+			local eHandle = tower:GetEntityHandle()
+
+			tower:SetControllableByPlayer(playerID, true)
+			tower:SetOwner(owner)
+			tower:SetHullRadius(TOWER_HULL_RADIUS)
+			
+			local removeTest = false
+			for i, j in pairs(self.GlobalTowers) do
+				if removeTest then
+					i=i-1
+				end
+				if j:GetEntityHandle()==value:GetEntityHandle() then
+					self.GlobalTowers[i] = nil
+					removeTest = true
+					self.GlobalCount=self.GlobalCount-1
+				end
+			end
+			self.GlobalTowers[self.GlobalCount] = tower
+
+			value:Destroy()
+			self.TowerMergeable[0][key]=nil
+		end
+	end
+
+	for key, value in pairs(self.TowerMergeable[0]) do
+
+		if entityIndex ~= value:GetEntityIndex() then
+			if mergeTest[1] and mergeTest[2] and mergeTest[3] then
+				print("Done merging")
+			else
+				local towerName = value:GetUnitName()	
+				if towerName==checkTower["1"] and not mergeTest[1] then
+						mergeTest[1]=true
+						print("True for:", fullTower)
+						mergeSkip = false
+					elseif towerName==checkTower["2"] and not mergeTest[2] then
+						mergeTest[2]=true
+						print("True for:", fullTower)
+						mergeSkip = false
+					elseif towerName==checkTower["3"] and not mergeTest[3] then
+						mergeTest[3]=true
+						print("True for:", fullTower)
+						mergeSkip=false
+					else
+						print("Is not a part of this merging")
+						mergeSkip=true
+				end
+				if not mergeSkip then
+					local position = value:GetAbsOrigin()
+					local removeTest = false
+					for i, j in pairs(self.GlobalTowers) do
+						if removeTest then
+							i=i-1
+						end
+						if j:GetEntityHandle()==value:GetEntityHandle() then
+							self.GlobalTowers[i] = nil
+							removeTest = true
+							self.GlobalCount=self.GlobalCount-1
+						end
+					end
+
+					local tower = CreateUnitByName("gem_dummy", position, false, nil, nil, DOTA_TEAM_GOODGUYS)
+					local eHandle = tower:GetEntityHandle()
+
+					self.DummyTowers[eHandle] = tower
+
+					value:Destroy()
+
+					tower:SetRenderColor(103, 135, 35)
+					tower:SetOwner(owner) 
+					tower:SetHullRadius(TOWER_HULL_RADIUS)
+					tower:SetAbsOrigin(CallibrateTreePosition(position))
+
+					Builder:CallibrateTreePosition(position)
+				end
+			end
+		end
+	end
+	
+	for key, value in pairs(self.TowerMergeable[0]) do
+		self.TowerMergeable[0][key] = nil
+	end
+	Builder:ClearWaveAbilities()
+	Builder:WaveCheckIfMergeable()
+	Builder:WaveAddTowerMergeAbility()
+end
+
+function Builder:ClearWaveAbilities()
+	if ModMaster then
+		ModMaster:Destroy()
+	elseif ModMaster2 then
+		ModMaster2:Destroy()
+	end
+
+	for key, value in pairs(self.GlobalTowers) do
+		if value:FindAbilityByName("gem_merge_tower") then
+			value:RemoveAbility("gem_merge_tower")
+		end
+		if value:FindAbilityByName("gem_merge_tower_2") then
+			value:RemoveAbility("gem_merge_tower_2")
+		end
+		for i=0,value:GetModifierCount() do
+			if value:GetModifierNameByIndex(i) then
+				local modTest = value:GetModifierNameByIndex(i)
+				if string.sub(modTest, 1,14)=="modifier_merge" then
+					value:RemoveModifierByName(modTest)
+				end
+			end
+		end
+	end
+
+	for key, value in pairs(self.TowerMergeable[0]) do
+		self.TowerMergeable[0][key] = nil
+	end
+
+end
+
+
