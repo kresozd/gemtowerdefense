@@ -42,7 +42,7 @@
 
 #castle-health-inner {
   border-radius: 3px;
-  border: 1.5px solid #154315;
+  border: 1px solid #288228;
   width: 100%;
   height: 100%;
   background-color: gradient( linear, 0% 0%, 0% 100%, from( #1c1c1c ), to( #353535 ) );

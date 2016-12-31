@@ -1,10 +1,8 @@
 function setUpPlayerBar(player, id) {
   var panel = $("#player-bar-" + id);
   panel.RemoveClass('player-hidden');
-
-  for (var i = 0; i < panel.GetChildCount(); i++) {
-    panel.Children()[i].steamid = player.player_steamid;
-  }
+  playerAva = panel.FindChildrenWithClassTraverse("player-avatar")[0];
+  playerAva.steamid = player.player_steamid;  
 }
 
 function updateConnectionState(playerInfo, id) {
