@@ -158,12 +158,12 @@ function Builder:Init()
 				if value:FindAbilityByName("gem_merge_tower") then
 					value:AddAbility("gem_merge_tower_2"):SetLevel(1)
 					local ModMaster = CreateItem("item_modifier_master", nil, nil) 
-				--	ModMaster:ApplyDataDrivenModifier(value, value, "modifier_"..tostring(mergeName),nil)
+					--ModMaster:ApplyDataDrivenModifier(value, value, "modifier_"..tostring(mergeName),nil)
 
 				else
 					value:AddAbility("gem_merge_tower"):SetLevel(1)
 					local ModMaster2 = CreateItem("item_modifier_master", nil, nil) 
-				--	ModMaster2:ApplyDataDrivenModifier(value, value, "modifier_"..tostring(mergeName),nil)
+					--ModMaster2:ApplyDataDrivenModifier(value, value, "modifier_"..tostring(mergeName),nil)
 				end
 			else
 

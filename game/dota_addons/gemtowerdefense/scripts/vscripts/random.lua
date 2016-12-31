@@ -67,12 +67,9 @@ function Random:SpawnElite()
 
 			return false
 
-
 		end
 
 end
-
-
 
 function Random:Downgrade(level)
 
@@ -253,10 +250,6 @@ function Random:GenerateWardLevel()
 		end
 
 	end
-
-
-	
-
 end
 
 
@@ -264,7 +257,7 @@ function Random:GenerateWardName()
 
 	local nameTable = randomKV.Base
 	local name = nameTable[tostring(RandomInt(1, 8))]
-
+	--local name = nameTable[tostring(RandomInt(3, 5))]
 	return name
 
 end

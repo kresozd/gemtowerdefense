@@ -14,7 +14,10 @@ function GemTowerDefenseReborn:InitGameMode()
 	wavesKV 	= LoadKeyValues("scripts/kv/waves.kv")
 	settingsKV 	= LoadKeyValues("scripts/kv/settings.kv")
 	randomKV	= LoadKeyValues("scripts/kv/random.kv") 
-
+	GameRules:SetCustomGameSetupAutoLaunchDelay( 0 )
+    GameRules:LockCustomGameSetupTeamAssignment( true )
+    GameRules:EnableCustomGameSetupAutoLaunch( true )
+    
 	Grid:Init()
 	Builder:Init()
 	Rounds:Init(wavesKV)
@@ -28,7 +31,7 @@ function GemTowerDefenseReborn:InitGameMode()
 	GameRules:SetGoldPerTick(0)
 	GameRules:SetGoldTickTime(0)
 	GameRules:SetStartingGold(0)
-
+	GameRules:GetGameModeEntity():SetFogOfWarDisabled(true)
 	
 	GameRules:SetCustomGameTeamMaxPlayers(DOTA_TEAM_GOODGUYS, 4)
 	GameRules:SetCustomGameTeamMaxPlayers(DOTA_TEAM_BADGUYS, 0)
