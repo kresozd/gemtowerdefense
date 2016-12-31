@@ -459,7 +459,7 @@
 	{
 
 		"BaseClass"	"npc_dota_creature"
-		"Model"	"models/items/wards/chen_ward/chen_ward.vmdl"
+		"Model"	"models/items/wards/crystal_maiden_ward/crystal_maiden_ward.vmdl"
 		"ModelScale"	"1.2"
 
 		"MinimapIcon"	"minimap_creep"
@@ -2652,8 +2652,8 @@
 	{
 
 		"BaseClass"	"npc_dota_creature"
-		"Model"	"models/items/wards/esl_wardchest_direling_ward/esl_wardchest_direling_ward.vmdl"
-		"ModelScale"	"1.5"
+		"Model"	"models/items/juggernaut/ward_foo.vmdl"
+		"ModelScale"	"1.2"
 
 
 		"MinimapIcon"	"minimap_creep"
@@ -3443,7 +3443,7 @@
 		{
 
 		"BaseClass"	"npc_dota_creature"
-		"Model"	"models/items/wards/wards/lina_ward/lina_ward.vmdl"
+		"Model"	"models/items/wards/esl_wardchest_toadstool/esl_wardchest_toadstool.vmdl"
 		"ModelScale"	"1.5"
 
 

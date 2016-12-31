@@ -7,7 +7,7 @@ end
 
 function Rounds:Init(keyvalue)
 
-	
+
 	function IsBoss()
 
 		if wavesKV[tostring(self.RoundNumber)]["Boss"] == "Yes" then
@@ -22,6 +22,7 @@ function Rounds:Init(keyvalue)
 
 	end
 
+
 	ListenToGameEvent('entity_killed', Dynamic_Wrap(Rounds, 'OnEntityKilled'), self)
 
 	self.PlayerCount 	= 0
@@ -30,7 +31,7 @@ function Rounds:Init(keyvalue)
     self.AmountKilled 		= 0
 	self.AmountSpawned 		= 0
     self.SpawnedCreeps 		= {}
-    self.RoundNumber 		= 9
+    self.RoundNumber 		= 1
     self.SpawnPosition 		= Entities:FindByName(nil, "enemy_spawn"):GetAbsOrigin()
 	self.BaseHealth 		= 100
 	self.BuildLevel 		= 1
@@ -72,7 +73,6 @@ function Rounds:AddUnitProperties(unit)
 	unit.Damage 			= self.Data[tostring(self.RoundNumber)]["Damage"]
 	unit.Name 				= self.Data[tostring(self.RoundNumber)]["unit"]
 	unit.XPBounty			= self.Data[tostring(self.RoundNumber)]["XPBounty"]
-	unit.Speed 				= self.Data[tostring(self.RoundNumber)]["MoveSpeed"]
 	unit.GoldBounty 		= self.Data[tostring(self.RoundNumber)]["GoldBounty"]
 	unit.Type 				= self.Data[tostring(self.RoundNumber)]["Type"]
 
@@ -102,7 +102,6 @@ function Rounds:SpawnUnits()
 		creep.Damage 			= unitDamage
 		creep.Name 				= unitName
 		creep.XPBounty			= unitXPBounty
-		creep.Speed 			= unitSpeed * 2
 		creep.GoldBounty 		= unitGoldBounty
 		creep.Type 				= unitType
 		--creep.IsBoss 			=
@@ -110,6 +109,9 @@ function Rounds:SpawnUnits()
 		--creep:SetBaseDamageMax(unitDamage)
 		creep:SetBaseDamageMin(unitDamage)
 		creep:SetBaseDamageMax(unitDamage)
+		creep:SetBaseMoveSpeed(unitSpeed)
+		creep:SetMaximumGoldBounty(unitGoldBounty)
+
 
 		creep:SetHullRadius(0)
 			
@@ -282,8 +284,11 @@ function Rounds:OnTouchGemCastle(trigger)
 				Rounds:InitBuild()
 
 			else
+
+				local eventData = {"a"}
 				
 				if self.AmountKilled == 10 then
+
 
 				self.AmountKilled = 0
 				self.State = "BUILD"
@@ -317,22 +322,29 @@ function Rounds:OnEntityKilled(keys)
 
 	self.SpawnedCreeps[eHandle] = nil
 
-	Hero:AddExperience(unit.XPBounty, 0, false, false)
+	Hero:AddExperience(unit:GetMaximumGoldBounty(), 0, false, false)
 	PlayerResource:ModifyGold(0, unit.GoldBounty, false, 0)
 
 	if IsBoss() then
+
+		
 
 		self.State = "BUILD"
 		self.RoundNumber = self.RoundNumber + 1
 		Rounds:InitBuild()
 
 
+
+
 	else
+
 
 		self.AmountKilled = self.AmountKilled + 1
 
 		if self.AmountKilled == 10 then
 
+		--FireGameEvent("end", round_finish)
+		FireGameEvent("round_end", {playerID = "0"})
 		self.State = "BUILD"
 		self.AmountKilled = 0
 		self.RoundNumber = self.RoundNumber + 1
