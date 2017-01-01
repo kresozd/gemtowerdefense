@@ -977,7 +977,7 @@ function Builder:WaveCreateMergedTower(playerID, caster, owner)
 	for key, value in pairs(self.TowerMergeable[0]) do
 		self.TowerMergeable[0][key] = nil
 	end
-	CheckIfAllPicked()
+	--CheckIfAllPicked()
 	Builder:ClearWaveAbilities()
 	Builder:WaveCheckIfMergeable()
 	Builder:WaveAddTowerMergeAbility()
