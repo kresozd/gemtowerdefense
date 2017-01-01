@@ -51,11 +51,7 @@ function GemTowerDefenseReborn:InitGameMode()
 
 	GameRules:GetGameModeEntity():SetCustomXPRequiredToReachNextLevel(settingsKV.CustomXPTable)
 	GameRules:SetUseCustomHeroXPValues(true)
-
-	CustomNetTables:SetTableValue( "game_state", "current_round", { value = 1 } )
 	
-
-
 end
 
 

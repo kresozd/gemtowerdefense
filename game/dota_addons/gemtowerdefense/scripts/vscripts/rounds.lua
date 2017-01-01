@@ -22,6 +22,27 @@ function Rounds:Init(keyvalue)
 
 	end
 
+	function IsRoundCleared()
+
+		if self.AmountKilled == 10 then
+
+			return true
+
+		else
+			return false
+		end
+
+	end
+
+	function UpdateWaveData()
+
+	self.State = "BUILD"
+	self.AmountKilled = 0
+	self.RoundNumber = self.RoundNumber + 1
+
+
+	end
+
 
 	ListenToGameEvent('entity_killed', Dynamic_Wrap(Rounds, 'OnEntityKilled'), self)
 	ListenToGameEvent('all_placed', Dynamic_Wrap(Rounds, 'OnAllPlaced'), self)
@@ -289,7 +310,6 @@ function Rounds:OnTouchGemCastle(trigger)
 				self.RoundNumber = self.RoundNumber + 1
 				Rounds:InitBuild()
 				end
-
 			end
 
 		else
@@ -332,25 +352,15 @@ function Rounds:OnEntityKilled(keys)
 	
 		FireGameEvent("round_end", {playerID = "0"})
 
-
-
 	else
 
+		if IsRoundCleared() then
 
-		self.AmountKilled = self.AmountKilled + 1
-
-		if self.AmountKilled == 10 then
-
-		
-		self.State = "BUILD"
-		self.AmountKilled = 0
-		self.RoundNumber = self.RoundNumber + 1
-
-		FireGameEvent("round_end", {state = "BUILD"})
+			UpdateWaveData()
+			FireGameEvent("round_end", {state = "BUILD"})
 
 		end
 	end
-
 end
 
 function Rounds:OnAllPlaced(keys)
