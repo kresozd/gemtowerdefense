@@ -55,15 +55,17 @@ function Builder:Init()
 
 	end
 
-	function AllPicked()
+	function CheckIfAllPicked()
 
-		if self.PickCount == self.PlayerCount then
+		if self.PickCount == PlayerResource:GetTeamPlayerCount() then
 			
-			return true
+			print("AllPicked from CheckIfAllPickedFunction()")
+			self.PickCount = 0
+			FireGameEvent("all_placed", {state = "Something"})
 
 		else
 
-			return false
+			--
 
 		end
 
@@ -322,12 +324,8 @@ function Builder:ConfirmTower(caster, owner, playerID)
 
 	end
 
-	if self.PickCount >= self.PlayerCount then
+	CheckIfAllPicked()
 
-		self.PickCount = 0
-		Rounds:WaveInit()
-
-	end
 end
 
 function Builder:OneShotUpgradeTower(caster, owner, playerID)
@@ -392,12 +390,7 @@ function Builder:OneShotUpgradeTower(caster, owner, playerID)
 
 	end
 
-	if self.PickCount >= self.PlayerCount then
-
-		self.PickCount = 0
-		Rounds:WaveInit()
-
-	end
+	CheckIfAllPicked()
 end
 
 function Builder:OneShotUpgradeTower_2(caster, owner, playerID)
@@ -462,12 +455,7 @@ function Builder:OneShotUpgradeTower_2(caster, owner, playerID)
 
 	end
 
-	if self.PickCount >= self.PlayerCount then
-
-		self.PickCount = 0
-		Rounds:WaveInit()
-
-	end
+	CheckIfAllPicked()
 end
 
 
@@ -530,12 +518,7 @@ function Builder:DowngradeTower(caster, owner, playerID)
 
 	end
 	
-	if self.PickCount >= self.PlayerCount then
-
-		self.PickCount = 0
-		Rounds:WaveInit()
-
-	end
+	CheckIfAllPicked()
 
 end
 
@@ -649,12 +632,8 @@ function Builder:CreateMergeableTower(playerID, caster, owner)
 	end
 
 	print(Rounds.State)
-	if self.PickCount == self.PlayerCount and Rounds.State ~= "WAVE" then
-	print("Start Wave")
-		self.PickCount = 0
-		Rounds:WaveInit()
-
-	end
+	
+	CheckIfAllPicked()
 
 end
 

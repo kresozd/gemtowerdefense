@@ -24,6 +24,7 @@ function Rounds:Init(keyvalue)
 
 
 	ListenToGameEvent('entity_killed', Dynamic_Wrap(Rounds, 'OnEntityKilled'), self)
+	ListenToGameEvent('all_placed', Dynamic_Wrap(Rounds, 'OnAllPlaced'), self)
 
 	self.PlayerCount 	= 0
 	self.AllPicked 			= false
@@ -331,8 +332,8 @@ function Rounds:OnEntityKilled(keys)
 
 		self.State = "BUILD"
 		self.RoundNumber = self.RoundNumber + 1
-		Rounds:InitBuild()
-
+		--Rounds:InitBuild()
+		FireGameEvent("round_end", {playerID = "0"})
 
 
 
@@ -343,15 +344,30 @@ function Rounds:OnEntityKilled(keys)
 
 		if self.AmountKilled == 10 then
 
-		--FireGameEvent("end", round_finish)
 		FireGameEvent("round_end", {playerID = "0"})
 		self.State = "BUILD"
 		self.AmountKilled = 0
 		self.RoundNumber = self.RoundNumber + 1
 
-		Rounds:InitBuild()
+		--Rounds:InitBuild()
 
 		end
 	end
+
+end
+
+function Rounds:OnAllPlaced(keys)
+
+	print("Event fired! All placed!")
+	Rounds:WaveInit()
+
+
+end
+
+function PrepareNewRound()
+
+	self.State = "BUILD"
+	self.AmountKilled = 0
+	self.RoundNumber = self.RoundNumber + 1
 
 end
