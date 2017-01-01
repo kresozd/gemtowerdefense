@@ -56,45 +56,33 @@ function Rounds:AddUnitProperties(unit)
 
 end
 
+--[[
+"Difficulty"
+        {
+            "MoveSpeedQuocient" "1.1"
+            "HitPointQuocient"  "1.2"
+]]--
+
+
 function Rounds:SpawnUnits()
 
 	self.State = "WAVE"
 
-	local unitDamage 	= wavesKV[tostring(self.RoundNumber)]["Damage"]
-	local unitName 		= wavesKV[tostring(self.RoundNumber)]["Creep"]
-	local unitSpeed 	= wavesKV[tostring(self.RoundNumber)]["MoveSpeed"]
-	local unitXPBounty 	= wavesKV[tostring(self.RoundNumber)]["XPBounty"]
-	local unitGoldBounty = wavesKV[tostring(self.RoundNumber)]["GoldBounty"]
-	local unitType 		= wavesKV[tostring(self.RoundNumber)]["Type"]
-	local unitIsBoss 	= wavesKV[tostring(self.RoundNumber)]["Boss"]
+	local waveData = Rounds:LoadWaveData()
 
 	Timers:CreateTimer( function()
 		
 		self.AmountSpawned = self.AmountSpawned + 1
        
-		local creep = CreateUnitByName(unitName, self.SpawnPosition, false, nil, nil, DOTA_TEAM_BADGUYS)
-		local eHandle = creep:GetEntityHandle()
+		local unit = CreateUnitByName(waveData.unitName, self.SpawnPosition, false, nil, nil, DOTA_TEAM_BADGUYS)
+		local eHandle = unit:GetEntityHandle()
 
-		self.SpawnedCreeps[eHandle] = creep
+		self.SpawnedCreeps[eHandle] = unit
 
-		creep.Damage 			= unitDamage
-		creep.Name 				= unitName
-		creep.XPBounty			= unitXPBounty
-		creep.GoldBounty 		= unitGoldBounty
-		creep.Type 				= unitType
-
-		creep:SetBaseDamageMin(unitDamage)
-		creep:SetBaseDamageMax(unitDamage)
-		creep:SetBaseMoveSpeed(unitSpeed)
-		creep:SetMaximumGoldBounty(unitGoldBounty)
-		creep:SetDeathXP(unitXPBounty)
-		creep:SetBaseMaxHealth(50)
-
-		creep:SetHullRadius(0)
+		Rounds:AddCreepProperties(unit, waveData)
+		unit:AddAbility("gem_collision_movement"):SetLevel(1)
 			
-		creep:AddAbility("gem_collision_movement"):SetLevel(1)
-			
-		Grid:MoveUnit(creep, creep.Type)
+		Grid:MoveUnit(unit)
 
 		if self.AmountSpawned == 10 then
 
@@ -106,9 +94,18 @@ function Rounds:SpawnUnits()
 			return self.DelayBetweenSpawn
 
 		end
-
     end)
+end
 
+function Rounds:AddCreepProperties(unit, table)
+	
+	unit:SetBaseDamageMin(table.unitDamage)
+	unit:SetBaseDamageMax(table.unitDamage)
+	unit:SetBaseMoveSpeed(table.unitSpeed * table.difficultySpeed)
+	unit:SetMaximumGoldBounty(table.unitGoldBounty)
+	unit:SetDeathXP(table.unitXPBounty)
+	unit:SetBaseMaxHealth(table.unitHealth * table.difficultyHealth)
+	unit:SetHullRadius(0)
 
 end
 
@@ -333,5 +330,30 @@ function Rounds:AddHeroBountyOnKill(unit)
 		
 
 	end
+
+end
+
+function Rounds:LoadWaveData()
+
+	local loadWave = wavesKV[tostring(self.RoundNumber)]
+	local loadDifficulty = settingsKV[tostring(tostring(PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_GOODGUYS)))]["Difficulty"]
+
+	local TableData = 
+	{
+	
+		unitDamage 		= loadWave["Damage"],
+ 		unitName 		= loadWave["Creep"],
+ 		unitSpeed 		= loadWave["MoveSpeed"],
+		unitXPBounty 	= loadWave["XPBounty"],
+		unitGoldBounty 	= loadWave["GoldBounty"],
+		unitType 		= loadWave["Type"],
+		unitHealth 		= loadWave["Health"],
+
+		difficultySpeed 	= loadDifficulty["MoveSpeedQuocient"],
+ 		difficultyHealth 	= loadDifficulty["HitPointQuocient"]
+
+	}
+
+	return TableData
 
 end

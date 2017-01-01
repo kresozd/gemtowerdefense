@@ -312,7 +312,7 @@ function Grid:MoveUnit(unitNPC)
 	local type = unit.Type
 	unit.Step = 1
 
-	if type == "GROUND" then
+	if not unit:HasFlyMovementCapability() then
 
 	Timers(function()
 
@@ -336,7 +336,7 @@ function Grid:MoveUnit(unitNPC)
 
 	end)
 
-	elseif type == "AIR" then
+	else
 
 		local unit = unitNPC
 		unit.Step = 1
