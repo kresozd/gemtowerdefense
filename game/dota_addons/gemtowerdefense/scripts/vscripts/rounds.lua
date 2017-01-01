@@ -45,17 +45,11 @@ function Rounds:Init(keyvalue)
 
 end
 
-function Rounds:InitBuild()
-	Builder:ClearWaveAbilities()
-	CustomNetTables:SetTableValue( "game_state", "current_round", { value = tostring(self.RoundNumber) } )
-	Builder:AddHeroAbilitiesOnRound()
-
-end
 
 function Rounds:WaveInit()
-	Builder:WaveCheckIfMergeable()
-	Builder:WaveAddTowerMergeAbility()
-	print("Checked")
+	
+	CustomNetTables:SetTableValue( "game_state", "current_round", { value = tostring(self.RoundNumber) } )
+	
 	if IsBoss() then
 
 		Rounds:SpawnBoss()
@@ -63,7 +57,6 @@ function Rounds:WaveInit()
 	else
 
 		Rounds:SpawnUnits()
-
 
 	end
 
@@ -309,22 +302,26 @@ function Rounds:OnTouchGemCastle(trigger)
 end
 
 
-
 function Rounds:OnEntityKilled(keys)
-
-	local Player = PlayerResource:GetPlayer(0)
-	local Hero = Player:GetAssignedHero()
-	local PlayerID = Player:GetPlayerID()
-
-	print("Entity killed called!")
 
 	local unit = EntIndexToHScript(keys.entindex_killed)
 	local eHandle = unit:GetEntityHandle()
 
+	for i = 0, PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_GOODGUYS) - 1 do
+
+		local player = PlayerResource:GetPlayer(i)
+		local hero = player:GetAssignedHero()
+		local playerID = player:GetPlayerID()
+
+		hero:AddExperience(unit:GetMaximumGoldBounty(), 0, false, false)
+		PlayerResource:ModifyGold(i, unit.GoldBounty, false, 0)
+
+	end
+
+
+
 	self.SpawnedCreeps[eHandle] = nil
 
-	Hero:AddExperience(unit:GetMaximumGoldBounty(), 0, false, false)
-	PlayerResource:ModifyGold(0, unit.GoldBounty, false, 0)
 
 	if IsBoss() then
 
@@ -332,7 +329,7 @@ function Rounds:OnEntityKilled(keys)
 
 		self.State = "BUILD"
 		self.RoundNumber = self.RoundNumber + 1
-		--Rounds:InitBuild()
+	
 		FireGameEvent("round_end", {playerID = "0"})
 
 
@@ -344,12 +341,12 @@ function Rounds:OnEntityKilled(keys)
 
 		if self.AmountKilled == 10 then
 
-		FireGameEvent("round_end", {playerID = "0"})
+		
 		self.State = "BUILD"
 		self.AmountKilled = 0
 		self.RoundNumber = self.RoundNumber + 1
 
-		--Rounds:InitBuild()
+		FireGameEvent("round_end", {state = "BUILD"})
 
 		end
 	end
@@ -364,10 +361,3 @@ function Rounds:OnAllPlaced(keys)
 
 end
 
-function PrepareNewRound()
-
-	self.State = "BUILD"
-	self.AmountKilled = 0
-	self.RoundNumber = self.RoundNumber + 1
-
-end

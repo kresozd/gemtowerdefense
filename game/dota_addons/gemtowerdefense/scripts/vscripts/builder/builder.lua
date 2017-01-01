@@ -57,16 +57,18 @@ function Builder:Init()
 
 	function CheckIfAllPicked()
 
-		if self.PickCount == PlayerResource:GetTeamPlayerCount() then
+		print("PlayerCount in CheckIfAllPicked", PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_GOODGUYS))
+
+		if self.PickCount == PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_GOODGUYS) then
 			
-			print("AllPicked from CheckIfAllPickedFunction()")
 			self.PickCount = 0
+			
+			Builder:WaveCheckIfMergeable()
+			Builder:WaveAddTowerMergeAbility()
+			
 			FireGameEvent("all_placed", {state = "Something"})
 
 		else
-
-			--
-
 		end
 
 
@@ -181,6 +183,8 @@ function Builder:Init()
 		end
 	end
 
+	ListenToGameEvent('round_end', Dynamic_Wrap(Builder, 'OnRoundEnded'), self)
+
 
 	self.PlayerCount = 0
 	self.RoundTowers =
@@ -202,6 +206,7 @@ function Builder:Init()
 		[2] = {},
 		[3] = {}
 	}
+	self.State = "BUILD"
 
 end
 
@@ -214,6 +219,13 @@ end
 function Builder:IncrementPlayerCount()
 
 	self.PlayerCount = self.PlayerCount + 1
+
+end
+
+function Builder:InitBuild()
+
+	Builder:ClearWaveAbilities()
+	Builder:AddHeroAbilitiesOnRound()
 
 end
 
@@ -1126,3 +1138,10 @@ function Builder:ClearWaveAbilities()
 end
 
 
+function Builder:OnRoundEnded(keys)
+
+	self.State = "BUILD"
+	Builder:InitBuild()
+
+
+end
