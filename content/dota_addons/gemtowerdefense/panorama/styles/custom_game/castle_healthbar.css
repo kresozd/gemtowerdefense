@@ -7,7 +7,7 @@
   flow-children: down;
   horizontal-align: center;
   vertical-align: top;
-  margin-left: 570px;
+  margin-left: 550px;
 }
 
 #castle-health-title {
@@ -25,7 +25,7 @@
 }
 
 #castle-health {
-  width: 400px;
+  width: 380px;
   height: 26px;
 }
 

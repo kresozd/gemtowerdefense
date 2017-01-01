@@ -44,7 +44,7 @@
 }
 
 .player-rank-overlay {
-  background-color: gradient( linear, 0% 0%, 100% 0%, from( #4e5a78aa ), color-stop( .3, #42566355 ), color-stop( .7, #42566355 ), to( #4e5a78aa ) );
+  background-color: gradient( linear, 0% 0%, 100% 0%, from( #4e5a789a ), color-stop( .3, #42566335 ), color-stop( .7, #42566335 ), to( #4e5a789a) );
   width: 100%;
   height: 100%;
 }
