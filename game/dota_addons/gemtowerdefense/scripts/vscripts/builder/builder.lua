@@ -729,13 +729,7 @@ function Builder:CreateMergeableTower_2(playerID, caster, owner)
 		self.RoundTowers[playerID][key] = nil
 	end
 
-	print(Rounds.State)
-	if self.PickCount == self.PlayerCount and Rounds.State ~= "WAVE" then
-	print("Start Wave")
-		self.PickCount = 0
-		Rounds:WaveInit()
-
-	end
+	CheckIfAllPicked()
 
 end
 
@@ -983,6 +977,7 @@ function Builder:WaveCreateMergedTower(playerID, caster, owner)
 	for key, value in pairs(self.TowerMergeable[0]) do
 		self.TowerMergeable[0][key] = nil
 	end
+	CheckIfAllPicked()
 	Builder:ClearWaveAbilities()
 	Builder:WaveCheckIfMergeable()
 	Builder:WaveAddTowerMergeAbility()
