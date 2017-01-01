@@ -1,10 +1,14 @@
 "CustomEvents"
 {
 	
-	"round_finish"
+	"round_end"
 	{
 		"test"					"short"
 		
+	}
+	"all_placed"
+	{
+
 	}
 
 

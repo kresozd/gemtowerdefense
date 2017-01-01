@@ -231,41 +231,29 @@ function Rounds:OnTouchGemCastle(trigger)
 			self.SpawnedCreeps[eHandle] = nil
 
 			self.BaseHealth = self.BaseHealth - unit:GetBaseDamageMax()
-			self.TotalLeaked = self.TotalLeaked + 1
 			self.AmountKilled = self.AmountKilled + 1
 
 			unit:Destroy()
 
 			CustomNetTables:SetTableValue( "game_state", "gem_castle_health", { value = tostring(self.BaseHealth) } )
-
 	
 			if Rounds:IsBoss() then
 
-				self.State = "BUILD"
-				self.RoundNumber = self.RoundNumber + 1
-				Rounds:InitBuild()
+				Rounds:UpdateWaveData()
+				FireGameEvent("round_end", {state = "BUILD"})
 
-			else
+			elseif Rounds:IsRoundCleared() then
 
-				local eventData = {"a"}
-				
-				if self.AmountKilled == 10 then
+				Rounds:UpdateWaveData()
+				FireGameEvent("round_end", {state = "BUILD"})
 
-
-				self.AmountKilled = 0
-				self.State = "BUILD"
-				self.RoundNumber = self.RoundNumber + 1
-				Rounds:InitBuild()
-				end
 			end
-
+			
 		else
 
 			--Hero stepped in
 
 		end
-	
-
 end
 
 
@@ -274,17 +262,7 @@ function Rounds:OnEntityKilled(keys)
 	local unit = EntIndexToHScript(keys.entindex_killed)
 	local eHandle = unit:GetEntityHandle()
 
-	for i = 0, PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_GOODGUYS) - 1 do
-
-		local player = PlayerResource:GetPlayer(i)
-		local hero = player:GetAssignedHero()
-		local playerID = player:GetPlayerID()
-
-		hero:AddExperience(unit:GetDeathXP(), 0, false, false)
-		PlayerResource:ModifyGold(i, unit:GetMaximumGoldBounty(), false, 0)
-		
-
-	end
+	Rounds:AddHeroBountyOnKill(unit)
 
 	self.AmountKilled = self.AmountKilled + 1
 
@@ -295,14 +273,12 @@ function Rounds:OnEntityKilled(keys)
 		Rounds:UpdateWaveData()
 		FireGameEvent("round_end", {playerID = "0"})
 
-	else
-
-		if Rounds:IsRoundCleared() then
+	elseif Rounds:IsRoundCleared() then
 
 			Rounds:UpdateWaveData()
 			FireGameEvent("round_end", {state = "BUILD"})
 
-		end
+		
 	end
 end
 
@@ -341,5 +317,21 @@ function Rounds:UpdateWaveData()
 	self.State = "BUILD"
 	self.AmountKilled = 0
 	self.RoundNumber = self.RoundNumber + 1
+
+end
+
+function Rounds:AddHeroBountyOnKill(unit)
+
+	for i = 0, PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_GOODGUYS) - 1 do
+
+		local player = PlayerResource:GetPlayer(i)
+		local hero = player:GetAssignedHero()
+		local playerID = player:GetPlayerID()
+
+		hero:AddExperience(unit:GetDeathXP(), 0, false, false)
+		PlayerResource:ModifyGold(i, unit:GetMaximumGoldBounty(), false, 0)
+		
+
+	end
 
 end
