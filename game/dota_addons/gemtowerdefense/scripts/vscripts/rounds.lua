@@ -82,14 +82,13 @@ function Rounds:SpawnUnits()
 		creep.XPBounty			= unitXPBounty
 		creep.GoldBounty 		= unitGoldBounty
 		creep.Type 				= unitType
-		--creep.IsBoss 			=
 
-		--creep:SetBaseDamageMax(unitDamage)
 		creep:SetBaseDamageMin(unitDamage)
 		creep:SetBaseDamageMax(unitDamage)
 		creep:SetBaseMoveSpeed(unitSpeed)
 		creep:SetMaximumGoldBounty(unitGoldBounty)
-
+		creep:SetDeathXP(unitXPBounty)
+		creep:SetBaseMaxHealth(50)
 
 		creep:SetHullRadius(0)
 			
@@ -281,8 +280,9 @@ function Rounds:OnEntityKilled(keys)
 		local hero = player:GetAssignedHero()
 		local playerID = player:GetPlayerID()
 
-		hero:AddExperience(unit:GetMaximumGoldBounty(), 0, false, false)
-		PlayerResource:ModifyGold(i, unit.GoldBounty, false, 0)
+		hero:AddExperience(unit:GetDeathXP(), 0, false, false)
+		PlayerResource:ModifyGold(i, unit:GetMaximumGoldBounty(), false, 0)
+		
 
 	end
 
