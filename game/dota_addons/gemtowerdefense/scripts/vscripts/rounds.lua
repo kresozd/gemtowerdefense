@@ -7,43 +7,6 @@ end
 
 function Rounds:Init(keyvalue)
 
-
-	function IsBoss()
-
-		if wavesKV[tostring(self.RoundNumber)]["Boss"] == "Yes" then
-
-			return true
-
-		else
-
-			return false
-
-		end
-
-	end
-
-	function IsRoundCleared()
-
-		if self.AmountKilled == 10 then
-
-			return true
-
-		else
-			return false
-		end
-
-	end
-
-	function UpdateWaveData()
-
-	self.State = "BUILD"
-	self.AmountKilled = 0
-	self.RoundNumber = self.RoundNumber + 1
-
-
-	end
-
-
 	ListenToGameEvent('entity_killed', Dynamic_Wrap(Rounds, 'OnEntityKilled'), self)
 	ListenToGameEvent('all_placed', Dynamic_Wrap(Rounds, 'OnAllPlaced'), self)
 
@@ -62,16 +25,16 @@ function Rounds:Init(keyvalue)
 	self.TotalLeaked 		= 0
 	self.DelayBetweenSpawn 	= 1
 	self.Data 				= keyvalue
-	self.IsBoss = false
 
 end
 
 
 function Rounds:WaveInit()
 	
+	self.State = "WAVE"
 	CustomNetTables:SetTableValue( "game_state", "current_round", { value = tostring(self.RoundNumber) } )
 	
-	if IsBoss() then
+	if Rounds:IsBoss() then
 
 		Rounds:SpawnBoss()
 
@@ -199,21 +162,6 @@ function Rounds:RemoveTalents(hero)
 
 end
 
-function Rounds:IsBoss()
-
-	if wavesKV[tostring(self.RoundNumber)]["Boss"] == "Yes" then
-
-		return true
-
-	else
-
-		return false
-
-	end
-
-end
-
-
 function Rounds:GetRoundNumber()
 
 	return self.RoundNumber
@@ -292,7 +240,7 @@ function Rounds:OnTouchGemCastle(trigger)
 			CustomNetTables:SetTableValue( "game_state", "gem_castle_health", { value = tostring(self.BaseHealth) } )
 
 	
-			if IsBoss() then
+			if Rounds:IsBoss() then
 
 				self.State = "BUILD"
 				self.RoundNumber = self.RoundNumber + 1
@@ -338,25 +286,20 @@ function Rounds:OnEntityKilled(keys)
 
 	end
 
-
+	self.AmountKilled = self.AmountKilled + 1
 
 	self.SpawnedCreeps[eHandle] = nil
 
+	if Rounds:IsBoss() then
 
-	if IsBoss() then
-
-		
-
-		self.State = "BUILD"
-		self.RoundNumber = self.RoundNumber + 1
-	
+		Rounds:UpdateWaveData()
 		FireGameEvent("round_end", {playerID = "0"})
 
 	else
 
-		if IsRoundCleared() then
+		if Rounds:IsRoundCleared() then
 
-			UpdateWaveData()
+			Rounds:UpdateWaveData()
 			FireGameEvent("round_end", {state = "BUILD"})
 
 		end
@@ -365,9 +308,38 @@ end
 
 function Rounds:OnAllPlaced(keys)
 
-	print("Event fired! All placed!")
 	Rounds:WaveInit()
-
 
 end
 
+function Rounds:IsBoss()
+
+	if wavesKV[tostring(self.RoundNumber)]["Boss"] == "Yes" then
+
+		return true
+
+	else
+
+		return false
+
+	end
+end
+
+function Rounds:IsRoundCleared()
+
+	if self.AmountKilled == 10 then
+
+		return true
+
+	else
+		return false
+	end
+end
+
+function Rounds:UpdateWaveData()
+
+	self.State = "BUILD"
+	self.AmountKilled = 0
+	self.RoundNumber = self.RoundNumber + 1
+
+end
