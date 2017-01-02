@@ -97,18 +97,6 @@ function Rounds:SpawnUnits()
     end)
 end
 
-function Rounds:AddCreepProperties(unit, table)
-	
-	unit:SetBaseDamageMin(table.unitDamage)
-	unit:SetBaseDamageMax(table.unitDamage)
-	unit:SetBaseMoveSpeed(table.unitSpeed * table.difficultySpeed)
-	unit:SetMaximumGoldBounty(table.unitGoldBounty)
-	unit:SetDeathXP(table.unitXPBounty)
-	unit:SetBaseMaxHealth(table.unitHealth * table.difficultyHealth)
-	unit:SetHullRadius(0)
-
-end
-
 function Rounds:SpawnBoss()
 
 	self.State = "WAVE"
@@ -355,5 +343,18 @@ function Rounds:LoadWaveData()
 	}
 
 	return TableData
+
+end
+
+
+function Rounds:AddCreepProperties(unit, table)
+	
+	unit:SetBaseDamageMin(table.unitDamage)
+	unit:SetBaseDamageMax(table.unitDamage)
+	unit:SetBaseMoveSpeed(table.unitSpeed * table.difficultySpeed)
+	unit:SetMaximumGoldBounty(table.unitGoldBounty)
+	unit:SetDeathXP(table.unitXPBounty)
+	unit:SetBaseMaxHealth(table.unitHealth * table.difficultyHealth)
+	unit:SetHullRadius(0)
 
 end

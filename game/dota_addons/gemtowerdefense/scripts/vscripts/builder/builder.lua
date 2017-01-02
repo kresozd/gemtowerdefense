@@ -865,8 +865,6 @@ end
 
 function Builder:WaveCreateMergedTower(playerID, caster, owner)
 
-	self.PickCount = self.PickCount + 1
-
 	local entityIndex = caster:GetEntityIndex()
 
 	local fullTower = caster:GetUnitName()
@@ -985,7 +983,6 @@ end
 
 function Builder:WaveCreateMergedTower_2(playerID, caster, owner)
 
-	self.PickCount = self.PickCount + 1
 
 	local entityIndex = caster:GetEntityIndex()
 
