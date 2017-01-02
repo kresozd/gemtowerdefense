@@ -313,7 +313,7 @@ function Rounds:AddHeroBountyOnKill(unit)
 		local hero = player:GetAssignedHero()
 		local playerID = player:GetPlayerID()
 
-		hero:AddExperience(unit:GetDeathXP(), 0, false, false)
+		hero:AddExperience(unit.GoldBounty, 0, false, false)
 		PlayerResource:ModifyGold(i, unit:GetMaximumGoldBounty(), false, 0)
 		
 
@@ -353,8 +353,9 @@ function Rounds:AddCreepProperties(unit, table)
 	unit:SetBaseDamageMax(table.unitDamage)
 	unit:SetBaseMoveSpeed(table.unitSpeed * table.difficultySpeed)
 	unit:SetMaximumGoldBounty(table.unitGoldBounty)
-	unit:SetDeathXP(table.unitXPBounty)
+	--unit:SetDeathXP(table.unitXPBounty)
 	unit:SetBaseMaxHealth(table.unitHealth * table.difficultyHealth)
 	unit:SetHullRadius(0)
+	unit.GoldBounty = table.unitGoldBounty
 
 end

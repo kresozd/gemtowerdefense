@@ -50,7 +50,7 @@ function GemTowerDefenseReborn:InitGameMode()
 
 
 	GameRules:GetGameModeEntity():SetCustomXPRequiredToReachNextLevel(settingsKV.CustomXPTable)
-	GameRules:SetUseCustomHeroXPValues(true)
+	GameRules:GetGameModeEntity():SetUseCustomHeroLevels ( true )
 	
 end
 
