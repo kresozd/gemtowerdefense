@@ -1,28 +1,49 @@
-function setUpPlayerBar(player, id) {
-  var panel = $("#player-bar-" + id);
-  panel.RemoveClass('player-hidden');
-  playerAva = panel.FindChildrenWithClassTraverse("player-avatar")[0];
-  playerAva.steamid = player.player_steamid;  
-}
 
-function updateConnectionState(playerInfo, id) {
-  var playerBar = $("#player-bar-" + id);
-  playerBar.SetHasClass( "player-connection-abandoned", playerInfo.player_connection_state == DOTAConnectionState_t.DOTA_CONNECTION_STATE_ABANDONED );
-  playerBar.SetHasClass( "player-connection-failed", playerInfo.player_connection_state == DOTAConnectionState_t.DOTA_CONNECTION_STATE_FAILED );
-  playerBar.SetHasClass( "player-connection-disconnected", playerInfo.player_connection_state == DOTAConnectionState_t.DOTA_CONNECTION_STATE_DISCONNECTED );
-}
 
-function getAllPlayers(callback) {
-  var playerIDs = Game.GetAllPlayerIDs();
+function updatePlayerPanel(playerId) {
+  var playersContainer = $('#players-bar');
+  var playerPanelName = 'player-bar-' + playerId;
+  var playerPanel = playersContainer.FindChild(playerPanelName);
+
+  if (playerPanel === null) {
+    playerPanel = $.CreatePanel('Panel', playersContainer, playerPanelName);
+    playerPanel.SetAttributeInt('player_id', playerId);
+    playerPanel.BLoadLayout('file://{resources}/layout/custom_game/players_bar_player.xml', false, false);
+  }
   
-  for (var i = 0; i < playerIDs.length; i++) {
-		var player = Game.GetPlayerInfo(playerIDs[i]);
-    callback(player, i);
+  var playerInfo = Game.GetPlayerInfo(playerId);
+  var playerAva = playerPanel.FindChildInLayoutFile('player-avatar');
+  
+  if (playerAva) {
+    playerAva.steamid = playerInfo.player_steamid;
+  }
+  
+  var playerColorBar = playerPanel.FindChildInLayoutFile('player-color')
+  
+  if (playerColorBar !== null) {
+    if (GameUI.CustomUIConfig().player_colors) {
+      var playerColor = GameUI.CustomUIConfig().player_colors[playerId];
+    } else {
+      playerColor = "#d5d5d5";
+    }
+    playerColorBar.style.backgroundColor = playerColor;
+  }
+  playerPanel.SetHasClass( 'player-is-local', (playerId == Game.GetLocalPlayerID()));
+  
+  playerPanel.SetHasClass( "player-connection-abandoned", playerInfo.player_connection_state == DOTAConnectionState_t.DOTA_CONNECTION_STATE_ABANDONED );
+  playerPanel.SetHasClass( "player-connection-failed", playerInfo.player_connection_state == DOTAConnectionState_t.DOTA_CONNECTION_STATE_FAILED );
+  playerPanel.SetHasClass( "player-connection-disconnected", playerInfo.player_connection_state == DOTAConnectionState_t.DOTA_CONNECTION_STATE_DISCONNECTED );
+}
+
+function getAllPlayers() {
+  var players = Game.GetAllPlayerIDs();
+  for (var player of players) {
+    updatePlayerPanel(player)
 	}
 }
 
 (function() {
-  getAllPlayers(setUpPlayerBar);
+  getAllPlayers();
   // Connection state nettable is not done yet
   // CustomNetTables.SubscribeNetTableListener( 'game_state', updateConnectionState);
 })();

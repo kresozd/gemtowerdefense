@@ -2,10 +2,17 @@
   <styles>
     <include src="file://{resources}/styles/custom_game/players_bar.css"/>  
   </styles>
-  <scripts>
-    <include src="file://{resources}/scripts/custom_game/players_bar.js"/>
-  </scripts>
-  <Panel hittest="false">
-
+  <Panel class="player-root" hittest="true">
+    <Panel id="player-color">
+      <Panel class="player-color-overlay"></Panel>
+    </Panel>
+    <DOTAAvatarImage id="player-avatar" />
+    <Panel class="player-rank">
+      <Panel class="player-rank-overlay"></Panel>
+      <Panel class="player-rank-wrap">
+        <Label class="player-rank-label" text="Rank: " />
+        <Label id="player-rank-value" text="10" />
+      </Panel>
+    </Panel>
   </Panel>
 </root>

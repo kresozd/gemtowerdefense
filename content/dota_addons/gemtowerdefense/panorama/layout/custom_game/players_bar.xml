@@ -5,60 +5,7 @@
   <scripts>
     <include src="file://{resources}/scripts/custom_game/players_bar.js"/>
   </scripts>
-  <Panel class="players-bar-element" hittest="false">
-    <Panel id="players-bar" hittest="false">
-      <Panel id="player-bar-0" class="player player-hidden" hittest="true">
-        <Panel class="player-color">
-          <Panel class="player-color-overlay"></Panel>
-        </Panel>
-        <DOTAAvatarImage class="player-avatar" />
-        <Panel class="player-rank">
-          <Panel class="player-rank-overlay"></Panel>
-          <Panel class="player-rank-wrap">
-            <Label class="player-rank-label" text="Rank: " />
-            <Label id="player-rank-value" text="1" />
-          </Panel>
-        </Panel>
-      </Panel>
-      <Panel id="player-bar-1" class="player player-hidden" hittest="true">
-        <Panel class="player-color">
-          <Panel class="player-color-overlay"></Panel>
-        </Panel>
-        <DOTAAvatarImage class="player-avatar" />
-        <Panel class="player-rank">
-          <Panel class="player-rank-overlay"></Panel>
-          <Panel class="player-rank-wrap">
-            <Label class="player-rank-label" text="Rank: " />
-            <Label id="player-rank-value" text="1" />
-          </Panel>
-        </Panel>
-      </Panel>
-      <Panel id="player-bar-2" class="player player-hidden" hittest="true">
-        <Panel class="player-color">
-          <Panel class="player-color-overlay"></Panel>
-        </Panel>
-        <DOTAAvatarImage class="player-avatar" />
-        <Panel class="player-rank">
-          <Panel class="player-rank-overlay"></Panel>
-          <Panel class="player-rank-wrap">
-            <Label class="player-rank-label" text="Rank: " />
-            <Label id="player-rank-value" text="1" />
-          </Panel>
-        </Panel>
-      </Panel>
-      <Panel id="player-bar-3" class="player player-hidden" hittest="true">
-        <Panel class="player-color">
-          <Panel class="player-color-overlay"></Panel>
-        </Panel>
-        <DOTAAvatarImage class="player-avatar" />
-        <Panel class="player-rank">
-          <Panel class="player-rank-overlay"></Panel>
-          <Panel class="player-rank-wrap">
-            <Label class="player-rank-label" text="Rank: " />
-            <Label id="player-rank-value" text="1" />
-          </Panel>
-        </Panel>
-      </Panel>
-    </Panel>
+  <Panel class="players-bar-root" hittest="false">
+    <Panel id="players-bar" hittest="false" />
   </Panel>
 </root>
