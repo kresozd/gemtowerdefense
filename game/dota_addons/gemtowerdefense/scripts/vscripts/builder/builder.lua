@@ -981,6 +981,10 @@ function Builder:WaveCreateMergedTower(playerID, caster, owner)
 	Builder:WaveAddTowerMergeAbility()
 end
 
+--////////////EXPERIMENTAL function
+
+
+
 function Builder:WaveCreateMergedTower_2(playerID, caster, owner)
 
 

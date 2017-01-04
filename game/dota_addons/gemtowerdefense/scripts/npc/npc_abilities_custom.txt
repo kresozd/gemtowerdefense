@@ -373,4 +373,44 @@
 		}
 	}
 
+	"gem_Flame_Ruby_modifier"
+	{
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"lina_fiery_soul"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"MaxLevel"	"1"
+		"AbilityCastRange"	"500"
+		"precache"
+		{
+			"particle"	"particles/units/heroes/hero_phoenix/phoenix_supernova_scepter_f.vpcf"
+		}
+		"Modifiers"
+		{
+
+			"modifier_tower_huiyao_buff1"
+			{
+				"IsHidden"	"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Duration"	"1"
+				"ThinkInterval"	"0.25"
+				"OnIntervalThink"
+				{
+					"Damage"
+					{
+						"Type"	"DAMAGE_TYPE_MAGICAL"
+						"Damage"	"15"
+						"Target"	"TARGET"
+					}
+					"AttachEffect"
+					{
+						"EffectName"	"particles/units/heroes/hero_phoenix/phoenix_supernova_scepter_f.vpcf"
+						"EffectAttachType"	"follow_origin"
+						"Target"	"TARGET"
+					}
+				}
+			}
+		}
+	}
+
 }

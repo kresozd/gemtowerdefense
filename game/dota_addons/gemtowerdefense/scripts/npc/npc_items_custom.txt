@@ -33,6 +33,12 @@
 				"EffectName" "particles\customgames\capturepoints\cp_earth.vpcf"
 				"EffectAttachType" "follow_origin"
 			}
+				"modifier_merge_gem__Flame_Ruby"
+			{
+				"TextureName" "gem_merge_Malachite"
+				"EffectName" "particles\customgames\capturepoints\cp_earth.vpcf"
+				"EffectAttachType" "follow_origin"
+			}
 		}
 	}
 }
