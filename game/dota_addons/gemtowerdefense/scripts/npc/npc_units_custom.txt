@@ -4045,14 +4045,14 @@
 	"gem_round5_fei_lian"
 	
 		{                                       
-			"Model"                 "models/items/courier/snapjaw/snapjaw.vmdl" // Model.
+			"Model"                 "models/items/courier/fei_lian_blue/fei_lian_blue.vmdl" // Model.
 			"BaseClass"             "npc_dota_creature"
 			"Level"                 "7"
 			"ModelScale"                "1.4"
 			
 			
 			
-			"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_FLY"
+			"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
 			"MovementSpeed"             "1200"
 
 			"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_BASIC"
@@ -4070,10 +4070,10 @@
 
 	"gem_round6_rex"
 		{                                       
-			"Model"                 "models/items/courier/fei_lian_blue/fei_lian_blue.vmdl" // Model.
+			"Model"                 "models/items/courier/snapjaw/snapjaw.vmdl" // Model.
 			"BaseClass"             "npc_dota_creature"
 			"Level"                 "7"
-			"ModelScale"                "1.4"
+			"ModelScale"                "2.2"
 			
 			
 			
@@ -4169,7 +4169,7 @@
 
 	"gem_round10_venoling"
 		{                                       
-			"Model"                 "models/items/courier/snapjaw/snapjaw_flying.vmdl" // Model.
+			"Model"                 "models/courier/venoling/venoling.vmdl" // Model.
 			"BaseClass"             "npc_dota_creature"
 			"Level"                 "7"
 			"ModelScale"                "2.4"
@@ -4217,14 +4217,14 @@
 		}
 		"gem_round12_rex_air"
 		{                                       
-			"Model"                 "models/courier/venoling/venoling.vmdl" // Model.
+			"Model"                 "models/items/courier/snapjaw/snapjaw_flying.vmdl" // Model.
 			"BaseClass"             "npc_dota_creature"
 			"Level"                 "5"
 			"ModelScale"                "1.4"
 			
 			
 			
-			"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
+			"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_FLY"
 			"MovementSpeed"             "1200"
 
 			"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_BASIC"
@@ -4288,6 +4288,30 @@
 
 		}
 		"gem_round15_purple_box"
+		{                                       
+			"Model"                 "models/courier/trapjaw/trapjaw_flying.vmdl" // Model.
+			"BaseClass"             "npc_dota_creature"
+			"Level"                 "5"
+			"ModelScale"                "1.4"
+			
+			
+			
+			"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
+			"MovementSpeed"             "1200"
+
+			"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_BASIC"
+			"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+			"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+			
+			"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"		// Hull type used for navigation/locomotion.
+			"ProjectileCollisionSize"	"50"
+			"RingRadius"				"1"
+			"HealthBarOffset"			"260"
+			
+			"StatusHealth"	"100"
+
+		}
+				"gem_round15_purple_box"
 		{                                       
 			"Model"                 "models/courier/trapjaw/trapjaw_flying.vmdl" // Model.
 			"BaseClass"             "npc_dota_creature"

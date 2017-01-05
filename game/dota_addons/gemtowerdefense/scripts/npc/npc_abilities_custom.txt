@@ -387,8 +387,18 @@
 		}
 		"Modifiers"
 		{
-
-			"modifier_tower_huiyao_buff1"
+			"modifier_tower_burn"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"Aura"	"modifier_tower_huiyao_buff1"
+				"Aura_Radius"	"500"
+				"Aura_Types"	"DOTA_UNIT_TARGET_BASIC"
+				"Aura_Teams"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Flags"	"DOTA_UNIT_TARGET_FLAG_NONE"
+				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+			}
+			"modifier_tower_burn"
 			{
 				"IsHidden"	"1"
 				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"

@@ -48,8 +48,16 @@ function GemTowerDefenseReborn:InitGameMode()
 	ListenToGameEvent('game_rules_state_change', Dynamic_Wrap(GemTowerDefenseReborn, 'OnStateChange'), self)
 	--ListenToGameEvent('round_end', Dynamic_Wrap(GemTowerDefenseReborn, 'CallBack'), self)
 
+	local customXP =
+	{
+		0,
+		600,
+		2000,
+		4000,
+		6000
+	}
 
-	GameRules:GetGameModeEntity():SetCustomXPRequiredToReachNextLevel(settingsKV.CustomXPTable)
+	GameRules:GetGameModeEntity():SetCustomXPRequiredToReachNextLevel(customXP)
 	GameRules:GetGameModeEntity():SetUseCustomHeroLevels ( true )
 	
 end

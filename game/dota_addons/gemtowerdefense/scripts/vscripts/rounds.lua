@@ -16,7 +16,7 @@ function Rounds:Init(keyvalue)
     self.AmountKilled 		= 0
 	self.AmountSpawned 		= 0
     self.SpawnedCreeps 		= {}
-    self.RoundNumber 		= 1
+    self.RoundNumber 		= 5
     self.SpawnPosition 		= Entities:FindByName(nil, "enemy_spawn"):GetAbsOrigin()
 	self.BaseHealth 		= 100
 	self.BuildLevel 		= 1
@@ -99,35 +99,19 @@ end
 
 function Rounds:SpawnBoss()
 
+	local waveData = Rounds:LoadWaveData()
+
 	self.State = "WAVE"
-
-	local unitDamage 	= wavesKV[tostring(self.RoundNumber)]["Damage"]
-	local unitName 		= wavesKV[tostring(self.RoundNumber)]["Creep"]
-	local unitSpeed 	= wavesKV[tostring(self.RoundNumber)]["MoveSpeed"]
-	local unitXPBounty 	= wavesKV[tostring(self.RoundNumber)]["XPBounty"]
-	local unitGoldBounty = wavesKV[tostring(self.RoundNumber)]["GoldBounty"]
-	local unitType 		= wavesKV[tostring(self.RoundNumber)]["Type"]
-	local unitIsBoss 	= wavesKV[tostring(self.RoundNumber)]["Boss"]
-
-	local boss = CreateUnitByName(unitName, self.SpawnPosition, false, nil, nil, DOTA_TEAM_BADGUYS)
+	local boss = CreateUnitByName(waveData.unitName, self.SpawnPosition, false, nil, nil, DOTA_TEAM_BADGUYS)
 	local eHandle = boss:GetEntityHandle()
 
 	self.SpawnedCreeps[eHandle] = boss
-
-		boss.Damage 			= unitDamage
-		boss.Name 				= unitName
-		boss.XPBounty			= unitXPBounty
-		boss.Speed 				= unitSpeed * 2
-		boss.GoldBounty 		= unitGoldBounty
-		boss.Type 				= unitType
+	Rounds:AddCreepProperties(boss, waveData)
 
 	Grid:MoveUnit(boss, boss.type)
 	boss:AddAbility("gem_collision_movement"):SetLevel(1)
 
-
 end
-
-
 
 function Rounds:RemoveTalents(hero)
 
@@ -336,6 +320,7 @@ function Rounds:LoadWaveData()
 		unitGoldBounty 	= loadWave["GoldBounty"],
 		unitType 		= loadWave["Type"],
 		unitHealth 		= loadWave["Health"],
+		unitIsBoss		= loadWave["IsBoss"],
 
 		difficultySpeed 	= loadDifficulty["MoveSpeedQuocient"],
  		difficultyHealth 	= loadDifficulty["HitPointQuocient"]
