@@ -13,27 +13,30 @@ end
 
 
 function GemTowerDefenseReborn:SetPlayerHero(event)
+	
+	HeroSelection:IncremetHeroPickCount()
+	
 	local hero = event.selected_hero
 	local player = event.PlayerID
 	
+	
 	PlayerResource:ReplaceHeroWith(player, hero, 0, 0)
+	HeroSelection:CanGameStart()
+
+	
+
+
 end
 
 
 function GemTowerDefenseReborn:OnPlayerPickHero(keys)
 
+	
+
 	local hero = EntIndexToHScript(keys.heroindex)
 	local player = EntIndexToHScript(keys.player)
 	local playerID = player:GetPlayerID()
 
-
-	Builder:IncrementPlayerCount()
-
-
-
-	Players:RemoveTalents(hero)
-	Builder:AddAbilitiesOnStart(hero)
-	
 	hero:SetAbilityPoints(0)
 
 end

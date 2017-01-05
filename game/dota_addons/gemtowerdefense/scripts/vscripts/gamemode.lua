@@ -23,6 +23,7 @@ function GemTowerDefenseReborn:InitGameMode()
 	Rounds:Init(wavesKV)
 	Random:Init()
 	Players:Init()
+	HeroSelection:Init()
 
 	GameRules:SetTimeOfDay(0.5)
 	-- GameRules:GetGameModeEntity():SetCameraDistanceOverride(1400)

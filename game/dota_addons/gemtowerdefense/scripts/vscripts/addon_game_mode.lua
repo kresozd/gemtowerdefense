@@ -22,6 +22,7 @@ require('builder/towerAbilities')
 require('settings')
 require('players')
 require('customEvents')
+require('heroselection')
 
 
 --Pathfinder

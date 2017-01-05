@@ -724,8 +724,6 @@ function Builder:AddHeroAbilitiesOnRound()
 	
 	for i = 0, PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_GOODGUYS) - 1 do
 
-		
-
 		local Player = PlayerResource:GetPlayer(i)
 		local Hero = Player:GetAssignedHero()
 	

@@ -45,7 +45,7 @@ function Players:CheckIfAllPicked()
     return true
     
 end
-
+--[[
 function Players:RemoveTalents(hero)
 
 	local start = 2
@@ -65,7 +65,7 @@ function Players:RemoveTalents(hero)
 end
 
 
-
+]]--
 
 function Players:UnlockAbilities()
 
