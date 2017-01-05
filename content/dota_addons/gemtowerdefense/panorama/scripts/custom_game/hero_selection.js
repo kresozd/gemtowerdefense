@@ -21,7 +21,7 @@ function pickHero() {
   }
 
   GameEvents.SendCustomGameEventToServer("player_selected_hero", {selected_hero : 'npc_dota_hero_' + selectedHero});
-  
+  endHeroSelection();
 }
 
 function endHeroSelection() {
