@@ -32,6 +32,7 @@
 	<Panel>
 		<CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/round.xml" />
 		<CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/castle_healthbar.xml" />
+		<CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/hero_selection.xml" />
 		<CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/scripts.xml" />
 		<CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/players_bar.xml" />
 		<CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/info_boards.xml" />

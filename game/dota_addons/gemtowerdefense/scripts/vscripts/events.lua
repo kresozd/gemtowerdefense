@@ -12,6 +12,14 @@ function GemTowerDefenseReborn:OnPlayerLevelUp(keys)
 end
 
 
+function GemTowerDefenseReborn:SetPlayerHero(event)
+	local hero = event.selected_hero
+	local player = event.PlayerID
+	
+	PlayerResource:ReplaceHeroWith(player, hero, 0, 0)
+end
+
+
 function GemTowerDefenseReborn:OnPlayerPickHero(keys)
 
 	local hero = EntIndexToHScript(keys.heroindex)

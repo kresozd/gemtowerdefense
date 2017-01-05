@@ -32,6 +32,7 @@ function GemTowerDefenseReborn:InitGameMode()
 	GameRules:SetGoldTickTime(0)
 	GameRules:SetStartingGold(0)
 	GameRules:GetGameModeEntity():SetFogOfWarDisabled(true)
+	GameRules:GetGameModeEntity():SetCustomGameForceHero("npc_dota_hero_wisp")
 	
 	GameRules:SetCustomGameTeamMaxPlayers(DOTA_TEAM_GOODGUYS, 4)
 	GameRules:SetCustomGameTeamMaxPlayers(DOTA_TEAM_BADGUYS, 0)
@@ -46,6 +47,7 @@ function GemTowerDefenseReborn:InitGameMode()
 	ListenToGameEvent('dota_player_gained_level', Dynamic_Wrap(GemTowerDefenseReborn, 'OnPlayerLevelUp'), self)
 	ListenToGameEvent('player_connect_full', Dynamic_Wrap(GemTowerDefenseReborn, 'OnConnectFull'), self)
 	ListenToGameEvent('game_rules_state_change', Dynamic_Wrap(GemTowerDefenseReborn, 'OnStateChange'), self)
+	CustomGameEventManager:RegisterListener( "player_selected_hero", Dynamic_Wrap(GemTowerDefenseReborn, 'SetPlayerHero'))
 	--ListenToGameEvent('round_end', Dynamic_Wrap(GemTowerDefenseReborn, 'CallBack'), self)
 
 	local customXP =

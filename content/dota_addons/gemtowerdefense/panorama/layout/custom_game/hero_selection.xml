@@ -1,0 +1,57 @@
+<root>
+  <styles>
+    <include src="file://{resources}/styles/custom_game/hero_selection.css"/>  
+  </styles>
+  <scripts>
+    <include src="file://{resources}/scripts/custom_game/hero_selection.js"/>
+  </scripts>
+  <Panel class="hero-selection-root" hittest="false">
+    <DOTAScenePanel id="hero-selection-background" map="maps/backgrounds/dashboard_test.vmap" camera="shot_cameraC" always-cache-composition-layer="true"/>
+    <Panel class="hero-selection-overlay" hittest="false"></Panel>
+    <Panel class="hero-selection-wrap" hittest="false">
+      <Label class="hero-selection-title" text="Choose your hero" />
+      <Panel class="hero-selection-inner">
+        <Panel class="hero-list">
+          <Panel class="hero-list-inner">
+            <Panel id="hero_crystal_maiden" class="hero-item" onactivate="selectHero('crystal_maiden')">
+              <DOTAHeroImage class="hero-image" heroimagestyle="portrait" heroname="npc_dota_hero_crystal_maiden" scaling="stretch-to-cover-preserve-aspect" />
+            </Panel>
+            <Panel id="hero_puck" class="hero-item" onactivate="selectHero('puck')">
+              <DOTAHeroImage class="hero-image" heroimagestyle="portrait" heroname="npc_dota_hero_puck" scaling="stretch-to-cover-preserve-aspect" />
+            </Panel>
+            <Panel id="hero_vengefulspirit" class="hero-item hero-not-available" onactivate="selectHero('vengefulspirit')">
+              <DOTAHeroImage class="hero-image" heroimagestyle="portrait" heroname="npc_dota_hero_vengefulspirit" scaling="stretch-to-cover-preserve-aspect" />
+            </Panel>
+            <Panel id="hero_invoker" class="hero-item hero-not-available" onactivate="selectHero('invoker')">
+              <DOTAHeroImage class="hero-image" heroimagestyle="portrait" heroname="npc_dota_hero_invoker" scaling="stretch-to-cover-preserve-aspect" />
+            </Panel>
+            <Panel id="hero_enchantress" class="hero-item hero-not-available" onactivate="selectHero('enchantress')">
+              <DOTAHeroImage class="hero-image" heroimagestyle="portrait" heroname="npc_dota_hero_enchantress" scaling="stretch-to-cover-preserve-aspect" />
+            </Panel>
+            <Panel class="hero-item hero-not-available">
+              <DOTAHeroImage class="hero-image" heroimagestyle="portrait" heroname="npc_dota_hero_nevermore" scaling="stretch-to-cover-preserve-aspect" />
+            </Panel>
+            <Panel class="hero-item hero-not-available">
+              <DOTAHeroImage class="hero-image" heroimagestyle="portrait" heroname="npc_dota_hero_zuus" scaling="stretch-to-cover-preserve-aspect" />
+            </Panel>
+          </Panel>
+        </Panel>
+        <Panel class="hero-preview-wrap">
+          <Panel class="hero-preview-inner">
+            <Label text="Hero preview" />
+            <Panel class="hero-preview"></Panel>
+            <Button id="pick-hero-button" class="pick-hero-disabled" onactivate="pickHero()">
+              <Label class="button-label" text="Pick hero" />
+            </Button>
+          </Panel>
+        </Panel>
+        <Panel class="players-state-wrap">
+          <Label text="Player states"/>
+          <Panel class="players-state-inner">
+          </Panel>
+        </Panel>
+      </Panel>
+    </Panel>
+    <DOTAHudMenuButtons/>
+  </Panel>
+</root>

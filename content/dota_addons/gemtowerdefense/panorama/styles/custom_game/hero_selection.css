@@ -1,0 +1,187 @@
+.hero-selection-root {
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  /*visibility: collapse;*/
+}
+
+DOTAHudMenuButtons {
+  margin-top: 11px;
+  margin-left: 6px;
+}
+
+.hero-selection-wrap {
+  width: 100%;
+  height: 100%;
+  align: center center;
+  flow-children: down;
+}
+
+#hero-selection-background {
+  width: 100%;
+  height: 100%;
+  /*pre-transform-scale2d: 2;*/
+  vertical-align: middle;
+  horizontal-align: center;
+  background-color:#21262e;
+  /*background-color: gradient( linear, 0% 0%, 100% 50%, from( #2b2e2fff ), color-stop( 0.15, #262E3D ), to( #2b2e2fff ) );*/
+
+  transform: none;
+  transition-property: transform, blur, opacity, wash-color;
+  transition-duration: 0.45s;
+  transition-delay: 0.0s;
+  transition-timing-function: ease-in;
+}
+
+.hero-selection-overlay {
+  height: 100%;
+  width: 100%;
+}
+
+
+.hero-selection-title {
+  font-size: 35px;
+  color: #fcfcfc;
+  font-family: Radiance;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: bold;
+  align: center top;
+  padding: 10px;
+  margin-top: 110px;
+  margin-bottom: 50px;
+  text-shadow: 0px 0px 12px #AFC2F755;
+}
+
+.hero-selection-inner > Panel {
+  width: fill-parent-flow(1.0);
+}
+
+.hero-selection-inner {
+  flow-children: right;
+  align: center top;
+  width: 95%;
+}
+
+.hero-list {
+  margin-top: 70px;
+  horizontal-align: left;
+  /*border: 1px solid black;*/
+  /*max-width: 475px;*/
+}
+
+.hero-list-inner {
+  max-width: 475px;
+  /*horizontal-align: center;*/
+  flow-children: right-wrap;
+}
+
+.hero-item {
+  width: 80px;
+  height: 80px;
+  border: 2px solid #000000;
+  margin: 7px;
+  box-shadow: fill #00000055 -2px -2px 4px 4px;
+  saturation: 0.7;
+  transition-property: saturation, box-shadow;
+  transition-timing-function: ease-in;
+  transition-duration: .12s;
+}
+
+.hero-item.hero-selected {
+  saturation: 1;
+  border-color: #ACBFDD;
+  box-shadow: -3px -3px 6px 6px #668BBCaa;
+}
+
+.hero-item.hero-selected:hover {
+  /*saturation: 1;*/
+  box-shadow: -3px -3px 6px 6px #668BBCaa;
+}
+
+.hero-item:hover {
+  saturation: 0.8;
+  box-shadow: #00000077 -4px -4px 8px 8px;
+}
+
+.hero-item.hero-not-available {
+  saturation: 0.0;
+  brightness: .4;
+  contrast: .96;
+  wash-color: #C1CADD;
+}
+
+.hero-image {
+  width: 100%;
+  height: 100%;
+}
+
+.hero-preview-wrap {
+  horizontal-align: center;
+  /*width: 400px;*/
+}
+
+.hero-preview-inner {
+  flow-children: down;
+  /*margin-top: 10px;*/
+  width: 100%;
+}
+
+.hero-preview {
+  min-height: 450px;
+  horizontal-align: center;
+  background-color: #21262e88;
+  width: 400px;
+}
+
+#pick-hero-button {
+  padding: 10px 24px 7px;
+  margin-top: 40px;
+  saturation: .5;
+  horizontal-align: center;
+  background-color: #29c87e11;
+  border: 1px solid #29c87e55;
+  transition-property: saturation;
+  transition-timing-function: ease-in;
+  transition-duration: .12s;
+}
+
+#pick-hero-button:hover {
+  saturation: .8;
+}
+
+#pick-hero-button.pick-hero-disabled {
+  saturation: 0;
+}
+
+.button-label {
+  font-family: Radiance;
+  color: #29c87e;
+  font-size: 19px;
+  letter-spacing: 1px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.players-state-wrap {
+  flow-children: down;
+}
+
+.players-state-inner {
+  background-color: #29c87e11;
+  horizontal-align: right;
+  height: 400px;
+  width: 400px;
+  
+}
+
+.players-state-wrap > Label,
+.hero-preview-inner > Label {
+  font-size: 25px;
+  margin-bottom: 15px;
+  color: #fff;
+  font-family: Radiance;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  horizontal-align: center;
+}
