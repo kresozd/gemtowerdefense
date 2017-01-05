@@ -46,8 +46,24 @@
           </Panel>
         </Panel>
         <Panel class="players-state-wrap">
-          <Label text="Player states"/>
-          <Panel class="players-state-inner">
+          <Label text="Players states"/>
+          <Panel id="players-states" class="players-state-inner">
+            <Panel class="players-states-item">
+              <DOTAAvatarImage class="players-state-avatar" />
+              <DOTAUserName class="players-state-username" />
+            </Panel>
+            <Panel class="players-states-item">
+              <DOTAAvatarImage class="players-state-avatar"/>
+              <DOTAUserName class="players-state-username" />
+            </Panel>
+            <Panel class="players-states-item">
+              <DOTAAvatarImage class="players-state-avatar"/>
+              <DOTAUserName class="players-state-username" />
+            </Panel>
+            <Panel class="players-states-item">
+              <DOTAAvatarImage class="players-state-avatar"/>
+              <DOTAUserName class="players-state-username" />
+            </Panel>
           </Panel>
         </Panel>
       </Panel>
