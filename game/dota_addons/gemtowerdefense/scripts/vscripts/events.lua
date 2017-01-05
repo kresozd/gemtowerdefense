@@ -21,7 +21,11 @@ function GemTowerDefenseReborn:SetPlayerHero(event)
 	
 	
 	PlayerResource:ReplaceHeroWith(player, hero, 0, 0)
-	HeroSelection:CanGameStart()
+	if HeroSelection:AllPicked() then
+
+		HeroSelection:UnlockAbilities()
+
+	end
 
 	
 

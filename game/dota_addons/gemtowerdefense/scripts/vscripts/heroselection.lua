@@ -12,14 +12,17 @@ function HeroSelection:Init()
 end
 
 
-function HeroSelection:CanGameStart()
+function HeroSelection:AllPicked()
 
     if self.HeroesPicked == PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_GOODGUYS) then
 
-        HeroSelection:UnlockAbilities()
+        return true
+
+    else
+
+        return false    
 
     end
-
 end
 
 function HeroSelection:IncremetHeroPickCount()
