@@ -185,8 +185,6 @@ function Builder:Init()
 
 	ListenToGameEvent('round_end', Dynamic_Wrap(Builder, 'OnRoundEnded'), self)
 
-
-	self.PlayerCount = 0
 	self.RoundTowers =
 	 {
 		[0] = {},
@@ -207,18 +205,6 @@ function Builder:Init()
 		[3] = {}
 	}
 	self.State = "BUILD"
-
-end
-
-function Builder:SetPlayerCount(count)
-
-	self.PlayerCount = count
-
-end
-
-function Builder:IncrementPlayerCount()
-
-	self.PlayerCount = self.PlayerCount + 1
 
 end
 
@@ -736,7 +722,9 @@ end
 
 function Builder:AddHeroAbilitiesOnRound()
 	
-	for i = 0, self.PlayerCount - 1 do
+	for i = 0, PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_GOODGUYS) - 1 do
+
+		
 
 		local Player = PlayerResource:GetPlayer(i)
 		local Hero = Player:GetAssignedHero()
