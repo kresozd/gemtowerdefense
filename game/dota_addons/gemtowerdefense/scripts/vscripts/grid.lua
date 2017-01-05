@@ -84,7 +84,7 @@ function Grid:CenterEntityToGrid(location)
 	if self.Parity == "even" then
 
 		location.x = Grid:EvenSnapEntityToVectorGrid(location.x)
-		location.y = EvenSnapEntityToVectorGrid(location.y)
+		location.y = Grid:EvenSnapEntityToVectorGrid(location.y)
 
 		return location
 
@@ -139,29 +139,48 @@ function Grid:FreeNavigationSquare(location)
 	
 end
 
+function Grid:IsOutsideBounds(location)
+
+	print("In outside bound function")
+
+	local x = Grid:OddSnapEntityToArrayGrid(location.x)
+	local y = Grid:OddSnapEntityToArrayGrid(location.y)
+
+	print(x)
+	print(y)
+
+	if x < 1 or x > 37 or y < 1 or y > 37 then
+
+		local blocked = true
+		return blocked
+
+	end
+
+end
+
 function Grid:CheckIfSquareIsBlocked(location, caster)
 
 	
 	local isGridBlocked = false
-	local entity = Entities:FindInSphere(nil, Grid:CenterEntityToGrid(location, "odd"), 32)
+	local entity = Entities:FindInSphere(nil, Grid:CenterEntityToGrid(location), 32)
 
 	if entity then
 
 		if entity:GetName() == "gem_blocker" then
 
 			print("DEBUG: Found Entity: ", entity:GetName())
-			caster:AddSpeechBubble(1, "Can't build outside of Arena!", 2, 0, -15)
+			--caster:AddSpeechBubble(1, "Can't build outside of Arena!", 2, 0, -15)
 
-			isGridBlocked = true
+			--local isGridBlocked = true
 
-			return isGridBlocked
+			return true
 
 		elseif entity:GetName() == "gem_castle_blocker" then
 
 			print("DEBUG: Found Entity: ", entity:GetName())
 			caster:AddSpeechBubble(1, "Can't build around Gem base!", 2, 0, -15)
 
-			isGridBlocked = true
+			local isGridBlocked = true
 
 			return isGridBlocked
 
@@ -170,7 +189,7 @@ function Grid:CheckIfSquareIsBlocked(location, caster)
 			print("DEBUG: Found Entity: ", entity:GetName())
 			caster:AddSpeechBubble(1, "Can't build around spawn area!", 2, 0, -15)
 
-			isGridBlocked = true
+			local isGridBlocked = true
 
 			return isGridBlocked
 
@@ -179,7 +198,7 @@ function Grid:CheckIfSquareIsBlocked(location, caster)
 			print("DEBUG: Found Entity: ", entity:GetName())
 			caster:AddSpeechBubble(1, "Can't build on path checkpoint!", 2, 0, -15)
 
-			isGridBlocked = true
+			local isGridBlocked = true
 
 			return isGridBlocked
 

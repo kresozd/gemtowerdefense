@@ -423,4 +423,51 @@
 		}
 	}
 
+	"gem_slow_ability_level1"
+	{
+
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"crystal_maiden_crystal_nova"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"MaxLevel"	"1"
+		"Modifiers"
+		{
+			"modifier_hotd1"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"Orb"
+				{
+					"Priority"	"DOTA_ORB_PRIORITY_ITEM"
+				}
+				"OnOrbImpact"
+				{
+					"ApplyModifier"
+					{
+						"Target"
+						{
+							"Center"	"TARGET"
+							"Radius"	"0"
+							"Teams"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+							"Types"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_MECHANICAL | DOTA_UNIT_TARGET_OTHER"
+						}
+						"ModifierName"	"SlowTarget1"
+					}
+				}
+			}
+		}
+		"Modifiers"
+		{
+			"slow1"
+			{
+				"IsDebuff"	"1"
+				"Duration"	"2"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"-60"
+				}
+			}
+		}
+	}
+
 }

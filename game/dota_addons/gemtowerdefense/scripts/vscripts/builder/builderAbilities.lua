@@ -9,11 +9,12 @@ function AbilityBuildTower(keys)
 	local playerID = hero:GetPlayerID()
 
 	position = Grid:CenterEntityToGrid(position)
-	Grid:BlockNavigationSquare(position)
+	
 
-	if(not Grid:CheckIfSquareIsBlocked(position, caster)) then
+	if not Grid:IsOutsideBounds(position) then
 		if Grid:IsPathTraversible() then
 
+			Grid:BlockNavigationSquare(position)
 			Builder:CreateTower(playerID, owner, position, caster)
 			Grid:FindPath()
 			
