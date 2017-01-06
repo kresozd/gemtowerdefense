@@ -23,13 +23,9 @@ DOTAHudMenuButtons {
 #hero-selection-background {
   width: 100%;
   height: 100%;
-  /*pre-transform-scale2d: 2;*/
   vertical-align: middle;
   horizontal-align: center;
   background-color:#21262e;
-  /*background-color: gradient( linear, 0% 0%, 100% 50%, from( #2b2e2fff ), color-stop( 0.15, #262E3D ), to( #2b2e2fff ) );*/
-
-  transform: none;
   transition-property: transform, blur, opacity, wash-color;
   transition-duration: 0.45s;
   transition-delay: 0.0s;
@@ -43,16 +39,16 @@ DOTAHudMenuButtons {
 
 
 .hero-selection-title {
-  font-size: 35px;
+  font-size: 36px;
   color: #fcfcfc;
   font-family: Radiance;
   text-transform: uppercase;
-  letter-spacing: 1.5px;
+  letter-spacing: 2px;
   font-weight: bold;
   align: center top;
   padding: 10px;
-  margin-top: 110px;
-  margin-bottom: 50px;
+  margin-top: 70px;
+  margin-bottom: 90px;
   text-shadow: 0px 0px 12px #AFC2F755;
 }
 
@@ -69,13 +65,10 @@ DOTAHudMenuButtons {
 .hero-list {
   margin-top: 70px;
   horizontal-align: left;
-  /*border: 1px solid black;*/
-  /*max-width: 475px;*/
 }
 
 .hero-list-inner {
   max-width: 475px;
-  /*horizontal-align: center;*/
   flow-children: right-wrap;
 }
 
@@ -98,7 +91,6 @@ DOTAHudMenuButtons {
 }
 
 .hero-item.hero-selected:hover {
-  /*saturation: 1;*/
   box-shadow: -3px -3px 6px 6px #668BBCaa;
 }
 
@@ -121,20 +113,39 @@ DOTAHudMenuButtons {
 
 .hero-preview-wrap {
   horizontal-align: center;
-  /*width: 400px;*/
 }
 
 .hero-preview-inner {
   flow-children: down;
-  /*margin-top: 10px;*/
   width: 100%;
 }
 
 .hero-preview {
-  min-height: 450px;
+  min-height: 500px;
+  min-width: 460px;
   horizontal-align: center;
-  background-color: #21262e88;
-  width: 400px;
+}
+
+#hero-preview-scene {
+  width: 100%;
+  height: 100%;
+  opacity-mask: url('s2r://panorama/images/masks/softedge_box_png.vtex');
+  opacity: 1;
+  transition-property: opacity, transform;
+  transition-duration: 0.1s;
+}
+
+#hero-name-title {
+  font-size: 25px;
+  height: 35px;
+  padding: 5px;
+  color: #fcfcfc;
+  font-family: Radiance;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 2px;
+  horizontal-align: center;
+  text-shadow: 0 0 5px #ACBFDD55;
 }
 
 #pick-hero-button {
@@ -178,8 +189,7 @@ DOTAHudMenuButtons {
   
 }
 
-.players-state-wrap > Label,
-.hero-preview-inner > Label {
+.players-state-wrap > Label {
   font-size: 25px;
   margin-bottom: 15px;
   color: #fff;

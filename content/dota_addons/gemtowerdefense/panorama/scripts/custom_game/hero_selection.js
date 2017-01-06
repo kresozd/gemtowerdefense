@@ -3,15 +3,20 @@ var selectedHeroes = {};
 var selectedHero = '';
 
 function selectHero(heroName) {
-  var hero = $('#hero_' + heroName);
-  var notAvailable = hero.BHasClass('hero-not-available');
+  var hero = $('#' + heroName);
+  var heroTitle = $('#hero-name-title');
+  var isAvailable = hero.BHasClass('hero-not-available');
+
   if (selectedHero) {
-    $('#hero_' + selectedHero).RemoveClass('hero-selected');
+    $('#' + selectedHero).RemoveClass('hero-selected');
   }
+
   hero.AddClass('hero-selected');
+  heroTitle.text = $.Localize('#' + heroName).toUpperCase();
   selectedHero = heroName;
-  $('#pick-hero-button').disabled = notAvailable;
-  $('#pick-hero-button').SetHasClass('pick-hero-disabled', notAvailable)
+
+  $('#pick-hero-button').disabled = isAvailable;
+  $('#pick-hero-button').SetHasClass('pick-hero-disabled', isAvailable)
 }
 
 function pickHero() {
@@ -20,7 +25,7 @@ function pickHero() {
     return;
   }
 
-  GameEvents.SendCustomGameEventToServer("player_selected_hero", {selected_hero : 'npc_dota_hero_' + selectedHero});
+  GameEvents.SendCustomGameEventToServer("player_selected_hero", {selected_hero : selectedHero});
   endHeroSelection();
 }
 
@@ -36,6 +41,9 @@ function endHeroSelection() {
 (function(){
   $("#pick-hero-button").disabled = true;
   
+  CustomNetTables.SubscribeNetTableListener('game_state', endHeroSelection);
+  
+
   var players = Game.GetAllPlayerIDs();
   var panel = $("#players-states").FindChildrenWithClassTraverse('players-states-item');
 
@@ -48,4 +56,7 @@ function endHeroSelection() {
       target.style.visibility = 'visible';
     }
 	}
+
+
+  selectHero("npc_dota_hero_crystal_maiden");
 })();

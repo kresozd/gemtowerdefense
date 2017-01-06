@@ -13,19 +13,19 @@
       <Panel class="hero-selection-inner">
         <Panel class="hero-list">
           <Panel class="hero-list-inner">
-            <Panel id="hero_crystal_maiden" class="hero-item" onactivate="selectHero('crystal_maiden')">
+            <Panel id="npc_dota_hero_crystal_maiden" class="hero-item" onactivate="selectHero('npc_dota_hero_crystal_maiden')">
               <DOTAHeroImage class="hero-image" heroimagestyle="portrait" heroname="npc_dota_hero_crystal_maiden" scaling="stretch-to-cover-preserve-aspect" />
             </Panel>
-            <Panel id="hero_puck" class="hero-item" onactivate="selectHero('puck')">
+            <Panel id="npc_dota_hero_puck" class="hero-item" onactivate="selectHero('npc_dota_hero_puck')">
               <DOTAHeroImage class="hero-image" heroimagestyle="portrait" heroname="npc_dota_hero_puck" scaling="stretch-to-cover-preserve-aspect" />
             </Panel>
-            <Panel id="hero_vengefulspirit" class="hero-item hero-not-available" onactivate="selectHero('vengefulspirit')">
+            <Panel id="npc_dota_hero_vengefulspirit" class="hero-item hero-not-available" onactivate="selectHero('npc_dota_hero_vengefulspirit')">
               <DOTAHeroImage class="hero-image" heroimagestyle="portrait" heroname="npc_dota_hero_vengefulspirit" scaling="stretch-to-cover-preserve-aspect" />
             </Panel>
-            <Panel id="hero_invoker" class="hero-item hero-not-available" onactivate="selectHero('invoker')">
+            <Panel id="npc_dota_hero_invoker" class="hero-item hero-not-available" onactivate="selectHero('npc_dota_hero_invoker')">
               <DOTAHeroImage class="hero-image" heroimagestyle="portrait" heroname="npc_dota_hero_invoker" scaling="stretch-to-cover-preserve-aspect" />
             </Panel>
-            <Panel id="hero_enchantress" class="hero-item hero-not-available" onactivate="selectHero('enchantress')">
+            <Panel id="npc_dota_hero_enchantress" class="hero-item hero-not-available" onactivate="selectHero('npc_dota_hero_enchantress')">
               <DOTAHeroImage class="hero-image" heroimagestyle="portrait" heroname="npc_dota_hero_enchantress" scaling="stretch-to-cover-preserve-aspect" />
             </Panel>
             <Panel class="hero-item hero-not-available">
@@ -38,8 +38,10 @@
         </Panel>
         <Panel class="hero-preview-wrap">
           <Panel class="hero-preview-inner">
-            <Label text="Hero preview" />
-            <Panel class="hero-preview"></Panel>
+            <Label id="hero-name-title" />
+            <Panel class="hero-preview">
+              <DOTAScenePanel id="hero-preview-scene" camera="default_camera" antialias='true' unit="npc_dota_hero_crystal_maiden" always-cache-composition-layer='true' />
+            </Panel>
             <Button id="pick-hero-button" class="pick-hero-disabled" onactivate="pickHero()">
               <Label class="button-label" text="Pick hero" />
             </Button>
