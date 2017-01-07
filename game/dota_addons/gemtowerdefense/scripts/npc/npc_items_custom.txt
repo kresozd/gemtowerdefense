@@ -71,9 +71,9 @@
 				"EffectName" "particles\customgames\capturepoints\cp_earth.vpcf"
 				"EffectAttachType" "follow_origin"
 			}
-			"modifier_merge_gem_Asteriated_Ruby"
+			"modifier_merge_gem_Flame_Ruby"
 			{
-				"TextureName" "gem_Asteriated_Ruby"
+				"TextureName" "gem_Flame_Ruby"
 				"EffectName" "particles/customgames/capturepoints/cp_allied_wind.vpcf"
 				"EffectAttachType" "follow_origin"
 			}

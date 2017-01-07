@@ -74,9 +74,9 @@ function GemTowerDefenseReborn:OnStateChange(keys)
 
 			local position = Vector((x-19)*128,(y-19)*128,256)
 			position = Grid:CenterEntityToGrid(position)
-			print(Grid.ArrayMap[y][x])
+
 			Grid:BlockNavigationSquare(position)
-			print(Grid.ArrayMap[y][x])
+
 			local tower = CreateUnitByName("gem_dummy", position, false, nil, nil, DOTA_TEAM_GOODGUYS)
 			local eHandle = tower:GetEntityHandle()
 			Builder.DummyTowers[eHandle] = tower

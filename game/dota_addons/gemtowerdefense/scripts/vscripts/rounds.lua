@@ -33,7 +33,7 @@ function Rounds:WaveInit()
 	
 	self.State = "WAVE"
 	CustomNetTables:SetTableValue( "game_state", "current_round", { value = tostring(self.RoundNumber) } )
-	
+	GameRules:SetTimeOfDay(0.8)
 	if Rounds:IsBoss() then
 
 		Rounds:SpawnBoss()
@@ -194,7 +194,7 @@ function Rounds:OnTouchGemCastle(trigger)
 	local unit = trigger.activator
 	local eHandle = unit:GetEntityHandle()
 	
-		
+	if unit.GoldBounty ~= nil then
 		if unit and string.match(unit:GetUnitName(), "gem_round") then
 
 			self.SpawnedCreeps[eHandle] = nil
@@ -224,6 +224,7 @@ function Rounds:OnTouchGemCastle(trigger)
 			--Hero stepped in
 
 		end
+	end
 end
 
 

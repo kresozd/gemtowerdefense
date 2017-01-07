@@ -201,9 +201,9 @@ function Builder:Init()
 	self.PickCount = 0
 	self.GlobalTowers = {}
 	self.GlobalMergeable = {}
-	self.GlobalCount = 0 
-	self.DummyTowers = {}
+	self.GlobalCount = 0
 	self.TowerTestName = nil
+	self.DummyTowers = {} 
 	self.TowerMergeable = 
 	{
 		[0] = {},
@@ -310,7 +310,8 @@ function Builder:CreateTower(playerID, owner, position, caster)
 	if self.TowerTestName ~=nil then
 		mergedName = self.TowerTestName
 		self.TowerTestName = nil
-	end	
+	end
+
     local tower = CreateUnitByName(mergedName, position, false, nil, nil, DOTA_TEAM_GOODGUYS)
 	local eHandle = tower:GetEntityHandle()
 	print(playerID)
@@ -980,11 +981,13 @@ function Builder:WaveCreateMergedTower(playerID, caster, owner)
 			
 			local removeTest = false
 			for i, j in pairs(self.GlobalTowers) do
+				local newIt = i
 				if removeTest then
-					i=i-1
+					newIt=i-1
+					self.GlobalTowers[newIt]=j
 				end
 				if j:GetEntityHandle()==value:GetEntityHandle() then
-					self.GlobalTowers[i] = nil
+					self.GlobalTowers[newIt] = nil
 					removeTest = true
 					self.GlobalCount=self.GlobalCount-1
 				end
@@ -1023,11 +1026,13 @@ function Builder:WaveCreateMergedTower(playerID, caster, owner)
 					local position = value:GetAbsOrigin()
 					local removeTest = false
 					for i, j in pairs(self.GlobalTowers) do
+						local newIt = i
 						if removeTest then
-							i=i-1
+							newIt=i-1
+							self.GlobalTowers[newIt]=j
 						end
 						if j:GetEntityHandle()==value:GetEntityHandle() then
-							self.GlobalTowers[i] = nil
+							self.GlobalTowers[newIt] = nil
 							removeTest = true
 							self.GlobalCount=self.GlobalCount-1
 						end
@@ -1099,11 +1104,13 @@ function Builder:WaveCreateMergedTower_2(playerID, caster, owner)
 			
 			local removeTest = false
 			for i, j in pairs(self.GlobalTowers) do
+				local newIt = i
 				if removeTest then
-					i=i-1
+					newIt=i-1
+					self.GlobalTowers[newIt]=j
 				end
 				if j:GetEntityHandle()==value:GetEntityHandle() then
-					self.GlobalTowers[i] = nil
+					self.GlobalTowers[newIt] = nil
 					removeTest = true
 					self.GlobalCount=self.GlobalCount-1
 				end
@@ -1142,11 +1149,13 @@ function Builder:WaveCreateMergedTower_2(playerID, caster, owner)
 					local position = value:GetAbsOrigin()
 					local removeTest = false
 					for i, j in pairs(self.GlobalTowers) do
+						local newIt = i
 						if removeTest then
-							i=i-1
+							newIt=i-1
+							self.GlobalTowers[newIt]=j
 						end
 						if j:GetEntityHandle()==value:GetEntityHandle() then
-							self.GlobalTowers[i] = nil
+							self.GlobalTowers[newIt] = nil
 							removeTest = true
 							self.GlobalCount=self.GlobalCount-1
 						end
