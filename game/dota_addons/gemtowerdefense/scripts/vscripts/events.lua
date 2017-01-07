@@ -41,6 +41,10 @@ function GemTowerDefenseReborn:OnPlayerPickHero(keys)
 	local player = EntIndexToHScript(keys.player)
 	local playerID = player:GetPlayerID()
 
+--ONLY FOR BOTS
+Players:RemoveTalents(hero)
+	Builder:AddAbilitiesOnStart(hero)
+	
 	hero:SetAbilityPoints(0)
 
 end
@@ -62,6 +66,7 @@ function GemTowerDefenseReborn:OnStateChange(keys)
 	end
 		
 	if state == DOTA_GAMERULES_STATE_PRE_GAME then
+		
 		for i = 1,table.maxn(Builder.StartingTrees[PlayerResource:GetPlayerCount()]) do
 
 			local x = Builder.StartingTrees[PlayerResource:GetPlayerCount()][i].x
