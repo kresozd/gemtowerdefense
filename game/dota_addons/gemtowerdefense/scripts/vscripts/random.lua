@@ -87,7 +87,7 @@ function Random:Downgrade(level)
 
 	elseif level == 3 then
 
-		if value <= downgradeTable[level]["1"] then
+		if value <= downgradeTable[tostring(level)]["1"] then
 
 			local nLevel = 2
 			return nLevel
@@ -101,12 +101,12 @@ function Random:Downgrade(level)
 
 	elseif level == 4 then
 
-		if value <= downgradeTable.level["1"] then
+		if value <= downgradeTable[tostring(level)]["1"] then
 
 			local nLevel = 1
 			return nLevel
 
-		elseif value > downgradeTable.level["1"] and value <= downgradeTable.level["2"] then
+		elseif value > downgradeTable[tostring(level)]["1"] and value <= downgradeTable[tostring(level)]["2"] then
 
 			local nLevel = 2
 			return nLevel
@@ -120,16 +120,16 @@ function Random:Downgrade(level)
 
 	elseif level == 5 then
 
-		if value <= downgradeTable.level["1"] then
+		if value <= downgradeTable[tostring(level)]["1"] then
 
 			newLevel = 1
 		
-		elseif value > downgradeTable.level["1"] and value <= downgradeTable.level["2"] then
+		elseif value > downgradeTable[tostring(level)]["1"] and value <= downgradeTable[tostring(level)]["2"] then
 
 			newLevel = 2
 
 
-		elseif value > downgradeTable.level["2"] and randomValue <= downgradeTable.level["3"] then
+		elseif value > downgradeTable[tostring(level)]["2"] and randomValue <= downgradeTable[tostring(level)]["3"] then
 
 			newLevel = 3
 
