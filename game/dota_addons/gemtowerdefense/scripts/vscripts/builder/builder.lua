@@ -380,16 +380,16 @@ function Builder:ConfirmTower(caster, owner, playerID)
 
 			self.DummyTowers[eHandle] = tower
 
-			tower:SetAbsOrigin(CallibrateTreePosition(position))
+			tower:SetAbsOrigin(position)
 
-			tower:SetRenderColor(103, 135, 35)
+			--tower:SetRenderColor(103, 135, 35)
 			tower:SetHullRadius(TOWER_HULL_RADIUS)
 			tower:SetOwner(owner) 
 			tower:SetHullRadius(TOWER_HULL_RADIUS)
 
 			value:Destroy()
 
-			Builder:CallibrateTreePosition(position)
+			--Builder:CallibrateTreePosition(position)
 		end
 
 	end
@@ -446,16 +446,16 @@ function Builder:OneShotUpgradeTower(caster, owner, playerID)
 
 			self.DummyTowers[eHandle] = tower
 
-			tower:SetAbsOrigin(CallibrateTreePosition(position))
+			tower:SetAbsOrigin(position)
 
-			tower:SetRenderColor(103, 135, 35)
+			--tower:SetRenderColor(103, 135, 35)
 			tower:SetHullRadius(TOWER_HULL_RADIUS)
 			tower:SetOwner(owner) 
 			tower:SetHullRadius(TOWER_HULL_RADIUS)
 
 			value:Destroy()
 
-			Builder:CallibrateTreePosition(position)
+			--Builder:CallibrateTreePosition(position)
 		end
 
 	end
@@ -511,16 +511,16 @@ function Builder:OneShotUpgradeTower_2(caster, owner, playerID)
 
 			self.DummyTowers[eHandle] = tower
 
-			tower:SetAbsOrigin(CallibrateTreePosition(position))
+			tower:SetAbsOrigin(position)
 
-			tower:SetRenderColor(103, 135, 35)
+			--tower:SetRenderColor(103, 135, 35)
 			tower:SetHullRadius(TOWER_HULL_RADIUS)
 			tower:SetOwner(owner) 
 			tower:SetHullRadius(TOWER_HULL_RADIUS)
 
 			value:Destroy()
 
-			Builder:CallibrateTreePosition(position)
+			--Builder:CallibrateTreePosition(position)
 		end
 
 	end
@@ -577,12 +577,12 @@ function Builder:DowngradeTower(caster, owner, playerID)
 
 			value:Destroy()
 
-			tower:SetRenderColor(103, 135, 35)
+			--tower:SetRenderColor(103, 135, 35)
 			tower:SetOwner(owner) 
 			tower:SetHullRadius(TOWER_HULL_RADIUS)
-			tower:SetAbsOrigin(CallibrateTreePosition(position))
+			tower:SetAbsOrigin(position)
 
-			Builder:CallibrateTreePosition(position)
+			--Builder:CallibrateTreePosition(position)
 
 		end
 
@@ -668,10 +668,10 @@ function Builder:CreateMergeableTower(playerID, caster, owner)
 
 			value:Destroy()
 
-			tower:SetRenderColor(103, 135, 35)
+			--tower:SetRenderColor(103, 135, 35)
 			tower:SetOwner(owner) 
 			tower:SetHullRadius(TOWER_HULL_RADIUS)
-			tower:SetAbsOrigin(CallibrateTreePosition(position))
+			tower:SetAbsOrigin(position)
 
 			Builder:CallibrateTreePosition(position)
 
@@ -689,16 +689,16 @@ function Builder:CreateMergeableTower(playerID, caster, owner)
 
 			self.DummyTowers[eHandle] = tower
 
-			tower:SetAbsOrigin(CallibrateTreePosition(position))
+			tower:SetAbsOrigin(position)
 
-			tower:SetRenderColor(103, 135, 35)
+			--tower:SetRenderColor(103, 135, 35)
 			tower:SetHullRadius(TOWER_HULL_RADIUS)
 			tower:SetOwner(owner) 
 			tower:SetHullRadius(TOWER_HULL_RADIUS)
 
 			value:Destroy()
 
-			Builder:CallibrateTreePosition(position)
+			--Builder:CallibrateTreePosition(position)
 		end
 
 	end
@@ -754,12 +754,12 @@ function Builder:CreateMergeableTower_2(playerID, caster, owner)
 
 			value:Destroy()
 
-			tower:SetRenderColor(103, 135, 35)
+			--tower:SetRenderColor(103, 135, 35)
 			tower:SetOwner(owner) 
 			tower:SetHullRadius(TOWER_HULL_RADIUS)
-			tower:SetAbsOrigin(CallibrateTreePosition(position))
+			tower:SetAbsOrigin(position)
 
-			Builder:CallibrateTreePosition(position)
+		--	Builder:CallibrateTreePosition(position)
 
 		end
 
@@ -775,16 +775,16 @@ function Builder:CreateMergeableTower_2(playerID, caster, owner)
 
 			self.DummyTowers[eHandle] = tower
 
-			tower:SetAbsOrigin(CallibrateTreePosition(position))
+			tower:SetAbsOrigin(position)
 
-			tower:SetRenderColor(103, 135, 35)
+			--tower:SetRenderColor(103, 135, 35)
 			tower:SetHullRadius(TOWER_HULL_RADIUS)
 			tower:SetOwner(owner) 
 			tower:SetHullRadius(TOWER_HULL_RADIUS)
 
 			value:Destroy()
 
-			Builder:CallibrateTreePosition(position)
+			--Builder:CallibrateTreePosition(position)
 		end
 
 	end
@@ -807,7 +807,7 @@ end
 
 function Builder:AddHeroAbilitiesOnRound()
 	
-	for i = 0, self.PlayerCount - 1 do
+	for i = 0, PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_GOODGUYS) - 1 do
 
 		local Player = PlayerResource:GetPlayer(i)
 		local Hero = Player:GetAssignedHero()
@@ -1035,12 +1035,12 @@ function Builder:WaveCreateMergedTower(playerID, caster, owner)
 
 					value:Destroy()
 
-					tower:SetRenderColor(103, 135, 35)
+					--tower:SetRenderColor(103, 135, 35)
 					tower:SetOwner(owner) 
 					tower:SetHullRadius(TOWER_HULL_RADIUS)
-					tower:SetAbsOrigin(CallibrateTreePosition(position))
+					tower:SetAbsOrigin(position)
 
-					Builder:CallibrateTreePosition(position)
+				--	Builder:CallibrateTreePosition(position)
 				end
 			end
 		end
@@ -1154,12 +1154,12 @@ function Builder:WaveCreateMergedTower_2(playerID, caster, owner)
 
 					value:Destroy()
 
-					tower:SetRenderColor(103, 135, 35)
+					--tower:SetRenderColor(103, 135, 35)
 					tower:SetOwner(owner) 
 					tower:SetHullRadius(TOWER_HULL_RADIUS)
-					tower:SetAbsOrigin(CallibrateTreePosition(position))
+					tower:SetAbsOrigin(position)
 
-					Builder:CallibrateTreePosition(position)
+					--Builder:CallibrateTreePosition(position)
 				end
 			end
 		end

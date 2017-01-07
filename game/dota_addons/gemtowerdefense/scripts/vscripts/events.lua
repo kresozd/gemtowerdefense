@@ -75,10 +75,10 @@ function GemTowerDefenseReborn:OnStateChange(keys)
 			local tower = CreateUnitByName("gem_dummy", position, false, nil, nil, DOTA_TEAM_GOODGUYS)
 			local eHandle = tower:GetEntityHandle()
 			Builder.DummyTowers[eHandle] = tower
-			tower:SetAbsOrigin(CallibrateTreePosition(position))
-			tower:SetRenderColor(103, 135, 35)
+			tower:SetAbsOrigin(position)
+			--tower:SetRenderColor(103, 135, 35)
 			tower:SetHullRadius(TOWER_HULL_RADIUS)
-			Builder:CallibrateTreePosition(position)
+			--Builder:CallibrateTreePosition(position)
 		end
 	end
 		

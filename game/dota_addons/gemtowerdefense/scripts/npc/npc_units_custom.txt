@@ -81,8 +81,8 @@
 		//
 		// Class of entity of link to.
 		"BaseClass"	"npc_dota_creature"
-		"Model"	"models/tree_clean.vmdl"
-		"ModelScale"	"1"
+		"Model"	"models/props_stone/stone_ruins003a.vmdl"
+		"ModelScale"	"0.8"
 		"MinimapIcon"	"minimap_creep"
 		"MinimapIconSize"	"256"
 		"Level"	"1"

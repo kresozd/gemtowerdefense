@@ -209,6 +209,7 @@ function Rounds:OnTouchGemCastle(trigger)
 			if Rounds:IsBoss() then
 
 				Rounds:UpdateWaveData()
+				--print("")
 				FireGameEvent("round_end", {state = "BUILD"})
 
 			elseif Rounds:IsRoundCleared() then
@@ -246,6 +247,7 @@ function Rounds:OnEntityKilled(keys)
 
 			Rounds:UpdateWaveData()
 			FireGameEvent("round_end", {state = "BUILD"})
+			print("Firing game event!")
 
 		
 	end
