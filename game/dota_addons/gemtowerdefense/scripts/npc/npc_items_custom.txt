@@ -21,21 +21,191 @@
  
 		"Modifiers"
 		{
+			"modifier_tower_pick_player_0"
+			{
+				"IsHidden" "1"
+				"EffectName" "particles/econ/courier/courier_hyeonmu_ambient/courier_hyeonmu_ambient_blue_plus.vpcf"
+				"EffectAttachType" "follow_origin"				
+			}
+			"modifier_tower_pick_player_1"
+			{
+				"IsHidden" "1"
+				"EffectName" "particles/econ/courier/courier_hyeonmu_ambient/courier_hyeonmu_ambient_red.vpcf"
+				"EffectAttachType" "follow_origin"				
+			}
+			"modifier_tower_pick_player_2"
+			{
+				"IsHidden" "1"
+				"EffectName" "particles/econ/courier/courier_hyeonmu_ambient/courier_hyeonmu_ambient_green.vpcf"
+				"EffectAttachType" "follow_origin"				
+			}
+			"modifier_tower_pick_player_3"
+			{
+				"IsHidden" "1"
+				"EffectName" "particles/econ/courier/courier_hyeonmu_ambient/courier_hyeonmu_ambient_magic_gold.vpcf"
+				"EffectAttachType" "follow_origin"				
+			}
+
+
 			"modifier_merge_gem_Silver"
 			{
-				"TextureName" "gem_merge_Silver"
-				"EffectName" "particles/items_fx/healing_flask.vpcf"
+				"TextureName" "gem_Silver"
+				"EffectName" "particles/customgames/capturepoints/cp_metal_captured.vpcf"
 				"EffectAttachType" "follow_origin"
 			}
+			"modifier_merge_gem_Silver_Knight"
+			{
+				"TextureName" "gem_Silver_Knight"
+				"EffectName" "particles/items_fx/healing_flask.vpcf"
+				"EffectAttachType" "follow_origin"
+			}			
 			"modifier_merge_gem_Malachite"
 			{
-				"TextureName" "gem_merge_Malachite"
+				"TextureName" "gem_Malachite"
 				"EffectName" "particles\customgames\capturepoints\cp_earth.vpcf"
 				"EffectAttachType" "follow_origin"
 			}
-				"modifier_merge_gem__Flame_Ruby"
+			"modifier_merge_gem_Huge_Malachite"
 			{
-				"TextureName" "gem_merge_Malachite"
+				"TextureName" "gem_Huge_Malachite"
+				"EffectName" "particles\customgames\capturepoints\cp_earth.vpcf"
+				"EffectAttachType" "follow_origin"
+			}
+			"modifier_merge_gem_Asteriated_Ruby"
+			{
+				"TextureName" "gem_Asteriated_Ruby"
+				"EffectName" "particles/customgames/capturepoints/cp_allied_wind.vpcf"
+				"EffectAttachType" "follow_origin"
+			}
+			"modifier_merge_gem_Volcano"
+			{
+				"TextureName" "gem_Volcano"
+				"EffectName" "particles/customgames/capturepoints/cp_allied_wind.vpcf"
+				"EffectAttachType" "follow_origin"
+			}
+			"modifier_merge_gem_Quartz"
+			{
+				"TextureName" "gem_Quartz"
+				"EffectName" "particles\customgames\capturepoints\cp_earth.vpcf"
+				"EffectAttachType" "follow_origin"
+			}
+			"modifier_merge_gem_Charming_Lazurite"
+			{
+				"TextureName" "gem_Charming_Lazurite"
+				"EffectName" "particles/items_fx/healing_flask.vpcf"
+				"EffectAttachType" "follow_origin"
+			}	
+			"modifier_merge_gem_Jade"
+			{
+				"TextureName" "gem_Jade"
+				"EffectName" "particles/customgames/capturepoints/cp_metal_captured.vpcf"
+				"EffectAttachType" "follow_origin"
+			}
+			"modifier_merge_gem_Lucky_Chinese_Jade"
+			{
+				"TextureName" "gem_Chinese_Jade"
+				"EffectName" "particles/items_fx/healing_flask.vpcf"
+				"EffectAttachType" "follow_origin"
+			}
+			"modifier_merge_gem_Grey_Jade"
+			{
+				"TextureName" "gem_Grey_Jade"
+				"EffectName" "particles/customgames/capturepoints/cp_allied_wind.vpcf"
+				"EffectAttachType" "follow_origin"
+			}
+			"modifier_merge_gem_Dark_Emerald"
+			{
+				"TextureName" "gem_Dark_Emerald"
+				"EffectName" "particles\customgames\capturepoints\cp_earth.vpcf"
+				"EffectAttachType" "follow_origin"
+			}
+			"modifier_merge_gem_Emerald_Golem"
+			{
+				"TextureName" "gem_Emerald_Golem"
+				"EffectName" "particles/customgames/capturepoints/cp_metal_captured.vpcf"
+				"EffectAttachType" "follow_origin"
+			}
+			"modifier_merge_gem_Yellow_Sapphire"
+			{
+				"TextureName" "gem_Yellow_Sapphire"
+				"EffectName" "particles/customgames/capturepoints/cp_allied_wind.vpcf"
+				"EffectAttachType" "follow_origin"
+			}
+			"modifier_merge_gem_Gold"
+			{
+				"TextureName" "gem_Gold"
+				"EffectName" "particles/items_fx/healing_flask.vpcf"
+				"EffectAttachType" "follow_origin"
+			}
+			"modifier_merge_gem_Egypt_Gold"
+			{
+				"TextureName" "gem_Egypt_Gold"
+				"EffectName" "particles\customgames\capturepoints\cp_earth.vpcf"
+				"EffectAttachType" "follow_origin"
+			}
+			"modifier_merge_gem_Pink_Diamond"
+			{
+				"TextureName" "gem_Pink_Diamond"
+				"EffectName" "particles/customgames/capturepoints/cp_metal_captured.vpcf"
+				"EffectAttachType" "follow_origin"
+			}
+			"modifier_merge_gem_Huge_Pink_Diamond"
+			{
+				"TextureName" "gem_Huge_Pink_Diamond"
+				"EffectName" "particles/customgames/capturepoints/cp_allied_wind.vpcf"
+				"EffectAttachType" "follow_origin"
+			}
+			"modifier_merge_gem_Bloodstone"
+			{
+				"TextureName" "gem_Bloodstone"
+				"EffectName" "particles/items_fx/healing_flask.vpcf"
+				"EffectAttachType" "follow_origin"
+			}
+			"modifier_merge_gem_Antique_Bloodstone"
+			{
+				"TextureName" "gem_Egypt_Antique_Bloodstone"
+				"EffectName" "particles\customgames\capturepoints\cp_earth.vpcf"
+				"EffectAttachType" "follow_origin"
+			}
+			"modifier_merge_gem_Uranium_238"
+			{
+				"TextureName" "gem_Uranium_238"
+				"EffectName" "particles/customgames/capturepoints/cp_metal_captured.vpcf"
+				"EffectAttachType" "follow_origin"
+			}
+			"modifier_merge_gem_Uranium_235"
+			{
+				"TextureName" "gem_Uranium_235"
+				"EffectName" "particles/customgames/capturepoints/cp_metal_captured.vpcf"
+				"EffectAttachType" "follow_origin"
+			}
+			"modifier_merge_gem_Chrysoberyl_Cats_Eye"
+			{
+				"TextureName" "gem_Egypt_Chrysoberyl_Cats_Eye"
+				"EffectName" "particles\customgames\capturepoints\cp_earth.vpcf"
+				"EffectAttachType" "follow_origin"
+			}
+			"modifier_merge_gem_Paraiba_Tourmaline"
+			{
+				"TextureName" "gem_Paraiba_Tourmaline"
+				"EffectName" "particles/customgames/capturepoints/cp_allied_wind.vpcf"
+				"EffectAttachType" "follow_origin"
+			}
+			"modifier_merge_gem_Elaborately_Carved_Tourmaline"
+			{
+				"TextureName" "gem_Elaborately_Carved_Tourmaline"
+				"EffectName" "particles/items_fx/healing_flask.vpcf"
+				"EffectAttachType" "follow_origin"
+			}
+			"modifier_merge_gem_DeepSea_Pearl"
+			{
+				"TextureName" "gem_DeepSea_Pearl"
+				"EffectName" "particles/customgames/capturepoints/cp_metal_captured.vpcf"
+				"EffectAttachType" "follow_origin"
+			}
+			"modifier_merge_gem_Red_Coral"
+			{
+				"TextureName" "gem_Red_Coral"
 				"EffectName" "particles\customgames\capturepoints\cp_earth.vpcf"
 				"EffectAttachType" "follow_origin"
 			}

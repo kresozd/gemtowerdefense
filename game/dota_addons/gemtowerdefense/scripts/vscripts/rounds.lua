@@ -16,7 +16,7 @@ function Rounds:Init(keyvalue)
     self.AmountKilled 		= 0
 	self.AmountSpawned 		= 0
     self.SpawnedCreeps 		= {}
-    self.RoundNumber 		= 5
+    self.RoundNumber 		= 1
     self.SpawnPosition 		= Entities:FindByName(nil, "enemy_spawn"):GetAbsOrigin()
 	self.BaseHealth 		= 100
 	self.BuildLevel 		= 1

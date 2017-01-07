@@ -79,7 +79,7 @@ function Builder:Init()
 		
 
     	for key, tower in pairs(self.RoundTowers[playerID]) do
-    		local mergeTest =	{false,false,false}
+    		
         	local towerName = tower:GetUnitName()
 
         	local pairsTest = 0
@@ -102,6 +102,7 @@ function Builder:Init()
 
 
         	for k, v in pairs(mergesInto) do
+        		local mergeTest =	{false,false,false}
         		local secondMerge = false
             	print("Key:", k, "value: ", v)
 
@@ -168,7 +169,9 @@ function Builder:Init()
 
 				print("Merge Tower name:", mergeName)
 				if value:FindAbilityByName("gem_merge_tower") then
-					value:AddAbility("gem_merge_tower_2"):SetLevel(1)
+					value:RemoveAbility("gem_merge_tower")
+					value:AddAbility("gem_merge_tower_left"):SetLevel(1)
+					value:AddAbility("gem_merge_tower_right"):SetLevel(1)
 					local ModMaster = CreateItem("item_modifier_master", nil, nil) 
 					ModMaster:ApplyDataDrivenModifier(value, value, "modifier_merge_"..mergeName2,nil)
 				else
@@ -185,6 +188,8 @@ function Builder:Init()
 
 	ListenToGameEvent('round_end', Dynamic_Wrap(Builder, 'OnRoundEnded'), self)
 
+
+	self.PlayerCount = 0
 	self.RoundTowers =
 	 {
 		[0] = {},
@@ -204,7 +209,85 @@ function Builder:Init()
 		[2] = {},
 		[3] = {}
 	}
+	self.StartingTrees = 
+	{
+		[1] = {
+			[1] = { x = 1, y = 19 },
+			[2] = { x = 2, y = 19 },
+			[3] = { x = 3, y = 19 },
+			[4] = { x = 4, y = 19 },
+			[5] = { x = 37, y = 19 },
+			[6] = { x = 36, y = 19 },
+			[7] = { x = 35, y = 19 },
+			[8] = { x = 34, y = 19 },
+			[9] = { x = 19, y = 1 },
+			[10] = { x = 19, y = 2 },
+			[11] = { x = 19, y = 3 },
+			[12] = { x = 19, y = 4 },
+			[13] = { x = 19, y = 37 },
+			[14] = { x = 19, y = 36 },
+			[15] = { x = 19, y = 35 },
+			[16] = { x = 19, y = 34 },
+			[17] = { x = 6, y = 19 },
+			[18] = { x = 7, y = 19 },
+			[19] = { x = 8, y = 19 },
+			[20] = { x = 9, y = 19 },
+			[21] = { x = 32, y = 19 },
+			[22] = { x = 31, y = 19 },
+			[23] = { x = 30, y = 19 },
+			[24] = { x = 29, y = 19 },
+			[25] = { x = 19, y = 6 },
+			[26] = { x = 19, y = 7 },
+			[27] = { x = 19, y = 8 },
+			[28] = { x = 19, y = 9 },
+			[29] = { x = 19, y = 32 },
+			[30] = { x = 19, y = 31 },
+			[31] = { x = 19, y = 30 },
+			[32] = { x = 19, y = 29 }
+				},
+		[2] = {
+			[1] = { x = 1, y = 19 },
+			[2] = { x = 2, y = 19 },
+			[3] = { x = 3, y = 19 },
+			[4] = { x = 4, y = 19 },
+			[5] = { x = 37, y = 19 },
+			[6] = { x = 36, y = 19 },
+			[7] = { x = 35, y = 19 },
+			[8] = { x = 34, y = 19 },
+			[9] = { x = 19, y = 1 },
+			[10] = { x = 19, y = 2 },
+			[11] = { x = 19, y = 3 },
+			[12] = { x = 19, y = 4 },
+			[13] = { x = 19, y = 37 },
+			[14] = { x = 19, y = 36 },
+			[15] = { x = 19, y = 35 },
+			[16] = { x = 19, y = 34 }
+				},
+		[3] = {
+			[1] = { x = 1, y = 19 },
+			[2] = { x = 2, y = 19 },
+			[3] = { x = 37, y = 19 },
+			[4] = { x = 36, y = 19 },
+			[5] = { x = 19, y = 1 },
+			[6] = { x = 19, y = 2 },
+			[7] = { x = 19, y = 37 },
+			[8] = { x = 19, y = 36 },
+				},
+		[4] = {}
+	}
+
 	self.State = "BUILD"
+end
+
+function Builder:SetPlayerCount(count)
+
+	self.PlayerCount = count
+
+end
+
+function Builder:IncrementPlayerCount()
+
+	self.PlayerCount = self.PlayerCount + 1
 
 end
 
@@ -212,7 +295,7 @@ function Builder:InitBuild()
 
 	Builder:ClearWaveAbilities()
 	Builder:AddHeroAbilitiesOnRound()
-
+	GameRules:SetTimeOfDay(0.3)
 end
 
 function Builder:CreateTower(playerID, owner, position, caster)
@@ -225,7 +308,9 @@ function Builder:CreateTower(playerID, owner, position, caster)
 
     local tower = CreateUnitByName(mergedName, position, false, nil, nil, DOTA_TEAM_GOODGUYS)
 	local eHandle = tower:GetEntityHandle()
-
+	print(playerID)
+	local ModMaster = CreateItem("item_modifier_master", nil, nil) 
+	ModMaster:ApplyDataDrivenModifier(tower, tower, "modifier_tower_pick_player_"..tostring(playerID),nil)
 	tower:SetOwner(owner)
     tower:SetControllableByPlayer(playerID, true)
 	
@@ -722,7 +807,7 @@ end
 
 function Builder:AddHeroAbilitiesOnRound()
 	
-	for i = 0, PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_GOODGUYS) - 1 do
+	for i = 0, self.PlayerCount - 1 do
 
 		local Player = PlayerResource:GetPlayer(i)
 		local Hero = Player:GetAssignedHero()
@@ -762,7 +847,7 @@ function Builder:WaveCheckIfMergeable()
 
 
 	for key, tower in pairs(self.GlobalTowers) do
-		local mergeTest =	{false,false,false}
+		
 
     	local towerName = tower:GetUnitName()
 		print("Tower name when checking for merge:", towerName)
@@ -770,6 +855,7 @@ function Builder:WaveCheckIfMergeable()
 
 
     	for k, v in pairs(mergesInto) do
+    	local mergeTest =	{false,false,false}
  		local secondMerge = false
         	print("Key:", k, "value: ", v)
 
@@ -834,7 +920,9 @@ function Builder:WaveAddTowerMergeAbility()
 
 			print("Merge Tower name:", mergeName)
 			if value:FindAbilityByName("gem_merge_tower") then
-				value:AddAbility("gem_merge_tower_2"):SetLevel(1)
+				value:RemoveAbility("gem_merge_tower")
+				value:AddAbility("gem_merge_tower_left"):SetLevel(1)
+				value:AddAbility("gem_merge_tower_right"):SetLevel(1)
 				local ModMaster = CreateItem("item_modifier_master", nil, nil) 
 				ModMaster:ApplyDataDrivenModifier(value, value, "modifier_merge_"..mergeName2,nil)
 			else
@@ -966,10 +1054,6 @@ function Builder:WaveCreateMergedTower(playerID, caster, owner)
 	Builder:WaveCheckIfMergeable()
 	Builder:WaveAddTowerMergeAbility()
 end
-
---////////////EXPERIMENTAL function
-
-
 
 function Builder:WaveCreateMergedTower_2(playerID, caster, owner)
 
