@@ -91,3 +91,30 @@ function GemTowerDefenseReborn:OnStateChange(keys)
 
 end
 
+function GemTowerDefenseReborn:OnPlayerChat(keys)
+
+	local tokens =  string.split(string.trim(keys.text))
+	if tokens[1] == "-create_tower" and Rounds.State == "BUILD" then
+		Builder.TestTowerName = tokens[2]
+	end
+end
+
+function string.trim(s)
+	return s:match "^%s*(.-)%s*$"
+end
+
+function string.starts(String,Start)
+   return string.sub(String,1,string.len(Start))==Start
+end
+
+function string.split(s, sep)
+        if sep == nil then
+                sep = "%s"
+        end
+        local t={} ; i=1
+        for str in string.gmatch(s, "([^"..sep.."]+)") do
+                t[i] = str
+                i = i + 1
+        end
+        return t
+end
