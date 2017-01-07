@@ -116,6 +116,8 @@
 		"StatusMana"	"0"
 		"StatusManaRegen"	"0"
 
+		"BoundsHullName"	"DOTA_HULL_SIZE_SMALL"
+
 		"TeamName"	"DOTA_TEAM_GOODGUYS"
 		"CombatClassAttack"	"DOTA_COMBAT_CLASS_ATTACK_SIEGE"
 		"CombatClassDefend"	"DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
