@@ -200,6 +200,7 @@ function Builder:Init()
 
 	self.PickCount = 0
 	self.GlobalTowers = {}
+	self.GlobalMergeable
 	self.GlobalCount = 0 
 	self.DummyTowers = {} 
 	self.TowerMergeable = 
@@ -899,7 +900,7 @@ function Builder:WaveCheckIfMergeable()
 					tower.MergesInto = tostring(v)
 					secondMerge = true
 				end
-				table.insert(self.TowerMergeable[0], tower)
+				table.insert(self.GlobalMergeable, tower)
 
 	    	end
     	end
@@ -910,7 +911,7 @@ end
 
 function Builder:WaveAddTowerMergeAbility()
 
-	for key, value in pairs(self.TowerMergeable[0]) do
+	for key, value in pairs(self.GlobalMergeable) do
 
 		print("Merge value in Builder:WaveAddTowerMergeAbility:", value.MergesInto)
 
@@ -961,7 +962,7 @@ function Builder:WaveCreateMergedTower(playerID, caster, owner)
 	end
 
 
-	for key, value in pairs(self.TowerMergeable[0]) do
+	for key, value in pairs(self.GlobalMergeable) do
 
 		if entityIndex == value:GetEntityIndex() then
 
@@ -987,11 +988,11 @@ function Builder:WaveCreateMergedTower(playerID, caster, owner)
 			self.GlobalTowers[self.GlobalCount] = tower
 
 			value:Destroy()
-			self.TowerMergeable[0][key]=nil
+			self.GlobalMergeable[key]=nil
 		end
 	end
 
-	for key, value in pairs(self.TowerMergeable[0]) do
+	for key, value in pairs(self.GlobalMergeable) do
 
 		if entityIndex ~= value:GetEntityIndex() then
 			if mergeTest[1] and mergeTest[2] and mergeTest[3] then
@@ -1046,8 +1047,8 @@ function Builder:WaveCreateMergedTower(playerID, caster, owner)
 		end
 	end
 	
-	for key, value in pairs(self.TowerMergeable[0]) do
-		self.TowerMergeable[0][key] = nil
+	for key, value in pairs(self.GlobalMergeable) do
+		self.GlobalMergeable[key] = nil
 	end
 	--CheckIfAllPicked()
 	Builder:ClearWaveAbilities()
@@ -1080,7 +1081,7 @@ function Builder:WaveCreateMergedTower_2(playerID, caster, owner)
 	end
 
 
-	for key, value in pairs(self.TowerMergeable[0]) do
+	for key, value in pairs(self.GlobalMergeable) do
 
 		if entityIndex == value:GetEntityIndex() then
 
@@ -1106,11 +1107,11 @@ function Builder:WaveCreateMergedTower_2(playerID, caster, owner)
 			self.GlobalTowers[self.GlobalCount] = tower
 
 			value:Destroy()
-			self.TowerMergeable[0][key]=nil
+			self.GlobalMergeable[key]=nil
 		end
 	end
 
-	for key, value in pairs(self.TowerMergeable[0]) do
+	for key, value in pairs(self.GlobalMergeable) do
 
 		if entityIndex ~= value:GetEntityIndex() then
 			if mergeTest[1] and mergeTest[2] and mergeTest[3] then
@@ -1165,8 +1166,8 @@ function Builder:WaveCreateMergedTower_2(playerID, caster, owner)
 		end
 	end
 	
-	for key, value in pairs(self.TowerMergeable[0]) do
-		self.TowerMergeable[0][key] = nil
+	for key, value in pairs(self.GlobalMergeable) do
+		self.GlobalMergeable[key] = nil
 	end
 	Builder:ClearWaveAbilities()
 	Builder:WaveCheckIfMergeable()
@@ -1197,8 +1198,8 @@ function Builder:ClearWaveAbilities()
 		end
 	end
 
-	for key, value in pairs(self.TowerMergeable[0]) do
-		self.TowerMergeable[0][key] = nil
+	for key, value in pairs(self.GlobalMergeable) do
+		self.GlobalMergeable[key] = nil
 	end
 
 end
