@@ -202,7 +202,8 @@ function Builder:Init()
 	self.GlobalTowers = {}
 	self.GlobalMergeable = {}
 	self.GlobalCount = 0 
-	self.DummyTowers = {} 
+	self.DummyTowers = {}
+	self.TowerTestName = nil
 	self.TowerMergeable = 
 	{
 		[0] = {},
@@ -306,7 +307,10 @@ function Builder:CreateTower(playerID, owner, position, caster)
 	local generatedName = tostring(Random:GenerateWardName())	
 	local generatedLevel = tostring(Random:GenerateWardLevel())
 	local mergedName = tostring(generatedName..generatedLevel)
-
+	if self.TowerTestName ~=nil then
+		mergedName = self.TowerTestName
+		self.TowerTestName = nil
+	end	
     local tower = CreateUnitByName(mergedName, position, false, nil, nil, DOTA_TEAM_GOODGUYS)
 	local eHandle = tower:GetEntityHandle()
 	print(playerID)
