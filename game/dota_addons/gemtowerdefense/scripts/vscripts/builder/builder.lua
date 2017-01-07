@@ -200,7 +200,7 @@ function Builder:Init()
 
 	self.PickCount = 0
 	self.GlobalTowers = {}
-	self.GlobalMergeable
+	self.GlobalMergeable = {}
 	self.GlobalCount = 0 
 	self.DummyTowers = {} 
 	self.TowerMergeable = 
