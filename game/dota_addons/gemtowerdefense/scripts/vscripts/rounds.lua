@@ -80,7 +80,7 @@ function Rounds:SpawnUnits()
 		self.SpawnedCreeps[eHandle] = unit
 
 		Rounds:AddCreepProperties(unit, waveData)
-		unit:AddAbility("gem_collision_movement"):SetLevel(1)
+		--unit:AddAbility("gem_collision_movement"):SetLevel(1)
 			
 		Grid:MoveUnit(unit)
 

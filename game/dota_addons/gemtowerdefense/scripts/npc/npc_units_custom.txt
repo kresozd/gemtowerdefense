@@ -4140,7 +4140,7 @@
 
 	"gem_round5_fei_lian"
 		{                                       
-			"Model"                 "models/items/courier/fei_lian_blue/fei_lian_blue.vmdl" // Model.
+			"Model"                 "models/items/courier/fei_lian_blue/fei_lian_blue_flying.vmdl" // Model.
 			"BaseClass"             "npc_dota_creature"
 			"Level"                 "7"
 			"ModelScale"                "1.4"

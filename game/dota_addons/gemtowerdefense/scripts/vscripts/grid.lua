@@ -341,7 +341,7 @@ function Grid:MoveUnit(unitNPC)
 			
 		else
 	
-			unit:SetThink(function() unit:MoveToPosition(self.VectorMap[unit.Step]) end)
+			unit:SetThink(function() unit:MoveToPosition(self.VectorMap[unit.Step] + Vector(RandomInt(-5,5),RandomInt(-5,5),0)) end)
 				
 			if (unit:GetAbsOrigin() - self.VectorMap[unit.Step]):Length2D() < 32 then
 
@@ -368,7 +368,7 @@ function Grid:MoveUnit(unitNPC)
 			
 			else
 	
-				unit:SetThink(function() unit:MoveToPosition(self.PathTargets[unit.Step]) end)
+				unit:SetThink(function() unit:MoveToPosition(self.PathTargets[unit.Step] + Vector(RandomInt(-5,5),RandomInt(-5,5),0)) end)
 				
 				if (unit:GetAbsOrigin() - self.PathTargets[unit.Step]):Length2D() < 32 then
 
