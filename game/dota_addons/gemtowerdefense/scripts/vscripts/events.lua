@@ -42,10 +42,15 @@ function GemTowerDefenseReborn:OnPlayerPickHero(keys)
 	local playerID = player:GetPlayerID()
 
 --ONLY FOR BOTS
-Players:RemoveTalents(hero)
+	
+	if hero:GetUnitName() ~= "npc_dota_hero_crystal_maiden" then
+
+	Players:RemoveTalents(hero)
 	Builder:AddAbilitiesOnStart(hero)
 	
 	hero:SetAbilityPoints(0)
+
+	end
 
 end
 

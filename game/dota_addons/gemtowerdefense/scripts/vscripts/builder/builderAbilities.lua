@@ -13,16 +13,21 @@ function AbilityBuildTower(keys)
 
 	if not Grid:IsOutsideBounds(position) then
 
-		Grid:BlockNavigationSquare(position)
-		if Grid:IsPathTraversible() then
+		if not Grid:CheckIfSquareIsBlocked(position, caster) then
 
-			Builder:CreateTower(playerID, owner, position, caster)
-			Grid:FindPath()
-			
-		else
-
-			Grid:FreeNavigationSquare(position, "odd")
+			Grid:BlockNavigationSquare(position)
 		
+			if Grid:IsPathTraversible() then
+
+				Builder:CreateTower(playerID, owner, position, caster)
+				Grid:FindPath()
+			
+			else
+
+				Grid:FreeNavigationSquare(position, "odd")
+		
+			end
+
 		end
 
 	else

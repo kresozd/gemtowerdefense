@@ -45,12 +45,12 @@ function Players:CheckIfAllPicked()
     return true
     
 end
---[[
+
 function Players:RemoveTalents(hero)
 
 	local start = 2
 
-	for i = 0,10 do
+	for i = 0,17 do
 
 		local ability = hero:GetAbilityByIndex(i)
 
@@ -65,7 +65,7 @@ function Players:RemoveTalents(hero)
 end
 
 
-]]--
+
 
 function Players:UnlockAbilities()
 
