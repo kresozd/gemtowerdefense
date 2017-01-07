@@ -4138,9 +4138,9 @@
 		}
 		
 
-	"gem_round5_wraith"
+	"gem_round5_fei_lian"
 		{                                       
-			"Model"                 "models/items/courier/mlg_courier_wraith/mlg_courier_wraith_flying.vmdl" // Model.
+			"Model"                 "models/items/courier/fei_lian_blue/fei_lian_blue.vmdl" // Model.
 			"BaseClass"             "npc_dota_creature"
 			"Level"                 "7"
 			"ModelScale"                "1.4"
@@ -4163,9 +4163,9 @@
 
 		}
 
-	"gem_round6_fei_lian"
+	"gem_round6_rex"
 		{                                       
-			"Model"                 "models/items/courier/fei_lian_blue/fei_lian_blue.vmdl" // Model.
+			"Model"                 "models/items/courier/snapjaw/snapjaw.vmdl" // Model.
 			"BaseClass"             "npc_dota_creature"
 			"Level"                 "7"
 			"ModelScale"                "1.4"
@@ -4262,9 +4262,9 @@
 
 		}
 
-	"gem_round10_rex"
+	"gem_round10_venoling"
 		{                                       
-			"Model"                 "models/items/courier/snapjaw/snapjaw.vmdl" // Model.
+			"Model"                 "models/courier/venoling/venoling.vmdl" // Model.
 			"BaseClass"             "npc_dota_creature"
 			"Level"                 "7"
 			"ModelScale"                "2.4"
@@ -4310,12 +4310,12 @@
 			"StatusHealth"	"100"
 		}
 
-	"gem_round12_venoling"
+	"gem_round12_rex_air"
 	{                                       
-		"Model"                 "models/courier/venoling/venoling.vmdl"
+		"Model"                 "models/items/courier/snapjaw/snapjaw_flying.vmdl"
 		"BaseClass"             "npc_dota_creature"
 		"Level"                 "5"
-		"ModelScale"                "1.4"
+		"ModelScale"                "2.4"
 		
 		
 		
