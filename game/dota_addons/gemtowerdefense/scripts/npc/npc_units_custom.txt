@@ -2782,7 +2782,7 @@
 
 	}
 
-	"gem_Asteriated_Ruby"
+	"gem_Flame_Ruby"
 	{
 
 		"BaseClass"	"npc_dota_creature"
