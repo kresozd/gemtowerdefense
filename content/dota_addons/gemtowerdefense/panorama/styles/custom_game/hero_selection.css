@@ -84,7 +84,7 @@ DOTAHudMenuButtons {
   transition-duration: .12s;
 }
 
-.hero-item.hero-selected {
+.hero-selected {
   saturation: 1;
   border-color: #ACBFDD;
   box-shadow: -3px -3px 6px 6px #668BBCaa;
@@ -95,44 +95,31 @@ DOTAHudMenuButtons {
 }
 
 .hero-item:hover {
-  saturation: 0.8;
   box-shadow: #00000077 -4px -4px 8px 8px;
 }
 
-.hero-item.hero-not-available {
+.hero-not-available {
   saturation: 0.0;
   brightness: .4;
-  contrast: .96;
+  contrast: .98;
   wash-color: #C1CADD;
 }
 
-.hero-image {
+#hero-image {
   width: 100%;
   height: 100%;
 }
 
 .hero-preview-wrap {
   horizontal-align: center;
+  flow-children: down;
 }
 
 .hero-preview-inner {
   flow-children: down;
-  width: 100%;
-}
-
-.hero-preview {
-  min-height: 500px;
-  min-width: 460px;
   horizontal-align: center;
-}
-
-#hero-preview-scene {
   width: 100%;
-  height: 100%;
-  opacity-mask: url('s2r://panorama/images/masks/softedge_box_png.vtex');
-  opacity: 1;
-  transition-property: opacity, transform;
-  transition-duration: 0.1s;
+  min-height: 600px;
 }
 
 #hero-name-title {
@@ -147,6 +134,62 @@ DOTAHudMenuButtons {
   horizontal-align: center;
   text-shadow: 0 0 5px #ACBFDD55;
 }
+
+#hero-preview-list {
+  horizontal-align: center;
+  flow-children: down;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-preview {
+  width: 400px;
+  horizontal-align: center;
+  height: 500px;
+  opacity-mask: url('s2r://panorama/images/masks/softedge_box_png.vtex');
+  opacity: 1;
+  transition-property: opacity, transform;
+  transition-duration: 0.1s;
+}
+
+.hero-preview-scene {
+  width: 100%;
+  height: 100%;
+  opacity-mask: url("s2r://panorama/images/masks/softedge_box_png.vtex");
+}
+
+.loading-image {
+  width: 29px;
+  height: 29px;
+  animation-name: LoadingImageRotate;
+  animation-duration: .95s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  background-image: url("file://{images}/custom_game/preloader.png");
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: 100% 100%;
+}
+
+@keyframes 'LoadingImageRotate' {
+  0% {
+      transform: rotateZ( 360deg );
+  }
+
+  50% {
+      transform: rotateZ( 180deg );
+  }
+  
+  100% {
+      transform: rotateZ( 0deg );
+  }
+}
+
+.hero-preview-loading {
+  align: center center;
+  margin-bottom: 25%;
+}
+
 
 #pick-hero-button {
   padding: 10px 24px 7px;
