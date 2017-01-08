@@ -1220,7 +1220,8 @@ end
 
 function Builder:OnRoundEnded(keys)
 
-	self.State = "BUILD"
+	
+	self.State = keys.state
 	Builder:InitBuild()
 
 

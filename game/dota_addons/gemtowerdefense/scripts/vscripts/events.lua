@@ -41,14 +41,19 @@ function GemTowerDefenseReborn:OnPlayerPickHero(keys)
 	local player = EntIndexToHScript(keys.player)
 	local playerID = player:GetPlayerID()
 
---ONLY FOR BOTS
+--ONLY FOR BOTS TESTING
 	
-	if hero:GetUnitName() ~= "npc_dota_hero_crystal_maiden" then
+	if IsInToolsMode() then
 
-	Players:RemoveTalents(hero)
-	Builder:AddAbilitiesOnStart(hero)
+
+		if hero:GetUnitName() ~= "npc_dota_hero_crystal_maiden" then
+
+		Players:RemoveTalents(hero)
+		Builder:AddAbilitiesOnStart(hero)
 	
-	hero:SetAbilityPoints(0)
+		hero:SetAbilityPoints(0)
+
+	end
 
 	end
 
@@ -71,7 +76,7 @@ function GemTowerDefenseReborn:OnStateChange(keys)
 	end
 		
 	if state == DOTA_GAMERULES_STATE_PRE_GAME then
-		
+
 		for i = 1,table.maxn(Builder.StartingTrees[PlayerResource:GetPlayerCount()]) do
 
 			local x = Builder.StartingTrees[PlayerResource:GetPlayerCount()][i].x
@@ -85,12 +90,14 @@ function GemTowerDefenseReborn:OnStateChange(keys)
 			local tower = CreateUnitByName("gem_dummy", position, false, nil, nil, DOTA_TEAM_GOODGUYS)
 			local eHandle = tower:GetEntityHandle()
 			Builder.DummyTowers[eHandle] = tower
+			
 			tower:SetAbsOrigin(position)
-			--tower:SetRenderColor(103, 135, 35)
 			tower:SetHullRadius(TOWER_HULL_RADIUS)
-			--Builder:CallibrateTreePosition(position)
+
 		end
 	end
+	
+
 		
     if state == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
 
@@ -129,3 +136,7 @@ function string.split(s, sep)
         end
         return t
 end
+
+--[[		
+
+]]--

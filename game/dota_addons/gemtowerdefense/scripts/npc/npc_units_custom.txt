@@ -4142,14 +4142,14 @@
 
 	"gem_round5_fei_lian"
 		{                                       
-			"Model"                 "models/items/courier/fei_lian_blue/fei_lian_blue_flying.vmdl" // Model.
+			"Model"                 "models/items/courier/fei_lian_blue/fei_lian_blue.vmdl" // Model.
 			"BaseClass"             "npc_dota_creature"
 			"Level"                 "7"
 			"ModelScale"                "1.4"
 			
 			
 			
-			"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_FLY"
+			"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
 			"MovementSpeed"             "1200"
 
 			"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_BASIC"
@@ -4170,7 +4170,7 @@
 			"Model"                 "models/items/courier/snapjaw/snapjaw.vmdl" // Model.
 			"BaseClass"             "npc_dota_creature"
 			"Level"                 "7"
-			"ModelScale"                "1.4"
+			"ModelScale"                "2.4"
 			
 			
 			
@@ -4321,7 +4321,7 @@
 		
 		
 		
-		"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_FLY"
 		"MovementSpeed"             "1200"
 
 		"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_BASIC"
@@ -4338,9 +4338,9 @@
 		
     //"13"
 
-    "gem_round13_snowl"
+    "gem_round13_mighty_chicken"
 	{                                       
-		"Model"                 "models/items/courier/snowl/snowl.vmdl" // Model.
+		"Model"                 "models/items/courier/mighty_chicken/mighty_chicken.vmdl" // Model.
 		"BaseClass"             "npc_dota_creature"
 		"Level"                 "9"
 		"ModelScale"                "1.4"
@@ -4364,9 +4364,9 @@
 
    // "14"
 
-    "gem_round14_hamster"
+    "gem_round14_donkey_unicorn"
 	{                                       
-		"Model"                 "models/items/courier/catakeet/catakeet.vmdl" // Model.
+		"Model"                 "models/courier/donkey_unicorn/donkey_unicorn.vmdl" // Model.
 		"BaseClass"             "npc_dota_creature"
 		"Level"                 "9"
 		"ModelScale"                "1.4"
@@ -4390,13 +4390,13 @@
 
    //"15"
 
-    "gem_round15_wraith"
+    "gem_round15_purple_box"
 	{                                       
 		"Model"                 "models/items/courier/mlg_courier_wraith/mlg_courier_wraith_flying.vmdl"
 		"BaseClass"             "npc_dota_creature"
 		"Level"                 "9"
 		"ModelScale"                "1.4"
-		"Ability1"		"riki_permanent_invisibility"
+		"Ability1"				"riki_permanent_invisibility"
 		
 		
 		"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
