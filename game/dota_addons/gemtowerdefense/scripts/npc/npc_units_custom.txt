@@ -4038,7 +4038,7 @@
 		{                                       
 			"Model"                 "models/items/hex/sheep_hex/sheep_hex.vmdl" // Model.
 			"BaseClass"             "npc_dota_creature"
-			"Level"                 "7"
+			"Level"                 "1"
 			"ModelScale"                "1.4"
 			"IsAncient"	"1"
 			
@@ -4067,7 +4067,7 @@
 		{                                       
 			"Model"                 "models/creeps/lane_creeps/creep_bad_melee_diretide/creep_bad_melee_diretide.vmdl" // Model.
 			"BaseClass"             "npc_dota_creature"
-			"Level"                 "7"
+			"Level"                 "2"
 			"ModelScale"                "1.4"
 			
 			
@@ -4093,7 +4093,7 @@
 		{                                       
 			"Model"                 "models/items/courier/faceless_rex/faceless_rex.vmdl" // Model.
 			"BaseClass"             "npc_dota_creature"
-			"Level"                 "7"
+			"Level"                 "3"
 			"ModelScale"                "1.4"
 			
 			
@@ -4118,7 +4118,7 @@
 		{                                       
 			"Model"                 "models/items/courier/nexon_turtle_01_grey/nexon_turtle_01_grey.vmdl" // Model.
 			"BaseClass"             "npc_dota_creature"
-			"Level"                 "7"
+			"Level"                 "4"
 			"ModelScale"                "1.4"
 			
 			
@@ -4144,7 +4144,7 @@
 		{                                       
 			"Model"                 "models/items/courier/fei_lian_blue/fei_lian_blue.vmdl" // Model.
 			"BaseClass"             "npc_dota_creature"
-			"Level"                 "7"
+			"Level"                 "5"
 			"ModelScale"                "1.4"
 			
 			
@@ -4169,7 +4169,7 @@
 		{                                       
 			"Model"                 "models/items/courier/snapjaw/snapjaw.vmdl" // Model.
 			"BaseClass"             "npc_dota_creature"
-			"Level"                 "7"
+			"Level"                 "6"
 			"ModelScale"                "2.4"
 			
 			
@@ -4219,7 +4219,7 @@
 		{                                       
 			"Model"                 "models/items/courier/catakeet/catakeet.vmdl" // Model.
 			"BaseClass"             "npc_dota_creature"
-			"Level"                 "7"
+			"Level"                 "8"
 			"ModelScale"                "1.4"
 			
 			
@@ -4268,7 +4268,7 @@
 		{                                       
 			"Model"                 "models/courier/venoling/venoling.vmdl" // Model.
 			"BaseClass"             "npc_dota_creature"
-			"Level"                 "7"
+			"Level"                 "10"
 			"ModelScale"                "2.4"
 			
 			
@@ -4292,7 +4292,7 @@
 		{                                       
 			"Model"                 "models/items/courier/butch_pudge_dog/butch_pudge_dog.vmdl"
 			"BaseClass"             "npc_dota_creature"
-			"Level"                 "5"
+			"Level"                 "11"
 			"ModelScale"                "1.4"
 			
 			
@@ -4316,7 +4316,7 @@
 	{                                       
 		"Model"                 "models/items/courier/snapjaw/snapjaw_flying.vmdl"
 		"BaseClass"             "npc_dota_creature"
-		"Level"                 "5"
+		"Level"                 "12"
 		"ModelScale"                "2.4"
 		
 		
@@ -4342,7 +4342,7 @@
 	{                                       
 		"Model"                 "models/items/courier/mighty_chicken/mighty_chicken.vmdl" // Model.
 		"BaseClass"             "npc_dota_creature"
-		"Level"                 "9"
+		"Level"                 "13"
 		"ModelScale"                "1.4"
 		"Ability1"		"riki_permanent_invisibility"
 		
@@ -4368,7 +4368,7 @@
 	{                                       
 		"Model"                 "models/courier/donkey_unicorn/donkey_unicorn.vmdl" // Model.
 		"BaseClass"             "npc_dota_creature"
-		"Level"                 "9"
+		"Level"                 "14"
 		"ModelScale"                "1.4"
 		"Ability1"		"riki_permanent_invisibility"
 		
@@ -4392,14 +4392,14 @@
 
     "gem_round15_purple_box"
 	{                                       
-		"Model"                 "models/items/courier/mlg_courier_wraith/mlg_courier_wraith_flying.vmdl"
+		"Model"                 "models/courier/trapjaw/trapjaw_flying.vmdl"
 		"BaseClass"             "npc_dota_creature"
-		"Level"                 "9"
+		"Level"                 "15"
 		"ModelScale"                "1.4"
 		"Ability1"				"riki_permanent_invisibility"
 		
 		
-		"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_FLY"
 		"MovementSpeed"             "1200"
 
 		"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_BASIC"
@@ -4416,11 +4416,11 @@
 
     //"16"
 
-	"gem_round16_fei_lian"
+	"gem_round16_demon"
 	{                                       
-		"Model"                 "models/items/courier/fei_lian_blue/fei_lian_blue.vmdl" // Model.
+		"Model"                 "models/items/courier/boooofus_courier/boooofus_courier.vmdl" // Model.
 		"BaseClass"             "npc_dota_creature"
-		"Level"                 "9"
+		"Level"                 "16"
 		"ModelScale"                "1.4"
 		"Ability1"		"magic_immunity_enemy"
 		
@@ -4442,11 +4442,11 @@
 
     //"17"
 
-    "gem_round17_snowl"
+    "gem_round17_chirpy"
 	{                                       
-		"Model"                 "models/items/courier/snowl/snowl.vmdl" // Model.
+		"Model"                 "models/items/courier/bts_chirpy/bts_chirpy.vmdl" // Model.
 		"BaseClass"             "npc_dota_creature"
-		"Level"                 "9"
+		"Level"                 "17"
 		"ModelScale"                "1.4"
 		"Ability1"		"riki_permanent_invisibility"
 		
@@ -4468,11 +4468,11 @@
 
     //"18"
 
-    "gem_round18_hamster"
+    "gem_round18_boooofus"
 	{                                       
-		"Model"                 "models/items/courier/catakeet/catakeet.vmdl" // Model.
+		"Model"                 "models/items/courier/dc_demon/dc_demon.vmdl" // Model.
 		"BaseClass"             "npc_dota_creature"
-		"Level"                 "9"
+		"Level"                 "18"
 		"ModelScale"                "1.4"
 		"Ability1"		"riki_permanent_invisibility"
 		
@@ -4494,16 +4494,16 @@
 
    //"19"
 
-    "gem_round19_wraith"
+    "gem_round19_chameleon"
 	{                                       
-		"Model"                "models/items/courier/mlg_courier_wraith/mlg_courier_wraith_flying.vmdl"
+		"Model"                "models/items/courier/defense4_dire/defense4_dire.vmdl"
 		"BaseClass"             "npc_dota_creature"
-		"Level"                 "9"
+		"Level"                 "19"
 		"ModelScale"                "1.4"
 		"Ability1"		"riki_permanent_invisibility"
 		
 		
-		"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_FLY"
 		"MovementSpeed"             "1200"
 
 		"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_BASIC"
@@ -4520,11 +4520,11 @@
 
     //"20"
 
-     "gem_round20_fei_lian"
+     "gem_round20_mechdonkey"
 	{                                       
-		"Model"                 "models/items/courier/fei_lian_blue/fei_lian_blue.vmdl" // Model.
+		"Model"                 "models/courier/mech_donkey/mech_donkey.vmdl" // Model.
 		"BaseClass"             "npc_dota_creature"
-		"Level"                 "9"
+		"Level"                 "20"
 		"ModelScale"                "3.0"
 		"Ability1"		"abaddon_borrowed_time"
 		
@@ -4546,16 +4546,16 @@
 
     //"21"
 
-	"gem_round21_snowl"
+	"gem_round21_carty_air"
 	{                                       
-		"Model"                 "models/items/courier/snowl/snowl.vmdl" // Model.
+		"Model"                 "models/items/courier/carty/carty_flying.vmdl" // Model.
 		"BaseClass"             "npc_dota_creature"
-		"Level"                 "9"
+		"Level"                 "21"
 		"ModelScale"                "1.4"
 		"Ability1"		"riki_permanent_invisibility"
 		
 		
-		"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_FLY"
 		"MovementSpeed"             "1200"
 
 		"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_BASIC"
@@ -4572,16 +4572,65 @@
 
     //"22"
 
-    "gem_round22_hamster"
+    "gem_round22_frog"
 	{                                       
-		"Model"                 "models/items/courier/catakeet/catakeet.vmdl" // Model.
+		"Model"                 "models/courier/frog/frog.vmdl" // Model.
 		"BaseClass"             "npc_dota_creature"
 		"Level"                 "9"
 		"ModelScale"                "1.4"
 		"Ability1"		"physical_immunity_enemy"
 		
 		
-		"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_FLY"
+		"MovementSpeed"             "1200"
+
+		"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+		
+		"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"		// Hull type used for navigation/locomotion.
+		"ProjectileCollisionSize"	"50"
+		"RingRadius"				"1"
+		"HealthBarOffset"			"260"
+		
+		"StatusHealth"	"100"
+	}
+	//23
+
+	    "gem_round23_smeevil"
+	{                                       
+		"Model"                 "models/courier/smeevil_crab/smeevil_crab.vmdl" // Model.
+		"BaseClass"             "npc_dota_creature"
+		"Level"                 "9"
+		"ModelScale"                "1.4"
+		"Ability1"		"physical_immunity_enemy"
+		
+		
+		"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_FLY"
+		"MovementSpeed"             "1200"
+
+		"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+		
+		"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"		// Hull type used for navigation/locomotion.
+		"ProjectileCollisionSize"	"50"
+		"RingRadius"				"1"
+		"HealthBarOffset"			"260"
+		
+		"StatusHealth"	"100"
+	}
+
+	    "gem_round24_boooofus_air"
+	{                                       
+		"Model"                 "models/items/courier/boooofus_courier/boooofus_courier_flying.vmdl" // Model.
+		"BaseClass"             "npc_dota_creature"
+		"Level"                 "9"
+		"ModelScale"                "1.4"
+		"Ability1"		"physical_immunity_enemy"
+		
+		
+		"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_FLY"
 		"MovementSpeed"             "1200"
 
 		"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_BASIC"

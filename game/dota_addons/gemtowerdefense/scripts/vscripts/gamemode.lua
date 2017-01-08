@@ -58,7 +58,7 @@ function GemTowerDefenseReborn:InitGameMode()
 		600,
 		2000,
 		4000,
-		6000
+		7000
 	}
 
 	GameRules:GetGameModeEntity():SetCustomXPRequiredToReachNextLevel(customXP)
