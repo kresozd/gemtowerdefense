@@ -461,6 +461,7 @@
 		"AbilityLayout"	"6"
 		"Ability1"	"REMOVE_HP_BAR"
 		"Ability2"	"gem_s1_ability"
+		"Ability3"	"ice_path_datadriven"
 
 		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
 		"AttackDamageMin"	"2"
@@ -4269,7 +4270,7 @@
 			"Model"                 "models/courier/venoling/venoling.vmdl" // Model.
 			"BaseClass"             "npc_dota_creature"
 			"Level"                 "10"
-			"ModelScale"                "2.4"
+			"ModelScale"                "1.4"
 			
 			
 			

@@ -23,7 +23,8 @@ function GemTowerDefenseReborn:SetPlayerHero(event)
 	PlayerResource:ReplaceHeroWith(player, hero, 0, 0)
 	if HeroSelection:AllPicked() then
 
-		HeroSelection:UnlockAbilities()
+	HeroSelection:UnlockAbilities()
+	
 
 	end
 
@@ -40,6 +41,8 @@ function GemTowerDefenseReborn:OnPlayerPickHero(keys)
 	local hero = EntIndexToHScript(keys.heroindex)
 	local player = EntIndexToHScript(keys.player)
 	local playerID = player:GetPlayerID()
+
+	hero:SetAbilityPoints(0)
 
 --ONLY FOR BOTS TESTING
 	
