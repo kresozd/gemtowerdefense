@@ -37,7 +37,6 @@ DOTAHudMenuButtons {
   width: 100%;
 }
 
-
 .hero-selection-title {
   font-size: 36px;
   color: #fcfcfc;
@@ -52,7 +51,90 @@ DOTAHudMenuButtons {
   text-shadow: 0px 0px 12px #AFC2F755;
 }
 
-.hero-selection-inner > Panel {
+.player-level {
+  flow-children: down;
+}
+
+.player-level-row {
+  align: center center;
+  padding: 0 25px;
+}
+
+.player-level-help {
+  align: right middle;
+  position: 25px -2px 0px;
+  height: 17px;
+  width: 17px;
+  opacity: .4;
+  wash-color: #C1CADD;
+  background-image: url("s2r://panorama/images/status_icons/information_psd.vtex");
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  transition-property: opacity;
+  transition-timing-function: ease-in-out;
+  transition-duration: .15s;
+}
+
+.player-level-help:hover {
+  opacity: 1;
+}
+
+.player-level-badge {
+  padding: 2px 12px;
+  /*background-color: gradient( linear, 0% 0%, 0% 100%, from( #e4ca84 ), to( #747133 ) );*/
+  horizontal-align: center;
+  margin-bottom: -2px;
+}
+
+#player-level-value {
+  color: gradient( linear, 0% 0%, 0% 100%, from( #e4ce67 ), to( #747133 ) );
+  font-family: Radiance;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 18px;
+  font-weight: bold;
+  align: center center;
+  text-shadow: 1px 1px 2px 1.0 #000000dd;
+}
+
+.player-level-bar {
+  height: 25px;
+  width: 470px;
+  vertical-align: bottom;
+  border: 1px solid #000000dd;
+  box-shadow: inset #1f2020CC 2px 2px 4px 4px;
+  padding: 1px;
+  background-color: gradient( linear, 0% 0%, 0% 100%, from( #1c1c1c ), to( #353535 ) );
+  border-radius: 2px;
+}
+
+.player-level-progress {
+  height: 100%;
+  width: 50%;
+  background-color: gradient( linear, 0% 0%, 0% 100%, from( #9BA0BD ), color-stop( 0.4, #E0E5FF ), color-stop( .5, #E0E5FF), to( #9BA0BD ) );
+  /*background-color: gradient( linear, 0% 0%, 0% 100%, color-stop(0.0, #BBCAEAFF), color-stop(0.50, #FFFFFFFF), color-stop(0.50, #D9DFECFF), color-stop(1.0, #BBCAEAFF));*/
+}
+
+.yellow .player-level-progress {
+  background-color: gradient( linear, 0% 0%, 0% 100%, color-stop(0.0, #ccb42f), color-stop(0.50, #ffeebd), color-stop(0.50, #dbcd8c), color-stop(1.0, #ccb42f));
+}
+
+.player-level-label {
+  align: center center;
+  margin-top: 1px;
+}
+
+#player-level-exp {
+  text-align: center;
+  color: #fff;
+  font-weight: bold;
+  font-family: Radiance;
+  font-size: 15px;
+  text-shadow: 1px 1px 2px 3.0 #00000088;
+}
+
+.hero-selection-column {
   width: fill-parent-flow(1.0);
 }
 
@@ -62,12 +144,12 @@ DOTAHudMenuButtons {
   width: 96%;
 }
 
-.hero-list {
-  margin-top: 70px;
-  horizontal-align: left;
+.hero-container {
+  flow-children: down;
 }
 
 .hero-list-inner {
+  margin-top: 50px;
   max-width: 475px;
   flow-children: right-wrap;
 }
@@ -111,7 +193,6 @@ DOTAHudMenuButtons {
 }
 
 .hero-preview-wrap {
-  horizontal-align: center;
   flow-children: down;
 }
 
@@ -166,13 +247,15 @@ DOTAHudMenuButtons {
 }
 
 .loading-image {
-  width: 29px;
-  height: 29px;
+  width: 30px;
+  brightness: 0.7;
+  height: 30px;
   animation-name: LoadingImageRotate;
-  animation-duration: .95s;
+  animation-duration: .7s;
   animation-timing-function: linear;
+  wash-color: #21262e99;
   animation-iteration-count: infinite;
-  background-image: url("file://{images}/custom_game/preloader.png");
+  background-image: url("file://{images}/custom_game/preload.png");
   background-repeat: no-repeat;
   background-position: 50% 50%;
   background-size: 100% 100%;
