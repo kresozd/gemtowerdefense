@@ -43,8 +43,14 @@ function HeroSelection:UnlockAbilities()
         hero:AddAbility("gem_build_tower"):SetLevel(1)
 	    hero:FindAbilityByName("gem_build_tower"):SetAbilityIndex(0)
 	    
+
+
         hero:AddAbility("gem_remove_tower"):SetLevel(1)
 	    hero:FindAbilityByName("gem_remove_tower"):SetAbilityIndex(1)
+
+        hero:AddAbility("ice_path_datadriven"):SetLevel(1)
+	    hero:FindAbilityByName("ice_path_datadriven"):SetAbilityIndex(1)
+        
 
     end
 end

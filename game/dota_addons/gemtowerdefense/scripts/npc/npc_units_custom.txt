@@ -489,7 +489,7 @@
 
 		"StatusHealth"	"5"
 		"StatusHealthRegen"	"0"
-		"StatusMana"	"0"
+		"StatusMana"	"5"
 		"StatusManaRegen"	"0"
 
 		"TeamName"	"DOTA_TEAM_GOODGUYS"
