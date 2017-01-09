@@ -59,7 +59,7 @@ DOTAHudMenuButtons {
 .hero-selection-inner {
   flow-children: right;
   align: center top;
-  width: 95%;
+  width: 96%;
 }
 
 .hero-list {
@@ -115,13 +115,6 @@ DOTAHudMenuButtons {
   flow-children: down;
 }
 
-.hero-preview-inner {
-  flow-children: down;
-  horizontal-align: center;
-  width: 100%;
-  min-height: 600px;
-}
-
 #hero-name-title {
   font-size: 25px;
   height: 35px;
@@ -136,16 +129,16 @@ DOTAHudMenuButtons {
 }
 
 #hero-preview-list {
+  width: 470px;
+  height: 490px;
   horizontal-align: center;
   flow-children: down;
-  width: 100%;
-  height: 100%;
 }
 
 .hero-preview {
-  width: 400px;
+  width: 100%;
+  height: 100%;
   horizontal-align: center;
-  height: 500px;
   opacity-mask: url('s2r://panorama/images/masks/softedge_box_png.vtex');
   opacity: 1;
   transition-property: opacity, transform;
@@ -156,6 +149,20 @@ DOTAHudMenuButtons {
   width: 100%;
   height: 100%;
   opacity-mask: url("s2r://panorama/images/masks/softedge_box_png.vtex");
+}
+
+#hero-abilities {
+  flow-children: right;
+  horizontal-align: center;
+}
+
+.hero-ability {
+  height: 55px;
+  width: 55px;
+  margin: 0 5px;
+  border-radius: 3px;
+  border: 1px solid #ACBFDD;
+  background-color: #21262e;
 }
 
 .loading-image {
@@ -193,7 +200,7 @@ DOTAHudMenuButtons {
 
 #pick-hero-button {
   padding: 10px 24px 7px;
-  margin-top: 40px;
+  margin-top: 80px;
   saturation: .5;
   horizontal-align: center;
   background-color: #29c87e11;
@@ -225,7 +232,6 @@ DOTAHudMenuButtons {
 }
 
 .players-state-inner {
-  /*background-color: #29c87e11;*/
   horizontal-align: right;
   flow-children: down;
   width: 400px;
@@ -235,7 +241,7 @@ DOTAHudMenuButtons {
 .players-state-wrap > Label {
   font-size: 25px;
   margin-bottom: 15px;
-  color: #fff;
+  color: #ffffff;
   font-family: Radiance;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -243,7 +249,6 @@ DOTAHudMenuButtons {
 }
 
 .players-states-item {
-  /*border: 1px solid black;*/
   flow-children: left;
   visibility: collapse;
   width: 100%;

@@ -14,7 +14,7 @@
   </snippets>
   <Panel class="hero-selection-root" hittest="false">
     <DOTAScenePanel id="hero-selection-background" map="maps/backgrounds/dashboard_test.vmap" camera="shot_cameraC" always-cache-composition-layer="true"/>
-    <Panel class="hero-selection-overlay" hittest="false"></Panel>
+    <Panel class="hero-selection-overlay" hittest="false" />
     <Panel class="hero-selection-wrap" hittest="false">
       <Label class="hero-selection-title" text="Choose your hero" />
       <Panel class="hero-selection-inner">
@@ -22,13 +22,15 @@
           <Panel id="hero-list" class="hero-list-inner" />
         </Panel>
         <Panel class="hero-preview-wrap">
-          <Panel class="hero-preview-inner">
             <Panel id="hero-preview-list" hittest="false" hittestchildren="false">
                 <Label id="hero-name-title" />
             </Panel>
             <Panel id="hero-abilities">
+              <Panel class="hero-ability"></Panel>
+              <Panel class="hero-ability"></Panel>
+              <Panel class="hero-ability"></Panel>
+              <Panel class="hero-ability"></Panel>
             </Panel>
-          </Panel>
           <Button id="pick-hero-button" class="pick-hero-disabled" onactivate="pickHero()">
             <Label class="button-label" text="Pick hero" />
           </Button>
