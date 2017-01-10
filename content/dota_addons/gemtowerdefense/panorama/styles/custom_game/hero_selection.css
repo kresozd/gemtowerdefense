@@ -176,7 +176,7 @@ DOTAHudMenuButtons {
   animation-timing-function: linear;
   wash-color: #21262e99;
   animation-iteration-count: infinite;
-  background-image: url("file://{images}/custom_game/89.png");
+  background-image: url("file://{images}/custom_game/preload.png");
   background-repeat: no-repeat;
   background-position: 50% 50%;
   background-size: 100% 100%;
