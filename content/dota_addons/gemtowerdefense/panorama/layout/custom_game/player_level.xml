@@ -1,0 +1,22 @@
+<root>
+  <styles>
+    <include src="file://{resources}/styles/custom_game/player_level.css"/>  
+  </styles>
+  <scripts>
+    <include src="file://{resources}/scripts/custom_game/player_level.js"/>
+  </scripts>
+  <Panel class="player-level-root yellow">
+    <Panel class="player-level-row">
+      <Panel class="player-level-badge">
+        <Label id="player-level-value" text="level 1" />
+      </Panel>
+      <Panel class="player-level-help" />
+    </Panel>
+    <Panel class="player-level-bar">
+      <Panel class="player-level-progress" />
+      <Panel class="player-level-label">
+        <Label id="player-level-exp" text="500/1000"/>
+      </Panel>
+    </Panel>
+  </Panel>
+</root>

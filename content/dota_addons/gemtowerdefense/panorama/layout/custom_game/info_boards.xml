@@ -16,7 +16,7 @@
                     <Label class="nav-button-title" text="About" />
                 </Panel>
                 <Panel class="nav-button-store nav-button" onactivate="activateBoard('board-store')"> 
-                    <Label class="nav-button-title" text="Store" />
+                    <Label class="nav-button-title" text="Profile" />
                 </Panel>
                 <Panel class="nav-button-rank nav-button" onactivate="activateBoard('board-rank')">
                     <Label class="nav-button-title" text="Rank" />
@@ -34,7 +34,32 @@
             <Label class="board-title" text="#addon_game_name" />
         </Panel>
         <Panel id="board-store" class="info-board board-hidden">
-            <Label class="board-title" text="Store" />
+            <Panel id="board-profile" class="board-profile">
+                <Label class="board-title" text="Profile" />
+                <Panel id="board-profile-container">
+                    <Panel class="board-profile-inner">
+                        <Panel class="profile-player">
+                            <DOTAAvatarImage class="profile-player-image" steamid="local" />
+                            <Panel class="profile-player-column">
+                                <DOTAUserName id="profile-player-username" steamid="local" />
+                                <Panel class="profile-player-rank">
+                                    <Panel class="player-rank">
+                                        <Panel class="player-rank-overlay" />
+                                        <Panel class="player-rank-wrap">
+                                            <Label class="player-rank-label" text="Rank:" />
+                                            <Label id="player-rank-value" text="10" />
+                                        </Panel>
+                                    </Panel>
+                                </Panel>
+                            </Panel>
+                            <Panel id="player-level-container" />
+                        </Panel>
+                        <Panel class="board-profile-stats">
+                            <Label class="profile-stats-header" text="Your stats" />
+                        </Panel>
+                    </Panel>
+                </Panel>
+            </Panel>
         </Panel>
         <Panel id="board-rank" class="info-board board-hidden">
             <Label class="board-title" text="Leadersboard" />

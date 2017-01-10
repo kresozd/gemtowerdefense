@@ -174,11 +174,19 @@ function endHeroSelection() {
 }
 
 
+function updateProfileLevel() {
+  var profileContainer = $('#player-level-container');
+  var playerLevel = $.CreatePanel('Panel', profileContainer, '');
+  playerLevel.BLoadLayout("file://{resources}/layout/custom_game/player_level.xml", false, false);
+}
+
+
 (function() {
   $('#pick-hero-button').disabled = true;
 
   CustomNetTables.SubscribeNetTableListener('game_state', endHeroSelection);
 
+  updateProfileLevel();
   CheckPreviews();
   PreloadHeroPreviews(allHeroes);
   addHeroButtons();

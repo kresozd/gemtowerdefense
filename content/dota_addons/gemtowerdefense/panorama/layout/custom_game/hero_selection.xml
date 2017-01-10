@@ -19,20 +19,7 @@
       <Label class="hero-selection-title" text="Choose your hero" />
       <Panel class="hero-selection-inner">
         <Panel class="hero-container hero-selection-column">
-          <Panel class="player-level yellow">
-            <Panel class="player-level-row">
-              <Panel class="player-level-badge">
-                <Label id="player-level-value" text="level 1" />
-              </Panel>
-              <Panel class="player-level-help" />
-            </Panel>
-            <Panel class="player-level-bar">
-              <Panel class="player-level-progress" />
-              <Panel class="player-level-label">
-                <Label id="player-level-exp" text="500/1000"/>
-              </Panel>
-            </Panel>
-          </Panel>
+          <Panel id="player-level-container" />
           <Panel id="hero-list" class="hero-list-inner" />
         </Panel>
         <Panel class="hero-preview-wrap hero-selection-column">
