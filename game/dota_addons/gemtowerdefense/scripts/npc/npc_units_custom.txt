@@ -4042,6 +4042,8 @@
 			"Level"                 "1"
 			"ModelScale"                "1.4"
 			"IsAncient"	"1"
+
+			"Ability1"	"chronosphere_datadriven"
 			
 			"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
 			"DisableClumpingBehavior"	"1"
