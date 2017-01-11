@@ -56,7 +56,7 @@ end
 
 function HeroSelection:RemoveTalents(hero)
 
-	for i = 0,10 do
+	for i = 0,17 do
 
 		local ability = hero:GetAbilityByIndex(i)
 

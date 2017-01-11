@@ -243,6 +243,7 @@ function Rounds:OnEntityKilled(keys)
 
 		Rounds:UpdateWaveData()
 		FireGameEvent("round_end", {playerID = "0"})
+		CustomEvent:FireEvent("round_end_custom", {playerID = "0"})
 
 	elseif Rounds:IsRoundCleared() then
 

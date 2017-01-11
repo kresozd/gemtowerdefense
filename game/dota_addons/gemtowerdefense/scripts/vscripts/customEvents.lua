@@ -9,14 +9,6 @@ if CustomEvent == nil then
   CustomEvent.eventList = {}
 end
 
-
---[[
-  CustomEvent:RegisterCallback()
-    label - String label identifying event.
-    callback - Function to be called upon event firing.
-    Returns the node of the callback function.
-  Links an event to a callback function.
-]]--
 function CustomEvent:RegisterCallback(label, callback)
   local node = {}
   node.callback = callback
