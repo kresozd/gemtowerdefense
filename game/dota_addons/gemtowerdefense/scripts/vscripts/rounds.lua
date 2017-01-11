@@ -25,6 +25,7 @@ function Rounds:Init(keyvalue)
 	self.TotalLeaked 		= 0
 	self.DelayBetweenSpawn 	= 1
 	self.Data 				= keyvalue
+	self.TowerDamage		= {}
 
 end
 
@@ -32,6 +33,7 @@ end
 function Rounds:WaveInit()
 	
 	self.State = "WAVE"
+	self.TowerDamage	= {}
 	CustomNetTables:SetTableValue( "game_state", "current_round", { value = tostring(self.RoundNumber) } )
 	GameRules:SetTimeOfDay(0.8)
 	if Rounds:IsBoss() then
@@ -287,10 +289,55 @@ end
 
 function Rounds:UpdateWaveData()
 
+	Rounds:AddMVPAbility()
 	self.State = "BUILD"
 	self.AmountKilled = 0
 	self.RoundNumber = self.RoundNumber + 1
 
+end
+
+function Rounds:AddMVPAbility()
+
+	local maxDamage = 0
+	local maxUnit = nil
+	for key, value in pairs(self.TowerDamage) do
+		if value>maxDamage then
+			maxDamage = value
+			for i , j in pairs(Builder.GlobalTowers) do
+				if j:GetEntityIndex() == key then
+				maxUnit = j
+				end
+			end
+		end
+	end
+
+	if maxDamage ~= 0 and maxUnit ~= nil then
+		Rounds:Ability_MVP_Level_Up(maxUnit,1)
+	end
+end
+
+function Rounds:Ability_MVP_Level_Up(unit,upLevel)
+    if upLevel == nil then
+        upLevel = 1
+    end
+    if upLevel > 10 then
+        upLevel = 10
+    end
+
+    if unit.MVPLevel == nil then
+        unit.MVPLevel = 0
+    end
+    local a_name = "gem_MVP_"..unit.MVPLevel
+    local m_name = "modifier_MVP_aura_"..unit.MVPLevel
+    unit:RemoveAbility(a_name)
+    unit:RemoveModifierByName(m_name)
+
+    unit.MVPLevel = unit.MVPLevel + upLevel
+    if unit.MVPLevel > 10 then
+        unit.MVPLevel = 10
+    end
+    unit:AddAbility("gem_MVP_"..unit.MVPLevel)
+    unit:FindAbilityByName("gem_MVP_"..unit.MVPLevel):SetLevel(1)
 end
 
 function Rounds:AddHeroBountyOnKill(unit)

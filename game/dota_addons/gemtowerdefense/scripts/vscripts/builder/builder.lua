@@ -951,12 +951,14 @@ function Builder:WaveCreateMergedTower(playerID, caster, owner)
 	local fullTower = caster:GetUnitName()
 	local mergeTest = {false,false,false}
 	local checkTower = towersKV[caster.MergesInto]["Requirements"]
+	local addingMVPlevels = 0
 	local towersDestroy = 
 	{
 		[1] = {},
 		[2] = {},
 		[3] = {}
 	}
+	local mergedtower = nil
 	local towerPicked = caster
 	for m1, n1 in pairs(self.GlobalTowers) do
 		print("GlobalTowers before ",m1," ",n1:GetUnitName())
@@ -968,13 +970,13 @@ function Builder:WaveCreateMergedTower(playerID, caster, owner)
 		if entityIndex == value:GetEntityIndex() then
 			towerPicked = value
 			local position = value:GetAbsOrigin()
-			local mergedtower = CreateUnitByName(value.MergesInto, position, false, nil, nil, DOTA_TEAM_GOODGUYS)
+			mergedtower = CreateUnitByName(value.MergesInto, position, false, nil, nil, DOTA_TEAM_GOODGUYS)
 			local eHandlemerge = mergedtower:GetEntityHandle()
 
 			mergedtower:SetControllableByPlayer(playerID, true)
 			mergedtower:SetOwner(owner)
 			mergedtower:SetHullRadius(TOWER_HULL_RADIUS)
-			
+
 			for i, j in pairs(self.GlobalTowers) do
 				if j:GetEntityIndex()==entityIndex then
 					self.GlobalTowers[i] = nil
@@ -1053,6 +1055,10 @@ function Builder:WaveCreateMergedTower(playerID, caster, owner)
 	end
 
 	for key, value in pairs(towersDestroy) do
+		if value.MVPLevel ~= nil then
+			addingMVPlevels = addingMVPlevels + value.MVPLevel
+		end
+
 		if entityIndex == value:GetEntityIndex() then 
 			value:Destroy()
 			self.GlobalCount = self.GlobalCount-1
@@ -1067,6 +1073,10 @@ function Builder:WaveCreateMergedTower(playerID, caster, owner)
 			value:Destroy()
 			self.GlobalCount = self.GlobalCount-1
 		end
+	end
+
+	if addingMVPlevels >0 then
+		Rounds:Ability_MVP_Level_Up(mergedtower,addingMVPlevels)
 	end
 
 	self.GlobalTowers = globalTest
@@ -1089,12 +1099,14 @@ function Builder:WaveCreateMergedTower_2(playerID, caster, owner)
 	local fullTower = caster:GetUnitName()
 	local mergeTest = {false,false,false}
 	local checkTower = towersKV[caster.MergesInto2]["Requirements"]
+	local addingMVPlevels = 0
 	local towersDestroy = 
 	{
 		[1] = {},
 		[2] = {},
 		[3] = {}
 	}
+	local mergedtower = nil
 	local towerPicked = caster
 	for m1, n1 in pairs(self.GlobalTowers) do
 		print("GlobalTowers before ",m1," ",n1:GetUnitName())
@@ -1106,13 +1118,13 @@ function Builder:WaveCreateMergedTower_2(playerID, caster, owner)
 		if entityIndex == value:GetEntityIndex() then
 			towerPicked = value
 			local position = value:GetAbsOrigin()
-			local mergedtower = CreateUnitByName(value.MergesInto2, position, false, nil, nil, DOTA_TEAM_GOODGUYS)
+			mergedtower = CreateUnitByName(value.MergesInto2, position, false, nil, nil, DOTA_TEAM_GOODGUYS)
 			local eHandlemerge = mergedtower:GetEntityHandle()
 
 			mergedtower:SetControllableByPlayer(playerID, true)
 			mergedtower:SetOwner(owner)
 			mergedtower:SetHullRadius(TOWER_HULL_RADIUS)
-			
+
 			for i, j in pairs(self.GlobalTowers) do
 				if j:GetEntityIndex()==entityIndex then
 					self.GlobalTowers[i] = nil
@@ -1191,6 +1203,10 @@ function Builder:WaveCreateMergedTower_2(playerID, caster, owner)
 	end
 
 	for key, value in pairs(towersDestroy) do
+		if value.MVPLevel ~= nil then
+			addingMVPlevels = addingMVPlevels + value.MVPLevel
+		end
+
 		if entityIndex == value:GetEntityIndex() then 
 			value:Destroy()
 			self.GlobalCount = self.GlobalCount-1
@@ -1205,6 +1221,10 @@ function Builder:WaveCreateMergedTower_2(playerID, caster, owner)
 			value:Destroy()
 			self.GlobalCount = self.GlobalCount-1
 		end
+	end
+
+	if addingMVPlevels >0 then
+		Rounds:Ability_MVP_Level_Up(mergedtower,addingMVPlevels)
 	end
 
 	self.GlobalTowers = globalTest
