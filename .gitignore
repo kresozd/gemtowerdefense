@@ -28,3 +28,4 @@ game/dota_addons/dotacraft/resource/overviews/*
 #Github dump
 *.stackdump
 .project
+game/dota_addons/gemtowerdefense/maps/gemmap.vpk
