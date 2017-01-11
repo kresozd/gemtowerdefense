@@ -75,6 +75,29 @@ function AbilityOneShotUpgradeTower_2(keys)
 	Builder:OneShotUpgradeTower_2(caster, owner, playerID)
 end
 
+function Ability_Show_Damage(keys)
+    if not keys.attacker:IsNull() then
+        local caster = keys.caster
+        local attacker = keys.attacker
+        if attacker:IsHero() then
+            return
+        end
+        
+        local damage = math.floor(keys.DamageTaken)
+        if damage<=0 then
+            damage = 0
+        end
+        
+        local attacker_id = attacker:GetEntityIndex()
+        local curr_damage = Rounds.TowerDamage[attacker_id]
+        if curr_damage == nil then
+            curr_damage = 0
+        end
+        curr_damage = curr_damage + damage
+        Rounds.TowerDamage[attacker_id] = curr_damage
+    end
+end
+
 function Ability_Split_Shot( keys )
  
         local caster = keys.caster

@@ -428,6 +428,30 @@
 		}
 	}
 
+	"damage_shown_enemy"
+	{
+		"BaseClass"	"ability_datadriven"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"Modifiers"
+		{
+			"modifier_name"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"OnTakeDamage"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/builder/towerAbilities.lua"
+						"Function"	"Ability_Show_Damage"
+						"DamageTaken"	"%attack_damage"
+						"Target"	"ATTACKER"
+					}
+				}
+			}
+		}
+	}
+
 	"disarm_gem_enemy"
 	{
 		"BaseClass"	"ability_datadriven"
@@ -519,7 +543,7 @@
 		}
 	}
 
-	"healing_enenmy"
+	"healing_enemy"
 	{
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"huskar_inner_vitality"
@@ -573,6 +597,394 @@
 			{
 				"var_type"	"FIELD_INTEGER"
 				"armor"	"10 20 30 40"
+			}
+		}
+	}
+
+	"gem_MVP_1"
+	{
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"skywrath_mage_ancient_seal"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"MaxLevel"	"1"
+		"AbilityCastRange"	"300"
+		"Modifiers"
+		{
+			"modifier_MVP_aura_1"
+			{
+				"Passive"	"1"
+				"IsHidden"	"0"
+				"Aura"	"modifier_MVP_target_1"
+				"Aura_Radius"	"300"
+				"Aura_Types"	"DOTA_UNIT_TARGET_BASIC"
+				"Aura_Teams"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Flags"	"DOTA_UNIT_TARGET_FLAG_NONE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE"	"10"
+				}
+				"TextureName"	"skywrath_mage_ancient_seal"
+			}
+			"modifier_MVP_target_1"
+			{
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"-10"
+				}
+			}
+		}
+	}
+
+	"gem_MVP_2"
+	{
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"skywrath_mage_ancient_seal"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"MaxLevel"	"2"
+		"AbilityCastRange"	"400"
+		"Modifiers"
+		{
+			"modifier_MVP_aura_2"
+			{
+				"Passive"	"1"
+				"IsHidden"	"0"
+				"Aura"	"modifier_MVP_target_2"
+				"Aura_Radius"	"400"
+				"Aura_Types"	"DOTA_UNIT_TARGET_BASIC"
+				"Aura_Teams"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Flags"	"DOTA_UNIT_TARGET_FLAG_NONE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE"	"20"
+				}
+				"TextureName"	"skywrath_mage_ancient_seal"
+			}
+			"modifier_MVP_target_2"
+			{
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"-20"
+				}
+			}
+		}
+	}
+
+	"gem_MVP_3"
+	{
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"skywrath_mage_ancient_seal"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"MaxLevel"	"3"
+		"AbilityCastRange"	"500"
+		"Modifiers"
+		{
+			"modifier_MVP_aura_3"
+			{
+				"Passive"	"1"
+				"IsHidden"	"0"
+				"Aura"	"modifier_MVP_target_3"
+				"Aura_Radius"	"500"
+				"Aura_Types"	"DOTA_UNIT_TARGET_BASIC"
+				"Aura_Teams"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Flags"	"DOTA_UNIT_TARGET_FLAG_NONE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE"	"30"
+				}
+				"TextureName"	"skywrath_mage_ancient_seal"
+			}
+			"modifier_MVP_target_3"
+			{
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"-30"
+				}
+			}
+		}
+	}
+
+	"gem_MVP_4"
+	{
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"skywrath_mage_ancient_seal"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"MaxLevel"	"4"
+		"AbilityCastRange"	"600"
+		"Modifiers"
+		{
+			"modifier_MVP_aura_4"
+			{
+				"Passive"	"1"
+				"IsHidden"	"0"
+				"Aura"	"modifier_MVP_target_4"
+				"Aura_Radius"	"600"
+				"Aura_Types"	"DOTA_UNIT_TARGET_BASIC"
+				"Aura_Teams"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Flags"	"DOTA_UNIT_TARGET_FLAG_NONE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE"	"40"
+				}
+				"TextureName"	"skywrath_mage_ancient_seal"
+			}
+			"modifier_MVP_target_4"
+			{
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"-40"
+				}
+			}
+		}
+	}
+
+	"gem_MVP_5"
+	{
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"skywrath_mage_ancient_seal"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"MaxLevel"	"5"
+		"AbilityCastRange"	"700"
+		"Modifiers"
+		{
+			"modifier_MVP_aura_5"
+			{
+				"Passive"	"1"
+				"IsHidden"	"0"
+				"Aura"	"modifier_MVP_target_5"
+				"Aura_Radius"	"700"
+				"Aura_Types"	"DOTA_UNIT_TARGET_BASIC"
+				"Aura_Teams"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Flags"	"DOTA_UNIT_TARGET_FLAG_NONE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE"	"50"
+				}
+				"TextureName"	"skywrath_mage_ancient_seal"
+			}
+			"modifier_MVP_target_5"
+			{
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"-50"
+				}
+			}
+		}
+	}
+
+	"gem_MVP_6"
+	{
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"skywrath_mage_ancient_seal"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"MaxLevel"	"6"
+		"AbilityCastRange"	"800"
+		"Modifiers"
+		{
+			"modifier_MVP_aura_6"
+			{
+				"Passive"	"1"
+				"IsHidden"	"0"
+				"Aura"	"modifier_MVP_target_6"
+				"Aura_Radius"	"800"
+				"Aura_Types"	"DOTA_UNIT_TARGET_BASIC"
+				"Aura_Teams"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Flags"	"DOTA_UNIT_TARGET_FLAG_NONE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE"	"60"
+				}
+				"TextureName"	"skywrath_mage_ancient_seal"
+			}
+			"modifier_MVP_target_6"
+			{
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"-60"
+				}
+			}
+		}
+	}
+
+	"gem_MVP_7"
+	{
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"skywrath_mage_ancient_seal"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"MaxLevel"	"7"
+		"AbilityCastRange"	"900"
+		"Modifiers"
+		{
+			"modifier_MVP_aura_7"
+			{
+				"Passive"	"1"
+				"IsHidden"	"0"
+				"Aura"	"modifier_MVP_target_7"
+				"Aura_Radius"	"900"
+				"Aura_Types"	"DOTA_UNIT_TARGET_BASIC"
+				"Aura_Teams"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Flags"	"DOTA_UNIT_TARGET_FLAG_NONE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE"	"70"
+				}
+				"TextureName"	"skywrath_mage_ancient_seal"
+			}
+			"modifier_MVP_target_7"
+			{
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"-70"
+				}
+			}
+		}
+	}
+
+	"gem_MVP_8"
+	{
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"skywrath_mage_ancient_seal"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"MaxLevel"	"8"
+		"AbilityCastRange"	"1000"
+		"Modifiers"
+		{
+			"modifier_MVP_aura_8"
+			{
+				"Passive"	"1"
+				"IsHidden"	"0"
+				"Aura"	"modifier_MVP_target_8"
+				"Aura_Radius"	"1000"
+				"Aura_Types"	"DOTA_UNIT_TARGET_BASIC"
+				"Aura_Teams"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Flags"	"DOTA_UNIT_TARGET_FLAG_NONE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE"	"80"
+				}
+				"TextureName"	"skywrath_mage_ancient_seal"
+			}
+			"modifier_MVP_target_8"
+			{
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"-80"
+				}
+			}
+		}
+	}
+
+
+	"gem_MVP_9"
+	{
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"skywrath_mage_ancient_seal"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"MaxLevel"	"9"
+		"AbilityCastRange"	"1100"
+		"Modifiers"
+		{
+			"modifier_MVP_aura_9"
+			{
+				"Passive"	"1"
+				"IsHidden"	"0"
+				"Aura"	"modifier_MVP_target_9"
+				"Aura_Radius"	"1100"
+				"Aura_Types"	"DOTA_UNIT_TARGET_BASIC"
+				"Aura_Teams"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Flags"	"DOTA_UNIT_TARGET_FLAG_NONE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE"	"90"
+				}
+				"TextureName"	"skywrath_mage_ancient_seal"
+			}
+			"modifier_MVP_target_9"
+			{
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"-90"
+				}
+			}
+		}
+	}
+
+	"gem_MVP_10"
+	{
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"skywrath_mage_ancient_seal"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"MaxLevel"	"10"
+		"AbilityCastRange"	"1200"
+		"precache"
+		{
+			"particle"	"particles/units/heroes/hero_ursa/ursa_fury_swipes_debuff.vpcf"
+		}
+		"Modifiers"
+		{
+			"modifier_MVP_aura_10"
+			{
+				"Passive"	"1"
+				"IsHidden"	"0"
+				"Aura"	"modifier_MVP_target_10"
+				"Aura_Radius"	"1200"
+				"Aura_Types"	"DOTA_UNIT_TARGET_BASIC"
+				"Aura_Teams"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Flags"	"DOTA_UNIT_TARGET_FLAG_NONE"
+				"TextureName"	"skywrath_mage_ancient_seal"
+			}
+			"modifier_MVP_target_10"
+			{
+				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"-100"
+				}
+				"TextureName"	"skywrath_mage_ancient_seal"
+			}
+			"modifier_max_MVP_aura_1"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"EffectName"	"particles/units/heroes/hero_ursa/ursa_fury_swipes_debuff.vpcf"
+				"EffectAttachType"	"follow_overhead"
+				"Properties"	{}
+				"Aura_Teams"	"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+				"Aura"	"modifier_max_MVP_aura_target"
+				"Aura_Radius"	"250"
+				"Aura_ApplyToCaster"	"0"
+				"Aura_Flags"	"DOTA_UNIT_TARGET_FLAG_NONE"
+				"Aura_Types"	"DOTA_UNIT_TARGET_BASIC"
+				"TextureName"	"skywrath_mage_ancient_seal"
+			}
+			"modifier_max_MVP_aura_2"
+			{
+				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE"	"100"
+				}
+				"Passive"	"1"
+				"TextureName"	"skywrath_mage_ancient_seal"
+				"IsHidden"	"1"
+			}
+			"modifier_max_MVP_aura_target"
+			{
+				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE"	"75"
+				}
+				"TextureName"	"skywrath_mage_ancient_seal"
 			}
 		}
 	}
