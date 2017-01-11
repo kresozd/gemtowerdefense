@@ -252,6 +252,7 @@ function Rounds:OnEntityKilled(keys)
 			Rounds:UpdateWaveData()
 			FireGameEvent("round_end", {state = "BUILD"})
 			print("Firing game event!")
+			CustomEvent:FireEvent('late_round_end', { state = "End" })
 
 		
 	end

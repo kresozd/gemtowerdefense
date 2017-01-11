@@ -53,6 +53,7 @@ function GemTowerDefenseReborn:InitGameMode()
 	CustomGameEventManager:RegisterListener( "player_selected_hero", Dynamic_Wrap(GemTowerDefenseReborn, 'SetPlayerHero'))
 	--ListenToGameEvent('round_end', Dynamic_Wrap(GemTowerDefenseReborn, 'CallBack'), self)
 	CustomEvent:RegisterCallback("round_end_custom", Dynamic_Wrap(GemTowerDefenseReborn, "TestCallBack"), self)
+	CustomEvent:RegisterCallback('late_round_end', GetState )
 
 	local customXP =
 	{
@@ -72,6 +73,14 @@ function GemTowerDefenseReborn:TestCallBack(keys)
 
 	print("Custom callback")
 
+end
+
+function PrintEndWaveMessage( message )
+	print(message)
+end
+
+function GetState( keys )
+	print(keys.state)
 end
 
 
