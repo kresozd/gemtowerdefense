@@ -3,6 +3,31 @@
   height: 100%;
 }
 
+Label {
+  color: #bbbbbb;
+  font-family: Radiance;
+}
+
+VerticalScrollBar, HTMLVerticalScrollBar {
+  background-color: #202621dd;
+  margin: 0px, 8px, 0px 8px;
+  width: 8px;
+  horizontal-align: right;
+  vertical-align: center;
+  transition-property: transform;
+  height: 100%;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+}
+
+VerticalScrollBar .ScrollThumb {
+  background-color: #424c5c;
+  min-height: 32px;
+  width: 100%;
+  border: 1px solid #ffffff02;
+  transition-property: background-color, transform;
+}
+
 #boards-info {
   height: 100%;
   width: 100%;
@@ -322,7 +347,8 @@
   horizontal-align: center;
 }
 
-#profile-player-username > Label {  
+#profile-player-username > Label {
+  color: #fff;
   font-size: 24px;
   text-align: center;
   font-family: Radiance;
@@ -385,4 +411,5 @@
 
 .profile-stats-header {
   text-transform: uppercase;
+  font-size: 16px;
 }
