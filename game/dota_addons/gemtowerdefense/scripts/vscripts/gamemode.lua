@@ -53,13 +53,10 @@ function GemTowerDefenseReborn:InitGameMode()
 
 	CustomGameEventManager:RegisterListener( "player_picked_hero", Dynamic_Wrap(HeroSelection, 'OnHeroPicked'))
 	CustomGameEventManager:RegisterListener( "player_selected_hero", Dynamic_Wrap(HeroSelection, 'OnHeroSelected'))
-	--ListenToGameEvent('round_end', Dynamic_Wrap(GemTowerDefenseReborn, 'CallBack'), self)
-<<<<<<< HEAD
+	
 
-=======
-	CustomEvent:RegisterCallback("round_end_custom", Dynamic_Wrap(GemTowerDefenseReborn, "TestCallBack"), self)
-	CustomEvent:RegisterCallback('late_round_end', GetState )
->>>>>>> 0dd03891b69e53b6244ff3c795e6d2039da54d7b
+
+
 
 	local customXP =
 	{
