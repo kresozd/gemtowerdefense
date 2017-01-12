@@ -254,19 +254,14 @@ function Rounds:OnEntityKilled(keys)
 
 	elseif Rounds:IsRoundCleared() then
 
-<<<<<<< HEAD
+
 		local data = {state = "BUILD"}
 
 		Rounds:UpdateWaveData()
 		
 		FireGameEvent("round_end", data)
 		
-=======
-			Rounds:UpdateWaveData()
-			FireGameEvent("round_end", {state = "BUILD"})
-			print("Firing game event!")
-			CustomEvent:FireEvent('late_round_end', { state = "End" })
->>>>>>> 0dd03891b69e53b6244ff3c795e6d2039da54d7b
+
 
 		
 	end
