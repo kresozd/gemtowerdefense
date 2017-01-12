@@ -66,7 +66,7 @@ function Builder:Init()
 			Builder:WaveCheckIfMergeable()
 			Builder:WaveAddTowerMergeAbility()
 			
-			CustomEvent:FireEvent("round_end_custom", {playerID = "0"})
+			
 			FireGameEvent("all_placed", {state = "Something"})
 
 		else
@@ -188,6 +188,10 @@ function Builder:Init()
 	end
 
 	ListenToGameEvent('round_end', Dynamic_Wrap(Builder, 'OnRoundEnded'), self)
+	
+	
+	
+
 
 
 	self.PlayerCount = 0
@@ -1273,6 +1277,7 @@ end
 
 function Builder:OnRoundEnded(keys)
 
+	print("Event triggered.")
 	
 	self.State = keys.state
 	print("Printing self state in handler.", self.State)
@@ -1280,3 +1285,5 @@ function Builder:OnRoundEnded(keys)
 
 
 end
+
+

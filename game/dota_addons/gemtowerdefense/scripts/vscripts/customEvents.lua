@@ -10,8 +10,10 @@ if CustomEvent == nil then
 end
 
 function CustomEvent:RegisterCallback(label, callback)
+  print("CUSTOM LISTENER INIT")
   local node = {}
   node.callback = callback
+  print("Node callback:", node.callback)
   node.next = self.eventList[label]
   if self.eventList[label] then
     self.eventList[label].prev = node
@@ -35,6 +37,7 @@ end
 
 
 function CustomEvent:FireEvent(label, eventData)
+
   local node = self.eventList[label]
   while node do
     node.callback(eventData)

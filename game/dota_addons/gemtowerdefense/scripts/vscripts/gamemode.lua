@@ -52,7 +52,7 @@ function GemTowerDefenseReborn:InitGameMode()
 	ListenToGameEvent("entity_hurt", Dynamic_Wrap(GemTowerDefenseReborn, 'OnEntityHurt'), self)
 	CustomGameEventManager:RegisterListener( "player_selected_hero", Dynamic_Wrap(GemTowerDefenseReborn, 'SetPlayerHero'))
 	--ListenToGameEvent('round_end', Dynamic_Wrap(GemTowerDefenseReborn, 'CallBack'), self)
-	CustomEvent:RegisterCallback("round_end_custom", Dynamic_Wrap(GemTowerDefenseReborn, "TestCallBack"), self)
+
 
 	local customXP =
 	{
@@ -68,11 +68,6 @@ function GemTowerDefenseReborn:InitGameMode()
 	GameRules:SetUseCustomHeroXPValues ( true )
 end
 
-function GemTowerDefenseReborn:TestCallBack(keys)
-
-	print("Custom callback")
-
-end
 
 
 

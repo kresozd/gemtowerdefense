@@ -4422,8 +4422,8 @@
     //"16"
 
 	"gem_round16_demon"
-	{                                       
-		"Model"                 "models/items/courier/boooofus_courier/boooofus_courier.vmdl" // Model.
+	{                                      
+		"Model"                 "models/items/courier/dc_demon/dc_demon.vmdl " // Model.
 		"BaseClass"             "npc_dota_creature"
 		"Level"                 "16"
 		"ModelScale"                "1.4"
@@ -4476,7 +4476,7 @@
 
     "gem_round18_boooofus"
 	{                                       
-		"Model"                 "models/items/courier/dc_demon/dc_demon.vmdl" // Model.
+		"Model"                 "models/items/courier/boooofus_courier/boooofus_courier.vmdl" // Model.
 		"BaseClass"             "npc_dota_creature"
 		"Level"                 "18"
 		"ModelScale"                "1.4"
@@ -4637,6 +4637,30 @@
 		"Level"                 "9"
 		"ModelScale"                "1.4"
 		"Ability1"		"damage_shown_enemy"
+		
+		
+		"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_FLY"
+		"MovementSpeed"             "1200"
+
+		"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+		
+		"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"		// Hull type used for navigation/locomotion.
+		"ProjectileCollisionSize"	"50"
+		"RingRadius"				"1"
+		"HealthBarOffset"			"260"
+		
+		"StatusHealth"	"100"
+	}
+	"gem_round25_smeevil"
+	{                                       
+		"Model"                 "models/courier/smeevil_crab/smeevil_crab.vmdl" // Model.
+		"BaseClass"             "npc_dota_creature"
+		"Level"                 "9"
+		"ModelScale"                "1.4"
+		"Ability1"		"damage_shown_enemy"
+		"Ability2"		"physical_immunity_enemy"
 		
 		
 		"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_FLY"
