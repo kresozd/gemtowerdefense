@@ -138,6 +138,9 @@ function Rounds:GetRoundNumber()
 
 end
 
+function Rounds:SetRoundNumber(value)
+	self.RoundNumber = value
+end
 
 
 
@@ -188,6 +191,12 @@ end
 function Rounds:GetBaseHealth()
 
 	return self.BaseHealth
+
+end
+
+function Rounds:GetState()
+
+	return self.State
 
 end
 
