@@ -11,6 +11,13 @@
         <DOTAHeroImage id="hero-image" heroimagestyle="portrait" scaling="stretch-to-cover-preserve-aspect" />
       </Panel>
     </snippet>
+    <snippet name="player-state">
+      <Panel class="player-state-item">
+        <DOTAAvatarImage id="player-state-avatar" />
+        <DOTAUserName id="player-state-username" />
+        <DOTAHeroImage id="player-state-hero" scaling="stretch-to-cover-preserve-aspect" />
+      </Panel>
+    </snippet>
   </snippets>
   <Panel class="hero-selection-root" hittest="false">
     <DOTAScenePanel id="hero-selection-background" map="maps/backgrounds/dashboard_test.vmap" camera="shot_cameraC" always-cache-composition-layer="true"/>
@@ -20,7 +27,7 @@
       <Panel class="hero-selection-inner">
         <Panel class="hero-container hero-selection-column">
           <Panel id="player-level-container" />
-          <Panel id="hero-list" class="hero-list-inner" />
+          <Panel id="hero-list" />
         </Panel>
         <Panel class="hero-preview-wrap hero-selection-column">
             <Panel id="hero-preview-list" hittest="false" hittestchildren="false">
@@ -36,26 +43,9 @@
             <Label class="button-label" text="Pick hero" />
           </Button>
         </Panel>
-        <Panel class="players-state-wrap hero-selection-column">
-          <Label text="Players states"/>
-          <Panel id="players-states" class="players-state-inner">
-            <Panel class="players-states-item">
-              <DOTAAvatarImage class="players-state-avatar" />
-              <DOTAUserName class="players-state-username" />
-            </Panel>
-            <Panel class="players-states-item">
-              <DOTAAvatarImage class="players-state-avatar"/>
-              <DOTAUserName class="players-state-username" />
-            </Panel>
-            <Panel class="players-states-item">
-              <DOTAAvatarImage class="players-state-avatar"/>
-              <DOTAUserName class="players-state-username" />
-            </Panel>
-            <Panel class="players-states-item">
-              <DOTAAvatarImage class="players-state-avatar"/>
-              <DOTAUserName class="players-state-username" />
-            </Panel>
-          </Panel>
+        <Panel class="player-state-wrap hero-selection-column">
+          <Label class="player-state-title" text="Players"/>
+          <Panel id="player-state" />
         </Panel>
       </Panel>
     </Panel>

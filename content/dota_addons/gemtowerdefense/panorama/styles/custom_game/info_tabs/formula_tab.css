@@ -1,0 +1,136 @@
+#formula {
+  flow-children: down;
+}
+
+.formula-row {
+  flow-children: right;
+  margin-top: 7px;
+  padding: 12px 12px 6px 8px;
+  background-color: #111920aa;
+  border-top: 1px solid #ffffff05;
+  border-bottom: 1px solid #ffffff03;
+}
+
+.formula-tower {
+  width: 100%;
+}
+
+.formula-tower-inner {
+  horizontal-align: center;
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  border: 4px solid #cacaca;
+  background-color: #4F656F;
+  background-image: url("file://{resources}/images/custom_game/gems/gem_ruby.png");
+  background-size: 85%;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  saturation: 0.0;
+  brightness: .5;
+  contrast: .96;
+  wash-color: #ACBFDD;
+}
+
+.formula-item {
+  flow-children: down;
+  width: 115px;
+}
+
+.formula-item-picked .component-name {
+  color: #cacaca;
+}
+
+.formula-item-pulled .component-name {
+  text-shadow: 0px 0px 12px #ACBFDD88;
+  color: #ffffff;
+}
+
+.formula-item-pulled .formula-tower-inner {
+  border-color: #f5f5f5;
+  box-shadow: #8999b0cc -2px -2px 4px 4px;
+  brightness: 1.1;
+}
+
+.formula-item-picked .formula-tower-inner {
+  saturation: 1;
+  brightness: 1;
+  contrast: 1;
+  wash-color: none;
+}
+
+.formula-component-tier {
+  text-align: center;
+  font-weight: bold;
+  font-size: 13px;
+  color: #f34d40;
+  vertical-align: bottom;
+  horizontal-align: right;
+  margin-right: 14px;
+  padding-top: 6px;
+  width: 31px;
+  height: 31px;
+  background-color: #2B2B2B;
+  border-radius: 50%;
+  border: 2px solid #A4A4A4;
+}
+
+.text {
+  color: #ECECEC;
+  font-size: 20px;
+  font-family: Radiance;
+}
+
+.component-name {
+  color: #7E8A9E;
+  text-align: center;
+  horizontal-align: center;
+  vertical-align: bottom;
+  margin-top: 5px;
+}
+
+.formula-mark {
+  font-size: 30px;
+  font-weight: bold;
+  color: #ececec;
+  font-family: Radiance;
+  text-align: center;
+  margin-top: 25px;
+}
+
+.formula-result .formula-tower-inner {
+  border-color: #ececec;
+}
+
+.tab-formula-min .formula-row {
+  margin-top: 4px;
+}
+
+.tab-formula-min .formula-tower {
+  visibility: collapse;
+}
+
+.tab-formula-min .formula-item {
+  width: 75px;
+  margin: 0 12px;
+}
+
+.tab-formula-min .formula-mark {
+  margin-top: 0;
+  vertical-align: middle;
+}
+
+.tab-formula-min .formula-row {
+  padding: 7px 0px;
+}
+
+.tab-formula-min .formula-mark {
+  font-size: 22px;
+  font-weight: normal;
+}
+
+.tab-formula-min .component-name {
+  font-size: 18px;
+  font-weight: normal;
+  margin-top: 0;
+}

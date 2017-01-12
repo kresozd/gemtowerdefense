@@ -69,7 +69,7 @@ DOTAHudMenuButtons {
   flow-children: down;
 }
 
-.hero-list-inner {
+#hero-list {
   margin-top: 50px;
   max-width: 475px;
   flow-children: right-wrap;
@@ -141,10 +141,6 @@ DOTAHudMenuButtons {
   width: 100%;
   height: 100%;
   horizontal-align: center;
-  opacity-mask: url('s2r://panorama/images/masks/softedge_box_png.vtex');
-  opacity: 1;
-  transition-property: opacity, transform;
-  transition-duration: 0.1s;
 }
 
 .hero-preview-scene {
@@ -176,7 +172,7 @@ DOTAHudMenuButtons {
   animation-timing-function: linear;
   wash-color: #21262e99;
   animation-iteration-count: infinite;
-  background-image: url("file://{images}/custom_game/preload.png");
+  background-image: url("file://{images}/custom_game/preloader.png");
   background-repeat: no-repeat;
   background-position: 50% 50%;
   background-size: 100% 100%;
@@ -230,44 +226,54 @@ DOTAHudMenuButtons {
   text-transform: uppercase;
 }
 
-.players-state-wrap {
+.player-state-wrap {
   flow-children: down;
 }
 
-.players-state-inner {
+#player-state {
   horizontal-align: right;
   flow-children: down;
-  width: 400px;
-  
 }
 
-.players-state-wrap > Label {
+.player-state-title {
   font-size: 25px;
   margin-bottom: 15px;
+  margin-right: 20px;
   color: #ffffff;
   font-family: Radiance;
   text-transform: uppercase;
   letter-spacing: 1px;
-  horizontal-align: center;
+  horizontal-align: right;
 }
 
-.players-states-item {
+.player-state-item {
   flow-children: left;
-  visibility: collapse;
-  width: 100%;
-  padding: 5px;
+  /*width: 100%;*/
+  padding: 5px 10px;
   background-color: #21262e55;
   margin-bottom: 5px;
 }
 
-.players-state-username {
+#player-state-username {
   font-size: 25px;
   font-family: Radiance;
   color: #C1CADD;
-  margin-right: 30px;
+  margin-right: 18px;
   vertical-align: middle;
 }
 
-.players-state-avatar {
+#player-state-hero {
+  width: 75px;
+  height: 40px;
+  border: 1px solid #14161c;
+  background-color: gradient(linear, 100% 0%, 0% 0, from(#2a303b), to(#434d5e));
+  vertical-align: center;
+  horizontal-align: left;
+  margin-right: 40px;
+  saturation: 0;
+  brightness: 0.5;
+}
+
+#player-state-avatar {
   width: 55px;
 }

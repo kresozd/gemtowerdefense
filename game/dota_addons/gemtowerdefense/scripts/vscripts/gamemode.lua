@@ -50,7 +50,9 @@ function GemTowerDefenseReborn:InitGameMode()
 	ListenToGameEvent('game_rules_state_change', Dynamic_Wrap(GemTowerDefenseReborn, 'OnStateChange'), self)
 	ListenToGameEvent("player_chat", Dynamic_Wrap(GemTowerDefenseReborn, "OnPlayerChat"), self)
 	ListenToGameEvent("entity_hurt", Dynamic_Wrap(GemTowerDefenseReborn, 'OnEntityHurt'), self)
-	CustomGameEventManager:RegisterListener( "player_selected_hero", Dynamic_Wrap(GemTowerDefenseReborn, 'SetPlayerHero'))
+
+	CustomGameEventManager:RegisterListener( "player_picked_hero", Dynamic_Wrap(HeroSelection, 'OnHeroPicked'))
+	CustomGameEventManager:RegisterListener( "player_selected_hero", Dynamic_Wrap(HeroSelection, 'OnHeroSelected'))
 	--ListenToGameEvent('round_end', Dynamic_Wrap(GemTowerDefenseReborn, 'CallBack'), self)
 <<<<<<< HEAD
 

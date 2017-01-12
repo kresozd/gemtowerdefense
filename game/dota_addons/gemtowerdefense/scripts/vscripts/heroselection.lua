@@ -25,11 +25,45 @@ function HeroSelection:AllPicked()
     end
 end
 
+
 function HeroSelection:IncremetHeroPickCount()
 
     self.HeroesPicked = self.HeroesPicked + 1
 
 end
+
+
+function HeroSelection:OnHeroSelected(data)
+
+	local hero = data.hero
+	local player = data.PlayerID
+	print(hero, player)
+
+    CustomGameEventManager:Send_ServerToAllClients("player_selected_hero_client", {hero = hero, player = player})
+
+end
+
+
+function HeroSelection:OnHeroPicked(data)
+	
+	HeroSelection:IncremetHeroPickCount()
+	
+	local hero = data.hero
+	local player = data.PlayerID
+	print(hero, player)
+	
+	
+	PlayerResource:ReplaceHeroWith(player, hero, 0, 0)
+	if HeroSelection:AllPicked() then
+
+	HeroSelection:UnlockAbilities()
+	
+
+	end
+
+
+end
+
 
 function HeroSelection:UnlockAbilities()
 

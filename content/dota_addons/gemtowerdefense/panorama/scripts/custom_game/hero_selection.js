@@ -1,8 +1,10 @@
 var selectedHero = '';
+var heroPicked = false;
 var playerLevel = 1;
 var heroPreviews = {};
 var previewLoadingQueue = [];
 var previewSchedule = 0;
+var playersStates = [];
 
 var allHeroes = {
   crystal_maiden: {
@@ -36,7 +38,6 @@ var allHeroes = {
 }
 
 
-
 function addHeroButtons() {
   for (var hero in allHeroes) {
     var heroName = allHeroes[hero].name;
@@ -46,18 +47,18 @@ function addHeroButtons() {
     heroButton.SetHasClass('hero-not-available', isAvailable);
     heroButton.BLoadLayoutSnippet('hero-button');
     heroButton.FindChildTraverse('hero-image').heroname = heroName;
-    addButtonEvent(heroButton, heroName, isAvailable);
+    addHeroButtonEvent(heroButton, heroName, isAvailable);
   }
 }
 
 
-function addButtonEvent(button, heroName) {
+function addHeroButtonEvent(button, heroName) {
   button.SetPanelEvent(
     'onactivate',
     function(heroName, isAvailable) {
       return function() {
 
-        if (selectedHero == heroName) {
+        if (selectedHero == heroName || heroPicked) {
           return;
         }
 
@@ -75,6 +76,7 @@ function addButtonEvent(button, heroName) {
         heroPreviews[heroName].SetHasClass('hero-not-available', isAvailable);
         
         selectedHero = heroName;
+        GameEvents.SendCustomGameEventToServer('player_selected_hero', {hero: selectedHero});
 
         $('#pick-hero-button').disabled = isAvailable;
         $('#pick-hero-button').SetHasClass('pick-hero-disabled', isAvailable)
@@ -84,7 +86,7 @@ function addButtonEvent(button, heroName) {
 }
 
 
-function PreloadPreview(hero, value) {
+function preloadPreview(hero, value) {
   var previewList = $('#hero-preview-list');
   var preview = $.CreatePanel('Panel', previewList, '');
   preview.AddClass('hero-preview');
@@ -108,16 +110,16 @@ function PreloadPreview(hero, value) {
 }
 
 
-function PreloadHeroPreviews(heroes) {
+function preloadHeroPreviews(heroes) {
   for (var hero in heroes) {
     var heroName = heroes[hero].name;
-      heroPreviews[heroName] = PreloadPreview(heroName, "<DOTAScenePanel antialias='true' class='hero-preview-scene' unit='" + heroName + "' always-cache-composition-layer='true'/>");
+      heroPreviews[heroName] = preloadPreview(heroName, "<DOTAScenePanel antialias='true' class='hero-preview-scene' unit='" + heroName + "' always-cache-composition-layer='true' />");
   }
 }
 
 
-function CheckPreviews() {
-  $.Schedule(0.01, CheckPreviews);
+function checkPreviews() {
+  $.Schedule(0.01, checkPreviews);
 
   var somethingIsLoading = false;
   var notLoadedContainer = null;
@@ -160,7 +162,8 @@ function pickHero() {
     return;
   }
 
-  GameEvents.SendCustomGameEventToServer('player_selected_hero', {selected_hero : selectedHero});
+  GameEvents.SendCustomGameEventToServer('player_picked_hero', {hero : selectedHero});
+  heroPicked = true;
   endHeroSelection();
 }
 
@@ -174,34 +177,50 @@ function endHeroSelection() {
 }
 
 
-function updateProfileLevel() {
+function initProfileLevel() {
   var profileContainer = $('#player-level-container');
   var playerLevel = $.CreatePanel('Panel', profileContainer, '');
   playerLevel.BLoadLayout("file://{resources}/layout/custom_game/player_level.xml", false, false);
 }
 
 
+function initPlayerState(id, playerInfo) {
+  var playerContainer = $('#player-state');
+  var steamid = playerInfo.player_steamid;
+  var playerItem = $.CreatePanel('Panel', playerContainer, 'player-state-' + id);
+
+  playerItem.BLoadLayoutSnippet('player-state');
+  var userName = playerItem.FindChildTraverse('player-state-username');
+  userName.steamid = steamid;
+  userName.style.color = GameUI.CustomUIConfig().player_colors[id];
+  playerItem.FindChildTraverse('player-state-avatar').steamid = steamid;
+}
+
+
+function updateSelectedHero(data) {
+  var hero = data.hero;
+  var player = data.player;
+  var playerState = $('#player-state-' + player);
+  playerState.FindChildTraverse('player-state-hero').heroname = hero;
+}
+
+
 (function() {
   $('#pick-hero-button').disabled = true;
 
-  CustomNetTables.SubscribeNetTableListener('game_state', endHeroSelection);
+  GameEvents.Subscribe("player_selected_hero_client", updateSelectedHero);
+  // CustomNetTables.SubscribeNetTableListener('game_state', endHeroSelection);
+  // CustomNetTables.SubscribeNetTableListener('game_state', updateSelectedHero);
 
-  updateProfileLevel();
-  CheckPreviews();
-  PreloadHeroPreviews(allHeroes);
+  initProfileLevel();
+  checkPreviews();
+  preloadHeroPreviews(allHeroes);
   addHeroButtons();
 
   var players = Game.GetAllPlayerIDs();
-  var panel = $('#players-states').FindChildrenWithClassTraverse('players-states-item');
 
   for (var i = 0; i < players.length; i++) {
     var playerInfo = Game.GetPlayerInfo(i);
-    var target = panel[i];
-
-    for (var j = 0; j < target.GetChildCount(); j++) {
-      target.GetChild(j).steamid = playerInfo.player_steamid;
-      target.style.visibility = 'visible';
-    }
+    initPlayerState(i, playerInfo);
 	}
-
 })();

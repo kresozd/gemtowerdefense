@@ -1,0 +1,155 @@
+.info-tabs-root {
+  width: 100%;
+  height: 100%;
+}
+
+Label {
+  color: #bbbbbb;
+  font-family: Radiance;
+}
+
+VerticalScrollBar, HTMLVerticalScrollBar {
+  background-color: #202621dd;
+  margin: 0px, 8px, 0px 8px;
+  width: 8px;
+  horizontal-align: right;
+  vertical-align: center;
+  transition-property: transform;
+  height: 100%;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+}
+
+VerticalScrollBar .ScrollThumb {
+  background-color: #424c5c;
+  min-height: 32px;
+  width: 100%;
+  border: 1px solid #ffffff02;
+  transition-property: background-color, transform;
+}
+
+#tabs-info {
+  height: 100%;
+  width: 100%;
+  margin-top: 130px;
+  margin-bottom: 270px;
+}
+
+#tabs-nav {
+  z-index: 10;
+  margin-top: 220px;
+  padding: 10px 30px 0 10px;
+}
+
+#tabs-nav-container {
+  padding: 20px 0;
+  flow-children: down;
+  transition-property: transform;
+  transition-duration: 0.30s;
+  transition-delay: 0.0s;
+  transition-timing-function: ease-in-out;
+}
+
+#tabs-nav-container.hidden {
+  transform: translateX(-100%);
+}
+
+.nav-button {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: gradient( linear, 0% 0%, 0% 100%, from( #5a6c75 ), to( #3d4a50 ) );
+  margin: 12px 0 12px 6px;
+  border-top: 1px solid #ffffff44;
+  border-right: 1px solid #4e5b60;
+  border-left: 1px solid #4e5b60;
+  border-bottom: 1px solid #00000088;
+  box-shadow: fill #00000055 -2px -2px 5px 5px;
+  transition-property: background-color;
+  transition-duration: 0.1s;
+  transition-delay: 0.0s;
+  transition-timing-function: linear;
+}
+
+#button-formula {
+  tooltip-position: bottom;
+}
+
+.nav-button:hover,
+.nav-button.activated,
+.minify-toggle:hover {
+  background-color: gradient( linear, 0% 0%, 0% 100%, from( #a9c8da ), to( #596b75 ) );
+}
+
+.nav-button-title {
+  align: center center;
+  text-align: center;
+  font-weight: bold;
+  font-family: Radiance;
+  font-size: 14px;
+  color: #ffffff;
+  text-transform: uppercase;
+  transition-property: color;
+  transition-duration: 0.2s;
+  transition-delay: 0.0s;
+  transition-timing-function: ease-in;
+}
+
+.info-tab {
+  flow-children: down;
+  box-shadow: #000000f5 -4px -4px 8px 8px;
+  height: 100%;
+  width: 500px;
+  border: 1px solid #2b2b2b;
+  background-color: #21262efa;
+  margin-top: 130px;
+  margin-bottom: 200px;
+  overflow: clip scroll;
+  z-index: 5;
+  transition-property: transform;
+  transition-duration: 0.35s;
+  transition-delay: 0.0s;
+  transition-timing-function: ease-in;
+}
+
+.tab-title {
+  font-size: 36px;
+  letter-spacing: 1px;
+  color: #ccc;
+  horizontal-align: center;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: Radiance;
+  margin: 26px 0 20px;
+}
+
+.tab-hidden {
+  transform: translateX(-50%);
+}
+
+#tab-formula {
+  width: fit-children;
+  margin: 0;
+  padding: 25px 8px 0 0;
+}
+
+.minify-toggle {
+  background-color: gradient( linear, 0% 0%, 0% 100%, from( #5a6c75 ), to( #3d4a50 ) );
+  margin-right: 10px;
+  border-top: 1px solid #ffffff44;
+  padding: 5px 8px;
+  border-right: 1px solid #4e5b60;
+  border-left: 1px solid #4e5b60;
+  border-bottom: 1px solid #00000088;
+  horizontal-align: right;
+  transition-property: background-color;
+  transition-duration: 0.1s;
+  transition-delay: 0.0s;
+  transition-timing-function: linear;
+}
+
+#minify-label {
+  font-size: 15px;
+  text-align: center;
+  color: #fff;
+}

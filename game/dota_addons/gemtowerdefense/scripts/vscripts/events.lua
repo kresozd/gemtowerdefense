@@ -12,28 +12,6 @@ function GemTowerDefenseReborn:OnPlayerLevelUp(keys)
 end
 
 
-function GemTowerDefenseReborn:SetPlayerHero(event)
-	
-	HeroSelection:IncremetHeroPickCount()
-	
-	local hero = event.selected_hero
-	local player = event.PlayerID
-	
-	
-	PlayerResource:ReplaceHeroWith(player, hero, 0, 0)
-	if HeroSelection:AllPicked() then
-
-	HeroSelection:UnlockAbilities()
-	
-
-	end
-
-	
-
-
-end
-
-
 function GemTowerDefenseReborn:OnPlayerPickHero(keys)
 
 	
@@ -140,20 +118,6 @@ function string.split(s, sep)
         return t
 end
 
-function GemTowerDefenseReborn:OnEntityHurt(keys)
-  --DebugPrint("[BAREBONES] Entity Hurt")
-  --DebugPrintTable(keys)
+--[[		
 
-  local damagebits = keys.damagebits -- This might always be 0 and therefore useless
-
-  if keys.entindex_attacker ~= nil and keys.entindex_killed ~= nil then
-    local entCause = EntIndexToHScript(keys.entindex_attacker)
-    local entVictim = EntIndexToHScript(keys.entindex_killed)
-    -- The ability/item used to damage, or nil if not damaged by an item/ability
-    local damagingAbility = nil
-
-    if keys.entindex_inflictor ~= nil then
-      damagingAbility = EntIndexToHScript( keys.entindex_inflictor )
-    end
-  end
-end
+]]--
