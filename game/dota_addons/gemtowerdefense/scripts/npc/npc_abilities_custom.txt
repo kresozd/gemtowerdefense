@@ -3144,7 +3144,7 @@
 		}
 	}
 
-	"gem_Bloodstone_Ability"
+	"gem_Bloodstone_ability"
 	{
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"zuus_arc_lightning"
