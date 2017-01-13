@@ -8,9 +8,9 @@
   <Panel class="profile-root">
       <Panel class="profile-inner">
           <Panel class="profile-player">
-              <DOTAAvatarImage class="profile-player-image" steamid="local" />
+              <DOTAAvatarImage id="profile-player-avatar" />
               <Panel class="profile-player-column">
-                  <DOTAUserName id="profile-player-username" steamid="local" />
+                  <DOTAUserName id="profile-player-username" />
                   <Panel class="profile-player-rank">
                       <Panel class="player-rank">
                           <Panel class="player-rank-overlay" />

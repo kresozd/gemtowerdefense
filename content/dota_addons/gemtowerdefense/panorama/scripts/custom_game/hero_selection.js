@@ -1,6 +1,7 @@
+GameUI.CustomUIConfig().player_level = 1;
 var selectedHero = '';
 var heroPicked = false;
-var playerLevel = 1;
+var playerLevel = GameUI.CustomUIConfig().player_level;
 var heroPreviews = {};
 var previewLoadingQueue = [];
 var previewSchedule = 0;

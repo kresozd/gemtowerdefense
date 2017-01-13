@@ -11,7 +11,7 @@
             onmouseout="hideNav()"
             onmouseover="showNav()">
             <Panel id="tabs-nav-container" hittest="false">
-                <Panel class="nav-button-about nav-button" onactivate="activateTab('tab-about')"> 
+                <Panel class="nav-button-about nav-button" onactivate="activateTab('tab-about')">
                     <Label class="nav-button-title" text="About" />
                 </Panel>
                 <Panel class="nav-button-store nav-button" onactivate="activateTab('tab-profile')"> 

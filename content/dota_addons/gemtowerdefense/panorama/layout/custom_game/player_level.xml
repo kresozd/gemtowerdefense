@@ -8,7 +8,7 @@
   <Panel class="player-level-root yellow">
     <Panel class="player-level-row">
       <Panel class="player-level-badge">
-        <Label id="player-level-value" text="level 1" />
+        <Label id="player-level-value" />
       </Panel>
       <Panel class="player-level-help" />
     </Panel>
