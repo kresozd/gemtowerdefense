@@ -60,15 +60,15 @@ function GemTowerDefenseReborn:InitGameMode()
 
 	local customXP =
 	{
-		0,
-		600,
-		1400,
-		2000,
-		3000
+		[1] = 0,
+		[2] = 600,
+		[3] = 1400,
+		[4] = 2000,
+		[5] = 3000
 	}
-
-	GameRules:GetGameModeEntity():SetCustomXPRequiredToReachNextLevel(customXP)
+	GameRules:GetGameModeEntity():SetCustomHeroMaxLevel(5)
 	GameRules:GetGameModeEntity():SetUseCustomHeroLevels ( true )
+	GameRules:GetGameModeEntity():SetCustomXPRequiredToReachNextLevel(customXP)
 	GameRules:SetUseCustomHeroXPValues ( true )
 end
 

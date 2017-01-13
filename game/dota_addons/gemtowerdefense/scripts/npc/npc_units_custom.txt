@@ -156,7 +156,7 @@
 		"AttackRange"	"500"
 		
 		"ProjectileModel"	"particles/units/heroes/hero_vengeful/vengeful_base_attack.vpcf"
-		"ProjectileSpeed"	"2500"
+		"ProjectileSpeed"	"3000"
 
 		"BoundsHullName"	"DOTA_HULL_SIZE_SMALL"
 		"RingRadius"	"64"
@@ -461,7 +461,7 @@
 		"AbilityLayout"	"6"
 		"Ability1"	"REMOVE_HP_BAR"
 		"Ability2"	"gem_s1_ability"
-		"Ability3"	"ice_path_datadriven"
+		"Ability3"	""
 
 		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
 		"AttackDamageMin"	"2"
@@ -4059,6 +4059,7 @@
 			"ProjectileCollisionSize"	"50"
 			"RingRadius"				"64"
 			"HealthBarOffset"			"260"
+			"ArmorPhysical"	"0"
 			"BoundsHullName"			"DOTA_HULL_SIZE_FILLER"
 			
 			"StatusHealth"	"10"
@@ -4086,6 +4087,7 @@
 			"ProjectileCollisionSize"	"50"
 			"RingRadius"				"1"
 			"HealthBarOffset"			"260"
+			"ArmorPhysical"	"0"
 			
 			"StatusHealth"	"10"
 
@@ -4112,6 +4114,7 @@
 			"ProjectileCollisionSize"	"50"
 			"RingRadius"				"1"
 			"HealthBarOffset"			"260"
+			"ArmorPhysical"	"0"
 			
 			"StatusHealth"	"10"
 
@@ -4137,17 +4140,44 @@
 			"ProjectileCollisionSize"	"50"
 			"RingRadius"				"1"
 			"HealthBarOffset"			"260"
+			"ArmorPhysical"	"0"
 			
 			"StatusHealth"	"100"
 
 		}
 		
 
-	"gem_round5_fei_lian"
+	"gem_round5_fly_fei_lian"
 		{                                       
-			"Model"                 "models/items/courier/fei_lian_blue/fei_lian_blue.vmdl" // Model.
+			"Model"                 "models/items/courier/fei_lian_blue/fei_lian_blue_flying.vmdl" // Model.
 			"BaseClass"             "npc_dota_creature"
 			"Level"                 "5"
+			"ModelScale"                "1.4"
+			
+			"Ability1"		"damage_shown_enemy"
+			
+			"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_FLY"
+			"MovementSpeed"             "1200"
+
+			"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_BASIC"
+			"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+			"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+			
+			"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"		// Hull type used for navigation/locomotion.
+			"ProjectileCollisionSize"	"50"
+			"RingRadius"				"1"
+			"HealthBarOffset"			"260"
+			"ArmorPhysical"	"0"
+			
+			"StatusHealth"	"100"
+
+		}
+
+	"gem_round6_rex"
+		{                                       
+			"Model"                 "models/items/courier/snapjaw/snapjaw.vmdl" // Model.
+			"BaseClass"             "npc_dota_creature"
+			"Level"                 "6"
 			"ModelScale"                "1.4"
 			
 			"Ability1"		"damage_shown_enemy"
@@ -4163,31 +4193,7 @@
 			"ProjectileCollisionSize"	"50"
 			"RingRadius"				"1"
 			"HealthBarOffset"			"260"
-			
-			"StatusHealth"	"100"
-
-		}
-
-	"gem_round6_rex"
-		{                                       
-			"Model"                 "models/items/courier/snapjaw/snapjaw.vmdl" // Model.
-			"BaseClass"             "npc_dota_creature"
-			"Level"                 "6"
-			"ModelScale"                "2.4"
-			
-			"Ability1"		"damage_shown_enemy"
-			
-			"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
-			"MovementSpeed"             "1200"
-
-			"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_BASIC"
-			"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_BASIC"
-			"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-			
-			"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"		// Hull type used for navigation/locomotion.
-			"ProjectileCollisionSize"	"50"
-			"RingRadius"				"1"
-			"HealthBarOffset"			"260"
+			"ArmorPhysical"	"0"
 			
 			"StatusHealth"	"100"
 
@@ -4213,6 +4219,7 @@
 			"ProjectileCollisionSize"	"50"
 			"RingRadius"				"1"
 			"HealthBarOffset"			"260"
+			"ArmorPhysical"	"0"
 			
 			"StatusHealth"	"100"
 
@@ -4226,6 +4233,7 @@
 			"ModelScale"                "1.4"
 			
 			"Ability1"		"damage_shown_enemy"
+			"Ability2"		"phantom_assassin_blur"
 			
 			"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
 			"MovementSpeed"             "1200"
@@ -4238,6 +4246,7 @@
 			"ProjectileCollisionSize"	"50"
 			"RingRadius"				"1"
 			"HealthBarOffset"			"260"
+			"ArmorPhysical"	"0"
 			
 			"StatusHealth"	"100"
 
@@ -4263,6 +4272,7 @@
 			"ProjectileCollisionSize"	"50"
 			"RingRadius"				"1"
 			"HealthBarOffset"			"260"
+			"ArmorPhysical"	"0"
 			
 			"StatusHealth"	"100"
 
@@ -4273,7 +4283,7 @@
 			"Model"                 "models/courier/venoling/venoling.vmdl" // Model.
 			"BaseClass"             "npc_dota_creature"
 			"Level"                 "10"
-			"ModelScale"                "1.4"
+			"ModelScale"                "5.4"
 			
 			"Ability1"		"damage_shown_enemy"
 			
@@ -4288,6 +4298,7 @@
 			"ProjectileCollisionSize"	"50"
 			"RingRadius"				"1"
 			"HealthBarOffset"			"260"
+			"ArmorPhysical"	"0"
 			
 			"StatusHealth"	"100"
 
@@ -4312,6 +4323,7 @@
 			"ProjectileCollisionSize"	"50"
 			"RingRadius"				"1"
 			"HealthBarOffset"			"260"
+			"ArmorPhysical"	"5"
 			
 			"StatusHealth"	"100"
 		}
@@ -4324,6 +4336,7 @@
 		"ModelScale"                "2.4"
 		
 		"Ability1"		"damage_shown_enemy"
+		"Ability2"		"disarm_gem_enemy"
 		
 		"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_FLY"
 		"MovementSpeed"             "1200"
@@ -4336,7 +4349,8 @@
 		"ProjectileCollisionSize"	"50"
 		"RingRadius"				"1"
 		"HealthBarOffset"			"260"
-		
+		"ArmorPhysical"	"5"
+		"MagicalResistance"	"20"
 		"StatusHealth"	"100"
 	}
 		
@@ -4363,6 +4377,7 @@
 		"ProjectileCollisionSize"	"50"
 		"RingRadius"				"1"
 		"HealthBarOffset"			"260"
+		"ArmorPhysical"	"5"
 		
 		"StatusHealth"	"100"
 	}
@@ -4389,13 +4404,14 @@
 		"ProjectileCollisionSize"	"50"
 		"RingRadius"				"1"
 		"HealthBarOffset"			"260"
+		"ArmorPhysical"	"5"
 		
 		"StatusHealth"	"100"
 	}
 
    //"15"
 
-    "gem_round15_purple_box"
+    "gem_round15_fly_purple_box"
 	{                                       
 		"Model"                 "models/courier/trapjaw/trapjaw_flying.vmdl"
 		"BaseClass"             "npc_dota_creature"
@@ -4415,6 +4431,7 @@
 		"ProjectileCollisionSize"	"50"
 		"RingRadius"				"1"
 		"HealthBarOffset"			"260"
+		"ArmorPhysical"	"5"
 		
 		"StatusHealth"	"100"
 	}
@@ -4442,6 +4459,7 @@
 		"ProjectileCollisionSize"	"50"
 		"RingRadius"				"1"
 		"HealthBarOffset"			"260"
+		"ArmorPhysical"	"5"
 		
 		"StatusHealth"	"100"
 	}
@@ -4455,6 +4473,7 @@
 		"Level"                 "17"
 		"ModelScale"                "1.4"
 		"Ability1"		"damage_shown_enemy"
+		"Ability2"		"untouchable_enemy"
 		
 		
 		"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
@@ -4468,6 +4487,7 @@
 		"ProjectileCollisionSize"	"50"
 		"RingRadius"				"1"
 		"HealthBarOffset"			"260"
+		"ArmorPhysical"	"5"
 		
 		"StatusHealth"	"100"
 	}
@@ -4481,6 +4501,7 @@
 		"Level"                 "18"
 		"ModelScale"                "1.4"
 		"Ability1"		"damage_shown_enemy"
+		"Ability2"		"disarm_gem_enemy"
 		
 		
 		"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
@@ -4494,6 +4515,7 @@
 		"ProjectileCollisionSize"	"50"
 		"RingRadius"				"1"
 		"HealthBarOffset"			"260"
+		"ArmorPhysical"	"5"
 		
 		"StatusHealth"	"100"
 	}
@@ -4509,7 +4531,7 @@
 		"Ability1"		"damage_shown_enemy"
 		
 		
-		"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_FLY"
+		"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
 		"MovementSpeed"             "1200"
 
 		"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_BASIC"
@@ -4520,6 +4542,7 @@
 		"ProjectileCollisionSize"	"50"
 		"RingRadius"				"1"
 		"HealthBarOffset"			"260"
+		"ArmorPhysical"	"5"
 		
 		"StatusHealth"	"100"
 	}
@@ -4547,6 +4570,7 @@
 		"ProjectileCollisionSize"	"50"
 		"RingRadius"				"1"
 		"HealthBarOffset"			"260"
+		"ArmorPhysical"	"0"
 		
 		"StatusHealth"	"100"
 	}
@@ -4560,6 +4584,7 @@
 		"Level"                 "21"
 		"ModelScale"                "1.4"
 		"Ability1"		"damage_shown_enemy"
+
 		
 		
 		"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_FLY"
@@ -4573,6 +4598,7 @@
 		"ProjectileCollisionSize"	"50"
 		"RingRadius"				"1"
 		"HealthBarOffset"			"260"
+		"ArmorPhysical"	"10"
 		
 		"StatusHealth"	"100"
 	}
@@ -4589,7 +4615,7 @@
 		"Ability2"		"physical_immunity_enemy"
 		
 		
-		"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_FLY"
+		"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
 		"MovementSpeed"             "1200"
 
 		"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_BASIC"
@@ -4600,6 +4626,7 @@
 		"ProjectileCollisionSize"	"50"
 		"RingRadius"				"1"
 		"HealthBarOffset"			"260"
+		"ArmorPhysical"	"10"
 		
 		"StatusHealth"	"100"
 	}
@@ -4612,10 +4639,10 @@
 		"Level"                 "9"
 		"ModelScale"                "1.4"
 		"Ability1"		"damage_shown_enemy"
-		"Ability2"		"physical_immunity_enemy"
+		"Ability2"		"armor_increase_enemy"
 		
 		
-		"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_FLY"
+		"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
 		"MovementSpeed"             "1200"
 
 		"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_BASIC"
@@ -4626,6 +4653,7 @@
 		"ProjectileCollisionSize"	"50"
 		"RingRadius"				"1"
 		"HealthBarOffset"			"260"
+		"ArmorPhysical"	"10"
 		
 		"StatusHealth"	"100"
 	}
@@ -4637,7 +4665,7 @@
 		"Level"                 "9"
 		"ModelScale"                "1.4"
 		"Ability1"		"damage_shown_enemy"
-		
+		"Ability2"		"shredder_reactive_armor"
 		
 		"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_FLY"
 		"MovementSpeed"             "1200"
@@ -4650,17 +4678,18 @@
 		"ProjectileCollisionSize"	"50"
 		"RingRadius"				"1"
 		"HealthBarOffset"			"260"
+		"ArmorPhysical"	"10"
 		
 		"StatusHealth"	"100"
 	}
-	"gem_round25_smeevil"
+	"gem_round25_fly_smeevil"
 	{                                       
-		"Model"                 "models/courier/smeevil_crab/smeevil_crab.vmdl" // Model.
+		"Model"                 "models/courier/smeevil/smeevil_flying.vmdl" // Model.
 		"BaseClass"             "npc_dota_creature"
 		"Level"                 "9"
 		"ModelScale"                "1.4"
 		"Ability1"		"damage_shown_enemy"
-		"Ability2"		"physical_immunity_enemy"
+		"Ability2"		"phantom_assassin_blur"
 		
 		
 		"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_FLY"
@@ -4674,11 +4703,530 @@
 		"ProjectileCollisionSize"	"50"
 		"RingRadius"				"1"
 		"HealthBarOffset"			"260"
+		"ArmorPhysical"	"10"
 		
 		"StatusHealth"	"100"
 	}
+	"gem_round26_redkita"
+	{                                       
+		"Model"                 "models/items/courier/courier_mvp_redkita/courier_mvp_redkita_flying.vmdl" // Model.
+		"BaseClass"             "npc_dota_creature"
+		"Level"                 "9"
+		"ModelScale"                "1.4"
+		"Ability1"		"damage_shown_enemy"
+		"Ability2"		"magic_immunity_enemy"
+		
+		
+		"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_FLY"
+		"MovementSpeed"             "1200"
 
+		"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+		
+		"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"		// Hull type used for navigation/locomotion.
+		"ProjectileCollisionSize"	"50"
+		"RingRadius"				"1"
+		"HealthBarOffset"			"260"
+		"ArmorPhysical"	"10"
+		"StatusHealth"	"100"
+	}
+	"gem_round27_skipper_flying"
+	{                                       
+		"Model"                 "models/items/courier/lgd_golden_skipper/lgd_golden_skipper_flying.vmdl" // Model.
+		"BaseClass"             "npc_dota_creature"
+		"Level"                 "9"
+		"ModelScale"                "2.2"
+		"Ability1"		"damage_shown_enemy"
+		"Ability2"		"shredder_reactive_armor"
+		
+		
+		"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_FLY"
+		"MovementSpeed"             "1200"
 
+		"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+		
+		"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"		// Hull type used for navigation/locomotion.
+		"ProjectileCollisionSize"	"50"
+		"RingRadius"				"1"
+		"HealthBarOffset"			"260"
+		"ArmorPhysical"	"10"
+		"MagicalResistance"	"50"
+		"StatusHealth"	"100"
+	}
+	"gem_round28_dragon_flying"
+	{                                       
+		"Model"                 "models/items/courier/ig_dragon/ig_dragon_flying.vmdl"
+		"BaseClass"             "npc_dota_creature"
+		"Level"                 "9"
+		"ModelScale"                "2.2"
+		"Ability1"		"damage_shown_enemy"
+		"Ability2"		""
+		
+		
+		"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_FLY"
+		"MovementSpeed"             "1200"
+
+		"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+		
+		"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"		// Hull type used for navigation/locomotion.
+		"ProjectileCollisionSize"	"50"
+		"RingRadius"				"1"
+		"HealthBarOffset"			"260"
+		"ArmorPhysical"	"10"
+		"MagicalResistance"	"0"
+		"StatusHealth"	"100"
+	}
+	"gem_round29_red_fox_flying"
+	{                                       
+		"Model"                 "models/items/courier/vigilante_fox_red/vigilante_fox_red_flying.vmdl"
+		"BaseClass"             "npc_dota_creature"
+		"Level"                 "9"
+		"ModelScale"                "2.2"
+		"Ability1"		"damage_shown_enemy"
+		"Ability2"		""
+		
+		
+		"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_FLY"
+		"MovementSpeed"             "1200"
+
+		"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+		
+		"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"		// Hull type used for navigation/locomotion.
+		"ProjectileCollisionSize"	"50"
+		"RingRadius"				"1"
+		"HealthBarOffset"			"260"
+		"ArmorPhysical"	"10"
+		"MagicalResistance"	"0"
+		"StatusHealth"	"100"
+	}
+
+	"gem_round30_mammoth_flying"
+	{                                       
+		"Model"                 "models/courier/smeevil_mammoth/smeevil_mammoth_flying.vmdl"
+		"BaseClass"             "npc_dota_creature"
+		"Level"                 "9"
+		"ModelScale"                "2.2"
+		"Ability1"		"damage_shown_enemy"
+		"Ability2"		""
+		
+		
+		"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_FLY"
+		"MovementSpeed"             "1200"
+
+		"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+		
+		"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"		// Hull type used for navigation/locomotion.
+		"ProjectileCollisionSize"	"50"
+		"RingRadius"				"1"
+		"HealthBarOffset"			"260"
+		"ArmorPhysical"	"0"
+		"MagicalResistance"	"0"
+		"StatusHealth"	"100"
+	}
+
+	"gem_round31_bookwrym"
+	{                                       
+		"Model"                 "models/items/courier/bookwyrm/bookwyrm.vmdl"
+		"BaseClass"             "npc_dota_creature"
+		"Level"                 "9"
+		"ModelScale"                "2.2"
+		"Ability1"		"damage_shown_enemy"
+		"Ability2"		"abaddon_borrowed_time"
+		"Ability3"		"magic_immunity_enemy"
+		
+		
+		"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"             "1200"
+
+		"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+		
+		"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"		// Hull type used for navigation/locomotion.
+		"ProjectileCollisionSize"	"50"
+		"RingRadius"				"1"
+		"HealthBarOffset"			"260"
+		"ArmorPhysical"	"15"
+		"MagicalResistance"	"0"
+		"StatusHealth"	"100"
+	}
+	"gem_round32_shark"
+	{                                       
+		"Model"                 "models/items/courier/kanyu_shark/kanyu_shark.vmdl"
+		"BaseClass"             "npc_dota_creature"
+		"Level"                 "9"
+		"ModelScale"                "2.6"
+		"Ability1"		"damage_shown_enemy"
+		"Ability2"		"healing_enemy"
+		"Ability3"		""
+		
+		
+		"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"             "1200"
+
+		"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+		
+		"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"		// Hull type used for navigation/locomotion.
+		"ProjectileCollisionSize"	"50"
+		"RingRadius"				"1"
+		"HealthBarOffset"			"260"
+		"ArmorPhysical"	"15"
+		"MagicalResistance"	"0"
+		"StatusHealth"	"100"
+	}
+
+	"gem_round33_zombie"
+	{                                       
+		"Model"                 "models/items/courier/pw_zombie/pw_zombie.vmdl"
+		"BaseClass"             "npc_dota_creature"
+		"Level"                 "9"
+		"ModelScale"                "2.4"
+		"Ability1"		"damage_shown_enemy"
+		"Ability2"		"physical_immunity_enemy"
+		"Ability3"		""
+		
+		
+		"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"             "1200"
+
+		"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+		
+		"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"		// Hull type used for navigation/locomotion.
+		"ProjectileCollisionSize"	"50"
+		"RingRadius"				"1"
+		"HealthBarOffset"			"260"
+		"ArmorPhysical"	"15"
+		"MagicalResistance"	"0"
+		"StatusHealth"	"100"
+	}
+
+	"gem_round34_fly_huntling"
+	{                                       
+		"Model"                 "models/courier/huntling/huntling_flying.vmdl"
+		"BaseClass"             "npc_dota_creature"
+		"Level"                 "9"
+		"ModelScale"                "2.4"
+		"Ability1"		"damage_shown_enemy"
+		"Ability2"		"phantom_assassin_blur"
+		"Ability3"		""
+		
+		
+		"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_FLY"
+		"MovementSpeed"             "1200"
+
+		"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+		
+		"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"		// Hull type used for navigation/locomotion.
+		"ProjectileCollisionSize"	"50"
+		"RingRadius"				"1"
+		"HealthBarOffset"			"260"
+		"ArmorPhysical"	"15"
+		"MagicalResistance"	"0"
+		"StatusHealth"	"100"
+	}
+
+	"gem_round35_fly_fox"
+	{                                       
+		"Model"                 "models/items/courier/jin_yin_white_fox/jin_yin_white_fox_flying.vmdl"
+		"BaseClass"             "npc_dota_creature"
+		"Level"                 "9"
+		"ModelScale"                "2.4"
+		"Ability1"		"damage_shown_enemy"
+		"Ability2"		"magic_immunity_enemy"
+		"Ability3"		""
+		
+		
+		"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_FLY"
+		"MovementSpeed"             "1200"
+
+		"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+		
+		"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"		// Hull type used for navigation/locomotion.
+		"ProjectileCollisionSize"	"50"
+		"RingRadius"				"1"
+		"HealthBarOffset"			"260"
+		"ArmorPhysical"	"0"
+		"MagicalResistance"	"0"
+		"StatusHealth"	"100"
+	}
+
+	"gem_round36_jumo"
+	{                                       
+		"Model"                 "models/items/courier/jumo/jumo.vmdl"
+		"BaseClass"             "npc_dota_creature"
+		"Level"                 "9"
+		"ModelScale"                "2.5"
+		"Ability1"		"damage_shown_enemy"
+		"Ability2"		"magic_immunity_enemy"
+		"Ability3"		""
+		
+		
+		"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"             "1200"
+
+		"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+		
+		"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"		// Hull type used for navigation/locomotion.
+		"ProjectileCollisionSize"	"50"
+		"RingRadius"				"1"
+		"HealthBarOffset"			"260"
+		"ArmorPhysical"	"0"
+		"MagicalResistance"	"0"
+		"StatusHealth"	"100"
+	}
+	"gem_round37_baekho"
+	{                                       
+		"Model"                 "models/items/courier/baekho/baekho.vmdl"
+		"BaseClass"             "npc_dota_creature"
+		"Level"                 "9"
+		"ModelScale"                "2.5"
+		"Ability1"		"damage_shown_enemy"
+		"Ability2"		"disarm_gem_enemy"
+		"Ability3"		"riki_permanent_invisibility"
+		
+		
+		"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"             "1200"
+
+		"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+		
+		"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"		// Hull type used for navigation/locomotion.
+		"ProjectileCollisionSize"	"50"
+		"RingRadius"				"1"
+		"HealthBarOffset"			"260"
+		"ArmorPhysical"	"15"
+		"MagicalResistance"	"0"
+		"StatusHealth"	"100"
+	}
+	"gem_round38_lilnova"
+	{                                       
+		"Model"                 "models/items/courier/lilnova/lilnova.vmdl"
+		"BaseClass"             "npc_dota_creature"
+		"Level"                 "9"
+		"ModelScale"                "2.5"
+		"Ability1"		"damage_shown_enemy"
+		"Ability2"		"untouchable_enemy"
+		"Ability3"		""
+		
+		
+		"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"             "1200"
+
+		"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+		
+		"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"		// Hull type used for navigation/locomotion.
+		"ProjectileCollisionSize"	"50"
+		"RingRadius"				"1"
+		"HealthBarOffset"			"260"
+		"ArmorPhysical"	"15"
+		"MagicalResistance"	"0"
+		"StatusHealth"	"100"
+	}
+	"gem_round39_fly_amphibian"
+	{                                       
+		"Model"                 "models/items/courier/amphibian_kid/amphibian_kid_flying.vmdl"
+		"BaseClass"             "npc_dota_creature"
+		"Level"                 "9"
+		"ModelScale"                "2.4"
+		"Ability1"		"damage_shown_enemy"
+		"Ability2"		"healing_enemy"
+		"Ability3"		"phantom_assassin_blur"
+		
+		
+		"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_FLY"
+		"MovementSpeed"             "1200"
+
+		"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+		
+		"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"		// Hull type used for navigation/locomotion.
+		"ProjectileCollisionSize"	"50"
+		"RingRadius"				"1"
+		"HealthBarOffset"			"260"
+		"ArmorPhysical"	"15"
+		"MagicalResistance"	"0"
+		"StatusHealth"	"100"
+	}
+	"gem_round40_fly_wraith"
+	{                                       
+		"Model"                 "models/items/courier/mlg_courier_wraith/mlg_courier_wraith_flying.vmdl"
+		"BaseClass"             "npc_dota_creature"
+		"Level"                 "9"
+		"ModelScale"                "5.2"
+		"Ability1"		"damage_shown_enemy"
+		"Ability2"		"tidehunter_kraken_shell"
+		"Ability3"		""
+		
+		
+		"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_FLY"
+		"MovementSpeed"             "1200"
+
+		"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+		
+		"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"		// Hull type used for navigation/locomotion.
+		"ProjectileCollisionSize"	"50"
+		"RingRadius"				"1"
+		"HealthBarOffset"			"260"
+		"ArmorPhysical"	"0"
+		"MagicalResistance"	"0"
+		"StatusHealth"	"100"
+	}
+	"gem_round41_azuremir"
+	{                                       
+		"Model"                 "models/items/courier/azuremircourierfinal/azuremircourierfinal.vmdl"
+		"BaseClass"             "npc_dota_creature"
+		"Level"                 "9"
+		"ModelScale"                "2.5"
+		"Ability1"		"damage_shown_enemy"
+		"Ability2"		"abaddon_borrowed_time"
+		"Ability3"		""
+		
+		
+		"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"             "1200"
+
+		"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+		
+		"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"		// Hull type used for navigation/locomotion.
+		"ProjectileCollisionSize"	"50"
+		"RingRadius"				"1"
+		"HealthBarOffset"			"260"
+		"ArmorPhysical"	"20"
+		"MagicalResistance"	"25"
+		"StatusHealth"	"100"
+	}
+	"gem_round42_fly_kupu"
+	{                                       
+		"Model"                 "models/items/courier/kupu_courier/kupu_courier_flying.vmdl"
+		"BaseClass"             "npc_dota_creature"
+		"Level"                 "9"
+		"ModelScale"                "2.7"
+		"Ability1"		"damage_shown_enemy"
+		"Ability2"		"magic_immunity_enemy"
+		"Ability3"		""
+		
+		
+		"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_FLY"
+		"MovementSpeed"             "1200"
+
+		"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+		
+		"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"		// Hull type used for navigation/locomotion.
+		"ProjectileCollisionSize"	"50"
+		"RingRadius"				"1"
+		"HealthBarOffset"			"260"
+		"ArmorPhysical"	"20"
+		"MagicalResistance"	"0"
+		"StatusHealth"	"100"
+	}
+	"gem_round43_furry_fish"
+	{                                       
+		"Model"                 "models/items/courier/coral_furryfish/coral_furryfish.vmdl"
+		"BaseClass"             "npc_dota_creature"
+		"Level"                 "9"
+		"ModelScale"                "2.5"
+		"Ability1"		"damage_shown_enemy"
+		"Ability2"		"shredder_reactive_armor"
+		"Ability3"		"healing_enemy"
+		
+		
+		"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"             "1200"
+
+		"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+		
+		"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"		// Hull type used for navigation/locomotion.
+		"ProjectileCollisionSize"	"50"
+		"RingRadius"				"1"
+		"HealthBarOffset"			"260"
+		"ArmorPhysical"	"20"
+		"MagicalResistance"	"50"
+		"StatusHealth"	"100"
+	}
+	"gem_round44_shroomy"
+	{                                       
+		"Model"                 "models/items/courier/shroomy/shroomy.vmdl"
+		"BaseClass"             "npc_dota_creature"
+		"Level"                 "9"
+		"ModelScale"                "2.5"
+		"Ability1"		"damage_shown_enemy"
+		"Ability2"		"magic_immunity_enemy"
+		"Ability3"		""
+		
+		
+		"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"             "1200"
+
+		"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+		
+		"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"		// Hull type used for navigation/locomotion.
+		"ProjectileCollisionSize"	"50"
+		"RingRadius"				"1"
+		"HealthBarOffset"			"260"
+		"ArmorPhysical"	"20"
+		"MagicalResistance"	"0"
+		"StatusHealth"	"100"
+	}
+	"gem_round45_fly_chirpy"
+	{                                       
+		"Model"                 "models/items/courier/bts_chirpy/bts_chirpy_flying.vmdl"
+		"BaseClass"             "npc_dota_creature"
+		"Level"                 "9"
+		"ModelScale"                "2.7"
+		"Ability1"		"damage_shown_enemy"
+		"Ability2"		"enrage_enemy"
+		"Ability3"		""
+		
+		
+		"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_FLY"
+		"MovementSpeed"             "1200"
+
+		"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+		
+		"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"		// Hull type used for navigation/locomotion.
+		"ProjectileCollisionSize"	"50"
+		"RingRadius"				"1"
+		"HealthBarOffset"			"260"
+		"ArmorPhysical"	"20"
+		"MagicalResistance"	"0"
+		"StatusHealth"	"100"
+	}
 	"testward"
 	{                                       
 		"Model"                 "models/items/wards/jinnie_v2/jinnie_v2.vmdl" // Model.

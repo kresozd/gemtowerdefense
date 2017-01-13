@@ -601,6 +601,40 @@
 		}
 	}
 
+	"enrage_enemy"
+	{
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"lone_druid_true_form"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"MaxLevel"	"1"
+		"AbilityCastRange"	"9999"
+		"Modifiers"
+		{
+			"modifier_enrage"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"Aura"	"modifier_enrage_target"
+				"Aura_Radius"	"9999"
+				"Aura_Types"	"DOTA_UNIT_TARGET_BASIC"
+				"Aura_Teams"	"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+				"Aura_Flags"	"DOTA_UNIT_TARGET_FLAG_NONE"
+			}
+			"modifier_enrage_target"
+			{
+				"IsHidden"	"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_NONE | MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Duration"	"1"
+				"ThinkInterval"	"0.3"
+				"States"	{}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"-200"
+				}
+			}
+		}
+	}
+
 	"gem_MVP_1"
 	{
 		"BaseClass"	"ability_datadriven"
