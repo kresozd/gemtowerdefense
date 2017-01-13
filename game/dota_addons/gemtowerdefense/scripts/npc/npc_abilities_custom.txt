@@ -2491,7 +2491,7 @@
 				"Aura_Radius"	"600"
 				"Aura_Teams"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 				"Aura_Types"	"DOTA_UNIT_TARGET_ALL"
-				"Aura_Flags"	"DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS"
+				"Aura_Flags"	"DOTA_UNIT_TARGET_FLAG_MANA_ONLY"
 			}
 			"modifier_quartz_armor_target"
 			{
@@ -2529,7 +2529,7 @@
 				"Aura_Radius"	"600"
 				"Aura_Teams"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 				"Aura_Types"	"DOTA_UNIT_TARGET_ALL"
-				"Aura_Flags"	"DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS | DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+				"Aura_Flags"	"DOTA_UNIT_TARGET_FLAG_MANA_ONLY"
 			}
 			"modifier_lazurite_armor_target"
 			{

@@ -2997,7 +2997,7 @@
 		"Level"	"2"
 		"AbilityLayout"	"6"
 		"Ability1"	"REMOVE_HP_BAR"
-		"Ability2"	""
+		"Ability2"	"gem_Quartz_ability"
 
 		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
 		"AttackDamageMin"	"15"
@@ -4170,6 +4170,7 @@
 			"ArmorPhysical"	"0"
 			
 			"StatusHealth"	"100"
+			"StatusMana"	"100"
 
 		}
 
@@ -4352,6 +4353,7 @@
 		"ArmorPhysical"	"5"
 		"MagicalResistance"	"20"
 		"StatusHealth"	"100"
+		"StatusMana"	"100"
 	}
 		
     //"13"
@@ -4434,6 +4436,7 @@
 		"ArmorPhysical"	"5"
 		
 		"StatusHealth"	"100"
+		"StatusMana"	"100"
 	}
 
     //"16"
@@ -4601,6 +4604,7 @@
 		"ArmorPhysical"	"10"
 		
 		"StatusHealth"	"100"
+		"StatusMana"	"100"
 	}
 
     //"22"
@@ -4681,6 +4685,7 @@
 		"ArmorPhysical"	"10"
 		
 		"StatusHealth"	"100"
+		"StatusMana"	"100"
 	}
 	"gem_round25_fly_smeevil"
 	{                                       
@@ -4706,6 +4711,7 @@
 		"ArmorPhysical"	"10"
 		
 		"StatusHealth"	"100"
+		"StatusMana"	"100"
 	}
 	"gem_round26_redkita"
 	{                                       
@@ -4755,6 +4761,7 @@
 		"ArmorPhysical"	"10"
 		"MagicalResistance"	"50"
 		"StatusHealth"	"100"
+		"StatusMana"	"100"
 	}
 	"gem_round28_dragon_flying"
 	{                                       
@@ -4780,6 +4787,7 @@
 		"ArmorPhysical"	"10"
 		"MagicalResistance"	"0"
 		"StatusHealth"	"100"
+		"StatusMana"	"100"
 	}
 	"gem_round29_red_fox_flying"
 	{                                       
@@ -4805,6 +4813,7 @@
 		"ArmorPhysical"	"10"
 		"MagicalResistance"	"0"
 		"StatusHealth"	"100"
+		"StatusMana"	"100"
 	}
 
 	"gem_round30_mammoth_flying"
@@ -4831,6 +4840,7 @@
 		"ArmorPhysical"	"0"
 		"MagicalResistance"	"0"
 		"StatusHealth"	"100"
+		"StatusMana"	"100"
 	}
 
 	"gem_round31_bookwrym"
@@ -4938,6 +4948,7 @@
 		"ArmorPhysical"	"15"
 		"MagicalResistance"	"0"
 		"StatusHealth"	"100"
+		"StatusMana"	"100"
 	}
 
 	"gem_round35_fly_fox"
@@ -4965,6 +4976,7 @@
 		"ArmorPhysical"	"0"
 		"MagicalResistance"	"0"
 		"StatusHealth"	"100"
+		"StatusMana"	"100"
 	}
 
 	"gem_round36_jumo"
@@ -5070,6 +5082,7 @@
 		"ArmorPhysical"	"15"
 		"MagicalResistance"	"0"
 		"StatusHealth"	"100"
+		"StatusMana"	"100"
 	}
 	"gem_round40_fly_wraith"
 	{                                       
@@ -5096,6 +5109,7 @@
 		"ArmorPhysical"	"0"
 		"MagicalResistance"	"0"
 		"StatusHealth"	"100"
+		"StatusMana"	"100"
 	}
 	"gem_round41_azuremir"
 	{                                       
@@ -5148,6 +5162,7 @@
 		"ArmorPhysical"	"20"
 		"MagicalResistance"	"0"
 		"StatusHealth"	"100"
+		"StatusMana"	"100"
 	}
 	"gem_round43_furry_fish"
 	{                                       
@@ -5226,6 +5241,7 @@
 		"ArmorPhysical"	"20"
 		"MagicalResistance"	"0"
 		"StatusHealth"	"100"
+		"StatusMana"	"100"
 	}
 	"testward"
 	{                                       
