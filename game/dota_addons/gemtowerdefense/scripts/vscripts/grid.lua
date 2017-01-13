@@ -295,7 +295,7 @@ function Grid:FindPath()
  
     for node, count in path:nodes() do
 
-		print("Printing node...", node)
+		--print("Printing node...", node)
 
       local vector = Vector(ConvertToVector(node:getX() - 19),ConvertToVector(node:getY() - 19), 192)
       table.insert(self.VectorMap, vector)

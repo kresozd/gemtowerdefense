@@ -319,7 +319,7 @@ function Builder:CreateTower(playerID, owner, position, caster)
 
     local tower = CreateUnitByName(mergedName, position, false, nil, nil, DOTA_TEAM_GOODGUYS)
 	local eHandle = tower:GetEntityHandle()
-	print(playerID)
+	--print(playerID)
 	local ModMaster = CreateItem("item_modifier_master", nil, nil) 
 	ModMaster:ApplyDataDrivenModifier(tower, tower, "modifier_tower_pick_player_"..tostring(playerID),nil)
 	tower:SetOwner(owner)
@@ -626,7 +626,7 @@ end
 
 function Builder:CheckTowerCount(caster, playerID)
 
-	print("Table count: ", Builder:TableLength(self.RoundTowers[playerID]))
+	--print("Table count: ", Builder:TableLength(self.RoundTowers[playerID]))
 
     if Builder:TableLength(self.RoundTowers[playerID]) == 5 then
 
@@ -1277,7 +1277,7 @@ end
 
 function Builder:OnRoundEnded(keys)
 
-	print("Event triggered.")
+	print("Round Ended.")
 	
 	self.State = keys.state
 	print("Printing self state in handler.", self.State)

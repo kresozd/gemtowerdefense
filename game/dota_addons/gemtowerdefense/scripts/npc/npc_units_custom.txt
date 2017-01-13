@@ -3296,7 +3296,7 @@
 		"Ability2"	"gem_Dark_Emerald_ability"
 		"Ability3"	"gem_Gold_ability"
 		"Ability4"	"gem_Emerald_Golem_ability"
-		"Ability5"	"medusa_stone_gaze"
+		"Ability5"	""
 
 		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
 		"AttackDamageMin"	"150"

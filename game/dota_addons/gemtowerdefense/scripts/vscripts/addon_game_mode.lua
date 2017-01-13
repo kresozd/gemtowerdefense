@@ -101,6 +101,14 @@ PrecacheResource("particle", "particles/econ/courier/courier_hyeonmu_ambient/cou
 
 	PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_dragon_knight.vsndevts",context)
 	
+
+
+	PrecacheResource("soundfile",	"soundevents/game_sounds_heroes/game_sounds_medusa.vsndevts", context )
+	PrecacheResource("particle",	"particles/units/heroes/hero_medusa/medusa_stone_gaze_active.vpcf", context )
+	PrecacheResource("particle",	"particles/units/heroes/hero_medusa/medusa_stone_gaze_debuff.vpcf", context )
+	PrecacheResource("particle",	"particles/units/heroes/hero_medusa/medusa_stone_gaze_facing.vpcf", context )
+	PrecacheResource("particle",	"particles/units/heroes/hero_medusa/medusa_stone_gaze_debuff_stoned.vpcf", context )
+	PrecacheResource("particle",	"particles/status_fx/status_effect_medusa_stone_gaze.vpcf", context )
 end
 
 -- Create the game mode when we activate

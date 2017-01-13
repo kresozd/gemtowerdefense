@@ -183,18 +183,26 @@ end
 
 function Ability_Emerald_Golem (keys)
     local caster = keys.caster
-    caster:FindAbilityByName("medusa_stone_gaze"):SetLevel(1)
-
+    if not caster:FindAbilityByName("medusa_stone_gaze_datadriven") then
+        caster:AddAbility("medusa_stone_gaze_datadriven"):SetLevel(1)
+    end
     local newOrder = 
     {
         UnitIndex = caster:entindex(), 
         OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
         TargetIndex = nil, --Optional.  Only used when targeting units
-        AbilityIndex = caster:FindAbilityByName("medusa_stone_gaze"):entindex(), --Optional.  Only used when casting abilities
+        AbilityIndex = caster:FindAbilityByName("medusa_stone_gaze_datadriven"):entindex(), --Optional.  Only used when casting abilities
         Position = nil, --Optional.  Only used when targeting the ground
         Queue = 0 --Optional.  Used for queueing up abilities
     }
     ExecuteOrderFromTable(newOrder)
+    print("Stone Gaze activated")
+    Timers:CreateTimer({
+        endTime = 10, -- when this timer should first execute, you can omit this if you want it to run first on the next frame
+        callback = function()
+        caster:RemoveAbility("medusa_stone_gaze_datadriven")
+        end
+    })
 end
 
 function Ability_Egypt_Gold( keys )

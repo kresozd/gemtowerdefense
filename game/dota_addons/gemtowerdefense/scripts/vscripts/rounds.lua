@@ -348,8 +348,10 @@ function Rounds:Ability_MVP_Level_Up(unit,upLevel)
     end
     local a_name = "gem_MVP_"..unit.MVPLevel
     local m_name = "modifier_MVP_aura_"..unit.MVPLevel
-    unit:RemoveAbility(a_name)
-    unit:RemoveModifierByName(m_name)
+    if unit:FindAbilityByName(a_name) then
+	    unit:RemoveAbility(a_name)
+	    unit:RemoveModifierByName(m_name)
+	end
 
     unit.MVPLevel = unit.MVPLevel + upLevel
     if unit.MVPLevel > 10 then
