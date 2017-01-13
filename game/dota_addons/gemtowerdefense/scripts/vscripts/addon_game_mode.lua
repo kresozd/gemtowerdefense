@@ -23,7 +23,7 @@ require('settings')
 require('players')
 require('customEvents')
 require('heroselection')
-
+require('sandbox')
 
 
 --Pathfinder

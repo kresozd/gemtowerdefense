@@ -92,6 +92,7 @@ end
 function GemTowerDefenseReborn:OnPlayerChat(keys)
 
 	local tokens =  string.split(string.trim(keys.text))
+	
 	if tokens[1] == "-create_tower" and Rounds.State == "BUILD" then
 		Builder.TowerTestName = tokens[2]
 	end

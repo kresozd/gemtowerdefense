@@ -3,7 +3,7 @@ if Sandbox == nil then
 	Sandbox = class({})
 	
 end
---[[
+
 --class is not included yet in addon_file
 
 function Sandbox:Init()
@@ -11,9 +11,8 @@ function Sandbox:Init()
 --this shit will be put into kv file
     self.CommandList =
     {
-        "set_round",
-        "set_health",
-        "kill_enemies"
+        ["-change_round"] = Sandbox:ChangeRound()
+
     }
 --aswel as this
     self.Devs = 
@@ -23,13 +22,13 @@ function Sandbox:Init()
         --All need to be added, PhysicsGuy, zach, eric yohansa, xemon, potato, monohlyra, king, windblown, skinpop
     }
 
-    ListenToGameEvent("player_chat", Dynamic_Wrap(GemTowerDefenseReborn, "OnPlayerChat"), self)
+    ListenToGameEvent("player_chat", Dynamic_Wrap(Sandbox, "OnPlayerChat"), self)
 
     self.Commands = {}
 
-    function IsDev()
+    function IsDev(playerID)
 
-        if self.Devs[PlayerResource:GetSteamID()] then
+        if self.Devs[PlayerResource:GetSteamID(playerID)] then
             return true
         else
             return false
@@ -38,31 +37,36 @@ function Sandbox:Init()
 end
 
 
-function SandBox:SetRound()
+
+
+function Sandbox:ChangeRound()
+
+    print("Change round called!")
 
     if Rounds:GetState() == "BUILD" then
 
-        
         Rounds:SetRoundNumber(value)
 
-    
-
+    end
 end
-
 
 function Sandbox:OnPlayerChat(keys)
     
     local teamonly = keys.teamonly
-    local userID = keys.userid
-    local playerID = userID:GetPlayerID()
-    local text = keys.text
+    --local userID = keys.userid
+   -- local playerID = userID:GetPlayerID()
+    local tokens =  string.split(string.trim(keys.text))
 
-    if self.CommandList[text] and IsDev() then
+    print(tokens[1])
 
-        --call commands
+    if self.CommandList[tokens] and IsDev(playerID) then
+
+        print("true")
+       local command = Sandbox:ChangeRound()
+
 
     end
 
 end
 
-]]--
+

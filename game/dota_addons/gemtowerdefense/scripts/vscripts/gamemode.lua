@@ -24,7 +24,7 @@ function GemTowerDefenseReborn:InitGameMode()
 	Random:Init()
 	Players:Init()
 	HeroSelection:Init()
-
+	Sandbox:Init()
 	GameRules:SetTimeOfDay(0.5)
 	-- GameRules:GetGameModeEntity():SetCameraDistanceOverride(1400)
 	GameRules:SetHeroSelectionTime(20.0)
