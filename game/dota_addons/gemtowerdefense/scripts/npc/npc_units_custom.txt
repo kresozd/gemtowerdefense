@@ -3336,8 +3336,8 @@
 		{
 
 		"BaseClass"	"npc_dota_creature"
-		"Model"	"models/items/wards/frozen_formation/frozen_formation.vmdl"
-		"ModelScale"	"2.4"
+		"Model"	"models/heroes/ancient_apparition/ancient_apparition.vmdl"
+		"ModelScale"	"1.2"
 
 
 		"MinimapIcon"	"minimap_creep"
@@ -3345,7 +3345,7 @@
 		"Level"	"2"
 		"AbilityLayout"	"6"
 		"Ability1"	"REMOVE_HP_BAR"
-		"Ability2"	""
+		"Ability2"	"gem_Yellow_Sapphire_ability"
 
 		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
 		"AttackDamageMin"	"20"
