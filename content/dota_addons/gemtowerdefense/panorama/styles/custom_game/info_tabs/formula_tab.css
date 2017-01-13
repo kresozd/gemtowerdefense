@@ -1,14 +1,16 @@
+@define subtleColor: #7E8A9E;
+
 #formula {
   flow-children: down;
+  margin-top: 10px;
 }
 
 .formula-row {
   flow-children: right;
-  margin-top: 7px;
   padding: 12px 12px 6px 8px;
-  background-color: #111920aa;
-  border-top: 1px solid #ffffff05;
-  border-bottom: 1px solid #ffffff03;
+  background-color: #17172199;
+  border-top: 1px solid #ffffff01;
+  border-bottom: 1px solid #ffffff05;
 }
 
 .formula-tower {
@@ -21,7 +23,7 @@
   height: 88px;
   border-radius: 50%;
   border: 4px solid #cacaca;
-  background-color: #4F656F;
+  background-color: #535770;
   background-image: url("file://{resources}/images/custom_game/gems/gem_ruby.png");
   background-size: 85%;
   background-position: 50% 50%;
@@ -29,7 +31,7 @@
   saturation: 0.0;
   brightness: .5;
   contrast: .96;
-  wash-color: #ACBFDD;
+  wash-color: #A9A9D4;
 }
 
 .formula-item {
@@ -70,7 +72,7 @@
   padding-top: 6px;
   width: 31px;
   height: 31px;
-  background-color: #2B2B2B;
+  background-color: #272736;
   border-radius: 50%;
   border: 2px solid #A4A4A4;
 }
@@ -82,7 +84,7 @@
 }
 
 .component-name {
-  color: #7E8A9E;
+  color: #6B6B8A;
   text-align: center;
   horizontal-align: center;
   vertical-align: bottom;
@@ -103,7 +105,7 @@
 }
 
 .tab-formula-min .formula-row {
-  margin-top: 4px;
+  /*margin-top: 4px;*/
 }
 
 .tab-formula-min .formula-tower {

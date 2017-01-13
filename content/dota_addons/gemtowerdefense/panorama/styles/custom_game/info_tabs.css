@@ -9,7 +9,7 @@ Label {
 }
 
 VerticalScrollBar, HTMLVerticalScrollBar {
-  background-color: #202621dd;
+  background-color: #171721cc;
   margin: 0px, 8px, 0px 8px;
   width: 8px;
   horizontal-align: right;
@@ -21,7 +21,7 @@ VerticalScrollBar, HTMLVerticalScrollBar {
 }
 
 VerticalScrollBar .ScrollThumb {
-  background-color: #424c5c;
+  background-color: #404052;
   min-height: 32px;
   width: 100%;
   border: 1px solid #ffffff02;
@@ -98,12 +98,16 @@ VerticalScrollBar .ScrollThumb {
 .info-tab {
   flow-children: down;
   box-shadow: #000000f5 -4px -4px 8px 8px;
-  height: 100%;
-  width: 500px;
-  border: 1px solid #2b2b2b;
-  background-color: #21262efa;
-  margin-top: 130px;
-  margin-bottom: 200px;
+  min-height: 650px;
+  min-width: 500px;
+  padding: 24px 0 0;
+  vertical-align: middle;
+  width: fit-children;
+  border: 1px solid #11111CF3;
+  border-left: 1px solid #000;
+  background-color: #21212efd;
+  /*margin-top: 130px;*/
+  margin-bottom: 50px;
   overflow: clip scroll;
   z-index: 5;
   transition-property: transform;
@@ -113,14 +117,14 @@ VerticalScrollBar .ScrollThumb {
 }
 
 .tab-title {
-  font-size: 36px;
-  letter-spacing: 1px;
-  color: #ccc;
+  font-size: 26px;
+  letter-spacing: 2px;
+  color: #ebebff;
   horizontal-align: center;
   text-align: center;
   text-transform: uppercase;
   font-family: Radiance;
-  margin: 26px 0 20px;
+  margin: 10px 0 15px;
 }
 
 .tab-hidden {
@@ -131,6 +135,7 @@ VerticalScrollBar .ScrollThumb {
   width: fit-children;
   margin: 0;
   padding: 25px 8px 0 0;
+  min-width: 0;
 }
 
 .minify-toggle {

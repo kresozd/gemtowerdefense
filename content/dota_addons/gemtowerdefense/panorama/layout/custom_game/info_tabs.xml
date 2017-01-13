@@ -17,7 +17,7 @@
                 <Panel class="nav-button-store nav-button" onactivate="activateTab('tab-profile')"> 
                     <Label class="nav-button-title" text="Profile" />
                 </Panel>
-                <Panel class="nav-button-rank nav-button" onactivate="activateTab('tab-rank')">
+                <Panel class="nav-button-leaderboard nav-button" onactivate="activateTab('tab-leaderboard')">
                     <Label class="nav-button-title" text="Rank" />
                 </Panel>
                 <Panel id="button-formula" 
@@ -35,7 +35,7 @@
         <Panel id="tab-profile" class="info-tab tab-hidden">
             <Label class="tab-title" text="Profile" />
         </Panel>
-        <Panel id="tab-rank" class="info-tab tab-hidden">
+        <Panel id="tab-leaderboard" class="info-tab tab-hidden">
             <Label class="tab-title" text="Leaderboard" />
         </Panel>
         <Panel id="tab-formula" class="info-tab tab-hidden">

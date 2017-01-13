@@ -1,9 +1,10 @@
 var formulaRoot = null;
+var tabs = ['formula', 'leaderboard', 'profile'];
 
 function closeAllTabs() {
   $('#tab-about').AddClass('tab-hidden');
   $('#tab-profile').AddClass('tab-hidden');
-  $('#tab-rank').AddClass('tab-hidden');
+  $('#tab-leaderboard').AddClass('tab-hidden');
   $('#tab-formula').AddClass('tab-hidden');
 }
 
@@ -57,22 +58,19 @@ function hideHotkeyTooltip() {
 }
 
 
-function updateFormulaTab() {
-  var formula = $('#tab-formula');
-  var formulaPanel = $.CreatePanel('Panel', formula, 'formula');
-  formulaPanel.BLoadLayout("file://{resources}/layout/custom_game/info_tabs/formula_tab.xml", false, false);
-  formulaRoot = formulaPanel;
-}
-
-
-function updateProfileTab() {
-  var profile = $('#tab-profile');
-  var profilePanel = $.CreatePanel('Panel', profile, 'profile');
-  profilePanel.BLoadLayout("file://{resources}/layout/custom_game/info_tabs/profile_tab.xml", false, false);
+function initInfoTabs() {
+  for (var name of tabs) {
+    var tab = $('#tab-' + name);
+    var tabPanel = $.CreatePanel('Panel', tab, name);
+    tabPanel.BLoadLayout("file://{resources}/layout/custom_game/info_tabs/" + name + "_tab.xml", false, false);
+    
+    if (name == 'formula') {
+      formulaRoot = tabPanel;
+    }
+  }
 }
 
 
 (function() {
-  updateFormulaTab();
-  updateProfileTab();
+  initInfoTabs();
 })();
