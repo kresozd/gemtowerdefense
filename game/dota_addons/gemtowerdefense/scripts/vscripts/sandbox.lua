@@ -11,7 +11,7 @@ function Sandbox:Init()
 --this shit will be put into kv file
     self.CommandList =
     {
-        ["-change_round"] = Sandbox:ChangeRound()
+     
 
     }
 --aswel as this

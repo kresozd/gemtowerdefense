@@ -77,11 +77,11 @@ function HeroSelection:UnlockAbilities()
         hero:AddAbility("gem_build_tower"):SetLevel(1)
 	    hero:FindAbilityByName("gem_build_tower"):SetAbilityIndex(0)
 	    
-
-
         hero:AddAbility("gem_remove_tower"):SetLevel(1)
 	    hero:FindAbilityByName("gem_remove_tower"):SetAbilityIndex(1)
-
+		
+		hero:AddAbility("gem_heal_throne"):SetLevel(1)
+	    hero:FindAbilityByName("gem_heal_throne"):SetAbilityIndex(1)
         
 
     end

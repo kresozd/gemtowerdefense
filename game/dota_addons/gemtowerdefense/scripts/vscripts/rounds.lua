@@ -194,6 +194,12 @@ function Rounds:GetBaseHealth()
 
 end
 
+function Rounds:SetBaseHealth(value)
+
+	self.BaseHealth = value
+
+end
+
 function Rounds:GetState()
 
 	return self.State

@@ -4816,9 +4816,9 @@
 		"StatusMana"	"100"
 	}
 
-	"gem_round30_mammoth_flying"
+	"gem_round30_seekling"
 	{                                       
-		"Model"                 "models/courier/smeevil_mammoth/smeevil_mammoth_flying.vmdl"
+		"Model"                 "models/courier/seekling/seekling.vmdl"
 		"BaseClass"             "npc_dota_creature"
 		"Level"                 "9"
 		"ModelScale"                "2.2"
@@ -4826,7 +4826,7 @@
 		"Ability2"		""
 		
 		
-		"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_FLY"
+		"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
 		"MovementSpeed"             "1200"
 
 		"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_BASIC"

@@ -3832,7 +3832,23 @@
 			}
 		}
 	}
-	
+	"gem_heal_throne"
+	{
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"enchantress_natures_attendants"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"MaxLevel"	"1"
+
+		"OnSpellStart"
+		{
+				"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/abilities/heroes/healthrone.lua"
+						"Target"	"TARGET"
+						Function	"HealThrone"
+					}
+		}
+	}
 
 }
 

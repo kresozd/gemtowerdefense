@@ -829,7 +829,7 @@ function Builder:AddHeroAbilitiesOnRound()
 	end
 
 end
-
+--[[
 function Builder:AddAbilitiesOnStart(hero)
 
     hero:AddAbility("gem_build_tower"):SetLevel(1)
@@ -838,7 +838,7 @@ function Builder:AddAbilitiesOnStart(hero)
 	hero:FindAbilityByName("gem_remove_tower"):SetAbilityIndex(1)
 
 end
-
+]]--
 function Builder:RemoveBuildAbility(caster)
 
 	caster:FindAbilityByName("gem_build_tower"):SetLevel(0)

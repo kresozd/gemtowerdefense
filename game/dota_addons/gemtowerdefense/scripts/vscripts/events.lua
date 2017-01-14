@@ -14,8 +14,6 @@ end
 
 function GemTowerDefenseReborn:OnPlayerPickHero(keys)
 
-	
-
 	local hero = EntIndexToHScript(keys.heroindex)
 	local player = EntIndexToHScript(keys.player)
 	local playerID = player:GetPlayerID()
