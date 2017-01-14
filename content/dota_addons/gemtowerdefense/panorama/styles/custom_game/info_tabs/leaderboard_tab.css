@@ -9,7 +9,7 @@ Label {
   /*padding-right: 8px;*/
 }
 
-.leaderboard-tabs {
+#leaderboard-tabs {
   width: 100%;
 }
 
@@ -22,7 +22,7 @@ Label {
   visibility: visible;
 }
 
-.leaderboard-nav {
+#leaderboard-nav {
   flow-children: right;
   padding: 5px 8px 7px;
   border-bottom: 1px solid #646475;
@@ -77,29 +77,36 @@ Label {
   width: 45px;
 }
 
-.leaderboard-place-value {
+#leaderboard-place-value {
   font-size: 28px;
   align: center center;
   text-align: center;
 }
 
-.leaderboard-player {
+#leaderboard-players {
   flow-children: right;
   vertical-align: middle;
   margin-left: 45px;
 }
 
+.leaderboard-player {
+  flow-children: right;
+  vertical-align: middle;
+}
+
 .leaderboard-player-avatar {
   height: 62px;
+  margin-right: 7px;
 }
 
-.leaderboard-player-username {
+#leaderboard-player-username {
   font-size: 20px;
   vertical-align: middle;
-  margin-left: 10px;
+  text-overflow: shrink;
+  max-width: 350px;
 }
 
-.leaderboard-player-username > Label {
+#leaderboard-player-username > Label {
   font-size: 24px;
   color: #ebebff;
 }
@@ -109,7 +116,7 @@ Label {
   vertical-align: middle;
 }
 
-.leaderboard-score-value {
+#leaderboard-score-value {
   font-size: 18px;
   letter-spacing: 1px;
   text-transform: uppercase;

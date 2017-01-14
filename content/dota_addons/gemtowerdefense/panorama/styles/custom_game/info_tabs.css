@@ -45,7 +45,7 @@ VerticalScrollBar .ScrollThumb {
   padding: 20px 0;
   flow-children: down;
   transition-property: transform;
-  transition-duration: 0.30s;
+  transition-duration: 0.35s;
   transition-delay: 0.0s;
   transition-timing-function: ease-in-out;
 }
@@ -58,12 +58,10 @@ VerticalScrollBar .ScrollThumb {
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  background-color: gradient( linear, 0% 0%, 0% 100%, from( #5a6c75 ), to( #3d4a50 ) );
   margin: 12px 0 12px 6px;
-  border-top: 1px solid #ffffff44;
-  border-right: 1px solid #4e5b60;
-  border-left: 1px solid #4e5b60;
-  border-bottom: 1px solid #00000088;
+  background-color: #414159;
+  background-color: gradient( linear, 0% 0%, 0% 100%, from( #414159 ), to( #303040 ) );
+  border: 1px solid #737399;
   box-shadow: fill #00000055 -2px -2px 5px 5px;
   transition-property: background-color;
   transition-duration: 0.1s;
@@ -78,7 +76,7 @@ VerticalScrollBar .ScrollThumb {
 .nav-button:hover,
 .nav-button.activated,
 .minify-toggle:hover {
-  background-color: gradient( linear, 0% 0%, 0% 100%, from( #a9c8da ), to( #596b75 ) );
+  background-color: gradient( linear, 0% 0%, 0% 100%, from( #545473 ), to( #434359 ) );
 }
 
 .nav-button-title {
@@ -111,9 +109,9 @@ VerticalScrollBar .ScrollThumb {
   overflow: clip scroll;
   z-index: 5;
   transition-property: transform;
-  transition-duration: 0.35s;
+  transition-duration: 0.32s;
   transition-delay: 0.0s;
-  transition-timing-function: ease-in;
+  transition-timing-function: ease-in-out;
 }
 
 .tab-title {
@@ -128,7 +126,7 @@ VerticalScrollBar .ScrollThumb {
 }
 
 .tab-hidden {
-  transform: translateX(-50%);
+  transform: translateX(-40%);
 }
 
 #tab-formula {
@@ -139,13 +137,12 @@ VerticalScrollBar .ScrollThumb {
 }
 
 .minify-toggle {
-  background-color: gradient( linear, 0% 0%, 0% 100%, from( #5a6c75 ), to( #3d4a50 ) );
   margin-right: 10px;
-  border-top: 1px solid #ffffff44;
+  /*saturation: 0.5;*/
+  background-color: gradient( linear, 0% 0%, 0% 100%, from( #414159 ), to( #303040 ) );
+  background-color:#30304099;
+  border: 1px solid #7878a0;
   padding: 5px 8px;
-  border-right: 1px solid #4e5b60;
-  border-left: 1px solid #4e5b60;
-  border-bottom: 1px solid #00000088;
   horizontal-align: right;
   transition-property: background-color;
   transition-duration: 0.1s;

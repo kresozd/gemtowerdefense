@@ -5,157 +5,105 @@
   <scripts>
     <include src="file://{resources}/scripts/custom_game/info_tabs/leaderboard_tab.js"/>
   </scripts>
+  <snippets>
+    <snippet name="one-player-item">
+      <Panel class="leaderboard-item">
+        <Panel class="leaderboard-place">
+          <Label id="leaderboard-place-value" />
+        </Panel>
+        <Panel id="leaderboard-players">
+          <DOTAAvatarImage class="leaderboard-player-avatar" steamid="local" />
+          <DOTAUserName id="leaderboard-player-username" steamid="local" />
+        </Panel>
+        <Panel class="leaderboard-score">
+          <Label id="leaderboard-score-value" text="score" />
+        </Panel>
+      </Panel>
+    </snippet>
+    <snippet name="two-player-item">
+      <Panel class="leaderboard-item">
+        <Panel class="leaderboard-place">
+          <Label id="leaderboard-place-value" />
+        </Panel>
+        <Panel id="leaderboard-players">
+          <DOTAAvatarImage class="leaderboard-player-avatar" steamid="local" />
+          <DOTAAvatarImage class="leaderboard-player-avatar" steamid="local" />
+        </Panel>
+        <Panel class="leaderboard-score">
+          <Label id="leaderboard-score-value" text="score" />
+        </Panel>
+      </Panel>
+    </snippet>
+    <snippet name="three-player-item">
+      <Panel class="leaderboard-item">
+        <Panel class="leaderboard-place">
+          <Label id="leaderboard-place-value" />
+        </Panel>
+        <Panel id="leaderboard-players">
+          <DOTAAvatarImage class="leaderboard-player-avatar" steamid="local" />
+          <DOTAAvatarImage class="leaderboard-player-avatar" steamid="local" />
+          <DOTAAvatarImage class="leaderboard-player-avatar" steamid="local" />
+        </Panel>
+        <Panel class="leaderboard-score">
+          <Label id="leaderboard-score-value" text="score" />
+        </Panel>
+      </Panel>
+    </snippet>
+    <snippet name="four-player-item">
+      <Panel class="leaderboard-item">
+        <Panel class="leaderboard-place">
+          <Label id="leaderboard-place-value" />
+        </Panel>
+        <Panel id="leaderboard-players">
+          <DOTAAvatarImage class="leaderboard-player-avatar" steamid="local" />
+          <DOTAAvatarImage class="leaderboard-player-avatar" steamid="local" />
+          <DOTAAvatarImage class="leaderboard-player-avatar" steamid="local" />
+          <DOTAAvatarImage class="leaderboard-player-avatar" steamid="local" />
+        </Panel>
+        <Panel class="leaderboard-score">
+          <Label id="leaderboard-score-value" text="score" />
+        </Panel>
+      </Panel>
+    </snippet>
+  </snippets>
   <Panel class="leaderboard-root">
-    <Panel class="leaderboard-nav">
-      <Button id="one-player-button" class="leaderboard-button leaderboard-button-active">
+    <Panel id="leaderboard-nav">
+      <Button id="one-player-button"
+        class="leaderboard-button leaderboard-button-active"
+        onactivate="activateLeaderboardTab(0)">
         <Label class="button-label" text="one player" />
       </Button>
       <Label class="tab-separator" text="/" />
-      <Button id="two-player-button" class="leaderboard-button">
+      <Button id="two-player-button" 
+        class="leaderboard-button"
+        onactivate="activateLeaderboardTab(1)">
         <Label class="button-label" text="two player" />
       </Button>
       <Label class="tab-separator" text="/" />
-      <Button id="three-player-button" class="leaderboard-button">
+      <Button id="three-player-button"
+        class="leaderboard-button"
+        onactivate="activateLeaderboardTab(2)">
         <Label class="button-label" text="three player" />
       </Button>
       <Label class="tab-separator" text="/" />
-      <Button id="four-player-button" class="leaderboard-button">
+      <Button id="four-player-button"
+        class="leaderboard-button"
+        onactivate="activateLeaderboardTab(3)">
         <Label class="button-label" text="four player" />
       </Button>
     </Panel>
-    <Panel class="leaderboard-tabs">
-        <Panel class="leaderboard-tab leaderboard-tab-activated">
-            <Panel class="leaderboard-list">
-              <Panel class="leaderboard-item">
-                <Panel class="leaderboard-place">
-                  <Label class="leaderboard-place-value" text="1." />
-                </Panel>
-                <Panel class="leaderboard-player">
-                  <DOTAAvatarImage class="leaderboard-player-avatar" steamid="local" />
-                  <DOTAUserName class="leaderboard-player-username" steamid="local" />
-                </Panel>
-                <Panel class="leaderboard-score">
-                  <Label class="leaderboard-score-value" text="score" />
-                </Panel>
-              </Panel>
-              <Panel class="leaderboard-item">
-                <Panel class="leaderboard-place">
-                  <Label class="leaderboard-place-value" text="2." />
-                </Panel>
-                <Panel class="leaderboard-player">
-                  <DOTAAvatarImage class="leaderboard-player-avatar" steamid="local" />
-                  <DOTAUserName class="leaderboard-player-username" steamid="local" />
-                </Panel>
-                <Panel class="leaderboard-score">
-                  <Label class="leaderboard-score-value" text="score" />
-                </Panel>
-              </Panel>
-              <Panel class="leaderboard-item">
-                <Panel class="leaderboard-place">
-                  <Label class="leaderboard-place-value" text="3." />
-                </Panel>
-                <Panel class="leaderboard-player">
-                  <DOTAAvatarImage class="leaderboard-player-avatar" steamid="local" />
-                  <DOTAUserName class="leaderboard-player-username" steamid="local" />
-                </Panel>
-                <Panel class="leaderboard-score">
-                  <Label class="leaderboard-score-value" text="score" />
-                </Panel>
-              </Panel>
-              <Panel class="leaderboard-item">
-              <Panel class="leaderboard-place">
-                  <Label class="leaderboard-place-value" text="4." />
-                </Panel>
-                <Panel class="leaderboard-player">
-                  <DOTAAvatarImage class="leaderboard-player-avatar" steamid="local" />
-                  <DOTAUserName class="leaderboard-player-username" steamid="local" />
-                </Panel>
-                <Panel class="leaderboard-score">
-                  <Label class="leaderboard-score-value" text="score" />
-                </Panel>
-              </Panel>
-              <Panel class="leaderboard-item">
-              <Panel class="leaderboard-place">
-                  <Label class="leaderboard-place-value" text="5." />
-                </Panel>
-                <Panel class="leaderboard-player">
-                  <DOTAAvatarImage class="leaderboard-player-avatar" steamid="local" />
-                  <DOTAUserName class="leaderboard-player-username" steamid="local" />
-                </Panel>
-                <Panel class="leaderboard-score">
-                  <Label class="leaderboard-score-value" text="score" />
-                </Panel>
-              </Panel>
-              <Panel class="leaderboard-item">
-              <Panel class="leaderboard-place">
-                  <Label class="leaderboard-place-value" text="6." />
-                </Panel>
-                <Panel class="leaderboard-player">
-                  <DOTAAvatarImage class="leaderboard-player-avatar" steamid="local" />
-                  <DOTAUserName class="leaderboard-player-username" steamid="local" />
-                </Panel>
-                <Panel class="leaderboard-score">
-                  <Label class="leaderboard-score-value" text="score" />
-                </Panel>
-              </Panel>
-              <Panel class="leaderboard-item">
-              <Panel class="leaderboard-place">
-                  <Label class="leaderboard-place-value" text="7." />
-                </Panel>
-                <Panel class="leaderboard-player">
-                  <DOTAAvatarImage class="leaderboard-player-avatar" steamid="local" />
-                  <DOTAUserName class="leaderboard-player-username" steamid="local" />
-                </Panel>
-                <Panel class="leaderboard-score">
-                  <Label class="leaderboard-score-value" text="score" />
-                </Panel>
-              </Panel>
-              <Panel class="leaderboard-item">
-              <Panel class="leaderboard-place">
-                  <Label class="leaderboard-place-value" text="8." />
-                </Panel>
-                <Panel class="leaderboard-player">
-                  <DOTAAvatarImage class="leaderboard-player-avatar" steamid="local" />
-                  <DOTAUserName class="leaderboard-player-username" steamid="local" />
-                </Panel>
-                <Panel class="leaderboard-score">
-                  <Label class="leaderboard-score-value" text="score" />
-                </Panel>
-              </Panel>
-              <Panel class="leaderboard-item">
-              <Panel class="leaderboard-place">
-                  <Label class="leaderboard-place-value" text="9." />
-                </Panel>
-                <Panel class="leaderboard-player">
-                  <DOTAAvatarImage class="leaderboard-player-avatar" steamid="local" />
-                  <DOTAUserName class="leaderboard-player-username" steamid="local" />
-                </Panel>
-                <Panel class="leaderboard-score">
-                  <Label class="leaderboard-score-value" text="score" />
-                </Panel>
-              </Panel>
-              <Panel class="leaderboard-item">
-              <Panel class="leaderboard-place">
-                  <Label class="leaderboard-place-value" text="10." />
-                </Panel>
-                <Panel class="leaderboard-player">
-                  <DOTAAvatarImage class="leaderboard-player-avatar" steamid="local" />
-                  <DOTAUserName class="leaderboard-player-username" steamid="local" />
-                </Panel>
-                <Panel class="leaderboard-score">
-                  <Label class="leaderboard-score-value" text="score" />
-                </Panel>
-              </Panel>
-            </Panel>
+    <Panel id="leaderboard-tabs">
+        <Panel id="leaderboard-one-player" class="leaderboard-tab leaderboard-tab-activated">
+            <Panel class="leaderboard-list" />
         </Panel>
-        <Panel class="leaderboard-tab">
-            <Label text="2p" />
+        <Panel id="leaderboard-two-player" class="leaderboard-tab">
+            <Panel class="leaderboard-list" />
         </Panel>
-        <Panel class="leaderboard-tab">
-            <Label text="3p" />
+        <Panel id="leaderboard-three-player" class="leaderboard-tab">
+            <Panel class="leaderboard-list" />
         </Panel>
-        <Panel class="leaderboard-tab">
-            <Label text="4p" />
+        <Panel id="leaderboard-four-player" class="leaderboard-tab">
+            <Panel class="leaderboard-list" />
         </Panel>
       </Panel>
   </Panel>

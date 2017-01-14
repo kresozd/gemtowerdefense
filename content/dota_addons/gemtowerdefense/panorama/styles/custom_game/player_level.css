@@ -12,6 +12,14 @@
   width: 100%;
 }
 
+#tab-profile #player-level-exp {
+  font-size: 13px;
+}
+
+#tab-profile #player-level-value {
+  font-size: 18px;
+}
+
 .player-level-help {
   align: right middle;
   position: 20px -2px 0px;
@@ -39,23 +47,23 @@
 }
 
 #player-level-value {
-  color: gradient( linear, 0% 0%, 0% 100%, from( #e4ce67 ), to( #747133 ) );
+  /*color: gradient( linear, 0% 0%, 0% 100%, from( #e4ce67 ), to( #747133 ) );*/
+  color: #e3cb62;
   font-family: Radiance;
   text-transform: uppercase;
   letter-spacing: 1px;
-  font-size: 18px;
+  font-size: 19px;
   font-weight: bold;
   align: center center;
-  text-shadow: 1px 1px 2px 1.0 #000000dd;
+  text-shadow: 1px 1px 2px 1.0 #000000aa;
 }
 
 .player-level-bar {
-  height: 23px;
   width: 470px;
   vertical-align: bottom;
   border: 1px solid #000000dd;
   box-shadow: inset #1f2020CC 2px 2px 4px 4px;
-  padding: 1px;
+  padding: 4px;
   background-color: gradient( linear, 0% 0%, 0% 100%, from( #1c1c1c ), to( #353535 ) );
   border-radius: 2px;
 }
@@ -63,12 +71,7 @@
 .player-level-progress {
   height: 100%;
   width: 50%;
-  background-color: gradient( linear, 0% 0%, 0% 100%, from( #9BA0BD ), color-stop( 0.4, #E0E5FF ), color-stop( .5, #E0E5FF), to( #9BA0BD ) );
-  /*background-color: gradient( linear, 0% 0%, 0% 100%, color-stop(0.0, #BBCAEAFF), color-stop(0.50, #FFFFFFFF), color-stop(0.50, #D9DFECFF), color-stop(1.0, #BBCAEAFF));*/
-}
-
-.yellow .player-level-progress {
-  background-color: gradient( linear, 0% 0%, 0% 100%, color-stop(0.0, #ccb42f), color-stop(0.50, #ffeebd), color-stop(0.50, #dbcd8c), color-stop(1.0, #ccb42f));
+  background-color: gradient( linear, 0% 0%, 0% 100%, color-stop(0.0, #d4ba41), color-stop(0.50, #dbcd8c), color-stop(1.0, #d4ba41));
 }
 
 .player-level-label {
