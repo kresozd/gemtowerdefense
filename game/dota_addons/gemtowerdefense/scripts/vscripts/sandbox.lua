@@ -32,6 +32,13 @@ function Sandbox:Init()
     end
 end
 
+function Sandbox:DamageThrone()
+end
+
+function Sandbox:HealThrone()
+end
+
+
 function Sandbox:ResetLevel(keys)
 
     local units = Rounds:GetEnemies()
