@@ -9,10 +9,8 @@
     <Panel id="castle-health-container" hittest="false">
       <Label id="castle-health-title" text="Castle health" />
       <Panel id="castle-health">
-        <Label id="castle-health-value" text="100%"/>
-        <Panel id="castle-health-inner">
-          <Panel id="castle-health-progress"></Panel>
-        </Panel>
+        <Label id="castle-health-value" text="50%"/>
+        <Panel id="castle-health-progress" />
       </Panel>
       <Panel id="castle-health-status" hittest="false">
         <Panel id="health-changed" class="health-changed" hittest="false"></Panel>

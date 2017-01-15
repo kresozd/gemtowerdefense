@@ -191,10 +191,10 @@ function initPlayerState(id, playerInfo) {
   var playerItem = $.CreatePanel('Panel', playerContainer, 'player-state-' + id);
 
   playerItem.BLoadLayoutSnippet('player-state');
-  var userName = playerItem.FindChildTraverse('player-state-username');
+  var userName = playerItem.FindChildTraverse('player-username');
   userName.steamid = steamid;
   userName.style.color = GameUI.CustomUIConfig().player_colors[id];
-  playerItem.FindChildTraverse('player-state-avatar').steamid = steamid;
+  playerItem.FindChildTraverse('player-avatar').steamid = steamid;
 }
 
 

@@ -140,7 +140,6 @@ VerticalScrollBar .ScrollThumb {
   transform: translateX(-40%);
 }
 
-
 .minify-toggle {
   margin-right: 10px;
   background-color: gradient( linear, 0% 0%, 0% 100%, from( #414159 ), to( #303040 ) );

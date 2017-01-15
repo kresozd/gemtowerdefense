@@ -13,8 +13,10 @@
     </snippet>
     <snippet name="player-state">
       <Panel class="player-state-item">
-        <DOTAAvatarImage id="player-state-avatar" />
-        <DOTAUserName id="player-state-username" />
+        <Panel class="player">
+          <DOTAAvatarImage id="player-avatar" />
+          <DOTAUserName id="player-username" />
+        </Panel>
         <DOTAHeroImage id="player-state-hero" scaling="stretch-to-cover-preserve-aspect" />
       </Panel>
     </snippet>

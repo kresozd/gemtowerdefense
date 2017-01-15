@@ -7,7 +7,7 @@
 .round-container {
   flow-children: right;
   padding: 10px 0 10px 7px;
-  background-color: gradient( linear, 0% 0%, 100% 0%, from( #425663bb ), color-stop( .3, #42566355 ), color-stop( .8, #0000 ), to( #0000 ) );
+  background-color: gradient( linear, 0% 0%, 100% 0%, from( #414163bb ), color-stop( .3, #41416355 ), color-stop( .8, #0000 ), to( #0000 ) );
 }
 
 .round-text {
@@ -20,9 +20,8 @@
 
 .round-glowing {
   color: #FFDB6F;
-  text-shadow: 0px 1px 16px 5 #CF5B15;
+  text-shadow: 0px 1px 16px 5 #CF5B15DA;
 }
-
 
 .round-label {
   text-transform: uppercase;
