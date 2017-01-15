@@ -9,6 +9,7 @@ function Rounds:Init(keyvalue)
 
 	ListenToGameEvent('entity_killed', Dynamic_Wrap(Rounds, 'OnEntityKilled'), self)
 	ListenToGameEvent('all_placed', Dynamic_Wrap(Rounds, 'OnAllPlaced'), self)
+	ListenToGameEvent('reset_round', Dynamic_Wrap(Rounds, 'OnReset'), self)
 
 	self.PlayerCount 	= 0
 	self.AllPicked 			= false
@@ -65,6 +66,10 @@ end
             "HitPointQuocient"  "1.2"
 ]]--
 
+function Rounds:OnReset(keys)
+	Rounds:WaveInit()
+	self.AmountSpawned = 0
+end
 
 function Rounds:SpawnUnits()
 
@@ -89,7 +94,7 @@ function Rounds:SpawnUnits()
 		if self.AmountSpawned == 10 then
 			local data = {units = self.SpawnedCreeps}
 			FireGameEvent("all_spawned", data)
-			self.AmountSpawned = 0
+			--self.AmountSpawned = 0
         	return nil
 				
 		else
@@ -303,9 +308,8 @@ end
 function Rounds:IsRoundCleared()
 
 	if self.AmountKilled == 10 then
-
+		self.AmountSpawned = 0
 		return true
-
 	else
 		return false
 	end

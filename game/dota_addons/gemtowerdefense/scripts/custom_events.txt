@@ -12,6 +12,10 @@
 	}
 	"all_spawned"
 	{
+
+	}
+	"reset_round"
+	{
 		
 	}
 

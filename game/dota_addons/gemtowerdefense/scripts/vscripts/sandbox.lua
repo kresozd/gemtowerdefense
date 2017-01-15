@@ -35,8 +35,16 @@ end
 function Sandbox:ResetLevel(keys)
 
     local units = Rounds:GetEnemies()
-
-
+    if Rounds:GetAmountSpawned() == 10 then
+        for key, unit in pairs(units) do
+            unit:Destroy()
+            units[key] = nil
+        end
+        local data = {state = "WAVE"}
+	    FireGameEvent("reset_round", data)
+    else
+        print("Wait for all to spawn!")
+    end
 end
 
 function Sandbox:LevelUp(keys)
@@ -49,17 +57,16 @@ function Sandbox:LevelUp(keys)
     end
 end
 
-
 function Sandbox:KillAllEnemies(keys)
 
     local units = Rounds:GetEnemies()
-    if Containers.TableLlength(units) == 10 then
+    if Rounds:GetAmountSpawned() == 10 then
         for key, unit in pairs(units) do
             unit:Destroy()
             units[key] = nil
         end
         local data = {state = "BUILD"}
-	    FireGameEvent("round_end", data)
+	    FireGameEvent("reset_round", data)
     else
         print("Wait for all to spawn!")
     end
