@@ -39,18 +39,6 @@ function showDistinction(oldHealth, updHealth) {
 }
 
 
-function triggerHealth(min, max) {
-
-  var random = Math.floor(Math.random() * (max - min + 1)) + min;
-  
-  var data = {
-    value: Number(health) + random
-  }
-
-  updateCastleHealth('table', 'gem_castle_health', data)
-}
-
-
 (function() {
   CustomNetTables.SubscribeNetTableListener( 'game_state', updateCastleHealth );
 })();

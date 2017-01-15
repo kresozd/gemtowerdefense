@@ -5,7 +5,7 @@
   <scripts>
     <include src="file://{resources}/scripts/custom_game/castle_healthbar.js"/>
   </scripts>
-  <Panel class="castle-health-element" hittest="false">
+  <Panel class="castle-health-root" hittest="false">
     <Panel id="castle-health-container" hittest="false">
       <Label id="castle-health-title" text="Castle health" />
       <Panel id="castle-health">
@@ -17,14 +17,6 @@
       <Panel id="castle-health-status" hittest="false">
         <Panel id="health-changed" class="health-changed" hittest="false"></Panel>
       </Panel>
-    </Panel>
-    <Panel class="test-container">
-      <Button class="btn-test" id="button-dmg" onactivate="triggerHealth(-1, -15)">
-        <Label text="dmg" />
-      </Button>
-      <Button class="btn-test" id="button-heal" onactivate="triggerHealth(1, 15)">
-        <Label text="heal" />
-      </Button>
     </Panel>
   </Panel>
 </root>

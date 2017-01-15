@@ -1,4 +1,4 @@
-.castle-health-element {
+.castle-health-root {
   width: 100%;
   height: 100%;
 }
@@ -89,18 +89,4 @@
 
 #health-changed .health-changed-healed {
   color: #4caf50;
-}
-
-
-.test-container {
-  flow-children: down;
-  align: right center;
-}
-
-.btn-test {
-  background-color: #fff;
-  margin: 10px;
-  color: #1c1c1c;
-  padding: 7px 10px;
-  font-size: 16px;
 }
