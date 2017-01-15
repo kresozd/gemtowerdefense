@@ -11,6 +11,9 @@
             onmouseout="hideNav()"
             onmouseover="showNav()">
             <Panel id="tabs-nav-container" hittest="false">
+                <Panel class="nav-button-debug nav-button" onactivate="activateTab('tab-debug')">
+                    <Label class="nav-button-title" text="Debug" />
+                </Panel>
                 <Panel class="nav-button-about nav-button" onactivate="activateTab('tab-about')">
                     <Label class="nav-button-title" text="About" />
                 </Panel>
@@ -28,6 +31,9 @@
                     <Label class="nav-button-title" text="Form" />
                 </Panel>
             </Panel>
+        </Panel>
+        <Panel id="tab-debug" class="info-tab tab-hidden">
+            <Label class="tab-title" text="Debug" />
         </Panel>
         <Panel id="tab-about" class="info-tab tab-hidden">
             <Label class="tab-title" text="#addon_game_name" />

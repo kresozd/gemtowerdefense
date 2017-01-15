@@ -10,7 +10,7 @@
       <Panel class="round-container" hittest="false">
         <Label class="round-label round-text" text="Wave:" hittest="false"/>
         <Label id="round-value" class="round-text" text="0" hittest="false"/>
-        <Label id="round-name" class="round-text" text="Current wave name" hittest="false" />
+        <Label id="round-name" class="round-text" text="" hittest="false" />
       </Panel>
     </Panel>
   </Panel>

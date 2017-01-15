@@ -78,7 +78,7 @@ Label {
 
 #leaderboard-place-value {
   margin-top: 4px;
-  font-size: 29px;
+  font-size: 28px;
   align: center center;
   text-align: center;
   color: #A5A5CF;
@@ -102,14 +102,13 @@ Label {
 }
 
 #leaderboard-player-username {
-  font-size: 20px;
   vertical-align: middle;
-  text-overflow: shrink;
-  max-width: 350px;
   margin-left: 5px;
+  max-width: 280px;
 }
 
 #leaderboard-player-username > Label {
+  text-overflow: shrink;
   font-size: 24px;
   color: #ebebff;
 }

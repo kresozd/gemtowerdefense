@@ -28,6 +28,10 @@ function addLeaderboardWinners() {
 
       var leaderboardItem = $.CreatePanel('Panel', leaderboardPanel, '');
       leaderboardItem.BLoadLayoutSnippet(name + '-item');
+      
+      if (i <= 3) {
+        leaderboardItem.AddClass('leaderboard-top');
+      }
 
       leaderboardItem.FindChildTraverse('leaderboard-place-value').text = i + '.';
       var players = leaderboardItem.FindChildTraverse('leaderboard-players'); 

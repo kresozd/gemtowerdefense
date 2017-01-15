@@ -1,0 +1,11 @@
+<root>
+  <styles>
+    <include src="file://{resources}/styles/custom_game/info_tabs/debug_tab.css"/>  
+  </styles>
+  <scripts>
+    <include src="file://{resources}/scripts/custom_game/info_tabs/debug_tab.js"/>
+  </scripts>
+  <Panel class="debug-root">
+    <Panel id="debug-panel" />
+  </Panel>
+</root>

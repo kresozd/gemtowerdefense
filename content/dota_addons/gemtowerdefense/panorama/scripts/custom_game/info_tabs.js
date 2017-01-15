@@ -1,11 +1,13 @@
 var formulaRoot = null;
-var tabs = ['formula', 'leaderboard', 'profile'];
+var tabNames = ['formula', 'leaderboard', 'profile', 'debug'];
+var Root = $.GetContextPanel();
+var tabs = Root.FindChildrenWithClassTraverse('info-tab');
+
 
 function closeAllTabs() {
-  $('#tab-about').AddClass('tab-hidden');
-  $('#tab-profile').AddClass('tab-hidden');
-  $('#tab-leaderboard').AddClass('tab-hidden');
-  $('#tab-formula').AddClass('tab-hidden');
+  for (var tab of tabs) {
+    tab.AddClass('tab-hidden');
+  }
 }
 
 
@@ -13,11 +15,11 @@ function activateTab(tabName) {
   var tab = $('#' + tabName);
   if (!tab.BHasClass('tab-hidden')) {
     tab.AddClass('tab-hidden');
-    $.GetContextPanel().AddClass('tabs-hidden');
+    Root.AddClass('tabs-hidden');
   } else {
     closeAllTabs();
     tab.RemoveClass('tab-hidden');
-    $.GetContextPanel().RemoveClass('tabs-hidden');
+    Root.RemoveClass('tabs-hidden');
   }
 }
 
@@ -32,7 +34,7 @@ function toggleFormulaLayout() {
 
 
 function hideNav() {
-  if (!$.GetContextPanel().BHasClass('tabs-hidden')) {
+  if (!Root.BHasClass('tabs-hidden')) {
     $('#tabs-nav-container').AddClass('hidden', true);
     $('#tabs-nav').hittest = true;
   }
@@ -41,7 +43,7 @@ function hideNav() {
 
 function showNav() {
   var navContainer = $('#tabs-nav-container');
-  if (!$.GetContextPanel().BHasClass('tabs-hidden') || navContainer.BHasClass('hidden')) {
+  if (!Root.BHasClass('tabs-hidden') || navContainer.BHasClass('hidden')) {
     navContainer.RemoveClass('hidden');
     navContainer.hittest = false;
   }
@@ -59,7 +61,7 @@ function hideHotkeyTooltip() {
 
 
 function initInfoTabs() {
-  for (var name of tabs) {
+  for (var name of tabNames) {
     var tab = $('#tab-' + name);
     var tabPanel = $.CreatePanel('Panel', tab, name);
     tabPanel.BLoadLayout("file://{resources}/layout/custom_game/info_tabs/" + name + "_tab.xml", false, false);

@@ -101,7 +101,7 @@ VerticalScrollBar .ScrollThumb {
   padding: 24px 0 0;
   vertical-align: middle;
   width: fit-children;
-  border: 1px solid #11111CF3;
+  border: 1px solid #161624f3;
   border-left: 1px solid #000;
   background-color: #21212efd;
   /*margin-top: 130px;*/
@@ -112,6 +112,17 @@ VerticalScrollBar .ScrollThumb {
   transition-duration: 0.32s;
   transition-delay: 0.0s;
   transition-timing-function: ease-in-out;
+}
+
+#tab-formula {
+  width: fit-children;
+  margin: 0;
+  padding: 25px 8px 0 0;
+  min-width: 0;
+}
+
+#tab-debug {
+  max-width: 250px;
 }
 
 .tab-title {
@@ -129,20 +140,12 @@ VerticalScrollBar .ScrollThumb {
   transform: translateX(-40%);
 }
 
-#tab-formula {
-  width: fit-children;
-  margin: 0;
-  padding: 25px 8px 0 0;
-  min-width: 0;
-}
 
 .minify-toggle {
   margin-right: 10px;
-  /*saturation: 0.5;*/
   background-color: gradient( linear, 0% 0%, 0% 100%, from( #414159 ), to( #303040 ) );
-  background-color:#30304099;
-  border: 1px solid #7878a0;
-  padding: 5px 8px;
+  border: 1px solid #737399;
+  padding: 6px 9px;
   horizontal-align: right;
   transition-property: background-color;
   transition-duration: 0.1s;
