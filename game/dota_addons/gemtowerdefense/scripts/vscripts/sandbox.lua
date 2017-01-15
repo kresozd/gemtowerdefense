@@ -8,13 +8,9 @@ end
 
 function Sandbox:Init()
 
---this shit will be put into kv file
-    self.CommandList =
-    {
-     
 
-    }
---aswel as this
+    --CustomGameEventManager:RegisterListener( "change_round", Dynamic_Wrap(HeroSelection, 'OnRoundChanged'))
+
     self.Devs = 
     {
         ["cro_madbomber"]   = "76561198004060808",
@@ -37,16 +33,18 @@ function Sandbox:Init()
 end
 
 
+function Sandbox:KillAllEnemies()
 
 
-function Sandbox:ChangeRound()
 
-    print("Change round called!")
+end
+
+function Sandbox:OnRoundChanged()
 
     if Rounds:GetState() == "BUILD" then
-
         Rounds:SetRoundNumber(value)
-
+    else
+        --error cant build during wave phase
     end
 end
 

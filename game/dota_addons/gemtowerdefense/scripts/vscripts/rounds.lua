@@ -133,59 +133,39 @@ function Rounds:RemoveTalents(hero)
 end
 
 function Rounds:GetRoundNumber()
-
 	return self.RoundNumber
-
 end
 
 function Rounds:SetRoundNumber(value)
 	self.RoundNumber = value
 end
 
-
-
 function Rounds:InsertByHandle(index, unit)
-
 	self.SpawnedCreeps[index] = unit 
-
 end
 
 function Rounds:DeleteUnit(index)
-
 	self.SpawnedCreeps[index] = nil
-
 end
 
 function Rounds:IncrementRound()
-
 	self.RoundNumber = self.RoundNumber + 1
-
 end
 
 function Rounds:IncrementKillNumber()
-
 	self.AmountKilled = self.AmountKilled + 1
-
 end
 
 function Rounds:ResetKillNumber()
-
 	self.AmountKilled = 0
-
 end
 
-
 function Rounds:RemoveHP(value)
-
 	self.BaseHealth = self.BaseHealth - value
-
 end
 
 function Rounds:IncrementTotalLeaked()
-
 	self.TotalLeaked = self.TotalLeaked + 1
-
-
 end
 
 function Rounds:GetBaseHealth()
@@ -196,8 +176,11 @@ end
 
 function Rounds:SetBaseHealth(value)
 
-	self.BaseHealth = value
-
+	if value > 100 then
+		self.BaseHealth = 100
+	else
+		self.BaseHealth = value
+	end
 end
 
 function Rounds:GetState()

@@ -55,9 +55,6 @@ function GemTowerDefenseReborn:InitGameMode()
 	CustomGameEventManager:RegisterListener( "player_selected_hero", Dynamic_Wrap(HeroSelection, 'OnHeroSelected'))
 	
 
-
-
-
 	local customXP =
 	{
 		[1] = 0,
@@ -80,8 +77,6 @@ end
 function GetState( keys )
 	print(keys.state)
 end
-
-
 
 
 
