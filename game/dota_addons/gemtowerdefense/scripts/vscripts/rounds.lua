@@ -269,7 +269,7 @@ function Rounds:OnEntityKilled(keys)
 
 		local data = {state = "BUILD"}
 		
-		FireGameEvent:FireEvent("round_end", data)
+		FireGameEvent("round_end", data)
 
 	elseif Rounds:IsRoundCleared() then
 
@@ -279,6 +279,7 @@ function Rounds:OnEntityKilled(keys)
 		Rounds:UpdateWaveData()
 		
 		FireGameEvent("round_end", data)
+
 		
 
 
