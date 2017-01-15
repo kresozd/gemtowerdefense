@@ -87,7 +87,8 @@ function Rounds:SpawnUnits()
 		Grid:MoveUnit(unit)
 
 		if self.AmountSpawned == 10 then
-
+			local data = {units = self.SpawnedCreeps}
+			FireGameEvent("all_spawned", data)
 			self.AmountSpawned = 0
         	return nil
 				
@@ -130,6 +131,21 @@ function Rounds:RemoveTalents(hero)
 		end
 	end
 
+end
+function Rounds:GetBuildLevel()
+	return self.BuildLevel
+end
+
+function Rounds:SetBuildLevel(level)
+	self.BuildLevel = level
+end
+
+function Rounds:GetAmountSpawned()
+	return self.AmountSpawned
+end
+
+function Rounds:GetEnemies()
+	return self.SpawnedCreeps
 end
 
 function Rounds:GetRoundNumber()

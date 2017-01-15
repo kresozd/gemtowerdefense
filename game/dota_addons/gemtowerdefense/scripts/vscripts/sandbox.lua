@@ -9,7 +9,9 @@ end
 function Sandbox:Init()
 
 
-    --CustomGameEventManager:RegisterListener( "change_round", Dynamic_Wrap(HeroSelection, 'OnRoundChanged'))
+    CustomGameEventManager:RegisterListener( "debug_clear_wave", Dynamic_Wrap(Sandbox, 'KillAllEnemies'))
+    CustomGameEventManager:RegisterListener( "debug_reset_level", Dynamic_Wrap(Sandbox, 'ResetLevel'))
+    CustomGameEventManager:RegisterListener( "debug_level_up", Dynamic_Wrap(Sandbox, 'LevelUp'))
 
     self.Devs = 
     {
@@ -19,8 +21,6 @@ function Sandbox:Init()
     }
 
     ListenToGameEvent("player_chat", Dynamic_Wrap(Sandbox, "OnPlayerChat"), self)
-
-    self.Commands = {}
 
     function IsDev(playerID)
 
@@ -32,11 +32,37 @@ function Sandbox:Init()
     end
 end
 
+function Sandbox:ResetLevel(keys)
 
-function Sandbox:KillAllEnemies()
+    local units = Rounds:GetEnemies()
 
 
+end
 
+function Sandbox:LevelUp(keys)
+
+    for i = 0, PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_GOODGUYS) - 1 do
+        local player = PlayerResource:GetPlayer(i)
+        local playerID = player:GetPlayerID()
+		local hero = player:GetAssignedHero()
+        hero:HeroLevelUp(true)
+    end
+end
+
+
+function Sandbox:KillAllEnemies(keys)
+
+    local units = Rounds:GetEnemies()
+    if Containers.TableLlength(units) == 10 then
+        for key, unit in pairs(units) do
+            unit:Destroy()
+            units[key] = nil
+        end
+        local data = {state = "BUILD"}
+	    FireGameEvent("round_end", data)
+    else
+        print("Wait for all to spawn!")
+    end
 end
 
 function Sandbox:OnRoundChanged()

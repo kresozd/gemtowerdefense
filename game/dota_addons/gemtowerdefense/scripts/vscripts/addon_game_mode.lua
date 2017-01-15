@@ -24,6 +24,7 @@ require('players')
 require('customEvents')
 require('heroselection')
 require('sandbox')
+require('containers')
 
 
 --Pathfinder
