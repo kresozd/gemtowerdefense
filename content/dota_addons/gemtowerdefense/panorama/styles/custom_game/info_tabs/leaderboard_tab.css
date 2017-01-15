@@ -24,7 +24,7 @@ Label {
 
 #leaderboard-nav {
   flow-children: right;
-  padding: 5px 8px 7px;
+  padding: 5px 10px 7px;
   border-bottom: 1px solid #646475;
 }
 
@@ -67,26 +67,28 @@ Label {
   width: 100%;
   border: 1px solid #ffffff01;
   border-bottom: 1px solid #ffffff05;
-  padding: 5px 9px 5px 0;
+  padding: 7px 8px;
 }
 
 .leaderboard-place {
   vertical-align: middle;
-  /*background-color: #1d1d2bdd;*/
   height: 100%;
-  width: 45px;
+  width: 55px;
 }
 
 #leaderboard-place-value {
-  font-size: 28px;
+  margin-top: 4px;
+  font-size: 29px;
   align: center center;
   text-align: center;
+  color: #A5A5CF;
+  font-weight: thin;
 }
 
 #leaderboard-players {
   flow-children: right;
   vertical-align: middle;
-  margin-left: 45px;
+  margin-left: 57px;
 }
 
 .leaderboard-player {
@@ -95,7 +97,7 @@ Label {
 }
 
 .leaderboard-player-avatar {
-  height: 62px;
+  height: 64px;
   margin-right: 7px;
 }
 
@@ -104,6 +106,7 @@ Label {
   vertical-align: middle;
   text-overflow: shrink;
   max-width: 350px;
+  margin-left: 5px;
 }
 
 #leaderboard-player-username > Label {
