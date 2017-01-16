@@ -137,6 +137,10 @@ function Rounds:RemoveTalents(hero)
 	end
 
 end
+function GetState()
+	return self.State
+end
+
 function Rounds:GetBuildLevel()
 	return self.BuildLevel
 end

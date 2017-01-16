@@ -42,7 +42,7 @@ end
 function Sandbox:ResetLevel(keys)
 
     local units = Rounds:GetEnemies()
-    if Rounds:GetAmountSpawned() == 10 then
+    if Rounds:GetAmountSpawned() == 10 and Rounds:GetState() == "WAVE" then
         for key, unit in pairs(units) do
             unit:Destroy()
             units[key] = nil
