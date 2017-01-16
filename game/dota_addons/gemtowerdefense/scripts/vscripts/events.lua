@@ -19,23 +19,20 @@ function GemTowerDefenseReborn:OnPlayerPickHero(keys)
 	local playerID = player:GetPlayerID()
 
 	hero:SetAbilityPoints(0)
-
+	Players:RemoveTalents(hero)
+	Players:UnlockAbilities(hero)
 --ONLY FOR BOTS TESTING
-	
+--[[	IsInToolsMode does not seem to be defined
 	if IsInToolsMode() then
-
-
 		if hero:GetUnitName() ~= "npc_dota_hero_crystal_maiden" then
 
-		Players:RemoveTalents(hero)
-		Builder:AddAbilitiesOnStart(hero)
-	
-		hero:SetAbilityPoints(0)
-
+			Players:RemoveTalents(hero)
+			Players:UnlockAbilities(hero)
+		
+			hero:SetAbilityPoints(0)
+		end
 	end
-
-	end
-
+	]]
 end
 
 function GemTowerDefenseReborn:OnConnectFull(keys)
@@ -43,7 +40,7 @@ function GemTowerDefenseReborn:OnConnectFull(keys)
 	local entIndex = keys.index+1
   	local player = EntIndexToHScript(entIndex)
   	local playerID = player:GetPlayerID()
-
+  	print("Initialize player", playerID)
 end
 
 
@@ -93,8 +90,11 @@ function GemTowerDefenseReborn:OnPlayerChat(keys)
 	
 	if tokens[1] == "-create_tower" and Rounds.State == "BUILD" then
 		Builder.TowerTestName = tokens[2]
+		print(Builder.TowerTestName)
+	elseif Rounds.State == "WAVE" then
+		print("Only in build phase")
 	end
-	print(Builder.TowerTestName)
+	
 end
 
 function string.trim(s)
@@ -120,7 +120,7 @@ end
 function GemTowerDefenseReborn:OnEntityHurt(keys)
   --DebugPrint("[BAREBONES] Entity Hurt")
   --DebugPrintTable(keys)
-
+  --[[ --Extra call
   local damagebits = keys.damagebits -- This might always be 0 and therefore useless
 
   if keys.entindex_attacker ~= nil and keys.entindex_killed ~= nil then
@@ -133,4 +133,5 @@ function GemTowerDefenseReborn:OnEntityHurt(keys)
       damagingAbility = EntIndexToHScript( keys.entindex_inflictor )
     end
   end
+  ]]
 end

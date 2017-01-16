@@ -1,54 +1,48 @@
 <root>
-    <styles>
-        <include src="file://{resources}/styles/custom_game/info_tabs.css"/>
-    </styles>
-    <scripts>
-        <include src="file://{resources}/scripts/custom_game/info_tabs.js"/>
-    </scripts>
-    <Panel class="info-tabs-root tabs-hidden" hittest="false">
-        <Panel id="tabs-nav"
-            hittest="true"
-            onmouseout="hideNav()"
-            onmouseover="showNav()">
-            <Panel id="tabs-nav-container" hittest="false">
-                <Panel class="nav-button-debug nav-button" onactivate="activateTab('tab-debug')">
-                    <Label class="nav-button-title" text="Debug" />
-                </Panel>
-                <Panel class="nav-button-about nav-button" onactivate="activateTab('tab-about')">
-                    <Label class="nav-button-title" text="About" />
-                </Panel>
-                <Panel class="nav-button-store nav-button" onactivate="activateTab('tab-profile')"> 
-                    <Label class="nav-button-title" text="Profile" />
-                </Panel>
-                <Panel class="nav-button-leaderboard nav-button" onactivate="activateTab('tab-leaderboard')">
-                    <Label class="nav-button-title" text="Rank" />
-                </Panel>
-                <Panel id="button-formula" 
-                    class="nav-button-formula nav-button" 
-                    onmouseover="showHotkeyTooltip()" 
-                    onmouseout="hideHotkeyTooltip()"
-                    onactivate="activateTab('tab-formula')">
-                    <Label class="nav-button-title" text="Form" />
-                </Panel>
-            </Panel>
+  <styles>
+    <include src="file://{resources}/styles/custom_game/info_tabs.css" />
+  </styles>
+  <scripts>
+    <include src="file://{resources}/scripts/custom_game/info_tabs.js" />
+  </scripts>
+  <Panel class="info-tabs-root tabs-hidden" hittest="false">
+    <Panel id="tabs-nav"
+      hittest="true" 
+      onmouseout="hideNav()" 
+      onmouseover="showNav()">
+      <Panel id="tabs-nav-container" hittest="false">
+        <Panel class="nav-button-about nav-button" onactivate="activateTab('tab-about')">
+          <Label class="nav-button-title" text="About" />
         </Panel>
-        <Panel id="tab-debug" class="info-tab tab-hidden">
-            <Label class="tab-title" text="Debug" />
+        <Panel class="nav-button-store nav-button" onactivate="activateTab('tab-profile')">
+          <Label class="nav-button-title" text="Profile" />
         </Panel>
-        <Panel id="tab-about" class="info-tab tab-hidden">
-            <Label class="tab-title" text="#addon_game_name" />
+        <Panel class="nav-button-leaderboard nav-button" onactivate="activateTab('tab-leaderboard')">
+          <Label class="nav-button-title" text="Rank" />
         </Panel>
-        <Panel id="tab-profile" class="info-tab tab-hidden">
-            <Label class="tab-title" text="Profile" />
+        <Panel id="button-formula" 
+          class="nav-button-formula nav-button" 
+          onmouseover="showHotkeyTooltip()" 
+          onmouseout="hideHotkeyTooltip()"
+          onactivate="activateTab('tab-formula')">
+          <Label class="nav-button-title" text="Form" />
         </Panel>
-        <Panel id="tab-leaderboard" class="info-tab tab-hidden">
-            <Label class="tab-title" text="Leaderboard" />
-        </Panel>
-        <Panel id="tab-formula" class="info-tab tab-hidden">
-            <Label class="tab-title" text="Formulas" />
-            <Panel id="minify-toggle" class="minify-toggle" onactivate="toggleFormulaLayout()">
-                <Label id="minify-label" text="minify table" />
-            </Panel>
-        </Panel>
+      </Panel>
     </Panel>
+    <Panel id="tab-about" class="info-tab tab-hidden">
+      <Label class="tab-title" text="#addon_game_name" />
+    </Panel>
+    <Panel id="tab-profile" class="info-tab tab-hidden">
+      <Label class="tab-title" text="Profile" />
+    </Panel>
+    <Panel id="tab-leaderboard" class="info-tab tab-hidden">
+      <Label class="tab-title" text="Leaderboard" />
+    </Panel>
+    <Panel id="tab-formula" class="info-tab tab-hidden">
+      <Label class="tab-title" text="Formulas" />
+      <Panel id="minify-toggle" class="minify-toggle" onactivate="toggleFormulaLayout()">
+        <Label id="minify-label" text="minify table" />
+      </Panel>
+    </Panel>
+  </Panel>
 </root>

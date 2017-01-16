@@ -1,5 +1,5 @@
 var formulaRoot = null;
-var tabNames = ['formula', 'leaderboard', 'profile', 'debug'];
+var tabNames = ['formula', 'leaderboard', 'profile'];
 var Root = $.GetContextPanel();
 var tabs = Root.FindChildrenWithClassTraverse('info-tab');
 

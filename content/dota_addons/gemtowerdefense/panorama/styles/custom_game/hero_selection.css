@@ -89,7 +89,7 @@ DOTAHudMenuButtons {
 
 .hero-selected {
   saturation: 1;
-  border-color: #ACBFDD;
+  border-color: #ADADDE;
   box-shadow: -3px -3px 6px 6px #668BBCaa;
 }
 
@@ -105,7 +105,7 @@ DOTAHudMenuButtons {
   saturation: 0.0;
   brightness: .4;
   contrast: .98;
-  wash-color: #C1CADD;
+  wash-color: #C1C1DE;
 }
 
 #hero-image {
@@ -248,22 +248,28 @@ DOTAHudMenuButtons {
 }
 
 .player-state-item {
-  flow-children: left;
-  /*width: 100%;*/
-  padding: 5px 10px;
-  background-color: #21262e55;
+  padding: 8px;
+  background-color: #21262e59;
   margin-bottom: 5px;
+  width: 380px;
 }
 
-#player-state-username {
+.player {
+  horizontal-align: right;
+  flow-children: left;
+}
+
+#player-username {
   font-size: 25px;
   font-family: Radiance;
   color: #C1CADD;
   margin-right: 18px;
+  max-width: 195px;
   vertical-align: middle;
 }
 
 #player-state-hero {
+  horizontal-align: left;
   width: 75px;
   height: 40px;
   border: 1px solid #14161c;
@@ -275,6 +281,6 @@ DOTAHudMenuButtons {
   brightness: 0.5;
 }
 
-#player-state-avatar {
-  width: 55px;
+#player-avatar {
+  width: 58px;
 }

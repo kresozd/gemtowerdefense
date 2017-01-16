@@ -9,22 +9,26 @@ end
 function Sandbox:Init()
 
 
-    CustomGameEventManager:RegisterListener( "debug_clear_wave", Dynamic_Wrap(Sandbox, 'KillAllEnemies'))
-    CustomGameEventManager:RegisterListener( "debug_reset_level", Dynamic_Wrap(Sandbox, 'ResetLevel'))
-    CustomGameEventManager:RegisterListener( "debug_level_up", Dynamic_Wrap(Sandbox, 'LevelUp'))
+    CustomGameEventManager:RegisterListener( "sandbox_clear_wave", Dynamic_Wrap(Sandbox, 'KillAllEnemies'))
+    CustomGameEventManager:RegisterListener( "sandbox_reset_level", Dynamic_Wrap(Sandbox, 'ResetLevel'))
+    CustomGameEventManager:RegisterListener( "sandbox_level_up", Dynamic_Wrap(Sandbox, 'LevelUp'))
 
     self.Devs = 
     {
-        ["cro_madbomber"]   = "76561198004060808",
-        ["Burusomazu"]      = "76561198074443940"
-        --All need to be added, PhysicsGuy, zach, eric yohansa, xemon, potato, monohlyra, king, windblown, skinpop
+        ["76561198004060808"]   =   "cro_madbomber",
+        ["76561198074443940"]   =   "Burusomazu",
+        ["76561198048873840"]   =   "PhysicsGuy" 
+        --All need to be added, zach, eric yohansa, xemon, potato, monohlyra, king, windblown, skinpop
     }
-
+    self.CommandList = 
+    {
+        ["-create_tower"] = true
+    }
     ListenToGameEvent("player_chat", Dynamic_Wrap(Sandbox, "OnPlayerChat"), self)
 
     function IsDev(playerID)
-
-        if self.Devs[PlayerResource:GetSteamID(playerID)] then
+        print("Testing if ", PlayerResource:GetSteamID(playerID), " is a dev")
+        if self.Devs[tostring(PlayerResource:GetSteamID(playerID))] then
             return true
         else
             return false
@@ -91,20 +95,37 @@ end
 function Sandbox:OnPlayerChat(keys)
     
     local teamonly = keys.teamonly
-    --local userID = keys.userid
-   -- local playerID = userID:GetPlayerID()
+    local player = PlayerResource:GetPlayer(keys.userid - 1)
+    local playerID = player:GetPlayerID()
+
     local tokens =  string.split(string.trim(keys.text))
 
-    print(tokens[1])
+    if self.CommandList[tokens[1]] and IsDev(playerID) then
 
-    if self.CommandList[tokens] and IsDev(playerID) then
-
-        print("true")
-       local command = Sandbox:ChangeRound()
-
-
+        print("Command is correct and player is a dev")
+       --local command = Sandbox:ChangeRound()
     end
+    print(tokens[1], self.CommandList[tokens[1]])
+end
 
+function string.trim(s)
+    return s:match "^%s*(.-)%s*$"
+end
+
+function string.starts(String,Start)
+   return string.sub(String,1,string.len(Start))==Start
+end
+
+function string.split(s, sep)
+        if sep == nil then
+                sep = "%s"
+        end
+        local t={} ; i=1
+        for str in string.gmatch(s, "([^"..sep.."]+)") do
+                t[i] = str
+                i = i + 1
+        end
+        return t
 end
 
 

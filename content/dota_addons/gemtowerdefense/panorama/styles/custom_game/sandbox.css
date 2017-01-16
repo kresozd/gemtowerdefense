@@ -1,0 +1,90 @@
+.sandbox-root {
+  horizontal-align: right;
+  height: 100%;
+}
+
+Label {
+  font-family: Radiance;
+  color: #fff;
+  font-size: 16px;
+  text-align: center;
+  align: center center;
+}
+
+Button {
+  padding: 7px 10px;
+  background-color: #414159;
+  background-color: gradient( linear, 0% 0%, 0% 100%, from( #414159 ), to( #303040 ) );
+  border: 1px solid #737399;
+  transition-property: background-color;
+  transition-duration: 0.1s;
+  transition-delay: 0.0s;
+  transition-timing-function: linear;
+}
+
+Button:hover {
+  background-color: gradient( linear, 0% 0%, 0% 100%, from( #545473 ), to( #434359 ) );
+}
+
+#sandbox-toggle > Label {
+  font-size: 16px;
+  margin-top: 2px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+#sandbox-toggle {
+  box-shadow: fill #00000055 -2px -2px 5px 5px;
+  padding: 6px 25px;
+  margin-right: 250px;
+  border-top: 1px solid #545473;
+  horizontal-align: right;
+}
+
+#sandbox-tab {
+  vertical-align: middle;
+  flow-children: down;
+  box-shadow: #000000f5 -4px -4px 8px 8px;
+  width: fit-children;
+  border: 1px solid #161624f3;
+  border-left: 1px solid #000;
+  background-color: #21212efd;
+  horizontal-align: right;
+  margin-top: 100px;
+  margin-bottom: 250px;
+  z-index: 5;
+  transition-property: transform;
+  transition-duration: 0.32s;
+  transition-delay: 0.0s;
+  transition-timing-function: ease-in-out;
+}
+
+#sandbox-tab.sandbox-tab-hidden {
+  transform: translateX(100%);
+}
+
+.sandbox-header {
+  width: 100%;
+  background-color: #171721de;
+  padding: 12px;
+  border-bottom: 1px solid #ffffff05;
+}
+
+.sandbox-title {
+  font-size: 21px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #ebebff;
+}
+
+#sandbox-panel {
+  flow-children: right-wrap;
+  width: 345px;
+  padding: 15px 17px 15px 20px;
+}
+
+.sandbox-button {
+  max-width: 140px;
+  width: fill-parent-flow(1.0);
+  margin: 7px;
+}

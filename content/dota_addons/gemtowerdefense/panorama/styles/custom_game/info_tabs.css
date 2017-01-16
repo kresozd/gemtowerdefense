@@ -121,10 +121,6 @@ VerticalScrollBar .ScrollThumb {
   min-width: 0;
 }
 
-#tab-debug {
-  max-width: 250px;
-}
-
 .tab-title {
   font-size: 26px;
   letter-spacing: 2px;
@@ -140,7 +136,6 @@ VerticalScrollBar .ScrollThumb {
   transform: translateX(-40%);
 }
 
-
 .minify-toggle {
   margin-right: 10px;
   background-color: gradient( linear, 0% 0%, 0% 100%, from( #414159 ), to( #303040 ) );
@@ -148,7 +143,7 @@ VerticalScrollBar .ScrollThumb {
   padding: 6px 9px;
   horizontal-align: right;
   transition-property: background-color;
-  transition-duration: 0.1s;
+  transition-duration: 0.09s;
   transition-delay: 0.0s;
   transition-timing-function: linear;
 }
