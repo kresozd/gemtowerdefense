@@ -13,18 +13,7 @@ function Sandbox:Init()
     CustomGameEventManager:RegisterListener( "sandbox_reset_level", Dynamic_Wrap(Sandbox, 'ResetLevel'))
     CustomGameEventManager:RegisterListener( "sandbox_level_up", Dynamic_Wrap(Sandbox, 'LevelUp'))
 
-    self.Devs = 
-    {
-        ["76561198004060808"]   =   "cro_madbomber",
-        ["76561198074443940"]   =   "Burusomazu",
-        ["76561198048873840"]   =   "PhysicsGuy" 
-        --All need to be added, zach, eric yohansa, xemon, potato, monohlyra, king, windblown, skinpop
-    }
-    self.CommandList = 
-    {
-        ["-create_tower"] = true
-    }
-    ListenToGameEvent("player_chat", Dynamic_Wrap(Sandbox, "OnPlayerChat"), self)
+    self.Enabled = false
 
     function IsDev(playerID)
         print("Testing if ", PlayerResource:GetSteamID(playerID), " is a dev")
@@ -37,6 +26,7 @@ function Sandbox:Init()
 end
 
 function Sandbox:DamageThrone()
+
 end
 
 function Sandbox:HealThrone()
