@@ -1,0 +1,19 @@
+<root>
+  <styles>
+    <include src="file://{resources}/styles/custom_game/sandbox.css"/>  
+  </styles>
+  <scripts>
+    <include src="file://{resources}/scripts/custom_game/sandbox.js"/>
+  </scripts>
+  <Panel class="sandbox-root" hittest="false">
+    <Button id="sandbox-toggle" onactivate="toggleSandboxTab()">
+      <Label text="sandbox" />
+    </Button>
+    <Panel id="sandbox-tab" class="sandbox-tab-hidden">
+      <Panel class="sandbox-header">
+        <Label class="sandbox-title" text="Sandbox" />
+      </Panel>
+      <Panel id="sandbox-panel" />
+    </Panel>
+  </Panel>
+</root>

@@ -9,9 +9,9 @@ end
 function Sandbox:Init()
 
 
-    CustomGameEventManager:RegisterListener( "debug_clear_wave", Dynamic_Wrap(Sandbox, 'KillAllEnemies'))
-    CustomGameEventManager:RegisterListener( "debug_reset_level", Dynamic_Wrap(Sandbox, 'ResetLevel'))
-    CustomGameEventManager:RegisterListener( "debug_level_up", Dynamic_Wrap(Sandbox, 'LevelUp'))
+    CustomGameEventManager:RegisterListener( "sandbox_clear_wave", Dynamic_Wrap(Sandbox, 'KillAllEnemies'))
+    CustomGameEventManager:RegisterListener( "sandbox_reset_level", Dynamic_Wrap(Sandbox, 'ResetLevel'))
+    CustomGameEventManager:RegisterListener( "sandbox_level_up", Dynamic_Wrap(Sandbox, 'LevelUp'))
 
     self.Devs = 
     {

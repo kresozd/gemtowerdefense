@@ -27,19 +27,18 @@
 #castle-health {
   width: 380px;
   border-radius: 3px;
-  border: 1px solid #000000dd;
   box-shadow: inset #303040cc 2px 2px 4px 4px;
-  padding: 2px;
+  padding: 3px;
   background-color: gradient( linear, 0% 0%, 0% 100%, from( #1c1c1c ), to( #353535 ) );
 }
 
 #castle-health-value {
   font-family: RadianceM;
   font-size: 17px;
-  margin-bottom: -2px;
+  margin-bottom: -1px;
   color: #ffffff;
   align: center center;
-  text-shadow: 1px 1px 1px 2.0 #2b2b2bb3;
+  text-shadow: 1px 1px 1px 2.0 #2b2b2bff;
   font-weight: bold;
   z-index: 10;
 }
