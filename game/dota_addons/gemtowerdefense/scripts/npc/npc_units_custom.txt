@@ -4049,7 +4049,7 @@
 			"DisableClumpingBehavior"	"1"
 			
 			"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
-			"MovementSpeed"             "400"
+			"MovementSpeed"             "1200"
 
 			"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_BASIC"
 			"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_BASIC"
@@ -5268,6 +5268,58 @@
 		"RingRadius"				"64"
 		"HealthBarOffset"			"260"
 		
+	}
+	"gem_throne"
+	{
+		// General
+		//
+		// Class of entity of link to.
+		"BaseClass"	"npc_dota_creature"
+		"Model"	"models/props_structures/radiant_statue002.vmdl"
+		"ModelScale"	"1.4"
+		"MinimapIcon"	"minimap_creep"
+		"MinimapIconSize"	"256"
+		"Level"	"1"
+		"AbilityLayout"	"6"
+		"Ability1"	"REMOVE_HP_BAR"
+		"Ability2"	""
+
+		"AttackCapabilities"	"DOTA_UNIT_CAP_NO_ATTACK"
+		"AttackDamageMin"	"5"
+		"AttackDamageMax"	"5"
+		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
+		
+
+		"AttackRate"	"0.5"
+		"AttackAnimationPoint"	"0"
+		"AttackAcquisitionRange"	"1400"
+		"AttackRange"	"1200"
+		
+		"ProjectileModel"	"particles/econ/events/snowball/snowball_projectile.vpcf"
+		"ProjectileSpeed"	"2000"
+
+		"RingRadius"	"64"
+		"HealthBarOffset"	"260"
+
+		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_NONE"
+		"MovementSpeed"	"0"
+		"MovementTurnRate"	"10"
+
+		"StatusHealth"	"100"
+		"StatusHealthRegen"	"0"
+		"StatusMana"	"0"
+		"StatusManaRegen"	"0"
+
+		"BoundsHullName"	"DOTA_HULL_SIZE_SMALL"
+
+		"TeamName"	"DOTA_TEAM_GOODGUYS"
+		"CombatClassAttack"	"DOTA_COMBAT_CLASS_ATTACK_SIEGE"
+		"CombatClassDefend"	"DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
+		"UnitRelationshipClass"	"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
+
+		"VisionDaytimeRange"	"1800"
+
 	}	
 		
 }
+

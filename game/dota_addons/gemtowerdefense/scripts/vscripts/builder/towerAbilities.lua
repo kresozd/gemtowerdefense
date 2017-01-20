@@ -24,11 +24,11 @@ function AbilityDowngradeTower(keys)
 end
 
 function AbilityMergeTower(keys)
-	print("Merging in "..Rounds.State)
+	print("Merging in "..Wave.State)
 	local caster = keys.caster
 	local owner = caster:GetOwner()
 	local playerID = owner:GetPlayerID()
-	if Rounds.State == "BUILD" then
+	if Wave.State == "BUILD" then
 		Builder:CreateMergeableTower(playerID, caster, owner)
 	else
 		Builder:WaveCreateMergedTower(playerID, caster, owner)
@@ -41,7 +41,7 @@ function AbilityMergeTower_2(keys)
 	local caster = keys.caster
 	local owner = caster:GetOwner()
 	local playerID = owner:GetPlayerID()
-	if Rounds.State == "BUILD" then
+	if Wave.State == "BUILD" then
 		Builder:CreateMergeableTower_2(playerID, caster, owner)
 	else
 		Builder:WaveCreateMergedTower_2(playerID, caster, owner)
@@ -89,12 +89,12 @@ function Ability_Show_Damage(keys)
         end
         
         local attacker_id = attacker:GetEntityIndex()
-        local curr_damage = Rounds.TowerDamage[attacker_id]
+        local curr_damage = Wave.TowerDamage[attacker_id]
         if curr_damage == nil then
             curr_damage = 0
         end
         curr_damage = curr_damage + damage
-        Rounds.TowerDamage[attacker_id] = curr_damage
+        Wave.TowerDamage[attacker_id] = curr_damage
     end
 end
 

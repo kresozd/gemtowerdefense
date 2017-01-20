@@ -18,6 +18,14 @@
 	{
 		
 	}
+	"throne_touch"
+	{
+
+	}
+	"kill_round"
+	{
+		
+	}
 
 
 

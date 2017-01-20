@@ -19,8 +19,8 @@ function GemTowerDefenseReborn:OnPlayerPickHero(keys)
 	local playerID = player:GetPlayerID()
 
 	hero:SetAbilityPoints(0)
-	Players:RemoveTalents(hero)
-	Players:UnlockAbilities(hero)
+	--Players:RemoveTalents(hero)
+	--Players:UnlockAbilities(hero)
 --ONLY FOR BOTS TESTING
 --[[	IsInToolsMode does not seem to be defined
 	if IsInToolsMode() then
@@ -72,7 +72,7 @@ function GemTowerDefenseReborn:OnStateChange(keys)
 
 		end
 	end
-	
+
 
 		
     if state == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
@@ -88,10 +88,10 @@ function GemTowerDefenseReborn:OnPlayerChat(keys)
 
 	local tokens =  string.split(string.trim(keys.text))
 	
-	if tokens[1] == "-create_tower" and Rounds.State == "BUILD" then
+	if tokens[1] == "-create_tower" and Wave.State == "BUILD" then
 		Builder.TowerTestName = tokens[2]
 		print(Builder.TowerTestName)
-	elseif Rounds.State == "WAVE" then
+	elseif Wave.State == "WAVE" then
 		print("Only in build phase")
 	end
 	

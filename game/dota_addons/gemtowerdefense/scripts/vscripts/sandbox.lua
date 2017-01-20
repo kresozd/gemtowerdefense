@@ -35,48 +35,45 @@ end
 
 function Sandbox:ResetLevel(keys)
 
-    local units = Rounds:GetEnemies()
-    if Rounds:GetAmountSpawned() == 10 and Rounds:GetState() == "WAVE" then
-        for key, unit in pairs(units) do
-            unit:Destroy()
-            units[key] = nil
-        end
-        local data = {state = "WAVE"}
-	    FireGameEvent("reset_round", data)
+    local MAX_UNITS_ON_WAVE = 10
+    local unitCount = Containers.TableLength(Wave:GetEnemies())
+    if unitCount == MAX_UNITS_ON_WAVE and Wave:GetState() == "WAVE" then
+        Wave:DeleteAllUnits()
+        Wave:WaveInit()
     else
         print("Wait for all to spawn!")
     end
 end
 
+
 function Sandbox:LevelUp(keys)
 
-    for i = 0, PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_GOODGUYS) - 1 do
-        local player = PlayerResource:GetPlayer(i)
-        local playerID = player:GetPlayerID()
-		local hero = player:GetAssignedHero()
-        hero:HeroLevelUp(true)
-    end
+    local playerID = keys.PlayerID
+    local player = PlayerResource:GetPlayer(playerID)
+	local hero = player:GetAssignedHero()
+    hero:HeroLevelUp(true)
 end
 
 function Sandbox:KillAllEnemies(keys)
 
-    local units = Rounds:GetEnemies()
-    if Rounds:GetAmountSpawned() == 10 then
-        for key, unit in pairs(units) do
-            unit:Destroy()
-            units[key] = nil
-        end
-        local data = {state = "BUILD"}
-	    FireGameEvent("reset_round", data)
+    local MAX_UNITS_ON_WAVE = 10
+    local unitCount = Containers.TableLength(Wave:GetEnemies())
+    if unitCount == MAX_UNITS_ON_WAVE and Wave:GetState() == "WAVE" then
+        local eventData = {state = "BUILD"}
+	    FireGameEvent("round_end", eventData)
+
+        Wave:DeleteAllUnits()
+        Wave:UpdateWaveData()
     else
-        print("Wait for all to spawn!")
+        
+
     end
 end
 
 function Sandbox:OnRoundChanged()
 
-    if Rounds:GetState() == "BUILD" then
-        Rounds:SetRoundNumber(value)
+    if Wave:GetState() == "BUILD" then
+        Wave:SetRoundNumber(value)
     else
         --error cant build during wave phase
     end

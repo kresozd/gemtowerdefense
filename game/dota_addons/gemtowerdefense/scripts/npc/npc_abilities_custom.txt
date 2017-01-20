@@ -3835,7 +3835,7 @@
 	"gem_heal_throne"
 	{
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"enchantress_natures_attendants"
+		"AbilityTextureName"	"treant_living_armor"
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"MaxLevel"	"1"
 

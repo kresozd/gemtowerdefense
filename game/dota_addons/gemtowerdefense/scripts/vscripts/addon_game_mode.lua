@@ -13,7 +13,7 @@ require('events')
 --require('builder')
 require('abilities')
 require('libraries/selection')
-require('rounds')
+require('Wave')
 
 require('builder/builder')
 require('builder/builderAbilities')
@@ -25,7 +25,8 @@ require('customEvents')
 require('heroselection')
 require('sandbox')
 require('containers')
-
+require('throne')
+require('gamedata')
 
 --Pathfinder
 

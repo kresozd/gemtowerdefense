@@ -1,10 +1,10 @@
 function HealThrone(keys)
 
+    local throne = Throne:GetThrone()
     local caster = keys.caster
     local healValue = 5
-    local currentHP = Rounds:GetBaseHealth()
-    local newHP = currentHP + healValue
+    
+    throne:SetHealth(throne:GetHealth() + healValue)
 
-    Rounds:SetBaseHealth(newHP)
-    CustomNetTables:SetTableValue( "game_state", "gem_castle_health", { value = tostring(Rounds:GetBaseHealth()) } )
+    CustomNetTables:SetTableValue( "game_state", "gem_castle_health", { value = tostring(throne:GetHealth()) } )
 end

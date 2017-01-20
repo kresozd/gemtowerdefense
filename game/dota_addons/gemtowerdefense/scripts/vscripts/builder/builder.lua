@@ -307,7 +307,7 @@ end
 
 function Builder:CreateTower(playerID, owner, position, caster)
 
-	CustomNetTables:SetTableValue( "game_state", "current_round", { value = Rounds:GetRoundNumber() } )
+	CustomNetTables:SetTableValue( "game_state", "current_round", { value = Wave:GetRoundNumber() } )
 
 	local generatedName = tostring(Random:GenerateWardName())	
 	local generatedLevel = tostring(Random:GenerateWardLevel())
@@ -725,7 +725,7 @@ function Builder:CreateMergeableTower(playerID, caster, owner)
 		self.RoundTowers[playerID][key] = nil
 	end
 
-	print(Rounds.State)
+	print(Wave.State)
 	
 	CheckIfAllPicked()
 
@@ -1080,7 +1080,7 @@ function Builder:WaveCreateMergedTower(playerID, caster, owner)
 	end
 
 	if addingMVPlevels >0 then
-		Rounds:Ability_MVP_Level_Up(mergedtower,addingMVPlevels)
+		Wave:Ability_MVP_Level_Up(mergedtower,addingMVPlevels)
 	end
 
 	self.GlobalTowers = globalTest
@@ -1228,7 +1228,7 @@ function Builder:WaveCreateMergedTower_2(playerID, caster, owner)
 	end
 
 	if addingMVPlevels >0 then
-		Rounds:Ability_MVP_Level_Up(mergedtower,addingMVPlevels)
+		Wave:Ability_MVP_Level_Up(mergedtower,addingMVPlevels)
 	end
 
 	self.GlobalTowers = globalTest
