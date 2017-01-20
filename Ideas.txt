@@ -1,0 +1,51 @@
+Talents for Heros
+
+Allow faster leveling for more ability points
+
+Use talents to choose additional abilities, or upgrade the gem building ability
+
+
+Chipped
+Flawed
+Normal
+Flawless
+Perfect
+Takes four levels in order to get to Perfect gems
+There are 4 levels for talents
+So go to level 9?
+Maybe have an ultimate ability talent at level 10 in order to choose a strong ability
+Talents could be (examples only)
+	+10% magic or physical damage
+	More gold per kill
+	+20 extra hp on Gem
+	Automatic healing after every round to the tune of +2
+	-10% enemy movement slow
+	+40 attack speed bonus aura
+	-2 to enemy attacks
+	
+	Ultimate talent could be to give a preview of the type of gem about to be placed but not the rarity
+	or the rarity but not the type of gem
+
+Hero Abilities	
+	Copy a tower
+	+20% Sapphire
+	+20% Ruby
+	+20% Opal
+	+20% Topaz
+	+20% Aquamarine
+	+20% Emerald
+	+20% Diamond
+	+20% Amethyst
+	+10% Flawless
+	+10% Perfect
+	Healing power
+	Attack speed for a round
+	Attack damage for a round
+	Magic resistance decreasing aura
+	Slowing aura
+	Disable passives aura
+	Warlock ability to split damage
+	Stun ability
+	
+	
+	
