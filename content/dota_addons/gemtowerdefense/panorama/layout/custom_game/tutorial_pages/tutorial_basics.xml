@@ -1,0 +1,22 @@
+<root>
+  <styles>
+    <include src="file://{resources}/styles/custom_game/tutorial_ui.css"/>  
+  </styles>
+  <scripts>
+    <!--<include src="file://{resources}/scripts/custom_game/players_bar.js"/>-->
+  </scripts>
+  <Panel class="content">
+    <Label class="content-title" text="Basics" />
+    <Panel class="content-row">
+      <Panel class="content-column content-lead">
+        <Label class="content-subtitle" text="Building" />
+        <Label class="content-text" text="In GemTD, the towers you get are completely random. Start by building 5 random gems and pick one gem to keep for the round to begin, the remaining gems turn into stones, which are useful for mazing."/>
+        <Image class="content-img" src="file://{images}/custom_game/begin-gems.png" scaling="stretch-to-fit-preserve-aspect" />
+      </Panel>
+      <Panel class="content-column content-lead">
+        <Label class="content-subtitle" text="Gem combinations" />
+        <Label html="true" class="content-text" text="Every basic gem can be combined with two other specific gems to create a powerful combination gem. When you build all the parts of a combination the final gem will appear in place of the gem that used the &lt;span class=&quot;key-word&quot;&gt;Combine&lt;/span&gt; ability."/>
+      </Panel>
+    </Panel>
+  </Panel>
+</root>

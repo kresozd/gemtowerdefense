@@ -79,8 +79,8 @@ function addHeroButtonEvent(button, heroName) {
         selectedHero = heroName;
         GameEvents.SendCustomGameEventToServer('player_selected_hero', {hero: selectedHero});
 
-        $('#pick-hero-button').disabled = isAvailable;
-        $('#pick-hero-button').SetHasClass('pick-hero-disabled', isAvailable)
+        $('#pick-hero-button').enabled = !isAvailable;
+        // $('#pick-hero-button').SetHasClass('pick-hero-disabled', isAvailable)
       }
     }
   (heroName));
@@ -158,7 +158,7 @@ function checkPreviews() {
 
 
 function pickHero() {
-  if ($('#pick-hero-button').disabled || !selectedHero) {
+  if (!selectedHero || heroPicked) {
     $.Msg('Scooby Doo where are you');
     return;
   }
@@ -207,7 +207,7 @@ function updateSelectedHero(data) {
 
 
 (function() {
-  $('#pick-hero-button').disabled = true;
+  $('#pick-hero-button').enabled = false;
 
   GameEvents.Subscribe("player_selected_hero_client", updateSelectedHero);
   // CustomNetTables.SubscribeNetTableListener('game_state', endHeroSelection);

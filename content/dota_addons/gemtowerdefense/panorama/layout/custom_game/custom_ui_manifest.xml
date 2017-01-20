@@ -37,5 +37,6 @@
 		<CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/players_bar.xml" />
 		<CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/info_tabs.xml" />
 		<CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/sandbox.xml" />
+		<CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/tutorial_ui.xml" />
 	</Panel>
 </root>

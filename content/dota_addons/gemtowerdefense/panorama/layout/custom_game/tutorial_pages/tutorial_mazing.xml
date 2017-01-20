@@ -1,0 +1,16 @@
+<root>
+  <styles>
+    <include src="file://{resources}/styles/custom_game/tutorial_ui.css"/>  
+  </styles>
+  <scripts>
+  </scripts>
+  <Panel class="content">
+    <Label class="content-title" text="Mazing" />
+    <Panel class="content-row">
+      <Panel class="content-column content-image"></Panel>
+      <Panel class="content-column content-lead">
+        <Label class="content-text content-text-accent" text="Mazing is highly advisable to do well in this game. Start by building a spiral of gems around one of the waypoints, and replace the mazing rocks close to the center to get more powerful gems near the center of the maze. Over time you can come up with your own methods of creating an effective maze. The key is to maximize the amount of time your high level combination gems spend attacking the enemies."/>
+      </Panel>
+    </Panel>
+  </Panel>
+</root>

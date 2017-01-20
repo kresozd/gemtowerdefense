@@ -41,7 +41,7 @@
               <Panel class="hero-ability"></Panel>
               <Panel class="hero-ability"></Panel>
             </Panel>
-          <Button id="pick-hero-button" class="pick-hero-disabled" onactivate="pickHero()">
+          <Button id="pick-hero-button" onactivate="pickHero()">
             <Label class="button-label" text="Pick hero" />
           </Button>
         </Panel>

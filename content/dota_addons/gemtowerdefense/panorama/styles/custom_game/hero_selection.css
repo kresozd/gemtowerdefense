@@ -213,7 +213,7 @@ DOTAHudMenuButtons {
   saturation: .8;
 }
 
-#pick-hero-button.pick-hero-disabled {
+#pick-hero-button:disabled {
   saturation: 0;
 }
 

@@ -1,0 +1,35 @@
+<root>
+  <styles>
+    <include src="file://{resources}/styles/custom_game/tutorial_ui.css"/>  
+  </styles>
+  <scripts>
+    <include src="file://{resources}/scripts/custom_game/tutorial_ui.js"/>
+  </scripts>
+  <Panel class="tutorial-root" hittest="false">
+    <Button id="tutorial-toggle-button" onactivate="toggleTutorial()">
+      <Label text="tutorial" />
+    </Button>
+    <Panel id="tutorial">
+      <Button id="tutorial-button-close" onactivate="toggleTutorial()" />
+      <Panel class="tutorial-inner">
+        <Panel class="tutorial-container">
+          <Panel class="tutorial-menu">
+            <Panel class="menu">
+              <Panel class="menu-line" />
+              <Panel id="menu-list" />
+            </Panel>
+          </Panel>
+          <Panel id="tutorial-content" />
+        </Panel>
+      </Panel>
+      <Panel class="tutorial-nav">
+        <Button id="tutorial-prev"
+          class="tutorial-nav-button"
+          onactivate="showPrevPage()" />
+        <Button id="tutorial-next" 
+          class="tutorial-nav-button"
+          onactivate="showNextPage()" />
+      </Panel>
+    </Panel>
+  </Panel>
+</root>
