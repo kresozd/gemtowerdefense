@@ -4613,7 +4613,7 @@
 	{                                       
 		"Model"                 "models/courier/frog/frog.vmdl" // Model.
 		"BaseClass"             "npc_dota_creature"
-		"Level"                 "9"
+		"Level"                 "22"
 		"ModelScale"                "1.4"
 		"Ability1"		"damage_shown_enemy"
 		"Ability2"		"physical_immunity_enemy"
@@ -4640,7 +4640,7 @@
 	{                                       
 		"Model"                 "models/courier/smeevil_crab/smeevil_crab.vmdl" // Model.
 		"BaseClass"             "npc_dota_creature"
-		"Level"                 "9"
+		"Level"                 "23"
 		"ModelScale"                "1.4"
 		"Ability1"		"damage_shown_enemy"
 		"Ability2"		"armor_increase_enemy"
@@ -4666,7 +4666,7 @@
 	{                                       
 		"Model"                 "models/items/courier/boooofus_courier/boooofus_courier_flying.vmdl" // Model.
 		"BaseClass"             "npc_dota_creature"
-		"Level"                 "9"
+		"Level"                 "24"
 		"ModelScale"                "1.4"
 		"Ability1"		"damage_shown_enemy"
 		"Ability2"		"shredder_reactive_armor"
@@ -4816,9 +4816,9 @@
 		"StatusMana"	"100"
 	}
 
-	"gem_round30_seekling"
+	"gem_round30_starladder"
 	{                                       
-		"Model"                 "models/courier/seekling/seekling.vmdl"
+		"Model"                 "models/items/courier/starladder_grillhound/starladder_grillhound.vmdl"
 		"BaseClass"             "npc_dota_creature"
 		"Level"                 "9"
 		"ModelScale"                "2.2"
