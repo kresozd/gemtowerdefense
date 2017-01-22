@@ -1,3 +1,4 @@
+
 if Throne == nil then
 	Throne = class({})
 	
@@ -10,6 +11,7 @@ function Throne:Init()
     
 end
 
+    
 function Throne:GetThrone()
 	return self.Throne
 end
