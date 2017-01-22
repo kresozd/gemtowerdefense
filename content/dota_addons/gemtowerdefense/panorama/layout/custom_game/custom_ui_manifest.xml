@@ -21,8 +21,15 @@
 		GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_ACTION_PANEL, true );
 		GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_INVENTORY_PANEL, true );
 		GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_ENDGAME, true );
-
-
+		
+		//talentfix
+		var newUI = $.GetContextPanel().GetParent().GetParent().FindChildTraverse("HUDElements").FindChildTraverse("lower_hud").FindChildTraverse("center_with_stats").FindChildTraverse("center_block");
+        newUI.FindChildTraverse("AbilitiesAndStatBranch").style.minWidth = "160px";
+        newUI.FindChildTraverse("StatBranch").SetPanelEvent("onmouseover", function(){});
+        newUI.FindChildTraverse("StatBranch").SetPanelEvent("onactivate", function(){});
+        newUI.FindChildTraverse("level_stats_frame").style.visibility = "collapse";
+        newUI.FindChildTraverse("inventory").FindChildTraverse("inventory_items").FindChildTraverse("inventory_backpack_list").style.visibility = "collapse";
+		//end
 		GameUI.CustomUIConfig().player_colors = {}
 		GameUI.CustomUIConfig().player_colors[0] = "#2f99f0;";
 		GameUI.CustomUIConfig().player_colors[1] = "#E8363D;";
@@ -38,5 +45,10 @@
 		<CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/info_tabs.xml" />
 		<CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/sandbox.xml" />
 		<CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/tutorial_ui.xml" />
+		//talentfix
+		<CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/hud.xml" />
 	</Panel>
+
+		
+
 </root>
