@@ -286,18 +286,6 @@ function Builder:Init()
 	self.State = "BUILD"
 end
 
-function Builder:SetPlayerCount(count)
-
-	self.PlayerCount = count
-
-end
-
-function Builder:IncrementPlayerCount()
-
-	self.PlayerCount = self.PlayerCount + 1
-
-end
-
 function Builder:InitBuild()
 
 	Builder:ClearWaveAbilities()
