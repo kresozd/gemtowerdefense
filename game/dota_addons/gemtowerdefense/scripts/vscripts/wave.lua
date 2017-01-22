@@ -73,13 +73,14 @@ end
 function Wave:SpawnUnits()
 
 	self.State = "WAVE"
+	local amountSpawned = 0
 	local waveData = Wave:LoadWaveData()
 
 	Timers:CreateTimer( function()
 		
 		local unit = CreateUnitByName(waveData.unitName, self.SpawnPosition, false, nil, nil, DOTA_TEAM_BADGUYS)
 		local eHandle = unit:GetEntityHandle()
-
+		amountSpawned = amountSpawned + 1
 		self.SpawnedCreeps[eHandle] = unit
 
 		Wave:AddCreepProperties(unit, waveData)
@@ -87,7 +88,7 @@ function Wave:SpawnUnits()
 			
 		Grid:MoveUnit(unit)
 
-		if Containers.TableLength(self.SpawnedCreeps) == 10 then
+		if amountSpawned == 10 then
 			local data = {units = self.SpawnedCreeps}
 			FireGameEvent("all_spawned", data)
 			--self.AmountSpawned = 0
@@ -233,8 +234,6 @@ function Wave:OnEntityKilled(keys)
 
 	Wave:AddHeroBountyOnKill(unit)
 
-	self.AmountKilled = self.AmountKilled + 1
-
 	self.SpawnedCreeps[eHandle] = nil
 
 	if Wave:IsBoss() then
@@ -282,8 +281,6 @@ end
 
 function Wave:IsRoundCleared()
 
-	local test = Containers.TableLength(self.SpawnedCreeps)
-	print("Table length of creeps:", test)
 	if Containers.TableLength(self.SpawnedCreeps) == 0 then
 		return true
 	else
