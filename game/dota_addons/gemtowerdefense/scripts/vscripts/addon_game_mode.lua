@@ -4,21 +4,17 @@ if GemTowerDefenseReborn == nil then
 	_G.GemTowerDefenseReborn = class({})
 end
 
---require('socket')
+
 require('gamemode')
 require('random')
 require('libraries/timers')
 require('grid')
 require('events')
---require('builder')
-require('abilities')
 require('libraries/selection')
-require('Wave')
-
+require('wave')
 require('builder/builder')
 require('builder/builderAbilities')
 require('builder/towerAbilities')
-
 require('settings')
 require('players')
 require('customEvents')
