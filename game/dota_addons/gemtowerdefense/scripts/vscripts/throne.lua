@@ -6,7 +6,7 @@ end
 
 function Throne:Init()
 
-	self.Throne = CreateUnitByName("gem_throne", Vector(1792, -1792, 0), false, nil,nil, DOTA_TEAM_GOODGUYS)
+	self.Throne = CreateUnitByName("gem_throne", Vector(1792, -1792, 0), false, nil,nil, DOTA_TEAM_GOODGUYS):SetForwardVector(Vector(-1,0,0))
     
 end
 
