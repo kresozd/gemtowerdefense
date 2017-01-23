@@ -71,25 +71,25 @@
       <Button id="one-player-button"
         class="leaderboard-button leaderboard-button-active"
         onactivate="activateLeaderboardTab(0)">
-        <Label class="button-label" text="one player" />
+        <Label class="button-label" text="1 Player" />
       </Button>
       <Label class="tab-separator" text="/" />
       <Button id="two-player-button" 
         class="leaderboard-button"
         onactivate="activateLeaderboardTab(1)">
-        <Label class="button-label" text="two player" />
+        <Label class="button-label" text="2 Player" />
       </Button>
       <Label class="tab-separator" text="/" />
       <Button id="three-player-button"
         class="leaderboard-button"
         onactivate="activateLeaderboardTab(2)">
-        <Label class="button-label" text="three player" />
+        <Label class="button-label" text="3 Player" />
       </Button>
       <Label class="tab-separator" text="/" />
       <Button id="four-player-button"
         class="leaderboard-button"
         onactivate="activateLeaderboardTab(3)">
-        <Label class="button-label" text="four player" />
+        <Label class="button-label" text="4 Player" />
       </Button>
     </Panel>
     <Panel id="leaderboard-tabs">

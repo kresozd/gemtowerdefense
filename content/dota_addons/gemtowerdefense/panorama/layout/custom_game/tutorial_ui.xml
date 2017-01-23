@@ -5,7 +5,7 @@
   <scripts>
     <include src="file://{resources}/scripts/custom_game/tutorial_ui.js"/>
   </scripts>
-  <Panel class="tutorial-root" hittest="false">
+  <Panel class="tutorial-root tutorial-hidden" hittest="false">
     <Button id="tutorial-toggle-button" onactivate="toggleTutorial()">
       <Label text="tutorial" />
     </Button>

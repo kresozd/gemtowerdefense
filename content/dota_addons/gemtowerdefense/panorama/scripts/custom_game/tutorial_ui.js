@@ -95,5 +95,4 @@ function toggleTutorial() {
 
 (function() {
   initTutorial();
-  $.GetContextPanel().AddClass('tutorial-hidden');
 })();

@@ -6,6 +6,7 @@ Label {
 
 .leaderboard-root {
   flow-children: down;
+  width: 100%;
   /*padding-right: 8px;*/
 }
 
@@ -23,20 +24,22 @@ Label {
 }
 
 #leaderboard-nav {
+  horizontal-align: center;
   flow-children: right;
   padding: 5px 10px 7px;
   border-bottom: 1px solid #646475;
+  width: 100%;
 }
 
 .tab-separator {
-  margin: -1px 7px 0;
+  margin: -1px 9px 0;
   font-size: 17px;
   vertical-align: middle;
   color: #5D5D75;
 }
 
 .leaderboard-button > Label {
-  font-size: 17px;
+  font-size: 18px;
   text-transform: uppercase;
   vertical-align: middle;
   letter-spacing: 1px;
@@ -89,6 +92,7 @@ Label {
   flow-children: right;
   vertical-align: middle;
   margin-left: 57px;
+  margin-right: 70px;
 }
 
 .leaderboard-player {
