@@ -13,7 +13,6 @@ function initTutorial() {
     var menuItem = $.CreatePanel('Panel', menu, 'menu-item-' + page);
 
     menuItem.AddClass('menu-item');
-    menuItem.SetHasClass('menu-item-selected', page == 0);
     $.CreatePanel('Label', menuItem, '').text = +page + 1;
 
     addMenuEvent(menuItem, page);
@@ -21,10 +20,10 @@ function initTutorial() {
     var tutorialPage = $.CreatePanel('Panel', content, 'content-' + page);
 
     tutorialPage.BLoadLayout('file://{resources}/layout/custom_game/tutorial_pages/tutorial_' + pageName + '.xml', false, false);
-    tutorialPage.SetHasClass('content-active', page == 0);
   }
   
   updateNavigation();
+  showPage(0);
 }
 
 
@@ -38,10 +37,12 @@ function addMenuEvent(menu, page) {
 function showPage(page) {
   
   $.Msg(page);
-  if (page >= 0 && page < tutorialPages.length && page != currentPage) {
+  if (page >= 0 && page < tutorialPages.length) {
     
     var currentMenuItem = $('#menu-item-' + currentPage);
-    var currentPageContent = $('#content-' + currentPage)
+    var currentPageContent = $('#content-' + currentPage);
+    
+    $('#title-label').text = tutorialPages[page].toUpperCase();
     
     if (currentMenuItem) {
       currentMenuItem.RemoveClass('menu-item-selected')

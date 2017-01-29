@@ -1,15 +1,15 @@
 var health = 100;
 
 
-function updateCastleHealth(table, key, data) {
+function updateThroneHealth(table, key, data) {
   if (key == 'gem_castle_health') {
     showDistinction(health, data.value);
     health = data.value;
 
     if (health > 100) health = 100;
     var healthStr = health > 0 ? health + '%' : '0%';
-    $("#castle-health-value").text = healthStr;
-    $("#castle-health-progress").style.width = healthStr;
+    $("#throne-health-value").text = healthStr;
+    $("#throne-health-progress").style.width = healthStr;
   }
 }
 
@@ -38,7 +38,19 @@ function showDistinction(oldHealth, updHealth) {
   }); 
 }
 
+function triggerHealth(min, max) {
+
+  var random = Math.floor(Math.random() * (max - min + 1)) + min;
+
+  var data = {
+    value: Number(health) + random
+  }
+
+  updateThroneHealth('table', 'gem_castle_health', data)
+ }
+
+$.Msg('hello');
 
 (function() {
-  CustomNetTables.SubscribeNetTableListener( 'game_state', updateCastleHealth );
+  CustomNetTables.SubscribeNetTableListener( 'game_state', updateThroneHealth );
 })();

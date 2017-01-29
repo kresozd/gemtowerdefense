@@ -80,7 +80,6 @@ function addHeroButtonEvent(button, heroName) {
         GameEvents.SendCustomGameEventToServer('player_selected_hero', {hero: selectedHero});
 
         $('#pick-hero-button').enabled = !isAvailable;
-        // $('#pick-hero-button').SetHasClass('pick-hero-disabled', isAvailable)
       }
     }
   (heroName));
@@ -96,8 +95,8 @@ function preloadPreview(hero, value) {
   preview.style.visibility = 'collapse';
 
   var loading = $.CreatePanel('Panel', preview, '');
-  loading.AddClass('loading-image');
-  loading.AddClass('hero-preview-loading'); 
+  loading.BLoadLayout("file://{resources}/layout/custom_game/preloader.xml", false, false)
+  loading.AddClass('hero-preview-loading');
 
   var queueElement = {
     container: preview,
@@ -114,7 +113,7 @@ function preloadPreview(hero, value) {
 function preloadHeroPreviews(heroes) {
   for (var hero in heroes) {
     var heroName = heroes[hero].name;
-      heroPreviews[heroName] = preloadPreview(heroName, "<DOTAScenePanel antialias='true' class='hero-preview-scene' unit='" + heroName + "' always-cache-composition-layer='true' />");
+    heroPreviews[heroName] = preloadPreview(heroName, "<DOTAScenePanel antialias='true' class='hero-preview-scene' unit='" + heroName + "' always-cache-composition-layer='true' />");
   }
 }
 
