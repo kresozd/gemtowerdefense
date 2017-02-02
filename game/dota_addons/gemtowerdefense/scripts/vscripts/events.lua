@@ -17,7 +17,7 @@ function GemTowerDefenseReborn:OnPlayerPickHero(keys)
 	local hero = EntIndexToHScript(keys.heroindex)
 	local player = EntIndexToHScript(keys.player)
 	local playerID = player:GetPlayerID()
-
+	
 	hero:SetAbilityPoints(0)
 	--Players:RemoveTalents(hero)
 	--Players:UnlockAbilities(hero)
@@ -49,6 +49,8 @@ function GemTowerDefenseReborn:OnStateChange(keys)
 	local state = GameRules:State_Get()
 
 	if state == DOTA_GAMERULES_STATE_HERO_SELECTION then
+		EmitGlobalSound("announcer_announcer_choose_hero")
+
 	end
 		
 	if state == DOTA_GAMERULES_STATE_PRE_GAME then
@@ -94,7 +96,10 @@ function GemTowerDefenseReborn:OnPlayerChat(keys)
 	elseif Wave.State == "WAVE" then
 		print("Only in build phase")
 	end
-	
+end
+
+function GemTowerDefenseReborn:OnEntityKilled(keys)
+	EmitGlobalSound("General.Coins")
 end
 
 function string.trim(s)
@@ -117,21 +122,3 @@ function string.split(s, sep)
         return t
 end
 
-function GemTowerDefenseReborn:OnEntityHurt(keys)
-  --DebugPrint("[BAREBONES] Entity Hurt")
-  --DebugPrintTable(keys)
-  --[[ --Extra call
-  local damagebits = keys.damagebits -- This might always be 0 and therefore useless
-
-  if keys.entindex_attacker ~= nil and keys.entindex_killed ~= nil then
-    local entCause = EntIndexToHScript(keys.entindex_attacker)
-    local entVictim = EntIndexToHScript(keys.entindex_killed)
-    -- The ability/item used to damage, or nil if not damaged by an item/ability
-    local damagingAbility = nil
-
-    if keys.entindex_inflictor ~= nil then
-      damagingAbility = EntIndexToHScript( keys.entindex_inflictor )
-    end
-  end
-  ]]
-end

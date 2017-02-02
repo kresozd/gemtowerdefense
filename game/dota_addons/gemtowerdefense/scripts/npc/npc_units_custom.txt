@@ -134,6 +134,7 @@
 	{
 
 		"BaseClass"	"npc_dota_creature"
+		//"Model"	"models/heroes/visage/visage_familiar.vmdl"
 		"Model"	"models/items/wards/echo_bat_ward/echo_bat_ward.vmdl"
 		"ModelScale"	"0.9"
 		
@@ -188,6 +189,7 @@
 	{
 
 		"BaseClass"	"npc_dota_creature"
+		//"Model"	"models/heroes/visage/visage_familiar.vmdl"
 		"Model" "models/items/wards/esl_wardchest_four_armed_observer/esl_wardchest_four_armed_observer.vmdl"
 		"ModelScale"	"0.9"
 		
@@ -240,6 +242,7 @@
 	{
 
 		"BaseClass"	"npc_dota_creature"
+		//"Model"	"models/heroes/visage/visage_familiar.vmdl"
 		"Model"	"models/items/wards/tide_bottom_watcher/tide_bottom_watcher.vmdl"
 		"ModelScale"	"0.9"
 		

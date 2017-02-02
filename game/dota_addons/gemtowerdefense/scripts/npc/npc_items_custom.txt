@@ -2,6 +2,53 @@
 {
 	"Version"	"1"
 
+	"item_custom" 
+	{
+	    "ID"           "2100"
+	    "BaseClass"    "item_datadriven"
+	    "AbilityTextureName" "item_rapier"
+	    "Model"        "models/props_gameplay/recipe.vmdl" 
+	    "Effect"       "particles/generic_gameplay/dropped_item.vpcf"
+	    "ItemQuality"  "artifact"
+
+	    "ItemCost"     "5"
+	    "ItemKillable" "0" 
+	    "ItemSellable" "1"
+	    "ItemPurchasable" "1"
+	    "ItemDroppable" "1"
+	    "ItemShareability" "ITEM_FULLY_SHAREABLE"
+
+	    "SideShop"     "1" 
+	    "SecretShop"   "0"
+
+	    "ItemStackable" "1"
+	    "ItemPermanent" "0"
+	    "ItemDisassembleRule" "DOTA_ITEM_DISASSEMBLE_ALWAYS"
+
+	    "AbilitySpecial"
+	    {
+	        "01"
+	        {
+	            "var_type"      "FIELD_INTEGER"
+	            "bonus_stat"    "100"
+	        }
+	    }
+
+	    "Modifiers"
+	    {
+	        "modifier_item_custom"
+	        {
+	            "Passive"  "1"
+	            "IsHidden" "1" 
+	            "Attributes" "MODIFIER_ATTRIBUTE_MULTIPLE"
+	            "Properties"
+	            {
+	                "MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "%bonus_stat"
+	            }
+	        } 
+	    }
+	} 
+
 	"item_modifier_master"
 	{
 		"ID"							"1010"
@@ -45,8 +92,12 @@
 				"EffectName" "particles/econ/courier/courier_hyeonmu_ambient/courier_hyeonmu_ambient_magic_gold.vpcf"
 				"EffectAttachType" "follow_origin"				
 			}
-
-
+			"modifier_tower_MVP"
+			{
+				"IsHidden" "1"
+				"EffectName" particles/econ/items/dazzle/dazzle_ti6/dazzle_ti6_shallow_grave_halo.vpcf
+				"EffectAttachType" "follow_origin"				
+			}
 			"modifier_merge_gem_Silver"
 			{
 				"TextureName" "gem_Silver"

@@ -62,7 +62,9 @@ function Builder:Init()
 		if self.PickCount == PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_GOODGUYS) then
 			
 			self.PickCount = 0
-			
+			if ModMasterMVP then
+				ModMasterMVP:Destroy()
+			end
 			Builder:WaveCheckIfMergeable()
 			Builder:WaveAddTowerMergeAbility()
 			

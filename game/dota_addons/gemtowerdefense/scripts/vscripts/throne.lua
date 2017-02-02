@@ -8,7 +8,7 @@ end
 function Throne:Init()
 
 	self.Throne = CreateUnitByName("gem_throne", Vector(1792, -1792, 0), false, nil,nil, DOTA_TEAM_GOODGUYS):SetForwardVector(Vector(-1,0,0))
-    
+    self.StatusHealth = 100
 end
 
     
@@ -31,6 +31,7 @@ function Throne:OnTouch(trigger)
 	
 	if unit and string.match(unit:GetUnitName(), "gem_round") then
 
+
 		local data = 
 		{	
 			handle = tostring(handle)
@@ -52,8 +53,18 @@ function Throne:SpawnEntity()
 	local Throne = CreateUnitByName("gem_throne", thronePosition, false, nil, nil, DOTA_TEAM_GOODGUYS)
 	Throne:SetForwardVector(Vector(-1,0,0))
 end
+--[[
+function Throne:SetHealth(health)
+    self.StatusHealth = health
+	if self.StatusHealth > 100 then
+		self.StatusHealth = 100
+	end
+end
 
-
+function Throne:GetHealth()
+    return self.StatusHealth
+end
+]]
 --[[
 if Throne == nil then
 	Throne = class({})

@@ -341,6 +341,8 @@ function Wave:Ability_MVP_Level_Up(unit,upLevel)
     end
     unit:AddAbility("gem_MVP_"..unit.MVPLevel)
     unit:FindAbilityByName("gem_MVP_"..unit.MVPLevel):SetLevel(1)
+    local ModMasterMVP = CreateItem("item_modifier_master", nil, nil) 
+	ModMasterMVP:ApplyDataDrivenModifier(unit, unit, "modifier_tower_MVP",{duration = 5.0})
 end
 
 function Wave:AddHeroBountyOnKill(unit)
