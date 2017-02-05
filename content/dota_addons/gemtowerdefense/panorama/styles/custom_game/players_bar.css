@@ -1,17 +1,17 @@
 .players-bar-root {
-  width: 100%;
+  width: 50%;
 }
 
 #players-bar {
-  horizontal-align: center;
-  margin-left: -230px;
+  horizontal-align: right;
+  margin-right: 60px;
   flow-children: right;
   min-width: 320px;
 }
 
 .player-root {
   flow-children: down;
-  margin: 0 7px;
+  margin: 0 6px;
   width: 65px;
   border-bottom-left-radius: 6px;
   border-bottom-right-radius: 6px;

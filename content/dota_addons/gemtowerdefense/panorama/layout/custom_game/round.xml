@@ -5,10 +5,10 @@
   <scripts>
     <include src="file://{resources}/scripts/custom_game/round.js"/>
   </scripts>
-  <Panel class="round-element" hittest="false">
+  <Panel class="round-root" hittest="false">
     <Panel class="round" hittest="false">
       <Panel class="round-container" hittest="false">
-        <Label class="round-label round-text" text="Wave:" hittest="false"/>
+        <Label class="round-label round-text" text="Round" hittest="false"/>
         <Label id="round-value" class="round-text" text="0" hittest="false"/>
         <Label id="round-name" class="round-text" text="" hittest="false" />
       </Panel>

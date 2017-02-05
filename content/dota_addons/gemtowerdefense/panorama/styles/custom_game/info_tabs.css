@@ -85,7 +85,7 @@ VerticalScrollBar .ScrollThumb {
   font-weight: bold;
   font-family: Radiance;
   font-size: 14px;
-  color: #ffffff;
+  color: #ebebff;
   text-transform: uppercase;
   transition-property: color;
   transition-duration: 0.2s;

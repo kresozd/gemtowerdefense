@@ -1,16 +1,17 @@
-.castle-health-root {
-  width: 100%;
+.throne-health-root {
+  width: 50%;
+  horizontal-align: right;
   height: 100%;
 }
 
-#castle-health-container {
+#throne-health-container {
+  margin-left: 70px;
   flow-children: down;
-  horizontal-align: center;
+  horizontal-align: left;
   vertical-align: top;
-  margin-left: 550px;
 }
 
-#castle-health-title {
+#throne-health-title {
   color: #ffffff;
   font-weight: bold;
   text-shadow: 1px 1px 1px 2.0 #2b2b2bb3;
@@ -18,24 +19,28 @@
   font-family: Radiance;
   margin-top: 2px;
   margin-right: 3px;
+  margin-bottom: -3px;
   font-size: 16px;
   text-transform: uppercase;
   letter-spacing: 2px;
   text-overflow: clip;
 }
 
-#castle-health {
+#throne-health {
   width: 380px;
   border-radius: 3px;
-  box-shadow: inset #303040cc 2px 2px 4px 4px;
+  box-shadow: inset #221F40 0px 0px 6px;
+  /*border: 1px solid #343d49;*/
   padding: 3px;
+  background-color: #262238;
   background-color: gradient( linear, 0% 0%, 0% 100%, from( #1c1c1c ), to( #353535 ) );
 }
 
-#castle-health-value {
+#throne-health-value {
   font-family: RadianceM;
-  font-size: 17px;
-  margin-bottom: -1px;
+  letter-spacing: 1px;
+  font-size: 15px;
+  /*margin-bottom: -1px;*/
   color: #ffffff;
   align: center center;
   text-shadow: 1px 1px 1px 2.0 #2b2b2bff;
@@ -43,16 +48,19 @@
   z-index: 10;
 }
 
-#castle-health-progress {
-  background-color: gradient( linear, 0% 0%, 0% 100%, from( #54b05e ), to( #2c6130 ) );
+#throne-health-progress {
   width: 100%;
-  border-right: 1px solid #425d25;
+  border-radius: 3px;
+  background-color: #55ad5c;
+  background-color: gradient( linear, 0% 0%, 100% 100%, from( #58AD44), to( #58AD44) );
+  box-shadow: inset #221F40 0px 0px 6px;
+  /*border-right: 1px solid #425d25;*/
   height: 100%;
 }
 
-#castle-health-status {
+#throne-health-status {
   width: 100%;
-  height: 70px;
+  /*height: 70px;*/
 }
 
 .health-changed {
@@ -61,16 +69,16 @@
 }
 
 .health-changed Label {
-  transform: translateY(-20px);
+  transform: translateY(-30px) rotateY(105deg);
   opacity: 0;
   transition-property: transform, opacity;
-  transition-duration: 0.18s, 0.12s;
+  transition-duration: 0.2s, 0.12s;
   transition-delay: 0.0s;
   transition-timing-function: ease-in;
 }
 
 #health-changed .health-changed-value {
-  color: #f34d40;
+  color: #d9453b;
   font-size: 32px;
   font-weight: bold;
   font-family: Radiance;
@@ -83,4 +91,18 @@
 
 #health-changed .health-changed-healed {
   color: #4caf50;
+}
+
+
+.test-container {
+  flow-children: down;
+  align: right center;
+}
+ 
+.btn-test {
+  background-color: #fff;
+  margin: 10px;
+  color: #1c1c1c;
+  padding: 7px 10px;
+  font-size: 16px;
 }

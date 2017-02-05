@@ -24,7 +24,6 @@ Label {
   margin-left: 300px;
   margin-bottom: 5px;
   padding: 5px 22px;
-  border: 2px  solid black;
   background-color: gradient( linear, 0% 0%, 0% 100%, from( #646496 ), to( #1d1d2b ) );
   border: 2px solid #a1a1d4;
   box-shadow: #8999b066 -3px -3px 6px 6px;
@@ -101,9 +100,12 @@ Label {
 
 .tutorial-menu {
   width: 100%;
-  margin-top: 15px;
-  padding-bottom: 15px;
-  border-bottom: 1px solid #ffffff05;
+  padding-top: 17px;
+  padding-bottom: 17px;
+  margin-bottom: 15px;
+  /*border-bottom: 1px solid #ffffff03;*/
+  /*background-color: gradient(linear, 0% 0%, 100% 100%, from(#0003), to(#000));*/
+  background-color: #13131a;
 }
 
 .menu {
@@ -159,14 +161,32 @@ Label {
   visibility: visible;
 }
 
-.content-title {
-  background-color: gradient( linear, 100% 0%, 0% 0%, from( #41416300 ), color-stop( .3, #4a4a7088 ), color-stop( .7, #4a4a7088 ), to( #41416300 ) );
+#tutorial-title {
+  background-color: gradient( linear, 100% 0%, 0% 0%, from( #41416300 ), color-stop(.2, #4a4a7020), color-stop( .4, #4a4a7088 ), color-stop( .6, #4a4a7088 ), color-stop(.8, #4a4a7020), to( #41416300 ) );
+  horizontal-align: center;
+}
+
+.title-border {
+  height: 2px;
+  width: 100%;
+  background-color: #9595DB;
+  background-color: gradient( linear, 100% 0%, 0% 0%, from( #9595DB00 ), color-stop(.2, #9595DB09), color-stop( .4, #9595DB88 ), color-stop( .6, #9595DB88 ), color-stop(.8, #9595DB09), to( #9595DB00 ) );
+}
+
+.title-border.top {
+  vertical-align: top;
+}
+
+.title-border.bottom {
+  vertical-align: bottom;
+}
+
+#title-label {
   padding: 8px 150px 5px;
   text-align: center;
   text-shadow: 1px 1px 1px 2.0 #2b2b2bb3;
   text-transform: uppercase;
   letter-spacing: 2px;
-  horizontal-align: center;
   font-size: 28px;
   font-weight: bold;
 }
@@ -252,7 +272,7 @@ Label {
 }
 
 .tutorial-nav-button:disabled {
-  wash-color: #8a8aa6;
+  wash-color: #83818a;
 }
 
 #tutorial-prev {

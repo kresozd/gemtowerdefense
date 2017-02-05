@@ -6,7 +6,6 @@
     <!--<include src="file://{resources}/scripts/custom_game/players_bar.js"/>-->
   </scripts>
   <Panel class="content">
-    <Label class="content-title" text="Basics" />
     <Panel class="content-row">
       <Panel class="content-column content-lead">
         <Label class="content-subtitle" text="Building" />

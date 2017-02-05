@@ -19,6 +19,11 @@
               <Panel id="menu-list" />
             </Panel>
           </Panel>
+          <Panel id="tutorial-title">
+            <Panel class="title-border top" />
+            <Label id="title-label" />
+            <Panel class="title-border bottom" />
+          </Panel>
           <Panel id="tutorial-content" />
         </Panel>
       </Panel>

@@ -29,7 +29,7 @@
 		// Hull type used for navigation/locomotion.
 		"BoundsHullName"	"DOTA_HULL_SIZE_SMALL"
 		"MovementSpeed"	"550"
-		"HasInventory"	"0"
+		"HasInventory"	"1"
 		"MinimapIconSize"	"1000"
 		"AttributeBaseStrength"	"0"
 		"AttributeStrengthGain"	"0"
@@ -64,7 +64,7 @@
 		// Hull type used for navigation/locomotion.
 		"BoundsHullName"	"DOTA_HULL_SIZE_SMALL"
 		"MovementSpeed"	"550"
-		"HasInventory"	"0"
+		"HasInventory"	"1"
 		"MinimapIconSize"	"1000"
 		"AttributeBaseStrength"	"0"
 		"AttributeStrengthGain"	"0"
@@ -98,7 +98,7 @@
 		// Hull type used for navigation/locomotion.
 		"BoundsHullName"	"DOTA_HULL_SIZE_SMALL"
 		"MovementSpeed"	"550"
-		"HasInventory"	"0"
+		"HasInventory"	"1"
 		"MinimapIconSize"	"1000"
 		"AttributeBaseStrength"	"0"
 		"AttributeStrengthGain"	"0"
@@ -131,7 +131,7 @@
 		// Hull type used for navigation/locomotion.
 		"BoundsHullName"	"DOTA_HULL_SIZE_SMALL"
 		"MovementSpeed"	"550"
-		"HasInventory"	"0"
+		"HasInventory"	"1"
 		"MinimapIconSize"	"1000"
 		"AttributeBaseStrength"	"0"
 		"AttributeStrengthGain"	"0"
@@ -164,7 +164,7 @@
 		// Hull type used for navigation/locomotion.
 		"BoundsHullName"	"DOTA_HULL_SIZE_SMALL"
 		"MovementSpeed"	"550"
-		"HasInventory"	"0"
+		"HasInventory"	"1"
 		"MinimapIconSize"	"1000"
 		"AttributeBaseStrength"	"0"
 		"AttributeStrengthGain"	"0"
@@ -196,7 +196,7 @@
 		// Hull type used for navigation/locomotion.
 		"BoundsHullName"	"DOTA_HULL_SIZE_SMALL"
 		"MovementSpeed"	"550"
-		"HasInventory"	"0"
+		"HasInventory"	"1"
 		"MinimapIconSize"	"1000"
 		"AttributeBaseStrength"	"0"
 		"AttributeStrengthGain"	"0"
@@ -228,7 +228,7 @@
 		// Hull type used for navigation/locomotion.
 		"BoundsHullName"	"DOTA_HULL_SIZE_SMALL"
 		"MovementSpeed"	"550"
-		"HasInventory"	"0"
+		"HasInventory"	"1"
 		"MinimapIconSize"	"1000"
 		"AttributeBaseStrength"	"0"
 		"AttributeStrengthGain"	"0"
@@ -261,7 +261,7 @@
 		// Hull type used for navigation/locomotion.
 		"BoundsHullName"	"DOTA_HULL_SIZE_SMALL"
 		"MovementSpeed"	"550"
-		"HasInventory"	"0"
+		"HasInventory"	"1"
 		"MinimapIconSize"	"1000"
 		"AttributeBaseStrength"	"0"
 		"AttributeStrengthGain"	"0"
@@ -294,7 +294,7 @@
 		// Hull type used for navigation/locomotion.
 		"BoundsHullName"	"DOTA_HULL_SIZE_SMALL"
 		"MovementSpeed"	"550"
-		"HasInventory"	"0"
+		"HasInventory"	"1"
 		"MinimapIconSize"	"1000"
 		"AttributeBaseStrength"	"0"
 		"AttributeStrengthGain"	"0"

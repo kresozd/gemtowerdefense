@@ -5,7 +5,6 @@
   <scripts>
   </scripts>
   <Panel class="content">
-    <Label class="content-title" text="Gem tower defense" />
     <Panel class="content-row">
       <Panel class="content-column content-image"></Panel>
       <Panel class="content-column content-lead">
