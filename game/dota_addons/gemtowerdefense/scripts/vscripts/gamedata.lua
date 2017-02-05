@@ -6,9 +6,10 @@ end
 
 function GameData:Init()
 
-   -- ListenToGameEvent("throne_touch",Dynamic_Wrap(GameData, 'OnLeaked'), self)
+   ListenToGameEvent("throne_touch",Dynamic_Wrap(GameData, 'OnLeaked'), self)
+   ListenToGameEvent("entity_killed", Dynamic_Wrap(GameData, 'OnEntityKilled'), self)
 
-   -- self.LeakCount = {}
+    self.LeakCount = {}
     self.Killed = 0
     self.Round  = 0
 end
