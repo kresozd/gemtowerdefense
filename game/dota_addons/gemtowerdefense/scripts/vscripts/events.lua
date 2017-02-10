@@ -71,8 +71,12 @@ function GemTowerDefenseReborn:OnStateChange(keys)
 			
 			tower:SetAbsOrigin(position)
 			tower:SetHullRadius(TOWER_HULL_RADIUS)
-
 		end
+
+		local locthrone = CreateUnitByName("gem_throne", Vector(1792, -1792, 0), false, nil,nil, DOTA_TEAM_GOODGUYS)
+		locthrone:SetForwardVector(Vector(-1,0,0))
+		Throne.ThroneEntity = locthrone
+		print(locthrone:GetUnitName())
 	end
 
 

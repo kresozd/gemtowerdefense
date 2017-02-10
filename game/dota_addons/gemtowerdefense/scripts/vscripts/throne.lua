@@ -7,25 +7,26 @@ end
 
 function Throne:Init()
 
-	self.Throne = CreateUnitByName("gem_throne", Vector(1792, -1792, 0), false, nil,nil, DOTA_TEAM_GOODGUYS):SetForwardVector(Vector(-1,0,0))
+	self.ThroneEntity = nil
     self.StatusHealth = 100
 end
 
     
 function Throne:GetThrone()
-	return self.Throne
+	return self.ThroneEntity
 end
 
 function Throne:IsDead()
-	local throne = self.Throne
-	if throne:GetHealth() <= 0 then
+	local locthrone = self.ThroneEntity
+	if locthrone:GetHealth() <= 0 then
 		GameRules:SetGameWinner(DOTA_TEAM_BADGUYS)
 	end
 end
 
 function Throne:OnTouch(trigger)
 	
-	local throne = self.Throne
+	local locthrone = self.ThroneEntity
+	print("Throne entity", locthrone)
 	local unit = trigger.activator
 	local handle = unit:GetEntityHandle()
 	
@@ -38,21 +39,22 @@ function Throne:OnTouch(trigger)
 		}
 		FireGameEvent("throne_touch", data)
 
-		throne:SetHealth(throne:GetHealth() - unit:GetBaseDamageMax())
-		print("Throne HP on touch:", throne:GetBaseMaxHealth())
-		CustomNetTables:SetTableValue( "game_state", "gem_castle_health", { value = throne:GetHealth() } )
+		locthrone:SetHealth(locthrone:GetHealth() - unit:GetBaseDamageMax())
+		print("Throne HP on touch:", locthrone:GetBaseMaxHealth())
+		CustomNetTables:SetTableValue( "game_state", "gem_castle_health", { value = locthrone:GetHealth() } )
 		Throne:IsDead()
 		unit:Destroy()
 	else
 		print("Hero stepped in Throne!")
 	end
 end
-
+--[[
 function Throne:SpawnEntity()
 	local thronePosition = Vector(1792, -1792, 0)
-	local Throne = CreateUnitByName("gem_throne", thronePosition, false, nil, nil, DOTA_TEAM_GOODGUYS)
-	Throne:SetForwardVector(Vector(-1,0,0))
+	local locthroneEntity = CreateUnitByName("gem_throne", thronePosition, false, nil, nil, DOTA_TEAM_GOODGUYS)
+	locthroneEntity:SetForwardVector(Vector(-1,0,0))
 end
+]]
 --[[
 function Throne:SetHealth(health)
     self.StatusHealth = health
