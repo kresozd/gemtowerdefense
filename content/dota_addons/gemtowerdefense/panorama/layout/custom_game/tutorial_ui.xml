@@ -9,7 +9,7 @@
     <Button id="tutorial-toggle-button" onactivate="toggleTutorial()">
       <Label text="tutorial" />
     </Button>
-    <Panel id="tutorial">
+    <Panel id="tutorial" hittest="true">
       <Button id="tutorial-button-close" onactivate="toggleTutorial()" />
       <Panel class="tutorial-inner">
         <Panel class="tutorial-container">

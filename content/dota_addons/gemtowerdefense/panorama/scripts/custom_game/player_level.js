@@ -3,9 +3,9 @@ function updateLevelBar() {
   var playerValue = $('#player-level-value');
 
   if (!playerLevel) {
-    playerValue.text = 'level 1';
+    playerValue.text = '1';
   } else {
-    playerValue.text = 'level ' + playerLevel;
+    playerValue.text = playerLevel;
   }
 }
 

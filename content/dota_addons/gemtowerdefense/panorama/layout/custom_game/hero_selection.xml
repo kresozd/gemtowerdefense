@@ -1,6 +1,7 @@
 <root>
   <styles>
     <include src="file://{resources}/styles/custom_game/hero_selection.css"/>  
+    <include src="file://{resources}/styles/custom_game/preloader.css"/>  
   </styles>
   <scripts>
     <include src="file://{resources}/scripts/custom_game/hero_selection.js"/>
@@ -9,29 +10,36 @@
     <snippet name="hero-button">
       <Panel class="hero-item">
         <DOTAHeroImage id="hero-image" heroimagestyle="portrait" scaling="stretch-to-cover-preserve-aspect" />
+        <Panel id="hero-icon" />
       </Panel>
     </snippet>
     <snippet name="player-state">
       <Panel class="player-state-item">
         <Panel class="player">
           <DOTAAvatarImage id="player-avatar" />
+          <Label id="player-level" text="1" />
           <DOTAUserName id="player-username" />
         </Panel>
         <DOTAHeroImage id="player-state-hero" scaling="stretch-to-cover-preserve-aspect" />
       </Panel>
     </snippet>
   </snippets>
-  <Panel class="hero-selection-root" hittest="false">
+  <Panel class="hero-selection-root">
     <DOTAScenePanel id="hero-selection-background" map="maps/backgrounds/dashboard_parallax_test.vmap" camera="shot_cameraC" always-cache-composition-layer="true"/>
     <Panel class="hero-selection-overlay" hittest="false" />
+    <DOTAScenePanel id="hero-selection-rays" class="is-hidden" hittest="false" map="scenes/loadout_preview_rays" camera="camera_1"/>
     <Panel class="hero-selection-wrap" hittest="false">
-      <Label class="hero-selection-title" text="Choose your hero" />
+      <Panel class="hero-selection-header">
+        <Label id="hero-selection-timer" text="0" />
+        <Label class="hero-selection-title" text="Choose your hero" />
+      </Panel>
       <Panel class="hero-selection-inner">
         <Panel class="hero-container hero-selection-column">
           <Panel id="player-level-container" />
           <Panel id="hero-list" />
         </Panel>
         <Panel class="hero-preview-wrap hero-selection-column">
+            
             <Panel id="hero-preview-list" hittest="false" hittestchildren="false">
                 <Label id="hero-name-title" />
             </Panel>
@@ -41,14 +49,23 @@
               <Panel class="hero-ability"></Panel>
               <Panel class="hero-ability"></Panel>
             </Panel>
-          <Button id="pick-hero-button" onactivate="pickHero()">
-            <Label class="button-label" text="Pick hero" />
-          </Button>
         </Panel>
         <Panel class="player-state-wrap hero-selection-column">
           <Label class="player-state-title" text="Players"/>
           <Panel id="player-state" />
         </Panel>
+      </Panel>
+      <Panel id="hero-selection-footer" class="">
+        <Button id="pick-hero-button" class="hero-selection-button" onactivate="pickHero()">
+          <Label class="button-label" text="Pick hero" />
+        </Button>
+        <Button id="enter-game-button" class="hero-selection-button is-hidden" onactivate="endHeroSelection()">
+          <Label class="button-label" text="Enter game" />
+          <Panel class="enter-game-icon" />
+        </Button>
+        <Button class="test" onactivate="test()">
+          <Label text="test"/>
+        </Button>
       </Panel>
     </Panel>
     <DOTAHudMenuButtons/>

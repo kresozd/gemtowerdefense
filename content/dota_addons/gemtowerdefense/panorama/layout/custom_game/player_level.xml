@@ -6,12 +6,13 @@
     <include src="file://{resources}/scripts/custom_game/player_level.js"/>
   </scripts>
   <Panel class="player-level-root yellow">
-    <Panel class="player-level-row">
+    <Panel class="player-level-wrap">
       <Panel class="player-level-badge">
         <Label id="player-level-value" />
       </Panel>
-      <Panel class="player-level-help" />
+      <Label class="player-level-lead" text="level" />
     </Panel>
+      <!--<Panel class="player-level-help" />-->
     <Panel class="player-level-bar">
       <Panel class="player-level-progress" />
       <Panel class="player-level-label">

@@ -1,9 +1,0 @@
-<root>
-  <styles>
-    <include src="file://{resources}/styles/custom_game/preloader.css"/>  
-  </styles>
-  <Panel class="preloader-root" hittest="false">
-    <Panel class="preloader-border" />
-    <Panel class="preloader-inner" />
-  </Panel>
-</root>

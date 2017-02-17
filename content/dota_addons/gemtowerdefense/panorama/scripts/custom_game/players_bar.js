@@ -11,7 +11,7 @@ function updatePlayerPanel(playerId) {
     playerPanel.BLoadLayout('file://{resources}/layout/custom_game/players_bar_player.xml', false, false);
   }
   
-  var playerInfo = Game.GetPlayerInfo(playerId);
+  var playerInfo = Game.GetPlayerInfo(0);
   var playerAva = playerPanel.FindChildInLayoutFile('player-avatar');
   
   if (playerAva) {
@@ -40,6 +40,10 @@ function getAllPlayers() {
   for (var player of players) {
     updatePlayerPanel(player)
 	}
+  
+  // for (i = 0; i < 4; i++) {
+  //   updatePlayerPanel(i);
+  // }
 }
 
 (function() {

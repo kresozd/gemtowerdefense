@@ -14,10 +14,23 @@ DOTAHudMenuButtons {
 }
 
 .hero-selection-wrap {
-  width: 100%;
+  width: 96%;
   height: 100%;
   align: center center;
   flow-children: down;
+}
+
+#hero-selection-rays {
+  width: 40%;
+  height: 90%;
+  align: center top;
+  transition-property: opacity;
+  transition-duration: 0.1s;
+  transition-timing-function: linear;
+}
+
+#hero-selection-rays.is-hidden {
+  opacity: 0;
 }
 
 #hero-selection-background {
@@ -25,7 +38,7 @@ DOTAHudMenuButtons {
   height: 100%;
   vertical-align: middle;
   horizontal-align: center;
-  background-color:#252533;
+  background-color: #272738;
   transition-property: transform, blur, opacity, wash-color;
   transition-duration: 0.45s;
   transition-delay: 0.0s;
@@ -37,6 +50,28 @@ DOTAHudMenuButtons {
   width: 100%;
 }
 
+.hero-selection-header {
+  horizontal-align: center;
+  flow-children: right;
+  margin-top: 70px;
+  margin-bottom: 90px;
+}
+
+#hero-selection-timer {
+  font-size: 32px;
+  /*margin-top: 12px;*/
+  /*font-weight: bold;*/
+  color: #fcfcfc;
+  text-align: center;
+  margin-right: 10px;
+  text-shadow: 0px 0px 12px #AFC2F755;
+  border: 2px solid #fcfcfc;
+  border-radius: 50%;
+  padding-top: 13px;
+  width: 65px;
+  height: 65px;
+}
+
 .hero-selection-title {
   font-size: 36px;
   color: #fcfcfc;
@@ -46,8 +81,6 @@ DOTAHudMenuButtons {
   font-weight: bold;
   align: center top;
   padding: 10px;
-  margin-top: 70px;
-  margin-bottom: 90px;
   text-shadow: 0px 0px 12px #AFC2F755;
 }
 
@@ -62,11 +95,13 @@ DOTAHudMenuButtons {
 .hero-selection-inner {
   flow-children: right;
   align: center top;
-  width: 96%;
+  /*padding: 0 15px;*/
+  width: 100%;
 }
 
 .hero-container {
   flow-children: down;
+  /*margin-left: 20px;*/
 }
 
 #hero-list {
@@ -85,6 +120,19 @@ DOTAHudMenuButtons {
   transition-property: saturation, box-shadow;
   transition-timing-function: ease-in;
   transition-duration: .12s;
+}
+
+.hero-locked #hero-icon {
+  background-image: url("s2r://panorama/images/hud/reborn/item_combine_lock_psd.vtex");
+  background-size: contain;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+}
+
+#hero-icon {
+  height: 40%;
+  align: center center;
+  width: 40%;
 }
 
 .hero-selected {
@@ -163,28 +211,130 @@ DOTAHudMenuButtons {
   background-color: #21212e99;
 }
 
-.hero-preview-loading {
+.preloader {
   align: center center;
   margin-bottom: 25%;
 }
 
-#pick-hero-button {
-  padding: 10px 24px 7px;
-  margin-top: 80px;
+#hero-selection-footer {
+  width: 100%;
+  padding-top: 80px;
+}
+
+@keyframes 'SlideIn' {
+  0% {
+      transform: translateZ(-300px) translateX(0);
+      opacity: 0;
+  }
+  50% {
+      transform: translateZ(-50px) translateX(125px);
+      opacity: .8;
+  }
+  100% {
+      transform: translateZ(0px) translateX(0px);
+      opacity: 1;
+  }
+}
+
+@keyframes 'SlideOut' {
+  0% {
+      transform: translateZ(0px) translateX(0);
+      opacity: 1;
+  }
+  50% {
+      transform: translateZ(-50px) translateX(-125px);
+      opacity: .2;
+  }
+  100% {
+      transform: translateZ(-300px) translateX(0px);
+      opacity: 0;
+  }
+}
+
+.hero-selection-button {
+  padding: 10px 15px 7px;
   saturation: .6;
+  horizontal-align: center;
+  transition-property: saturation;
+  transition-duration: .10s;
+  transition-timing-function: linear;
+  transform-origin: 50% 50%;
+  animation-duration: .85s;
+  animation-timing-function: ease-in-out;
+  /*animation-fill-mode: forwards;*/
+  animation-iteration-count: infinite;
+}
+
+#enter-game-button {
+  margin-top: -3px;
+  background-color: #2a2ac714;
+  border: 1px solid #2a2ac767;
+  flow-children: right;
+  opacity: 0;
+}
+
+.test {
+  padding: 10px 25px;
+  background-color: #fff5;
+}
+
+.animation-run #enter-game-button {
+  animation-name: SlideIn;
+}
+
+.animation-run #pick-hero-button {
+  animation-name: SlideOut;
+}
+
+#enter-game-button > .button-label {
+  color: #2a2ac7;
+}
+
+.animation-end #enter-game-button {
+  transform: translateZ(0px) translateX(0px);
+  opacity: 1;
+}
+.animation-end #pick-hero-button {
+  transform: translateZ(-300px) translateX(0px);
+  opacity: 0;
+}
+
+.enter-game-icon {
+  background-image: url("s2r://panorama/images/control_icons/double_arrow_left_png.vtex");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: 0% 50%;
+  vertical-align: middle;
+  margin-bottom: 3px;
+  wash-color: #2924c7;
+  transform: rotateZ(180deg);
+  height: 20px;
+  width: 20px;
+  margin-left: 10px;
+  transition-property: transform;
+  transition-duration: .10s;
+  transition-timing-function: linear;
+}
+
+#pick-hero-button {
   horizontal-align: center;
   background-color: #29c87e14;
   border: 1px solid #29c87e58;
-  transition-property: saturation;
-  transition-timing-function: ease-in;
-  transition-duration: .12s;
 }
 
-#pick-hero-button:hover {
+.hero-selection-button:hover {
   saturation: .8;
 }
 
-#pick-hero-button:disabled {
+#enter-game-button:hover {
+  saturation: .7;
+}
+
+#enter-game-button:hover .enter-game-icon {
+  transform: translateX(-4px) rotateZ(180deg);
+}
+
+.hero-selection-button:disabled {
   saturation: 0;
 }
 
@@ -219,39 +369,63 @@ DOTAHudMenuButtons {
 }
 
 .player-state-item {
-  padding: 8px;
+  padding: 9px 0 9px 9px;
   background-color: #21262e59;
-  margin-bottom: 5px;
-  width: 380px;
+  background-color: gradient( linear, 100% 0%, 0% 0%, from( #41416300 ), color-stop(.2, #4a4a7026), color-stop( .4, #4a4a7068 ), color-stop( .6, #4a4a7068 ), color-stop(.8, #4a4a7026), to( #41416300 ) );
+  margin-bottom: 6px;
+  width: 390px;
+  flow-children: left;
+}
+
+.player-state-picked #player-state-hero {
+  brightness: 1;
+  saturation: 1;
 }
 
 .player {
   horizontal-align: right;
+  /*border: 1px solid black;*/
   flow-children: left;
+  width: 280px;
 }
 
 #player-username {
-  font-size: 25px;
+  font-size: 24px;
   font-family: Radiance;
   color: #C1CADD;
-  margin-right: 18px;
-  max-width: 195px;
+  margin-right: 15px;
+  max-width: 165px;
   vertical-align: middle;
+  
 }
 
 #player-state-hero {
   horizontal-align: left;
   width: 75px;
   height: 40px;
-  border: 1px solid #14161c;
+  border: 1px solid #14161c92;
   background-color: gradient(linear, 100% 0%, 0% 0, from(#2a303b), to(#434d5e));
   vertical-align: center;
   horizontal-align: left;
-  margin-right: 40px;
+  margin-right: 10px;
   saturation: 0;
   brightness: 0.5;
 }
 
 #player-avatar {
   width: 58px;
+}
+
+#player-level {
+  font-size: 14px;
+  vertical-align: center;
+  width: 28px;
+  height: 28px;
+  color: #dec75f;
+  margin-right: 10px;
+  padding-top: 4px;
+  font-weight: bold;
+  border-radius: 50%;
+  border: 2px solid #dec75f;
+  text-align: center;
 }

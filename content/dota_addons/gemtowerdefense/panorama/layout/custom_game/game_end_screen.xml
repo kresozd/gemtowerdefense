@@ -1,0 +1,16 @@
+<root>
+  <styles>
+    <include src="file://{resources}/styles/custom_game/game_end_screen.css"/>  
+  </styles>
+  <scripts>
+    <include src="file://{resources}/scripts/custom_game/game_end_screen.js"/>
+  </scripts>
+  <Panel class="end-screen-root" hittest="false">
+    <Panel class="end-screen">
+      <Panel class="end-screen-header">
+        <Panel id="end-screen-level" />
+        <Label id="end-screen-title" text="You lost"/>
+      </Panel>
+    </Panel>
+  </Panel>
+</root>

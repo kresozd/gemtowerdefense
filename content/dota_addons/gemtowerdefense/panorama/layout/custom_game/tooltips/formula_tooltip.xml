@@ -6,9 +6,9 @@
 	<scripts>
 		<include src="file://{resources}/scripts/custom_game/tooltips.js" />
 	</scripts>
-	<Panel class="Contents" ontooltiploaded="setupTooltip()">
-		<Label id="TooltipTitle" />
-		<Label id="TooltipType" />
-		<Label id="TooltipDesc" />
+	<Panel class="content" ontooltiploaded="setupTooltip()">
+		<Label id="tooltip-title" />
+		<Label id="tooltip-type" />
+		<Label id="tooltip-desc" />
 	</Panel>
 </root>

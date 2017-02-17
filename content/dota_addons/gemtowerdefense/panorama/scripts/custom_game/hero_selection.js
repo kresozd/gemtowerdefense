@@ -1,11 +1,11 @@
 GameUI.CustomUIConfig().player_level = 1;
-var selectedHero = '';
-var heroPicked = false;
 var playerLevel = GameUI.CustomUIConfig().player_level;
+var selectedHero = '';
+var pickedHero = '';
 var heroPreviews = {};
+var heroButtons = {};
 var previewLoadingQueue = [];
 var previewSchedule = 0;
-var playersStates = [];
 
 var allHeroes = {
   crystal_maiden: {
@@ -26,7 +26,7 @@ var allHeroes = {
   },
   invoker: {
     name: 'npc_dota_hero_invoker',
-    level: 2
+    level: 1
   },
   nervermore: {
     name: 'npc_dota_hero_nevermore',
@@ -39,50 +39,124 @@ var allHeroes = {
 }
 
 
-function addHeroButtons() {
+function initHeroButtons() {
+  var heroContainer = $('#hero-list');
+  
   for (var hero in allHeroes) {
+    var isPicked = false;
     var heroName = allHeroes[hero].name;
-    var heroContainer = $('#hero-list');
-    var heroButton = $.CreatePanel('Panel', heroContainer, heroName);
-    var isAvailable = playerLevel < allHeroes[hero].level;
-    heroButton.SetHasClass('hero-not-available', isAvailable);
-    heroButton.BLoadLayoutSnippet('hero-button');
-    heroButton.FindChildTraverse('hero-image').heroname = heroName;
-    addHeroButtonEvent(heroButton, heroName, isAvailable);
+    var isAvailable = checkHeroLevel(hero);
+
+    var heroButton = heroContainer.FindChild(heroName);
+    
+    if (heroButton === null) {
+      heroButton = $.CreatePanel('Panel', heroContainer, heroName);
+      heroButton.BLoadLayoutSnippet('hero-button');
+      heroButton.FindChildTraverse('hero-image').heroname = heroName;
+    }
+    
+    heroButton.SetHasClass('hero-locked', !isAvailable);
+
+    heroButtons[heroName] = {
+      button: heroButton,
+      isAvailable: isAvailable
+    }
+    
+    updateHeroButton(heroName, isAvailable);
+    addHeroButtonEvent(heroButton, heroName);
   }
 }
 
 
+function checkHeroLevel(hero) {
+  return playerLevel >= allHeroes[hero].level;
+}
+
+
 function addHeroButtonEvent(button, heroName) {
-  button.SetPanelEvent(
-    'onactivate',
-    function(heroName, isAvailable) {
-      return function() {
-
-        if (selectedHero == heroName || heroPicked) {
-          return;
-        }
-
-        var heroTitle = $('#hero-name-title');
-        var isAvailable = button.BHasClass('hero-not-available');
-
-        if (selectedHero) {
-          $('#' + selectedHero).RemoveClass('hero-selected');
-          heroPreviews[selectedHero].style.visibility = 'collapse';
-        }
-
-        button.AddClass('hero-selected');
-        heroTitle.text = $.Localize('#' + heroName).toUpperCase();
-        heroPreviews[heroName].style.visibility = 'visible';
-        heroPreviews[heroName].SetHasClass('hero-not-available', isAvailable);
-        
-        selectedHero = heroName;
-        GameEvents.SendCustomGameEventToServer('player_selected_hero', {hero: selectedHero});
-
-        $('#pick-hero-button').enabled = !isAvailable;
-      }
+  
+  var onActivate = function() {
+    if (selectedHero == heroName || pickedHero) {
+      return;
     }
-  (heroName));
+
+    var isAvailable = heroButtons[heroName].isAvailable;
+
+    if (selectedHero) {
+      $('#' + selectedHero).RemoveClass('hero-selected');
+      heroPreviews[selectedHero].style.visibility = 'collapse';
+    }
+
+    button.AddClass('hero-selected');
+    $('#hero-name-title').text = $.Localize('#' + heroName).toUpperCase();
+    heroPreviews[heroName].style.visibility = 'visible';
+
+    updateHeroButton(heroName);
+    updatePickButton(isAvailable);
+
+    selectedHero = heroName;
+    GameEvents.SendCustomGameEventToServer('player_selected_hero', {hero: selectedHero});
+  }
+
+  button.SetPanelEvent('onactivate', onActivate);
+}
+
+
+// fake queries for multiplayer debugging
+$.Schedule(5, function() {
+  updateHeroButtons('', '', {
+    picked: {
+      1: 'npc_dota_hero_crystal_maiden',
+      2: 'npc_dota_hero_vengefulspirit',
+    }
+  });
+});
+
+
+$.Schedule(10, function() {
+  updateHeroButtons('', '', {
+    picked: {
+      1: 'npc_dota_hero_crystal_maiden',
+      2: 'npc_dota_hero_vengefulspirit',
+      3: 'npc_dota_hero_invoker',
+    }
+  });
+});
+
+
+function updateHeroButton(heroName) {
+  var heroButton = heroButtons[heroName];
+  var isAvailable = heroButton.isAvailable;
+
+  heroPreviews[heroName].SetHasClass('hero-not-available', !isAvailable && pickedHero !== heroName);
+  heroButton.button.SetHasClass('hero-not-available', !isAvailable);
+}
+
+
+function updateHeroButtons(table, key, data) {
+  var pickedHeroes = data.picked || {};
+
+  for (var player in pickedHeroes) {
+    var hero = pickedHeroes[player];
+
+    heroButtons[hero].isAvailable = false;
+    updateHeroButton(hero);
+
+    if (selectedHero == hero) {
+      updatePickButton(false);
+    }
+
+    var data = {};
+    data.player = player;
+    data.hero = hero;
+
+    updatePlayerState(data, true);
+  }
+}
+
+
+function updatePickButton(isEnabled) {
+  $('#pick-hero-button').enabled = isEnabled;
 }
 
 
@@ -95,8 +169,7 @@ function preloadPreview(hero, value) {
   preview.style.visibility = 'collapse';
 
   var loading = $.CreatePanel('Panel', preview, '');
-  loading.BLoadLayout("file://{resources}/layout/custom_game/preloader.xml", false, false)
-  loading.AddClass('hero-preview-loading');
+  loading.AddClass('preloader' );
 
   var queueElement = {
     container: preview,
@@ -157,20 +230,22 @@ function checkPreviews() {
 
 
 function pickHero() {
-  if (!selectedHero || heroPicked) {
+  if (!selectedHero || pickedHero) {
     $.Msg('Scooby Doo where are you');
     return;
   }
 
   GameEvents.SendCustomGameEventToServer('player_picked_hero', {hero : selectedHero});
-  heroPicked = true;
-  endHeroSelection();
+  pickedHero = selectedHero;
+  $('#hero-selection-rays').RemoveClass('is-hidden');
+  switchButtons();
 }
 
 
 function endHeroSelection() {
   var Root = $.GetContextPanel();
   Root.style.opacity = 0;
+
   $.Schedule(1.5, function() {
     Root.DeleteAsync(0);
   });
@@ -190,37 +265,64 @@ function initPlayerState(id, playerInfo) {
   var playerItem = $.CreatePanel('Panel', playerContainer, 'player-state-' + id);
 
   playerItem.BLoadLayoutSnippet('player-state');
+
   var userName = playerItem.FindChildTraverse('player-username');
   userName.steamid = steamid;
   userName.style.color = GameUI.CustomUIConfig().player_colors[id];
+
   playerItem.FindChildTraverse('player-avatar').steamid = steamid;
 }
 
 
-function updateSelectedHero(data) {
+function updatePlayerState(data, isPicked) {
   var hero = data.hero;
   var player = data.player;
   var playerState = $('#player-state-' + player);
-  playerState.FindChildTraverse('player-state-hero').heroname = hero;
+
+  if (playerState) {
+    playerState.FindChildTraverse('player-state-hero').heroname = hero;
+    playerState.SetHasClass('player-state-picked', !!isPicked);
+  }
+}
+
+
+// A bit of a hack due to lack of css property 'animation-fill-mode' in panorama 
+function switchButtons() {
+  $('#hero-selection-footer').AddClass('animation-run');
+
+  $.Schedule(.85, function() {
+    $('#hero-selection-footer').RemoveClass('animation-run');
+    $('#hero-selection-footer').AddClass('animation-end');
+  });
+}
+
+
+function test() {
+}
+
+
+function onTimeUpdate(data) {
+  $('#hero-selection-timer').text = data.time;
 }
 
 
 (function() {
   $('#pick-hero-button').enabled = false;
 
-  GameEvents.Subscribe("player_selected_hero_client", updateSelectedHero);
-  // CustomNetTables.SubscribeNetTableListener('game_state', endHeroSelection);
-  // CustomNetTables.SubscribeNetTableListener('game_state', updateSelectedHero);
+  GameEvents.Subscribe("player_selected_hero_client", updatePlayerState);
+  // GameEvents.Subscribe("picking_done", endHeroSelection);
+  GameEvents.Subscribe("picking_time_update", onTimeUpdate);
+  CustomNetTables.SubscribeNetTableListener('game_state', updateHeroButtons);
 
-  initProfileLevel();
   checkPreviews();
   preloadHeroPreviews(allHeroes);
-  addHeroButtons();
+  initHeroButtons();
+  initProfileLevel();
 
   var players = Game.GetAllPlayerIDs();
 
   for (var i = 0; i < players.length; i++) {
-    var playerInfo = Game.GetPlayerInfo(i);
+    var playerInfo = Game.GetPlayerInfo(0);
     initPlayerState(i, playerInfo);
 	}
 })();

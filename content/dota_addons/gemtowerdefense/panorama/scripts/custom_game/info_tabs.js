@@ -13,6 +13,7 @@ function closeAllTabs() {
 
 function activateTab(tabName) {
   var tab = $('#' + tabName);
+
   if (!tab.BHasClass('tab-hidden')) {
     tab.AddClass('tab-hidden');
     Root.AddClass('tabs-hidden');
@@ -25,10 +26,7 @@ function activateTab(tabName) {
 
 
 function toggleFormulaLayout() {
-  var isMinimized = formulaRoot.BHasClass('tab-formula-min');
-  var label = $('#minify-label');
-  formulaRoot.SetHasClass('tab-formula-min', !isMinimized)
-  label.text = !isMinimized ? 'expand table' : 'minimize table'
+  formulaRoot.ToggleClass('tab-formula-min');
   Game.EmitSound("ui_generic_button_click");
 }
 
@@ -43,6 +41,7 @@ function hideNav() {
 
 function showNav() {
   var navContainer = $('#tabs-nav-container');
+
   if (!Root.BHasClass('tabs-hidden') || navContainer.BHasClass('hidden')) {
     navContainer.RemoveClass('hidden');
     navContainer.hittest = false;

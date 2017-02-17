@@ -6,12 +6,14 @@
     <Panel id="player-color">
       <Panel class="player-color-overlay"></Panel>
     </Panel>
-    <DOTAAvatarImage id="player-avatar" />
-    <Panel class="player-rank">
-      <Panel class="player-rank-overlay"></Panel>
-      <Panel class="player-rank-wrap">
-        <Label class="player-rank-label" text="Rank:" />
-        <Label id="player-rank-value" text="10" />
+    <Panel class="player-wrap">
+      <DOTAAvatarImage id="player-avatar" />
+      <Panel class="player-rank">
+        <Panel class="player-rank-inner">
+          <Panel class="player-rank-icon">
+            <Label id="player-rank-value" text="10" />
+          </Panel>
+        </Panel>
       </Panel>
     </Panel>
   </Panel>

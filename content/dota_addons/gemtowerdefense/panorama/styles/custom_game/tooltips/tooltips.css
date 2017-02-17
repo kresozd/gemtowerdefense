@@ -1,20 +1,16 @@
-
-.Contents {
-    min-width: 80px;
-    max-width: 340px;
-    flow-children: down;
+.content {
+	min-width: 80px;
+	max-width: 340px;
+	flow-children: down;
+	background-color: gradient( linear, 0% 0%, 0% 100%, from( #121217fd ), to( #2c2c40fd ) );
 }
 
-#Contents {
-    
-}
-
-#TooltipTitle {
-    color: #fff;
-    font-size: 21px;
+#tooltip-title {
+	color: #fff;
+	font-size: 21px;
 }
 
 Label {
-  text-overflow: clip; 
-  margin-bottom: 4px; 
+	text-overflow: clip;
+	margin-bottom: 4px;
 }

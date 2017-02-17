@@ -74,7 +74,7 @@ Label {
   transition-property: wash-color;
   transition-duration: 0.1s;
   transition-delay: 0.0s;
-  transition-timing-function: linear;
+  transition-timing-function: cubic-bezier(0.590, 0, 1, 0.375);
   z-index: 2;
 }
 
@@ -182,12 +182,12 @@ Label {
 }
 
 #title-label {
-  padding: 8px 150px 5px;
+  padding: 9px 150px 6px;
   text-align: center;
   text-shadow: 1px 1px 1px 2.0 #2b2b2bb3;
   text-transform: uppercase;
   letter-spacing: 2px;
-  font-size: 28px;
+  font-size: 26px;
   font-weight: bold;
 }
 
@@ -223,7 +223,7 @@ Label {
 }
 
 .content-text {
-  color: #9F9FCF;
+  color: #9595B8;
   font-size: 20px;
   line-height: 29px;
 }

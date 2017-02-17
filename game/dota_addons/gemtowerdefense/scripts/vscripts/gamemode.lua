@@ -55,10 +55,6 @@ function GemTowerDefenseReborn:InitGameMode()
 	ListenToGameEvent('game_rules_state_change', Dynamic_Wrap(GemTowerDefenseReborn, 'OnStateChange'), self)
 	ListenToGameEvent("player_chat", Dynamic_Wrap(GemTowerDefenseReborn, "OnPlayerChat"), self)
 
-	CustomGameEventManager:RegisterListener( "player_picked_hero", Dynamic_Wrap(HeroSelection, 'OnHeroPicked'))
-	CustomGameEventManager:RegisterListener( "player_selected_hero", Dynamic_Wrap(HeroSelection, 'OnHeroSelected'))
-	
-
 	local customXP =
 	{
 		[1] = 0,
@@ -81,10 +77,3 @@ end
 function GetState( keys )
 	print(keys.state)
 end
-
-
-
-
-
-
-

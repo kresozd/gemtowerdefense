@@ -49,7 +49,6 @@ function triggerHealth(min, max) {
   updateThroneHealth('table', 'gem_castle_health', data)
  }
 
-$.Msg('hello');
 
 (function() {
   CustomNetTables.SubscribeNetTableListener( 'game_state', updateThroneHealth );

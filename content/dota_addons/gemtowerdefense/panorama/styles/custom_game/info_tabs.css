@@ -74,8 +74,7 @@ VerticalScrollBar .ScrollThumb {
 }
 
 .nav-button:hover,
-.nav-button.activated,
-.minify-toggle:hover {
+.nav-button.activated {
   background-color: gradient( linear, 0% 0%, 0% 100%, from( #545473 ), to( #434359 ) );
 }
 
@@ -138,14 +137,28 @@ VerticalScrollBar .ScrollThumb {
 
 .minify-toggle {
   margin-right: 10px;
-  background-color: gradient( linear, 0% 0%, 0% 100%, from( #414159 ), to( #303040 ) );
-  border: 1px solid #737399;
-  padding: 6px 9px;
+  wash-color:#8484b0;
+  border: 1px solid #73739955;
+  height: 30px;
+  width: 30px;
   horizontal-align: right;
   transition-property: background-color;
   transition-duration: 0.09s;
   transition-delay: 0.0s;
   transition-timing-function: linear;
+}
+
+.minify-toggle:hover {
+  wash-color: #afafdb;
+}
+
+.minify-toggle-icon {
+  width: 100%;
+  height: 100%;
+  background-position: 50% 50%;
+  background-image: url("s2r://panorama/images/control_icons/arrow_popout_png.vtex");
+  background-size: 62%;
+  background-repeat: no-repeat; 
 }
 
 #minify-label {
