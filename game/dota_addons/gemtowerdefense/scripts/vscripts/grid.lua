@@ -201,7 +201,11 @@ function Grid:CheckIfSquareIsBlocked(location, caster)
 			local isGridBlocked = true
 
 			return isGridBlocked
+		elseif entity:GetName() =="shop_entity_block" then
+			
+			local isGridBlocked = false
 
+			return isGridBlocked
 		else
 
 			caster:AddSpeechBubble(1, "Tile is already occupied!", 2, 0, -15)

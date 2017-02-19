@@ -23,7 +23,8 @@ require('sandbox')
 require('containers')
 require('throne')
 require('gamedata')
-
+require('custom_items/gem_items')
+require('custom_items/gem_items_Abilities')
 --Pathfinder
 
 

@@ -4,7 +4,7 @@
 {
     "consumables"
     {
-        "item"   "item_custom"
+        "item"   "item_amethyst_chance"
     }
 
     "attributes"
