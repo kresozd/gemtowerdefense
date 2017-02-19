@@ -25,6 +25,11 @@
         "ItemPurchasable"                "0"
         "ItemDroppable"                    "0"
     }
+    "item_aether_lens"
+    {
+        "ItemPurchasable"                "0"
+        "ItemDroppable"                    "0"
+    }
     "item_ancient_janggo"
     {
         "ItemPurchasable"                "0"
@@ -85,13 +90,24 @@
         "ItemPurchasable"                "0"
         "ItemDroppable"                    "0"
     }
+    "item_blight_stone"
+    {
+        "ItemPurchasable"                "0"
+        "ItemDroppable"                    "0"
+    }    
     "item_blink"
     {
-        "AbilityCooldown"                "0"
         "ItemPurchasable"                "1"
-        "ItemDroppable"                    "0"
+        "ItemCost"                      "0"
+        "AbilityCooldown"                "0"
+        "ItemDroppable"                    "1"
     }
     "item_bloodstone"
+    {
+        "ItemPurchasable"                "0"
+        "ItemDroppable"                    "0"
+    }
+    "item_bloodthorn"
     {
         "ItemPurchasable"                "0"
         "ItemDroppable"                    "0"
@@ -166,6 +182,16 @@
         "ItemPurchasable"                "0"
         "ItemDroppable"                    "0"
     }
+    "item_crimson_guard"
+    {
+        "ItemPurchasable"                "0"
+        "ItemDroppable"                    "0"
+    }
+    "item_octarine_core"
+    {
+        "ItemPurchasable"                "0"
+        "ItemDroppable"                    "0"
+    }
     "item_dagon"
     {
         "ItemPurchasable"                "0"
@@ -211,12 +237,27 @@
         "ItemPurchasable"                "0"
         "ItemDroppable"                    "0"
     }
+    "item_dragon_lance"
+    {
+        "ItemPurchasable"                "0"
+        "ItemDroppable"                    "0"
+    }    
     "item_dust"
     {
         "ItemPurchasable"                "0"
         "ItemDroppable"                    "0"
     }
     "item_eagle"
+    {
+        "ItemPurchasable"                "0"
+        "ItemDroppable"                    "0"
+    }
+    "item_echo_sabre"
+    {
+        "ItemPurchasable"                "0"
+        "ItemDroppable"                    "0"
+    }
+    "item_enchanted_mango"
     {
         "ItemPurchasable"                "0"
         "ItemDroppable"                    "0"
@@ -281,6 +322,11 @@
         "ItemPurchasable"                "0"
         "ItemDroppable"                    "0"
     }
+    "item_glimmer_cape"
+    {
+        "ItemPurchasable"                "0"
+        "ItemDroppable"                    "0"
+    }
     "item_gloves"
     {
         "ItemPurchasable"                "0"
@@ -297,6 +343,11 @@
         "ItemDroppable"                    "0"
     }
     "item_greater_crit"
+    {
+        "ItemPurchasable"                "0"
+        "ItemDroppable"                    "0"
+    }
+    "item_guardian_greaves"
     {
         "ItemPurchasable"                "0"
         "ItemDroppable"                    "0"
@@ -336,7 +387,17 @@
         "ItemPurchasable"                "0"
         "ItemDroppable"                    "0"
     }
+    "item_hurricane_pike"
+    {
+        "ItemPurchasable"                "0"
+        "ItemDroppable"                    "0"
+    }
     "item_hyperstone"
+    {
+        "ItemPurchasable"                "0"
+        "ItemDroppable"                    "0"
+    }
+    "item_infused_raindrop"
     {
         "ItemPurchasable"                "0"
         "ItemDroppable"                    "0"
@@ -346,6 +407,11 @@
         "ItemPurchasable"                "0"
         "ItemDroppable"                    "0"
     }
+    "item_iron_talon"
+    {
+        "ItemPurchasable"                "0"
+        "ItemDroppable"                    "0"
+    }    
     "item_javelin"
     {
         "ItemPurchasable"                "0"
@@ -357,6 +423,11 @@
         "ItemDroppable"                    "0"
     }
     "item_lifesteal"
+    {
+        "ItemPurchasable"                "0"
+        "ItemDroppable"                    "0"
+    }
+    "item_lotus_orb"
     {
         "ItemPurchasable"                "0"
         "ItemDroppable"                    "0"
@@ -606,6 +677,11 @@
         "ItemPurchasable"                "0"
         "ItemDroppable"                    "0"
     }
+    "item_silver_edge"
+    {
+        "ItemPurchasable"                "0"
+        "ItemDroppable"                    "0"
+    }
     "item_skadi"
     {
         "ItemPurchasable"                "0"
@@ -627,6 +703,11 @@
         "ItemDroppable"                    "0"
     }
     "item_sobi_mask"
+    {
+        "ItemPurchasable"                "0"
+        "ItemDroppable"                    "0"
+    }
+    "item_solar_crest"
     {
         "ItemPurchasable"                "0"
         "ItemDroppable"                    "0"
@@ -671,6 +752,11 @@
         "ItemPurchasable"                "0"
         "ItemDroppable"                    "0"
     }
+    "item_tome_of_knowledge"
+    {
+        "ItemPurchasable"                "0"
+        "ItemDroppable"                    "0"
+    }
     "item_tombstone"
     {
         "ItemPurchasable"                "0"
@@ -687,6 +773,11 @@
         "ItemDroppable"                    "0"
     }
     "item_travel_boots"
+    {
+        "ItemPurchasable"                "0"
+        "ItemDroppable"                    "0"
+    }
+    "item_travel_boots_2"
     {
         "ItemPurchasable"                "0"
         "ItemDroppable"                    "0"

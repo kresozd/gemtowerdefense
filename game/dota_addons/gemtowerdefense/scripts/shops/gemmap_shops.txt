@@ -20,7 +20,7 @@
        
     "misc"
     {
-               
+	"item" "item_blink"     
     }
 
     // Level 1 - Green Recipes
