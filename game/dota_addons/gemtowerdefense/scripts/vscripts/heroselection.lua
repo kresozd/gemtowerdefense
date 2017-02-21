@@ -64,7 +64,7 @@ function HeroSelection:OnHeroSelected(data)
 	local hero = data.hero
 	local player = data.PlayerID
 
-    CustomGameEventManager:Send_ServerToAllClients("player_selected_hero_client", {hero = hero, player = player})
+	CustomGameEventManager:Send_ServerToAllClients("player_selected_hero_client", {hero = hero, player = player})
 
 end
 

@@ -27,6 +27,7 @@ function activateTab(tabName) {
 
 function toggleFormulaLayout() {
   formulaRoot.ToggleClass('tab-formula-min');
+  $('#minify-toggle').ToggleClass('minify-toggle-rotate');
   Game.EmitSound("ui_generic_button_click");
 }
 

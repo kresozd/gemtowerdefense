@@ -1,16 +1,33 @@
-.content {
-	min-width: 80px;
-	max-width: 340px;
+#formulaTooltip .content {
+	min-width: 90px;
+	max-width: 360px;
 	flow-children: down;
-	background-color: gradient( linear, 0% 0%, 0% 100%, from( #121217fd ), to( #2c2c40fd ) );
+	padding: 15px;
+	background-color: gradient(linear, 0% 100%, 0% 0%, from(#292936), to(#121214));
 }
 
 #tooltip-title {
-	color: #fff;
-	font-size: 21px;
+	color: #ebebff;
+	font-size: 24px;
+}
+
+#tooltip-type, #tooltip-title {
+	border-bottom: 1px solid #ebebff12;
+	width: 100%;
+	color: #ebebff;
+	margin-bottom: 7px;
 }
 
 Label {
-	text-overflow: clip;
-	margin-bottom: 4px;
+	/*text-overflow: clip;*/
+}
+
+#tooltip-desc {
+	font-size: 17px;
+	font-style: italic;
+	color: #8E8EAB;
+}
+
+.tower-advanced .tooltip-type-mod {
+	color: #7D7ACF;
 }

@@ -146,6 +146,7 @@ VerticalScrollBar .ScrollThumb {
   transition-duration: 0.09s;
   transition-delay: 0.0s;
   transition-timing-function: linear;
+  transform: RotateZ(180deg);
 }
 
 .minify-toggle:hover {
@@ -161,8 +162,6 @@ VerticalScrollBar .ScrollThumb {
   background-repeat: no-repeat; 
 }
 
-#minify-label {
-  font-size: 15px;
-  text-align: center;
-  color: #fff;
+.minify-toggle-rotate {
+  transform: RotateZ(0deg);
 }

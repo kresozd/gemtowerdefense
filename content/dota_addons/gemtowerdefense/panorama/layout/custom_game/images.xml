@@ -1,0 +1,44 @@
+<root>
+  <script>
+    $.Msg("Images compiled");
+  </script>
+  <Panel hittest="false" class="images-root">
+
+    <Image style="opacity:0;" src="file://{images}/custom_game/gems/gem_a.png" />
+    <Image style="opacity:0;" src="file://{images}/custom_game/gems/gem_Antique_Bloodstone.png" />
+    <Image style="opacity:0;" src="file://{images}/custom_game/gems/gem_q.png" />
+    <Image style="opacity:0;" src="file://{images}/custom_game/gems/gem_Bloodstone.png" />
+    <Image style="opacity:0;" src="file://{images}/custom_game/gems/gem_Charming_Lazurite.png" />
+    <Image style="opacity:0;" src="file://{images}/custom_game/gems/gem_Chrysoberyl_Cats_Eye.png" />
+    <Image style="opacity:0;" src="file://{images}/custom_game/gems/gem_Dark_Emerald.png" />
+    <Image style="opacity:0;" src="file://{images}/custom_game/gems/gem_DeepSea_Pearl.png" />
+    <Image style="opacity:0;" src="file://{images}/custom_game/gems/gem_d.png" />
+    <Image style="opacity:0;" src="file://{images}/custom_game/gems/gem_Egypt_Gold.png" />
+    <Image style="opacity:0;" src="file://{images}/custom_game/gems/gem_Elaborately_Carved_Tourmaline.png" />
+    <Image style="opacity:0;" src="file://{images}/custom_game/gems/gem_Emerald_Golem.png" />
+    <Image style="opacity:0;" src="file://{images}/custom_game/gems/gem_e.png" />
+    <Image style="opacity:0;" src="file://{images}/custom_game/gems/gem_Flame_Ruby.png" />
+    <Image style="opacity:0;" src="file://{images}/custom_game/gems/gem_Gold.png" />
+    <Image style="opacity:0;" src="file://{images}/custom_game/gems/gem_Grey_Jade.png" />
+    <Image style="opacity:0;" src="file://{images}/custom_game/gems/gem_Huge_Malachite.png" />
+    <Image style="opacity:0;" src="file://{images}/custom_game/gems/gem_Huge_Pink_Diamond.png" />
+    <Image style="opacity:0;" src="file://{images}/custom_game/gems/gem_Jade.png" />
+    <Image style="opacity:0;" src="file://{images}/custom_game/gems/gem_Lucky_Chinese_Jade.png" />
+    <Image style="opacity:0;" src="file://{images}/custom_game/gems/gem_Malachite.png" />
+    <Image style="opacity:0;" src="file://{images}/custom_game/gems/gem_o.png" />
+    <Image style="opacity:0;" src="file://{images}/custom_game/gems/gem_Paraiba_Tourmaline.png" />
+    <Image style="opacity:0;" src="file://{images}/custom_game/gems/gem_Pink_Diamond.png" />
+    <Image style="opacity:0;" src="file://{images}/custom_game/gems/gem_Quartz.png" />
+    <Image style="opacity:0;" src="file://{images}/custom_game/gems/gem_Red_Coral.png" />
+    <Image style="opacity:0;" src="file://{images}/custom_game/gems/gem_r.png" />
+    <Image style="opacity:0;" src="file://{images}/custom_game/gems/gem_s.png" />
+    <Image style="opacity:0;" src="file://{images}/custom_game/gems/gem_Silver_Knight.png" />
+    <Image style="opacity:0;" src="file://{images}/custom_game/gems/gem_Silver.png" />
+    <Image style="opacity:0;" src="file://{images}/custom_game/gems/gem_t.png" />
+    <Image style="opacity:0;" src="file://{images}/custom_game/gems/gem_Uranium_235.png" />
+    <Image style="opacity:0;" src="file://{images}/custom_game/gems/gem_Uranium_238.png" />
+    <Image style="opacity:0;" src="file://{images}/custom_game/gems/gem_Volcano.png" />
+    <Image style="opacity:0;" src="file://{images}/custom_game/gems/gem_Yellow_Sapphire.png" />
+
+  </Panel>
+</root>

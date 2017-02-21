@@ -8,7 +8,7 @@
 	</scripts>
 	<Panel class="content" ontooltiploaded="setupTooltip()">
 		<Label id="tooltip-title" />
-		<Label id="tooltip-type" />
+		<Label id="tooltip-type" html="true" />
 		<Label id="tooltip-desc" />
 	</Panel>
 </root>

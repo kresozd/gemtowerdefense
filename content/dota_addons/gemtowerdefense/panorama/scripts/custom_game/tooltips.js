@@ -1,6 +1,10 @@
 function setupTooltip() {
-  var strTest = $.GetContextPanel().GetAttributeString( "nameid", "not-found" );
-  $('#tooltip-title').text = $.Localize('#gem_' + strTest);
-  $('#tooltip-type').text = "Type: " + $.Localize('#gem_' + strTest + '_type');
-  $( '#tooltip-desc' ).text = "Description: " + $.Localize('#gem_' + strTest + '_description');
+  var tower = $.GetContextPanel().GetAttributeString( "towerName", "not-found" );
+  var towerType = $.GetContextPanel().GetAttributeString( "towerType", "not-found" );
+
+  $.GetContextPanel().AddClass('tower-' + towerType.toLowerCase());
+
+  $('#tooltip-title').text = $.Localize('#' + tower);
+  $('#tooltip-type').text = "Type: <span class=\"tooltip-type-mod\">" + $.Localize('#' + towerType) + "</span>";
+  $( '#tooltip-desc' ).text = $.Localize('#' + tower + '_description');
 }

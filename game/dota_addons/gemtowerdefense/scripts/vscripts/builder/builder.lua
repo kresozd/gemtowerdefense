@@ -297,8 +297,6 @@ end
 
 function Builder:CreateTower(playerID, owner, position, caster)
 
-	CustomNetTables:SetTableValue( "game_state", "current_round", { value = Wave:GetRoundNumber() } )
-
 	local generatedName = tostring(Random:GenerateWardName())	
 	local generatedLevel = tostring(Random:GenerateWardLevel())
 	local mergedName = tostring(generatedName..generatedLevel)
