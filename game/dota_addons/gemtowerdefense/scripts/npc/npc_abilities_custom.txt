@@ -3,7 +3,13 @@
 {
 	"Version"		"1"
 	
-	
+	"gem_tower_level"
+	{
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"dice"
+		"AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"MaxLevel"	"5"
+	}
 	
 	"gem_remove_tower"
 	{

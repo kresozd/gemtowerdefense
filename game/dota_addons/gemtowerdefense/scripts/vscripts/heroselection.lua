@@ -22,7 +22,6 @@ function HeroSelection:Init()
 
 end
 
-
 function HeroSelection:Tick() 
 
 	if HeroSelection.TimeLeft >= 0 then
@@ -124,9 +123,12 @@ function HeroSelection:UnlockAbilities(player)
 	
 	hero:AddAbility("gem_remove_tower"):SetLevel(1)
 	hero:FindAbilityByName("gem_remove_tower"):SetAbilityIndex(1)
-	
+	--[[
 	hero:AddAbility("gem_heal_throne"):SetLevel(1)
 	hero:FindAbilityByName("gem_heal_throne"):SetAbilityIndex(1)
+	]]
+	hero:AddAbility("gem_tower_level"):SetLevel(1)
+	hero:FindAbilityByName("gem_tower_level"):SetAbilityIndex(2)
 end
 
 

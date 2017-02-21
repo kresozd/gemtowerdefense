@@ -5,6 +5,14 @@
     "consumables"
     {
         "item"   "item_amethyst_chance"
+        "item"   "item_diamond_chance"
+        "item"   "item_emerald_chance"
+        "item"   "item_opal_chance"
+        "item"   "item_aquamarine_chance"
+        "item"   "item_ruby_chance"
+        "item"   "item_sapphire_chance"
+        "item"   "item_topaz_chance"
+        "item"   "item_throne_heal" 
     }
 
     "attributes"

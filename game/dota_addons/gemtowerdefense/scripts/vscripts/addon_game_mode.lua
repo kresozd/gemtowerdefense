@@ -99,7 +99,7 @@ PrecacheResource("particle", "particles/econ/courier/courier_hyeonmu_ambient/cou
 	PrecacheResource( "model", "models/props_tree/topiary/topiary001.vmdl", context )
 
 	PrecacheResource("soundfile","soundevents/game_sounds_heroes/game_sounds_dragon_knight.vsndevts",context)
-	
+	PrecacheResource("soundfile","BodyImpact_Common.Heavy",context)
 
 
 	PrecacheResource("soundfile",	"soundevents/game_sounds_heroes/game_sounds_medusa.vsndevts", context )

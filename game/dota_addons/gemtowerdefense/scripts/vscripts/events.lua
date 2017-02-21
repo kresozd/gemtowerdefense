@@ -6,8 +6,8 @@ function GemTowerDefenseReborn:OnPlayerLevelUp(keys)
 	
 	local hero = player:GetAssignedHero()
 	hero:SetAbilityPoints(0)
-	
-	Random:SetXPLevel(level)
+	hero:FindAbilityByName("gem_tower_level"):SetLevel(level)
+	Random:SetTowerXPLevel(level)
 
 end
 

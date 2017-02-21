@@ -8,20 +8,31 @@ end
 
 function Random:Init()
 
-	self.XPLevel 		= 1
+	self.TowerXPLevel 		= 1
+	self.TowerTypeChance =
+	{
+		["Amethyst"]	= 0,
+		["Diamond"]		= 0,
+		["Emerald"]		= 0,
+		["Opal"]		= 0,
+		["Aquamarine"]	= 0,
+		["Ruby"]		= 0,
+		["Sapphire"]	= 0,
+		["Topaz"]		= 0	
+	}
 
 
 end
 
-function Random:SetXPLevel(level)
+function Random:SetTowerXPLevel(level)
 
-	self.XPLevel = level
+	self.TowerXPLevel = level
 
 end
 
 function Random:GetXPLevel()
 
-	return self.XPLevel
+	return self.TowerXPLevel
 
 end
 
@@ -146,16 +157,16 @@ function Random:GenerateWardLevel()
 
 	local levelTable = randomKV.Chances
 
-	if self.XPLevel == 1 then
+	if self.TowerXPLevel == 1 then
 
 		local level = 1
 		return level
 
-	elseif self.XPLevel == 2 then
+	elseif self.TowerXPLevel == 2 then
 
 		local value = RandomInt(1,100)
 
-		if value <= levelTable[tostring(self.XPLevel)]["1"] then
+		if value <= levelTable[tostring(self.TowerXPLevel)]["1"] then
 
 			local level = 1
 			return level
@@ -167,16 +178,16 @@ function Random:GenerateWardLevel()
 		
 		end
 	
-	elseif self.XPLevel == 3 then
+	elseif self.TowerXPLevel == 3 then
 
 		local value = RandomInt(1, 100)
 
-		if value <= levelTable[tostring(self.XPLevel)]["1"] then
+		if value <= levelTable[tostring(self.TowerXPLevel)]["1"] then
 
 			local level = 1
 			return level
 
-		elseif value >= levelTable[tostring(self.XPLevel)]["2"] and value <= levelTable[tostring(self.XPLevel)]["3"] then
+		elseif value >= levelTable[tostring(self.TowerXPLevel)]["2"] and value <= levelTable[tostring(self.TowerXPLevel)]["3"] then
 
 			local level = 2
 			return level
@@ -190,21 +201,21 @@ function Random:GenerateWardLevel()
 
 	
 
-	elseif self.XPLevel == 4 then
+	elseif self.TowerXPLevel == 4 then
 
 		local value = RandomInt(1, 100)
 
-		if value <= levelTable[tostring(self.XPLevel)]["1"] then
+		if value <= levelTable[tostring(self.TowerXPLevel)]["1"] then
 
 			local level = 1
 			return level
 
-		elseif value >= levelTable[tostring(self.XPLevel)]["2"] and value <= levelTable[tostring(self.XPLevel)]["3"] then
+		elseif value >= levelTable[tostring(self.TowerXPLevel)]["2"] and value <= levelTable[tostring(self.TowerXPLevel)]["3"] then
 
 			local level = 2
 			return level
 
-		elseif value >= levelTable[tostring(self.XPLevel)]["3"] and value <= levelTable[tostring(self.XPLevel)]["4"] then
+		elseif value >= levelTable[tostring(self.TowerXPLevel)]["3"] and value <= levelTable[tostring(self.TowerXPLevel)]["4"] then
 
 			local level = 3
 			return level
@@ -218,26 +229,26 @@ function Random:GenerateWardLevel()
 
 
 
-	elseif self.XPLevel == 5 then
+	elseif self.TowerXPLevel == 5 then
 
 		local value = RandomInt(1, 100)
 
-		if value <= levelTable[tostring(self.XPLevel)]["1"] then
+		if value <= levelTable[tostring(self.TowerXPLevel)]["1"] then
 
 			local level = 1
 			return level
 
-		elseif value >= levelTable[tostring(self.XPLevel)]["2"] and value <= levelTable[tostring(self.XPLevel)]["3"] then
+		elseif value >= levelTable[tostring(self.TowerXPLevel)]["2"] and value <= levelTable[tostring(self.TowerXPLevel)]["3"] then
 
 			local level = 2
 			return level
 
-		elseif value >= levelTable[tostring(self.XPLevel)]["3"] and value <= levelTable[tostring(self.XPLevel)]["4"] then
+		elseif value >= levelTable[tostring(self.TowerXPLevel)]["3"] and value <= levelTable[tostring(self.TowerXPLevel)]["4"] then
 
 			local level = 3
 			return level
 
-		elseif value >= levelTable[tostring(self.XPLevel)]["4"] and value <= levelTable[tostring(self.XPLevel)]["5"] then
+		elseif value >= levelTable[tostring(self.TowerXPLevel)]["4"] and value <= levelTable[tostring(self.TowerXPLevel)]["5"] then
 
 			local level = 4
 			return level
@@ -256,10 +267,55 @@ end
 function Random:GenerateWardName()
 
 	local nameTable = randomKV.Base
-	local name = nameTable[tostring(RandomInt(1, 8))]
+	local nameRand = RandomFloat(0,100)
+	print(nameRand)
+	local maxChance = 0
+	local maxType = "Amethyst"
+	for key, value in pairs(self.TowerTypeChance) do
+		--print(key, value)
+		if value > maxChance then
+			maxChance = value
+			maxType = key
+		end
+	end
+	local chosenChance = 0.0431*maxChance*maxChance*maxChance-1.461*maxChance*maxChance+18.029*maxChance+12.5
+	local otherChance = (100-chosenChance)/7
+	local bound1 = 0
+	local bound2 = 0
+	local nameOut = ""
+	for key, value in pairs(self.TowerTypeChance) do
+
+		if maxType == key then 
+			bound1=bound2
+			bound2=bound1+chosenChance
+		else
+			bound1=bound2
+			bound2=bound1+otherChance
+		end
+
+		if nameRand>=bound1 and nameRand<=bound2 then
+			nameOut = key
+		end
+
+	end
+
+	Random:ResetTowerTypeChance()
+	local name = nameTable[nameOut]
 	--local name = nameTable[tostring(RandomInt(3, 5))]
 	return name
 
 end
 
-
+function Random:ResetTowerTypeChance()
+	self.TowerTypeChance =
+	{
+		["Amethyst"]	= 0,
+		["Diamond"]		= 0,
+		["Emerald"]		= 0,
+		["Opal"]		= 0,
+		["Aquamarine"]	= 0,
+		["Ruby"]		= 0,
+		["Sapphire"]	= 0,
+		["Topaz"]		= 0		
+	}
+end

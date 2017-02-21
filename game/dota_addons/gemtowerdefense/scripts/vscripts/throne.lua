@@ -42,10 +42,19 @@ function Throne:OnTouch(trigger)
 		locthrone:SetHealth(locthrone:GetHealth() - unit:GetBaseDamageMax())
 		print("Throne HP on touch:", locthrone:GetBaseMaxHealth())
 		CustomNetTables:SetTableValue( "game_state", "gem_castle_health", { value = locthrone:GetHealth() } )
+		EmitGlobalSound("BodyImpact_Common.Heavy")
 		Throne:IsDead()
 		unit:Destroy()
 	else
 		print("Hero stepped in Throne!")
+	end
+end
+
+function Throne:HealThrone(health)
+	local locthrone = self.ThroneEntity
+	if locthrone:GetHealth()<100 then
+		locthrone:SetHealth(math.min(100,locthrone:GetHealth() + health))
+		CustomNetTables:SetTableValue( "game_state", "gem_castle_health", { value = locthrone:GetHealth() } )
 	end
 end
 --[[

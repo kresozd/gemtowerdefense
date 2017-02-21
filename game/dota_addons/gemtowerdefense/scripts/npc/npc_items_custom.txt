@@ -223,7 +223,375 @@
 	    "ID"           			"2100"
 	    "BaseClass"    			"item_datadriven"
 	    "AbilityTextureName" 	"custom/gem_amethyst"
-	    "Model"        			"models/items/wards/echo_bat_ward/echo_bat_ward.vmdl"
+	    "Model"        			"models/props_gameplay/recipe.vmdl"
+	    "ModelScale"				"0.1"
+	    "Effect"       				"particles/generic_gameplay/dropped_item.vpcf"
+		"ItemShopTags"				"consumable"
+		"ItemQuality"				"consumable"
+	    "ItemCost"     				"50"
+	    "ItemKillable"				"0" 
+	    "ItemSellable" 				"1"
+	    "ItemPurchasable" 			"1"
+	    "ItemDroppable" 			"1"
+	    "ItemShareability"			"ITEM_FULLY_SHAREABLE"
+	    "SideShop"     				"1" 
+	    "SecretShop"   				"0"
+	    "ItemStackable" 			"1"
+	    "ItemPermanent" 			"0"
+	    "ItemInitialCharges"			"1"
+		"ItemDisplayCharges"			"1"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"precache"
+		{
+			"soundfile"	"soundevents/game_sounds_ui.vsndevts"
+		}
+		"AbilityChannelTime"	"0.4"
+		"OnChannelSucceeded"
+		{
+			"RunScript"
+			{
+			
+				"ScriptFile"	"scripts/vscripts/custom_items/gem_items_Abilities.lua"
+		
+				"Function" 		"AbilityAddamethyst"
+			}
+			"FireSound"
+			{
+				"Target"		"CASTER"
+				"EffectName"	"ui.crafting_pulse"
+			}
+			"SpendCharge"
+			{}
+		}
+	}
+	"item_diamond_chance" 
+	{
+	    "ID"           			"2110"
+	    "BaseClass"    			"item_datadriven"
+	    "AbilityTextureName" 	"custom/gem_diamond"
+	    "Model"        			"models/props_gameplay/recipe.vmdl"
+	    "ModelScale"				"0.1"
+	    "Effect"       				"particles/generic_gameplay/dropped_item.vpcf"
+		"ItemShopTags"				"consumable"
+		"ItemQuality"				"consumable"
+	    "ItemCost"     				"50"
+	    "ItemKillable"				"0" 
+	    "ItemSellable" 				"1"
+	    "ItemPurchasable" 			"1"
+	    "ItemDroppable" 			"1"
+	    "ItemShareability"			"ITEM_FULLY_SHAREABLE"
+	    "SideShop"     				"1" 
+	    "SecretShop"   				"0"
+	    "ItemStackable" 			"1"
+	    "ItemPermanent" 			"0"
+	    "ItemInitialCharges"			"1"
+		"ItemDisplayCharges"			"1"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"precache"
+		{
+			"soundfile"	"soundevents/game_sounds_ui.vsndevts"
+		}
+		"AbilityChannelTime"	"0.4"
+		"OnChannelSucceeded"
+		{
+			"RunScript"
+			{
+			
+				"ScriptFile"	"scripts/vscripts/custom_items/gem_items_Abilities.lua"
+		
+				"Function" 		"AbilityAdddiamond"
+			}
+			"FireSound"
+			{
+				"Target"		"CASTER"
+				"EffectName"	"ui.crafting_pulse"
+			}
+			"SpendCharge"
+			{}
+		}
+	}
+	"item_emerald_chance" 
+	{
+	    "ID"           			"2120"
+	    "BaseClass"    			"item_datadriven"
+	    "AbilityTextureName" 	"custom/gem_emerald"
+	    "Model"        			"models/props_gameplay/recipe.vmdl"
+	    "ModelScale"				"0.1"
+	    "Effect"       				"particles/generic_gameplay/dropped_item.vpcf"
+		"ItemShopTags"				"consumable"
+		"ItemQuality"				"consumable"
+	    "ItemCost"     				"50"
+	    "ItemKillable"				"0" 
+	    "ItemSellable" 				"1"
+	    "ItemPurchasable" 			"1"
+	    "ItemDroppable" 			"1"
+	    "ItemShareability"			"ITEM_FULLY_SHAREABLE"
+	    "SideShop"     				"1" 
+	    "SecretShop"   				"0"
+	    "ItemStackable" 			"1"
+	    "ItemPermanent" 			"0"
+	    "ItemInitialCharges"			"1"
+		"ItemDisplayCharges"			"1"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"precache"
+		{
+			"soundfile"	"soundevents/game_sounds_ui.vsndevts"
+		}
+		"AbilityChannelTime"	"0.4"
+		"OnChannelSucceeded"
+		{
+			"RunScript"
+			{
+			
+				"ScriptFile"	"scripts/vscripts/custom_items/gem_items_Abilities.lua"
+		
+				"Function" 		"AbilityAddemerald"
+			}
+			"FireSound"
+			{
+				"Target"		"CASTER"
+				"EffectName"	"ui.crafting_pulse"
+			}
+			"SpendCharge"
+			{}
+		}
+	}
+	"item_opal_chance" 
+	{
+	    "ID"           			"2130"
+	    "BaseClass"    			"item_datadriven"
+	    "AbilityTextureName" 	"custom/gem_opal"
+	    "Model"        			"models/props_gameplay/recipe.vmdl"
+	    "ModelScale"				"0.1"
+	    "Effect"       				"particles/generic_gameplay/dropped_item.vpcf"
+		"ItemShopTags"				"consumable"
+		"ItemQuality"				"consumable"
+	    "ItemCost"     				"50"
+	    "ItemKillable"				"0" 
+	    "ItemSellable" 				"1"
+	    "ItemPurchasable" 			"1"
+	    "ItemDroppable" 			"1"
+	    "ItemShareability"			"ITEM_FULLY_SHAREABLE"
+	    "SideShop"     				"1" 
+	    "SecretShop"   				"0"
+	    "ItemStackable" 			"1"
+	    "ItemPermanent" 			"0"
+	    "ItemInitialCharges"			"1"
+		"ItemDisplayCharges"			"1"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"precache"
+		{
+			"soundfile"	"soundevents/game_sounds_ui.vsndevts"
+		}
+		"AbilityChannelTime"	"0.4"
+		"OnChannelSucceeded"
+		{
+			"RunScript"
+			{
+			
+				"ScriptFile"	"scripts/vscripts/custom_items/gem_items_Abilities.lua"
+		
+				"Function" 		"AbilityAddopal"
+			}
+			"FireSound"
+			{
+				"Target"		"CASTER"
+				"EffectName"	"ui.crafting_pulse"
+			}
+			"SpendCharge"
+			{}
+		}
+	}
+	"item_aquamarine_chance" 
+	{
+	    "ID"           			"2140"
+	    "BaseClass"    			"item_datadriven"
+	    "AbilityTextureName" 	"custom/gem_aquamarine"
+	    "Model"        			"models/props_gameplay/recipe.vmdl"
+	    "ModelScale"				"0.1"
+	    "Effect"       				"particles/generic_gameplay/dropped_item.vpcf"
+		"ItemShopTags"				"consumable"
+		"ItemQuality"				"consumable"
+	    "ItemCost"     				"50"
+	    "ItemKillable"				"0" 
+	    "ItemSellable" 				"1"
+	    "ItemPurchasable" 			"1"
+	    "ItemDroppable" 			"1"
+	    "ItemShareability"			"ITEM_FULLY_SHAREABLE"
+	    "SideShop"     				"1" 
+	    "SecretShop"   				"0"
+	    "ItemStackable" 			"1"
+	    "ItemPermanent" 			"0"
+	    "ItemInitialCharges"			"1"
+		"ItemDisplayCharges"			"1"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"precache"
+		{
+			"soundfile"	"soundevents/game_sounds_ui.vsndevts"
+		}
+		"AbilityChannelTime"	"0.4"
+		"OnChannelSucceeded"
+		{
+			"RunScript"
+			{
+			
+				"ScriptFile"	"scripts/vscripts/custom_items/gem_items_Abilities.lua"
+		
+				"Function" 		"AbilityAddaquamarine"
+			}
+			"FireSound"
+			{
+				"Target"		"CASTER"
+				"EffectName"	"ui.crafting_pulse"
+			}
+			"SpendCharge"
+			{}
+		}
+	}
+	"item_ruby_chance" 
+	{
+	    "ID"           			"2150"
+	    "BaseClass"    			"item_datadriven"
+	    "AbilityTextureName" 	"custom/gem_ruby"
+	    "Model"        			"models/props_gameplay/recipe.vmdl"
+	    "ModelScale"				"0.1"
+	    "Effect"       				"particles/generic_gameplay/dropped_item.vpcf"
+		"ItemShopTags"				"consumable"
+		"ItemQuality"				"consumable"
+	    "ItemCost"     				"50"
+	    "ItemKillable"				"0" 
+	    "ItemSellable" 				"1"
+	    "ItemPurchasable" 			"1"
+	    "ItemDroppable" 			"1"
+	    "ItemShareability"			"ITEM_FULLY_SHAREABLE"
+	    "SideShop"     				"1" 
+	    "SecretShop"   				"0"
+	    "ItemStackable" 			"1"
+	    "ItemPermanent" 			"0"
+	    "ItemInitialCharges"			"1"
+		"ItemDisplayCharges"			"1"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"precache"
+		{
+			"soundfile"	"soundevents/game_sounds_ui.vsndevts"
+		}
+		"AbilityChannelTime"	"0.4"
+		"OnChannelSucceeded"
+		{
+			"RunScript"
+			{
+			
+				"ScriptFile"	"scripts/vscripts/custom_items/gem_items_Abilities.lua"
+		
+				"Function" 		"AbilityAddruby"
+			}
+			"FireSound"
+			{
+				"Target"		"CASTER"
+				"EffectName"	"ui.crafting_pulse"
+			}
+			"SpendCharge"
+			{}
+		}
+	}
+	"item_sapphire_chance" 
+	{
+	    "ID"           			"2160"
+	    "BaseClass"    			"item_datadriven"
+	    "AbilityTextureName" 	"custom/gem_sapphire"
+	    "Model"        			"models/props_gameplay/recipe.vmdl"
+	    "ModelScale"				"0.1"
+	    "Effect"       				"particles/generic_gameplay/dropped_item.vpcf"
+		"ItemShopTags"				"consumable"
+		"ItemQuality"				"consumable"
+	    "ItemCost"     				"50"
+	    "ItemKillable"				"0" 
+	    "ItemSellable" 				"1"
+	    "ItemPurchasable" 			"1"
+	    "ItemDroppable" 			"1"
+	    "ItemShareability"			"ITEM_FULLY_SHAREABLE"
+	    "SideShop"     				"1" 
+	    "SecretShop"   				"0"
+	    "ItemStackable" 			"1"
+	    "ItemPermanent" 			"0"
+	    "ItemInitialCharges"			"1"
+		"ItemDisplayCharges"			"1"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"precache"
+		{
+			"soundfile"	"soundevents/game_sounds_ui.vsndevts"
+		}
+		"AbilityChannelTime"	"0.4"
+		"OnChannelSucceeded"
+		{
+			"RunScript"
+			{
+			
+				"ScriptFile"	"scripts/vscripts/custom_items/gem_items_Abilities.lua"
+		
+				"Function" 		"AbilityAddsapphire"
+			}
+			"FireSound"
+			{
+				"Target"		"CASTER"
+				"EffectName"	"ui.crafting_pulse"
+			}
+			"SpendCharge"
+			{}
+		}
+	}
+	"item_topaz_chance" 
+	{
+	    "ID"           			"2170"
+	    "BaseClass"    			"item_datadriven"
+	    "AbilityTextureName" 	"custom/gem_topaz"
+	    "Model"        			"models/props_gameplay/recipe.vmdl"
+	    "ModelScale"				"0.1"
+	    "Effect"       				"particles/generic_gameplay/dropped_item.vpcf"
+		"ItemShopTags"				"consumable"
+		"ItemQuality"				"consumable"
+	    "ItemCost"     				"50"
+	    "ItemKillable"				"0" 
+	    "ItemSellable" 				"1"
+	    "ItemPurchasable" 			"1"
+	    "ItemDroppable" 			"1"
+	    "ItemShareability"			"ITEM_FULLY_SHAREABLE"
+	    "SideShop"     				"1" 
+	    "SecretShop"   				"0"
+	    "ItemStackable" 			"1"
+	    "ItemPermanent" 			"0"
+	    "ItemInitialCharges"			"1"
+		"ItemDisplayCharges"			"1"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"precache"
+		{
+			"soundfile"	"soundevents/game_sounds_ui.vsndevts"
+		}
+		"AbilityChannelTime"	"0.4"
+		"OnChannelSucceeded"
+		{
+			"RunScript"
+			{
+			
+				"ScriptFile"	"scripts/vscripts/custom_items/gem_items_Abilities.lua"
+		
+				"Function" 		"AbilityAddtopaz"
+			}
+			"FireSound"
+			{
+				"Target"		"CASTER"
+				"EffectName"	"ui.crafting_pulse"
+			}
+			"SpendCharge"
+			{}
+		}
+	}
+	"item_throne_heal" 
+	{
+	    "ID"           			"2180"
+	    "BaseClass"    			"item_datadriven"
+	    "AbilityTextureName" 	"item_tango"
+	    "Model"        			"models/props_gameplay/recipe.vmdl"
 	    "ModelScale"				"0.1"
 	    "Effect"       				"particles/generic_gameplay/dropped_item.vpcf"
 		"ItemShopTags"				"consumable"
@@ -253,15 +621,15 @@
 			
 				"ScriptFile"	"scripts/vscripts/custom_items/gem_items_Abilities.lua"
 		
-				"Function" 		"AbilityAddAmethyst"
+				"Function" 		"AbilityHealThrone"
 			}
 			"FireSound"
 			{
 				"Target"		"CASTER"
-				"EffectName"	"ui.inv_equip_robes"
+				"EffectName"	"ui.crafting_pulse"
 			}
 			"SpendCharge"
 			{}
 		}
-	}
+	}						
 }
