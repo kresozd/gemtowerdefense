@@ -7,19 +7,26 @@ end
 function GameData:Init()
 
    ListenToGameEvent("throne_touch",Dynamic_Wrap(GameData, 'OnLeaked'), self)
-   --ListenToGameEvent("entity_killed", Dynamic_Wrap(GameData, 'OnEntityKilled'), self)
+   ListenToGameEvent("entity_killed", Dynamic_Wrap(GameData, 'OnEntityKilled'), self)
+   ListenToGameEvent("entity_hurt"), Dynamic_Wrap(GameData, 'OnEntityHurt'), self)
 
-    self.LeakCount = 0
+    self.LeakCount = {}
     self.Killed = 0
     self.Round  = 0
 end
 
 
 function GameData:OnLeaked(keys)
-self.LeakCount = self.LeakCount + 1
+    
 end
---[[
+
 function GameData:OnEntityKilled(keys)
     self.Killed = self.Killed + 1
 end
-]]
+
+
+function GameData:OnEntityHurt(keys)
+{
+    CustomGameEventManager:Send_ServerToAllClients( "update_tower_stats_damage", {damageTable = Wave.TowerDamage} )
+
+}
