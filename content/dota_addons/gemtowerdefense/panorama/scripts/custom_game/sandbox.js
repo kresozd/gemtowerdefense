@@ -8,8 +8,6 @@ function AddSandboxButton(text, eventName) {
 
   button.AddClass('sandbox-button');
   $.CreatePanel("Label", button, "").text = text;
-
-  return button;
 }
 
 

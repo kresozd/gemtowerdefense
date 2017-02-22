@@ -62,6 +62,11 @@ Label {
 }
 
 
+.formula-result {
+  padding-right: 5px;
+  width: 117px;
+}
+
 .formula-item-pulled {
   background-color: gradient( linear, 0% 0%, 0% 100%, from( #4d4d70a5 ), to( #17172155 ) );
   brightness: 1.2;
@@ -134,7 +139,7 @@ Label {
 .tab-formula-min .formula-item {
   padding: 4px;
   width: 104px;
-  height: 54px;
+  height: 70px;
   align: center center;
   margin:0;
   border-right: 1px solid #ffffff09;
@@ -146,13 +151,12 @@ Label {
 
 .tab-formula-min .formula-result {
   border-right: 0;
-  background-color: #17161cf3;
+  background-color: #1F1F21;
 }
 
 .tab-formula-min #component-name {
   font-size: 18px;
   line-height: 18px;
-  font-weight: normal;
   margin-top: 0;
   vertical-align: middle;
 }

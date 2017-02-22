@@ -11,17 +11,20 @@ function GemTowerDefenseReborn:InitGameMode()
 	print("DEBUG: TOTAL PLAYER COUNT ", PLAYER_COUNT)
 
 	towersKV 	= LoadKeyValues("scripts/kv/towers.kv")
+	towersT = {}
 	wavesKV 	= LoadKeyValues("scripts/kv/waves.kv")
 	settingsKV 	= LoadKeyValues("scripts/kv/settings.kv")
 	randomKV	= LoadKeyValues("scripts/kv/random.kv") 
+
 	GameRules:SetCustomGameSetupAutoLaunchDelay( 0 )
-    GameRules:LockCustomGameSetupTeamAssignment( true )
-    GameRules:EnableCustomGameSetupAutoLaunch( true )
-    GameRules:GetGameModeEntity():SetAnnouncerDisabled(true)
-    GameRules:SetSameHeroSelectionEnabled(true)
-    GameRules:SetUseUniversalShopMode(true)
-    GameRules:GetGameModeEntity():GetRecommendedItemsDisabled()
-    GameRules:GetGameModeEntity():SetStashPurchasingDisabled(true)
+	GameRules:LockCustomGameSetupTeamAssignment( true )
+	GameRules:EnableCustomGameSetupAutoLaunch( true )
+	GameRules:GetGameModeEntity():SetAnnouncerDisabled(true)
+	GameRules:SetSameHeroSelectionEnabled(true)
+	GameRules:SetUseUniversalShopMode(true)
+	GameRules:GetGameModeEntity():GetRecommendedItemsDisabled()
+	GameRules:GetGameModeEntity():SetStashPurchasingDisabled(true)
+
 	Grid:Init()
 	Builder:Init()
 	Wave:Init(wavesKV)
@@ -33,6 +36,7 @@ function GemTowerDefenseReborn:InitGameMode()
 	Throne:Init()
 	GameData:Init()
 	Gem_Items:Init()
+
 	-- GameRules:GetGameModeEntity():SetCameraDistanceOverride(1400)
 	GameRules:SetHeroSelectionTime(20.0)
 	GameRules:SetPreGameTime(0)
@@ -69,8 +73,33 @@ function GemTowerDefenseReborn:InitGameMode()
 	GameRules:GetGameModeEntity():SetUseCustomHeroLevels ( true )
 	GameRules:GetGameModeEntity():SetCustomXPRequiredToReachNextLevel(customXP)
 	GameRules:SetUseCustomHeroXPValues ( true )
+	GetTowerTable()
+
 end
 
+function GetTowerTable()
+
+	for key, value in pairs(towersKV) do
+
+			towersT[key] = {}
+
+			for tkey, value in pairs(towersKV[key]) do
+
+					if tkey == 'Requirements' or tkey == 'Type' then
+
+							towersT[key][tkey] = value
+
+							if tkey == 'Requirements' and towersT[key][tkey]['Count'] then
+									towersT[key][tkey]['Count'] = nil
+							end
+
+					end
+			end
+
+			towersT[key].State = 'initial'
+	end
+
+end
 
 function PrintEndWaveMessage( message )
 	print(message)
