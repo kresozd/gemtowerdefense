@@ -91,6 +91,7 @@
   animation-name: showUp;
   animation-duration: .72s;
   animation-timing-function: ease-out;
+  /*animation-iteration-count: infinite;*/
 }
 
 #health-changed .health-changed-healed {

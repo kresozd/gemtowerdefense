@@ -12,6 +12,7 @@ function GemTowerDefenseReborn:InitGameMode()
 
 	towersKV 	= LoadKeyValues("scripts/kv/towers.kv")
 	towersT = {}
+	GetTowerTable()
 	wavesKV 	= LoadKeyValues("scripts/kv/waves.kv")
 	settingsKV 	= LoadKeyValues("scripts/kv/settings.kv")
 	randomKV	= LoadKeyValues("scripts/kv/random.kv") 
@@ -60,6 +61,7 @@ function GemTowerDefenseReborn:InitGameMode()
 	ListenToGameEvent('player_connect_full', Dynamic_Wrap(GemTowerDefenseReborn, 'OnConnectFull'), self)
 	ListenToGameEvent('game_rules_state_change', Dynamic_Wrap(GemTowerDefenseReborn, 'OnStateChange'), self)
 	ListenToGameEvent("player_chat", Dynamic_Wrap(GemTowerDefenseReborn, "OnPlayerChat"), self)
+	CustomNetTables:SetTableValue( "game_state", "towers_table", towersT )
 
 	local customXP =
 	{
@@ -73,7 +75,6 @@ function GemTowerDefenseReborn:InitGameMode()
 	GameRules:GetGameModeEntity():SetUseCustomHeroLevels ( true )
 	GameRules:GetGameModeEntity():SetCustomXPRequiredToReachNextLevel(customXP)
 	GameRules:SetUseCustomHeroXPValues ( true )
-	GetTowerTable()
 
 end
 

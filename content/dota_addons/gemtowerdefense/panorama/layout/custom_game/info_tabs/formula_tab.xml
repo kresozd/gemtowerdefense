@@ -8,11 +8,13 @@
   <snippets>
     <snippet name="formula-item">
       <Panel class="formula-item">
-        <Panel id="formula-tower">
-          <Panel id="formula-tower-inner" />
-          <Label id="formula-component-tier" text="X" />
+        <Panel id="tower">
+          <Panel id="tower-inner">
+            <Image id="tower-image" />
+          </Panel>
+          <Label id="tower-tier" text="X" />
         </Panel>
-        <Label id="component-name" text="component name" />
+        <Label id="tower-name" text="tower name" />
       </Panel>
     </snippet>
   </snippets>
