@@ -4046,7 +4046,7 @@
 			"ModelScale"                "1.4"
 			"IsAncient"	"1"
 
-			"Ability1"		"damage_shown_enemy"
+	
 			
 			"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
 			"DisableClumpingBehavior"	"1"
@@ -4077,7 +4077,7 @@
 			"Level"                 "2"
 			"ModelScale"                "1.4"
 			
-			"Ability1"		"damage_shown_enemy"
+	
 			
 			"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
 			"MovementSpeed"             "1200"
@@ -4104,7 +4104,7 @@
 			"Level"                 "3"
 			"ModelScale"                "1.4"
 			
-			"Ability1"		"damage_shown_enemy"
+	
 			
 			"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
 			"MovementSpeed"             "1200"
@@ -4130,7 +4130,7 @@
 			"Level"                 "4"
 			"ModelScale"                "1.4"
 			
-			"Ability1"		"damage_shown_enemy"
+	
 			
 			"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
 			"MovementSpeed"             "1200"
@@ -4157,7 +4157,7 @@
 			"Level"                 "5"
 			"ModelScale"                "1.4"
 			
-			"Ability1"		"damage_shown_enemy"
+	
 			
 			"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_FLY"
 			"MovementSpeed"             "1200"
@@ -4184,7 +4184,7 @@
 			"Level"                 "6"
 			"ModelScale"                "1.4"
 			
-			"Ability1"		"damage_shown_enemy"
+	
 			
 			"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
 			"MovementSpeed"             "1200"
@@ -4210,7 +4210,7 @@
 			"Level"                 "7"
 			"ModelScale"                "1.4"
 			
-			"Ability1"		"damage_shown_enemy"
+	
 			
 			"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
 			"MovementSpeed"             "1200"
@@ -4236,8 +4236,8 @@
 			"Level"                 "8"
 			"ModelScale"                "1.4"
 			
-			"Ability1"		"damage_shown_enemy"
-			"Ability2"		"phantom_assassin_blur"
+	
+			"Ability1"		"phantom_assassin_blur"
 			
 			"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
 			"MovementSpeed"             "1200"
@@ -4261,8 +4261,8 @@
 			"BaseClass"             "npc_dota_creature"
 			"Level"                 "9"
 			"ModelScale"                "1.4"
-			"Ability1"		"damage_shown_enemy"
-			"Ability2"		"riki_permanent_invisibility"
+	
+			"Ability1"		"riki_permanent_invisibility"
 			
 			
 			"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
@@ -4289,7 +4289,7 @@
 			"Level"                 "10"
 			"ModelScale"                "5.4"
 			
-			"Ability1"		"damage_shown_enemy"
+	
 			
 			"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
 			"MovementSpeed"             "1200"
@@ -4314,7 +4314,7 @@
 			"Level"                 "11"
 			"ModelScale"                "1.4"
 			
-			"Ability1"		"damage_shown_enemy"
+	
 			
 			"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
 			"MovementSpeed"             "1200"
@@ -4339,8 +4339,8 @@
 		"Level"                 "12"
 		"ModelScale"                "2.4"
 		
-		"Ability1"		"damage_shown_enemy"
-		"Ability2"		"disarm_gem_enemy"
+
+		"Ability1"		"disarm_gem_enemy"
 		
 		"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_FLY"
 		"MovementSpeed"             "1200"
@@ -4368,7 +4368,7 @@
 		"Level"                 "13"
 		"ModelScale"                "1.4"
 
-		"Ability1"		"damage_shown_enemy"
+
 		
 		
 		"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
@@ -4395,7 +4395,7 @@
 		"BaseClass"             "npc_dota_creature"
 		"Level"                 "14"
 		"ModelScale"                "1.4"
-		"Ability1"		"damage_shown_enemy"
+
 		
 		
 		"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
@@ -4422,7 +4422,7 @@
 		"BaseClass"             "npc_dota_creature"
 		"Level"                 "15"
 		"ModelScale"                "1.4"
-		"Ability1"		"damage_shown_enemy"
+
 		
 		
 		"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_FLY"
@@ -4450,8 +4450,8 @@
 		"BaseClass"             "npc_dota_creature"
 		"Level"                 "16"
 		"ModelScale"                "1.4"
-		"Ability1"		"damage_shown_enemy"
-		"Ability2"		"magic_immunity_enemy"
+
+		"Ability1"		"magic_immunity_enemy"
 		
 		
 		"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
@@ -4478,8 +4478,8 @@
 		"BaseClass"             "npc_dota_creature"
 		"Level"                 "17"
 		"ModelScale"                "1.4"
-		"Ability1"		"damage_shown_enemy"
-		"Ability2"		"untouchable_enemy"
+
+		"Ability1"		"untouchable_enemy"
 		
 		
 		"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
@@ -4506,8 +4506,8 @@
 		"BaseClass"             "npc_dota_creature"
 		"Level"                 "18"
 		"ModelScale"                "1.4"
-		"Ability1"		"damage_shown_enemy"
-		"Ability2"		"disarm_gem_enemy"
+
+		"Ability1"		"disarm_gem_enemy"
 		
 		
 		"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
@@ -4534,7 +4534,7 @@
 		"BaseClass"             "npc_dota_creature"
 		"Level"                 "19"
 		"ModelScale"                "1.4"
-		"Ability1"		"damage_shown_enemy"
+
 		
 		
 		"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
@@ -4561,8 +4561,8 @@
 		"BaseClass"             "npc_dota_creature"
 		"Level"                 "20"
 		"ModelScale"                "3.0"
-		"Ability1"		"damage_shown_enemy"
-		"Ability2"		"abaddon_borrowed_time"
+
+		"Ability1"		"abaddon_borrowed_time"
 		
 		
 		"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
@@ -4589,7 +4589,7 @@
 		"BaseClass"             "npc_dota_creature"
 		"Level"                 "21"
 		"ModelScale"                "1.4"
-		"Ability1"		"damage_shown_enemy"
+
 
 		
 		
@@ -4618,8 +4618,8 @@
 		"BaseClass"             "npc_dota_creature"
 		"Level"                 "22"
 		"ModelScale"                "1.4"
-		"Ability1"		"damage_shown_enemy"
-		"Ability2"		"physical_immunity_enemy"
+
+		"Ability1"		"physical_immunity_enemy"
 		
 		
 		"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
@@ -4645,8 +4645,8 @@
 		"BaseClass"             "npc_dota_creature"
 		"Level"                 "23"
 		"ModelScale"                "1.4"
-		"Ability1"		"damage_shown_enemy"
-		"Ability2"		"armor_increase_enemy"
+
+		"Ability1"		"armor_increase_enemy"
 		
 		
 		"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
@@ -4671,8 +4671,8 @@
 		"BaseClass"             "npc_dota_creature"
 		"Level"                 "24"
 		"ModelScale"                "1.4"
-		"Ability1"		"damage_shown_enemy"
-		"Ability2"		"shredder_reactive_armor"
+
+		"Ability1"		"shredder_reactive_armor"
 		
 		"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_FLY"
 		"MovementSpeed"             "1200"
@@ -4696,8 +4696,8 @@
 		"BaseClass"             "npc_dota_creature"
 		"Level"                 "9"
 		"ModelScale"                "1.4"
-		"Ability1"		"damage_shown_enemy"
-		"Ability2"		"phantom_assassin_blur"
+
+		"Ability1"		"phantom_assassin_blur"
 		
 		
 		"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_FLY"
@@ -4722,8 +4722,8 @@
 		"BaseClass"             "npc_dota_creature"
 		"Level"                 "9"
 		"ModelScale"                "1.4"
-		"Ability1"		"damage_shown_enemy"
-		"Ability2"		"magic_immunity_enemy"
+
+		"Ability1"		"magic_immunity_enemy"
 		
 		
 		"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_FLY"
@@ -4746,8 +4746,8 @@
 		"BaseClass"             "npc_dota_creature"
 		"Level"                 "9"
 		"ModelScale"                "2.2"
-		"Ability1"		"damage_shown_enemy"
-		"Ability2"		"shredder_reactive_armor"
+
+		"Ability1"		"shredder_reactive_armor"
 		
 		
 		"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_FLY"
@@ -4772,8 +4772,8 @@
 		"BaseClass"             "npc_dota_creature"
 		"Level"                 "9"
 		"ModelScale"                "2.2"
-		"Ability1"		"damage_shown_enemy"
-		"Ability2"		""
+
+		"Ability1"		""
 		
 		
 		"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_FLY"
@@ -4798,8 +4798,8 @@
 		"BaseClass"             "npc_dota_creature"
 		"Level"                 "9"
 		"ModelScale"                "2.2"
-		"Ability1"		"damage_shown_enemy"
-		"Ability2"		""
+
+		"Ability1"		""
 		
 		
 		"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_FLY"
@@ -4825,8 +4825,8 @@
 		"BaseClass"             "npc_dota_creature"
 		"Level"                 "9"
 		"ModelScale"                "2.2"
-		"Ability1"		"damage_shown_enemy"
-		"Ability2"		""
+
+		"Ability1"		""
 		
 		
 		"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
@@ -4852,9 +4852,9 @@
 		"BaseClass"             "npc_dota_creature"
 		"Level"                 "9"
 		"ModelScale"                "2.2"
-		"Ability1"		"damage_shown_enemy"
-		"Ability2"		"abaddon_borrowed_time"
-		"Ability3"		"magic_immunity_enemy"
+
+		"Ability1"		"abaddon_borrowed_time"
+		"Ability2"		"magic_immunity_enemy"
 		
 		
 		"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
@@ -4878,9 +4878,9 @@
 		"BaseClass"             "npc_dota_creature"
 		"Level"                 "9"
 		"ModelScale"                "2.6"
-		"Ability1"		"damage_shown_enemy"
-		"Ability2"		"healing_enemy"
-		"Ability3"		""
+
+		"Ability1"		"healing_enemy"
+		"Ability2"		""
 		
 		
 		"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
@@ -4905,9 +4905,9 @@
 		"BaseClass"             "npc_dota_creature"
 		"Level"                 "9"
 		"ModelScale"                "2.4"
-		"Ability1"		"damage_shown_enemy"
-		"Ability2"		"physical_immunity_enemy"
-		"Ability3"		""
+
+		"Ability1"		"physical_immunity_enemy"
+		"Ability2"		""
 		
 		
 		"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
@@ -4932,9 +4932,9 @@
 		"BaseClass"             "npc_dota_creature"
 		"Level"                 "9"
 		"ModelScale"                "2.4"
-		"Ability1"		"damage_shown_enemy"
-		"Ability2"		"phantom_assassin_blur"
-		"Ability3"		""
+
+		"Ability1"		"phantom_assassin_blur"
+		"Ability2"		""
 		
 		
 		"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_FLY"
@@ -4960,9 +4960,9 @@
 		"BaseClass"             "npc_dota_creature"
 		"Level"                 "9"
 		"ModelScale"                "2.4"
-		"Ability1"		"damage_shown_enemy"
-		"Ability2"		"magic_immunity_enemy"
-		"Ability3"		""
+
+		"Ability1"		"magic_immunity_enemy"
+		"Ability2"		""
 		
 		
 		"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_FLY"
@@ -4988,9 +4988,9 @@
 		"BaseClass"             "npc_dota_creature"
 		"Level"                 "9"
 		"ModelScale"                "2.5"
-		"Ability1"		"damage_shown_enemy"
-		"Ability2"		"magic_immunity_enemy"
-		"Ability3"		""
+
+		"Ability1"		"magic_immunity_enemy"
+		"Ability2"		""
 		
 		
 		"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
@@ -5014,9 +5014,9 @@
 		"BaseClass"             "npc_dota_creature"
 		"Level"                 "9"
 		"ModelScale"                "2.5"
-		"Ability1"		"damage_shown_enemy"
-		"Ability2"		"disarm_gem_enemy"
-		"Ability3"		"riki_permanent_invisibility"
+
+		"Ability1"		"disarm_gem_enemy"
+		"Ability2"		"riki_permanent_invisibility"
 		
 		
 		"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
@@ -5040,9 +5040,9 @@
 		"BaseClass"             "npc_dota_creature"
 		"Level"                 "9"
 		"ModelScale"                "2.5"
-		"Ability1"		"damage_shown_enemy"
-		"Ability2"		"untouchable_enemy"
-		"Ability3"		""
+
+		"Ability1"		"untouchable_enemy"
+		"Ability2"		""
 		
 		
 		"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
@@ -5066,9 +5066,9 @@
 		"BaseClass"             "npc_dota_creature"
 		"Level"                 "9"
 		"ModelScale"                "2.4"
-		"Ability1"		"damage_shown_enemy"
-		"Ability2"		"healing_enemy"
-		"Ability3"		"phantom_assassin_blur"
+
+		"Ability1"		"healing_enemy"
+		"Ability2"		"phantom_assassin_blur"
 		
 		
 		"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_FLY"
@@ -5093,9 +5093,9 @@
 		"BaseClass"             "npc_dota_creature"
 		"Level"                 "9"
 		"ModelScale"                "5.2"
-		"Ability1"		"damage_shown_enemy"
-		"Ability2"		"tidehunter_kraken_shell"
-		"Ability3"		""
+
+		"Ability1"		"tidehunter_kraken_shell"
+		"Ability2"		""
 		
 		
 		"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_FLY"
@@ -5120,9 +5120,9 @@
 		"BaseClass"             "npc_dota_creature"
 		"Level"                 "9"
 		"ModelScale"                "2.5"
-		"Ability1"		"damage_shown_enemy"
-		"Ability2"		"abaddon_borrowed_time"
-		"Ability3"		""
+
+		"Ability1"		"abaddon_borrowed_time"
+		"Ability2"		""
 		
 		
 		"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
@@ -5146,9 +5146,9 @@
 		"BaseClass"             "npc_dota_creature"
 		"Level"                 "9"
 		"ModelScale"                "2.7"
-		"Ability1"		"damage_shown_enemy"
-		"Ability2"		"magic_immunity_enemy"
-		"Ability3"		""
+
+		"Ability1"		"magic_immunity_enemy"
+		"Ability2"		""
 		
 		
 		"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_FLY"
@@ -5173,9 +5173,9 @@
 		"BaseClass"             "npc_dota_creature"
 		"Level"                 "9"
 		"ModelScale"                "2.5"
-		"Ability1"		"damage_shown_enemy"
-		"Ability2"		"shredder_reactive_armor"
-		"Ability3"		"healing_enemy"
+
+		"Ability1"		"shredder_reactive_armor"
+		"Ability2"		"healing_enemy"
 		
 		
 		"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
@@ -5199,9 +5199,9 @@
 		"BaseClass"             "npc_dota_creature"
 		"Level"                 "9"
 		"ModelScale"                "2.5"
-		"Ability1"		"damage_shown_enemy"
-		"Ability2"		"magic_immunity_enemy"
-		"Ability3"		""
+
+		"Ability1"		"magic_immunity_enemy"
+		"Ability2"		""
 		
 		
 		"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
@@ -5225,9 +5225,9 @@
 		"BaseClass"             "npc_dota_creature"
 		"Level"                 "9"
 		"ModelScale"                "2.7"
-		"Ability1"		"damage_shown_enemy"
-		"Ability2"		"enrage_enemy"
-		"Ability3"		""
+
+		"Ability1"		"enrage_enemy"
+		"Ability2"		""
 		
 		
 		"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_FLY"

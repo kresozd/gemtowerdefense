@@ -1,4 +1,4 @@
-
+var towersT = {};
 
 function initFormulaRows(data) {
   var towers = data || {};
@@ -34,9 +34,9 @@ function createTowerPanel(container, tower, isFinal) {
   towerPanel.BLoadLayoutSnippet('formula-item');
   towerPanel.AddClass(tower);
 
-  var towerImg = tower.length > 6 ? tower : tower.slice(0, 5);
-  var towerInner = towerPanel.FindChildTraverse('tower-image');
-  towerInner.SetImage("file://{resources}/images/custom_game/gems/" + towerImg + ".png");
+  var imageName = tower.length > 6 ? tower : tower.slice(0, 5);
+  var towerImage = towerPanel.FindChildTraverse('tower-image');
+  towerImage.SetImage("file://{resources}/images/custom_game/gems/" + imageName + ".png");
 
   var towerLabel = towerPanel.FindChildTraverse('tower-name');
   towerLabel.text = $.Localize('#' + tower);
@@ -57,7 +57,7 @@ function setUpTowerTooltip(towerPanel, towerName) {
     var towerInner = towerPanel.FindChildTraverse('tower-inner');
     var target = isMinimized ? towerPanel : towerInner;
 
-    $.DispatchEvent("UIShowCustomLayoutParametersTooltip", target, "formulaTooltip", "file://{resources}/layout/custom_game/tooltips/formula_tooltip.xml", "towerName=" + towerName + "&towerType=" + towers[towerName].Type);
+    $.DispatchEvent("UIShowCustomLayoutParametersTooltip", target, "formulaTooltip", "file://{resources}/layout/custom_game/tooltips/formula_tooltip.xml", "towerName=" + towerName + "&towerType=" + towersT[towerName].Type);
   }
 
   towerPanel.SetPanelEvent("onmouseover", showTooltip)
@@ -72,7 +72,7 @@ function setUpTowerTooltip(towerPanel, towerName) {
 
 
 (function() {
-  var towersT = CustomNetTables.GetTableValue("game_state", "towers_table");
+  towersT = CustomNetTables.GetTableValue("game_state", "towers_table");
   $.Msg(towersT);
   initFormulaRows(towersT);
 })();

@@ -434,30 +434,6 @@
 		}
 	}
 
-	"damage_shown_enemy"
-	{
-		"BaseClass"	"ability_datadriven"
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-		"Modifiers"
-		{
-			"modifier_name"
-			{
-				"Passive"	"1"
-				"IsHidden"	"1"
-				"OnTakeDamage"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"scripts/vscripts/builder/towerAbilities.lua"
-						"Function"	"Ability_Show_Damage"
-						"DamageTaken"	"%attack_damage"
-						"Target"	"ATTACKER"
-					}
-				}
-			}
-		}
-	}
-
 	"disarm_gem_enemy"
 	{
 		"BaseClass"	"ability_datadriven"
