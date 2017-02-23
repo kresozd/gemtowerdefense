@@ -9,11 +9,11 @@ end
 
 function GameData:Init()
 
-   ListenToGameEvent("throne_touch",Dynamic_Wrap(GameData, 'OnLeaked'), self)
-   ListenToGameEvent("entity_killed", Dynamic_Wrap(GameData, 'OnEntityKilled'), self)
-   ListenToGameEvent("entity_hurt", Dynamic_Wrap(GameData, 'OnEntityHurt'), self)
+	ListenToGameEvent("throne_touch",Dynamic_Wrap(GameData, 'OnLeaked'), self)
+	ListenToGameEvent("entity_killed", Dynamic_Wrap(GameData, 'OnEntityKilled'), self)
+	ListenToGameEvent("entity_hurt", Dynamic_Wrap(GameData, 'OnEntityHurt'), self)
 
-    self.LeakCount = {}
+	self.LeakCount = {}
     self.Killed = 0
     self.Round  = 0
     self.DamageFromTowers = {}
@@ -27,7 +27,7 @@ function GameData:OnLeaked(keys)
 end
 
 function GameData:OnEntityKilled(keys)
-    self.Killed = self.Killed + 1
+	self.Killed = self.Killed + 1
 end
 
 
@@ -36,51 +36,52 @@ function GameData:OnEntityHurt(keys)
 
 	if keys.entindex_attacker ~= nil then
 
-		local entity = keys.entindex_attacker
+		local entity = EntIndexToHScript(keys.entindex_attacker)
+		local entityIndex = entity:GetEntityIndex()
 		local damage = math.floor(keys.damage)
-        if damage <= 0 then
-            damage = 0
-        end
 
-		-- if entity:IsHero() then
-		-- 	return
-		-- end
+		if damage <= 0 then
+			damage = 0
+		end
 
-		local totalDamage = self.TowerDamage[entity]
+		if entity:IsHero() then
+			return
+		end
+
+		local totalDamage = self.TowerDamage[entityIndex]
 
 		if totalDamage == nil then
 			totalDamage = 0
 		end
 
 		totalDamage = totalDamage + damage
-		self.TowerDamage[entity] = totalDamage
+		self.TowerDamage[entityIndex] = totalDamage
 
 	end
 
 	GameData:SortDamageTable()
 end
 
+
 function spairs(t, order)
 
-    local keys = {}
-    for k in pairs(t) do keys[#keys+1] = k end
+	local keys = {}
+	for k in pairs(t) do keys[#keys+1] = k end
 
-    if order then
-        table.sort(keys, function(a,b) return order(t, a, b) end)
-    else
-        table.sort(keys)
-    end
+		if order then
+			table.sort(keys, function(a,b) return order(t, a, b) end)
+		else
+			table.sort(keys)
+		end
 
-    local i = 0
-    return function()
-        i = i + 1
-        if keys[i] then
-            return keys[i], t[keys[i]]
-        end
-    end
+		local i = 0
+		return function()
+			i = i + 1
+			if keys[i] then
+				return keys[i], t[keys[i]]
+			end
+	end
 end
-
-
 
 
 function GameData:SortDamageTable()
@@ -100,8 +101,3 @@ function GameData:SortDamageTable()
 
     CustomGameEventManager:Send_ServerToAllClients( "update_tower_stats_damage", {damageTable = self.topDamage} )
 end
-
-
--- function GameData:GetPercentage(value, total)
-
--- end
