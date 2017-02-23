@@ -46,22 +46,23 @@ local maxDamage={
 }
 for i,j in pairs(allDamage) do
   if j>=maxDamage[1] then
-    topFiveTowers[1][i]=j
+    topFiveTowers[1]={[i]=j}
     maxDamage[1]=j
   elseif j>maxDamage[2] then
-    topFiveTowers[2][i]=j
+    topFiveTowers[2]={[i]=j}
     maxDamage[2]=j
   elseif j>maxDamage[3] then
-    topFiveTowers[3][i]=j
+    topFiveTowers[3]={[i]=j}
     maxDamage[3]=j
   elseif j>maxDamage[4] then
-    topFiveTowers[4][i]=j
+    topFiveTowers[4]={[i]=j}
     maxDamage[4]=j
   elseif j>maxDamage[5] then
-    topFiveTowers[5][i]=j
+    topFiveTowers[5]={[i]=j}
     maxDamage[5]=j        
   end
 end
+
 
     CustomGameEventManager:Send_ServerToAllClients( "update_tower_stats_damage", {damageTable = topFiveTowers} )
     --print("Entity hurt!")
