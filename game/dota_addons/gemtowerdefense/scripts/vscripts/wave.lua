@@ -41,8 +41,11 @@ function Wave:WaveInit()
 	GameRules:SetTimeOfDay(0.8)
 	if Wave:IsBoss() then
 
-		Wave:SpawnBoss()
-
+		if Wave:IsFinal() then
+			Wave:SpawnDamageTest()
+		else
+			Wave:SpawnBoss()
+		end
 	else
 
 		Wave:SpawnUnits()
@@ -290,11 +293,17 @@ end
 
 function Wave:UpdateWaveData()
 
-	Wave:AddMVPAbility()
-	self.State = "BUILD"
-	self.AmountKilled = 0
-	self.RoundNumber = self.RoundNumber + 1
-	self.AllSpawned = false
+	if self.RoundNumber == MAX_ROUND + 1 then
+		GameRules:SetGameWinner(DOTA_TEAM_GOODGUYS)
+	else
+		Wave:AddMVPAbility()
+		self.State = "BUILD"
+		self.AmountKilled = 0
+		self.RoundNumber = self.RoundNumber + 1
+		self.AllSpawned = false
+	end
+
+
 
 end
 
@@ -428,9 +437,21 @@ function Wave:OnThroneTouch(keys)
 	end
 end
 
+function Wave:IsFinal()
+	if self.RoundNumber == MAX_ROUND then
+		return true
+	else
+		return false
+	end
+end
+
 function Wave:SpawnDamageTest()
 
 	local waveData = Wave:LoadWaveData()
  	local boss = CreateUnitByName(waveData.unitName, self.SpawnPosition, false, nil, nil, DOTA_TEAM_BADGUYS)
+
+	 Grid:MoveUnit(boss)
+	 Wave:AddCreepProperties(boss, waveData)
+	boss:AddAbility("gem_collision_movement"):SetLevel(1)
 
 end
