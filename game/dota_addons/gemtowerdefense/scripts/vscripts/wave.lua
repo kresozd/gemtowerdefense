@@ -1,4 +1,6 @@
 
+MAX_ROUND = 48
+
 if Wave == nil then
 	Wave = class({})
 	
@@ -19,6 +21,7 @@ function Wave:Init(keyvalue)
     self.AmountKilled 		= 0
 
     self.SpawnedCreeps 		= {}
+	self.AllSpawned = false
     self.RoundNumber 		= 1
     self.SpawnPosition 		= Entities:FindByName(nil, "enemy_spawn"):GetAbsOrigin()
 
@@ -89,9 +92,7 @@ function Wave:SpawnUnits()
 		Grid:MoveUnit(unit)
 
 		if amountSpawned == 10 then
-			local data = {units = self.SpawnedCreeps}
-			FireGameEvent("all_spawned", data)
-			--self.AmountSpawned = 0
+			self.AllSpawned = true
         	return nil	
 		else
 			return self.DelayBetweenSpawn
@@ -294,6 +295,7 @@ function Wave:UpdateWaveData()
 	self.State = "BUILD"
 	self.AmountKilled = 0
 	self.RoundNumber = self.RoundNumber + 1
+	self.AllSpawned = false
 
 end
 
@@ -427,3 +429,9 @@ function Wave:OnThroneTouch(keys)
 	end
 end
 
+function Wave:SpawnDamageTest()
+
+	local waveData = Wave:LoadWaveData()
+ 	local boss = CreateUnitByName(waveData.unitName, self.SpawnPosition, false, nil, nil, DOTA_TEAM_BADGUYS)
+
+end
