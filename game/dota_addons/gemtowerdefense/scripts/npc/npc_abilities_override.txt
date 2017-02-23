@@ -3,6 +3,16 @@
 {
     "Version"        "1"
     //Courier
+    "warlock_fatal_bonds"
+    {
+    "MaxLevel"  "4"
+    "AbilityManaCost"  "3"
+    }
+    "ogre_magi_bloodlust"
+    {
+    "MaxLevel"  "4"
+    "AbilityManaCost"  "3"
+    }
     "item_courier"
     {
         "ItemPurchasable"                "0"

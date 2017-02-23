@@ -20,6 +20,11 @@ function HeroSelection:Init()
 
 	self.SelectListener = CustomGameEventManager:RegisterListener( "player_selected_hero", Dynamic_Wrap(HeroSelection, 'OnHeroSelected'))
 
+	self.HeroAbilities = 
+	{
+		["npc_dota_hero_vengefulspirit"]="warlock_fatal_bonds",
+		["npc_dota_hero_sniper"]		="ogre_magi_bloodlust"
+	}
 end
 
 function HeroSelection:Tick() 
@@ -115,7 +120,7 @@ end
 function HeroSelection:UnlockAbilities(player)
 	local player = PlayerResource:GetPlayer(player)
 	local hero = player:GetAssignedHero()
-
+	local heroname = hero:GetUnitName()
 	HeroSelection:RemoveTalents(hero)
 
 	hero:AddAbility("gem_build_tower"):SetLevel(1)
@@ -129,6 +134,13 @@ function HeroSelection:UnlockAbilities(player)
 	]]
 	hero:AddAbility("gem_tower_level"):SetLevel(1)
 	hero:FindAbilityByName("gem_tower_level"):SetAbilityIndex(2)
+	print(heroname)
+	print(self.HeroAbilities[heroname])
+	if self.HeroAbilities[heroname] then
+		hero:AddAbility(self.HeroAbilities[heroname]):SetLevel(1)
+		hero:FindAbilityByName(self.HeroAbilities[heroname]):SetAbilityIndex(3)
+		print("Ability added")
+	end
 end
 
 

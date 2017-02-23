@@ -204,9 +204,16 @@ function Builder:Init()
 		[2] = {},
 		[3] = {}
 	 } 
-
+	 self.RoundTowerBases =
+	 {
+		[0] = {},
+		[1] = {},
+		[2] = {},
+		[3] = {}
+	 } 
 	self.PickCount = 0
 	self.GlobalTowers = {}
+	self.GlobalTowerBases = {}
 	self.GlobalMergeable = {}
 	self.GlobalCount = 0
 	self.TowerTestName = nil
@@ -305,19 +312,25 @@ function Builder:CreateTower(playerID, owner, position, caster)
 		self.TowerTestName = nil
 	end
 
+	local upPosition = Vector(0,0,52)+position
+
+	local towerbase = CreateUnitByName("gem_dummy", position, false, nil, nil, DOTA_TEAM_GOODGUYS)
     local tower = CreateUnitByName(mergedName, position, false, nil, nil, DOTA_TEAM_GOODGUYS)
+    tower:SetAbsOrigin(upPosition)
 	local eHandle = tower:GetEntityHandle()
 	--print(playerID)
 	local ModMaster = CreateItem("item_modifier_master", nil, nil) 
 	ModMaster:ApplyDataDrivenModifier(tower, tower, "modifier_tower_pick_player_"..tostring(playerID),nil)
 	tower:SetOwner(owner)
+	towerbase:SetOwner(owner)
+	towerbase.Name="tower_base"
     tower:SetControllableByPlayer(playerID, true)
 	
 	tower.Level = generatedLevel
 	tower.Name = mergedName
 	
 	self.RoundTowers[playerID][eHandle] = tower
-	
+	self.RoundTowerBases[playerID][eHandle] = towerbase
 	if HasBuilderPlaced(playerID) then
 
 		RemoveHeroAbilities(caster)
@@ -331,18 +344,22 @@ function Builder:CreateTower(playerID, owner, position, caster)
 	
 end
 
-function Builder:RemoveTower(caster, target, position)
-	
-	if target:GetUnitName() == "gem_dummy" then
-	
-		target:Destroy()
-		
-		Grid:FreeNavigationSquare(position, "odd")
-		Grid:FindPath()
-		
-	else
 
-	end
+function Builder:RemoveTower(caster, target, position)
+	local testVal = false
+
+		for key, value in pairs(self.DummyTowers) do
+			if not target:IsNull() and not value:IsNull() then
+				if target:GetEntityIndex() == value:GetEntityIndex() then
+					testVal = true
+				end
+			end
+		end
+		if testVal then
+			target:Destroy()
+			Grid:FreeNavigationSquare(position, "odd")
+			Grid:FindPath()
+		end
 
 end
 
@@ -353,7 +370,6 @@ function Builder:ConfirmTower(caster, owner, playerID)
 	local entityHandle = caster:GetEntityHandle()
 	local entityIndex = caster:GetEntityIndex()
 	local entityName = caster:GetUnitName()
-
 	for key, value in pairs(self.RoundTowers[playerID]) do
 
 		if entityIndex == value:GetEntityIndex() then
@@ -363,29 +379,28 @@ function Builder:ConfirmTower(caster, owner, playerID)
 			local eHandle = tower:GetEntityHandle()
 
 			value:Destroy()
-			
+			tower:SetAbsOrigin(position)
 			tower:SetControllableByPlayer(playerID, true)
 			tower:SetOwner(owner)
 			tower:SetHullRadius(TOWER_HULL_RADIUS)
 
 			self.GlobalTowers[self.GlobalCount] = tower
-
+			self.GlobalTowerBases[tower:GetEntityHandle()] = self.RoundTowerBases[playerID][key]
 
 		else
-
-			local position = value:GetAbsOrigin()
-			local tower = CreateUnitByName("gem_dummy", position, false, nil, nil, DOTA_TEAM_GOODGUYS)
+			print(self.RoundTowerBases[playerID][key]:GetUnitName())
+			local tower = self.RoundTowerBases[playerID][key]
 			local eHandle = tower:GetEntityHandle()
-
+			--print(tower:GetName())
 			self.DummyTowers[eHandle] = tower
-
+--[[
 			tower:SetAbsOrigin(position)
 
 			--tower:SetRenderColor(103, 135, 35)
 			tower:SetHullRadius(TOWER_HULL_RADIUS)
 			tower:SetOwner(owner) 
 			tower:SetHullRadius(TOWER_HULL_RADIUS)
-
+]]
 			value:Destroy()
 
 			--Builder:CallibrateTreePosition(position)
@@ -398,7 +413,11 @@ function Builder:ConfirmTower(caster, owner, playerID)
 		self.RoundTowers[playerID][key] = nil
 
 	end
+	for key, value in pairs(self.RoundTowerBases[playerID]) do
 
+		self.RoundTowerBases[playerID][key] = nil
+
+	end
 
 	for key, value in pairs(self.TowerMergeable[playerID]) do
 
@@ -430,28 +449,28 @@ function Builder:OneShotUpgradeTower(caster, owner, playerID)
 			local eHandle = tower:GetEntityHandle()
 
 			value:Destroy()
-			
+			tower:SetAbsOrigin(position)
 			tower:SetControllableByPlayer(playerID, true)
 			tower:SetOwner(owner)
 			tower:SetHullRadius(TOWER_HULL_RADIUS)
 			self.GlobalTowers[self.GlobalCount] = tower
-
+			self.GlobalTowerBases[tower:GetEntityHandle()] = self.RoundTowerBases[playerID][key]
 
 		else
 
-			local position = value:GetAbsOrigin()
-			local tower = CreateUnitByName("gem_dummy", position, false, nil, nil, DOTA_TEAM_GOODGUYS)
+			--local position = value:GetAbsOrigin()
+			local tower = self.RoundTowerBases[playerID][key]
 			local eHandle = tower:GetEntityHandle()
 
 			self.DummyTowers[eHandle] = tower
-
+--[[
 			tower:SetAbsOrigin(position)
 
 			--tower:SetRenderColor(103, 135, 35)
 			tower:SetHullRadius(TOWER_HULL_RADIUS)
 			tower:SetOwner(owner) 
 			tower:SetHullRadius(TOWER_HULL_RADIUS)
-
+]]
 			value:Destroy()
 
 			--Builder:CallibrateTreePosition(position)
@@ -465,6 +484,11 @@ function Builder:OneShotUpgradeTower(caster, owner, playerID)
 
 	end
 
+	for key, value in pairs(self.RoundTowerBases[playerID]) do
+
+		self.RoundTowerBases[playerID][key] = nil
+
+	end
 
 	for key, value in pairs(self.TowerMergeable[playerID]) do
 
@@ -495,28 +519,28 @@ function Builder:OneShotUpgradeTower_2(caster, owner, playerID)
 			local eHandle = tower:GetEntityHandle()
 
 			value:Destroy()
-			
+			tower:SetAbsOrigin(position)
 			tower:SetControllableByPlayer(playerID, true)
 			tower:SetOwner(owner)
 			tower:SetHullRadius(TOWER_HULL_RADIUS)
 			self.GlobalTowers[self.GlobalCount] = tower
-
+			self.GlobalTowerBases[tower:GetEntityHandle()] = self.RoundTowerBases[playerID][key]
 
 		else
 
-			local position = value:GetAbsOrigin()
-			local tower = CreateUnitByName("gem_dummy", position, false, nil, nil, DOTA_TEAM_GOODGUYS)
+			--local position = value:GetAbsOrigin()
+			local tower = self.RoundTowerBases[playerID][key]
 			local eHandle = tower:GetEntityHandle()
 
 			self.DummyTowers[eHandle] = tower
-
+--[[
 			tower:SetAbsOrigin(position)
 
 			--tower:SetRenderColor(103, 135, 35)
 			tower:SetHullRadius(TOWER_HULL_RADIUS)
 			tower:SetOwner(owner) 
 			tower:SetHullRadius(TOWER_HULL_RADIUS)
-
+]]
 			value:Destroy()
 
 			--Builder:CallibrateTreePosition(position)
@@ -530,6 +554,11 @@ function Builder:OneShotUpgradeTower_2(caster, owner, playerID)
 
 	end
 
+	for key, value in pairs(self.RoundTowerBases[playerID]) do
+
+		self.RoundTowerBases[playerID][key] = nil
+
+	end
 
 	for key, value in pairs(self.TowerMergeable[playerID]) do
 
@@ -561,25 +590,30 @@ function Builder:DowngradeTower(caster, owner, playerID)
 			local tower = CreateUnitByName(entityNewName, position, false, nil, nil, DOTA_TEAM_GOODGUYS)
 			local eHandle=tower:GetEntityHandle() 			
 			value:Destroy()
-
+			tower:SetAbsOrigin(position)
 			tower:SetControllableByPlayer(playerID, true)
 			tower:SetOwner(owner) 
 			tower:SetHullRadius(TOWER_HULL_RADIUS)
 
 			self.GlobalTowers[self.GlobalCount] = tower
-
+			self.GlobalTowerBases[tower:GetEntityHandle()] = self.RoundTowerBases[playerID][key]
 
 		else
 
-			local position = value:GetAbsOrigin()
-			local tower = CreateUnitByName("gem_dummy", position, false, nil, nil, DOTA_TEAM_GOODGUYS)
+			--local position = value:GetAbsOrigin()
+			local tower = self.RoundTowerBases[playerID][key]
+			local eHandle = tower:GetEntityHandle()
 
-			value:Destroy()
+			self.DummyTowers[eHandle] = tower
+--[[
+			tower:SetAbsOrigin(position)
 
 			--tower:SetRenderColor(103, 135, 35)
+			tower:SetHullRadius(TOWER_HULL_RADIUS)
 			tower:SetOwner(owner) 
 			tower:SetHullRadius(TOWER_HULL_RADIUS)
-			tower:SetAbsOrigin(position)
+]]
+			value:Destroy()
 
 			--Builder:CallibrateTreePosition(position)
 
@@ -593,6 +627,11 @@ function Builder:DowngradeTower(caster, owner, playerID)
 
 	end
 
+	for key, value in pairs(self.RoundTowerBases[playerID]) do
+
+		self.RoundTowerBases[playerID][key] = nil
+
+	end
 
 	for key, value in pairs(self.TowerMergeable[playerID]) do
 
@@ -646,33 +685,33 @@ function Builder:CreateMergeableTower(playerID, caster, owner)
 			local position = value:GetAbsOrigin()
 			local tower = CreateUnitByName(value.MergesInto, position, false, nil, nil, DOTA_TEAM_GOODGUYS)
 			local eHandle = tower:GetEntityHandle()
-
+			tower:SetAbsOrigin(position)
 			tower:SetControllableByPlayer(playerID, true)
 			tower:SetOwner(owner)
 			tower:SetHullRadius(TOWER_HULL_RADIUS)
 
 			self.GlobalTowers[self.GlobalCount] = tower
-
+			self.GlobalTowerBases[tower:GetEntityHandle()] = self.RoundTowerBases[playerID][value:GetEntityHandle()]
 			value:Destroy()
 
 		else
 
-			local position = value:GetAbsOrigin()
-
-
-			local tower = CreateUnitByName("gem_dummy", position, false, nil, nil, DOTA_TEAM_GOODGUYS)
+			--local position = value:GetAbsOrigin()
+			local tower = self.RoundTowerBases[playerID][value:GetEntityHandle()]
 			local eHandle = tower:GetEntityHandle()
 
 			self.DummyTowers[eHandle] = tower
-
-			value:Destroy()
-
-			--tower:SetRenderColor(103, 135, 35)
-			tower:SetOwner(owner) 
-			tower:SetHullRadius(TOWER_HULL_RADIUS)
+--[[
 			tower:SetAbsOrigin(position)
 
-			Builder:CallibrateTreePosition(position)
+			--tower:SetRenderColor(103, 135, 35)
+			tower:SetHullRadius(TOWER_HULL_RADIUS)
+			tower:SetOwner(owner) 
+			tower:SetHullRadius(TOWER_HULL_RADIUS)
+]]
+			value:Destroy()
+
+			--Builder:CallibrateTreePosition(position)
 
 		end
 
@@ -682,19 +721,19 @@ function Builder:CreateMergeableTower(playerID, caster, owner)
 
 		if not value:IsNull() then
 
-			local position = value:GetAbsOrigin()
-			local tower = CreateUnitByName("gem_dummy", position, false, nil, nil, DOTA_TEAM_GOODGUYS)
+			--local position = value:GetAbsOrigin()
+			local tower = self.RoundTowerBases[playerID][value:GetEntityHandle()]
 			local eHandle = tower:GetEntityHandle()
 
 			self.DummyTowers[eHandle] = tower
-
+--[[
 			tower:SetAbsOrigin(position)
 
 			--tower:SetRenderColor(103, 135, 35)
 			tower:SetHullRadius(TOWER_HULL_RADIUS)
 			tower:SetOwner(owner) 
 			tower:SetHullRadius(TOWER_HULL_RADIUS)
-
+]]
 			value:Destroy()
 
 			--Builder:CallibrateTreePosition(position)
@@ -705,6 +744,12 @@ function Builder:CreateMergeableTower(playerID, caster, owner)
 	for key, value in pairs(self.TowerMergeable[playerID]) do
 
 		self.TowerMergeable[playerID][key] = nil
+
+	end
+
+	for key, value in pairs(self.RoundTowerBases[playerID]) do
+
+		self.RoundTowerBases[playerID][key] = nil
 
 	end
 
@@ -732,33 +777,33 @@ function Builder:CreateMergeableTower_2(playerID, caster, owner)
 			local position = value:GetAbsOrigin()
 			local tower = CreateUnitByName(value.MergesInto2, position, false, nil, nil, DOTA_TEAM_GOODGUYS)
 			local eHandle = tower:GetEntityHandle()
-
+			tower:SetAbsOrigin(position)
 			tower:SetControllableByPlayer(playerID, true)
 			tower:SetOwner(owner)
 			tower:SetHullRadius(TOWER_HULL_RADIUS)
 
 			self.GlobalTowers[self.GlobalCount] = tower
-
+			self.GlobalTowerBases[tower:GetEntityHandle()] = self.RoundTowerBases[playerID][value:GetEntityHandle()]
 			value:Destroy()
 
 		else
 
-			local position = value:GetAbsOrigin()
-
-
-			local tower = CreateUnitByName("gem_dummy", position, false, nil, nil, DOTA_TEAM_GOODGUYS)
+			--local position = value:GetAbsOrigin()
+			local tower = self.RoundTowerBases[playerID][value:GetEntityHandle()]
 			local eHandle = tower:GetEntityHandle()
 
 			self.DummyTowers[eHandle] = tower
-
-			value:Destroy()
-
-			--tower:SetRenderColor(103, 135, 35)
-			tower:SetOwner(owner) 
-			tower:SetHullRadius(TOWER_HULL_RADIUS)
+--[[
 			tower:SetAbsOrigin(position)
 
-		--	Builder:CallibrateTreePosition(position)
+			--tower:SetRenderColor(103, 135, 35)
+			tower:SetHullRadius(TOWER_HULL_RADIUS)
+			tower:SetOwner(owner) 
+			tower:SetHullRadius(TOWER_HULL_RADIUS)
+]]
+			value:Destroy()
+
+			--Builder:CallibrateTreePosition(position)
 
 		end
 
@@ -768,19 +813,19 @@ function Builder:CreateMergeableTower_2(playerID, caster, owner)
 
 		if not value:IsNull() then
 
-			local position = value:GetAbsOrigin()
-			local tower = CreateUnitByName("gem_dummy", position, false, nil, nil, DOTA_TEAM_GOODGUYS)
+			--local position = value:GetAbsOrigin()
+			local tower = self.RoundTowerBases[playerID][key]
 			local eHandle = tower:GetEntityHandle()
 
 			self.DummyTowers[eHandle] = tower
-
+--[[
 			tower:SetAbsOrigin(position)
 
 			--tower:SetRenderColor(103, 135, 35)
 			tower:SetHullRadius(TOWER_HULL_RADIUS)
 			tower:SetOwner(owner) 
 			tower:SetHullRadius(TOWER_HULL_RADIUS)
-
+]]
 			value:Destroy()
 
 			--Builder:CallibrateTreePosition(position)
@@ -791,6 +836,12 @@ function Builder:CreateMergeableTower_2(playerID, caster, owner)
 	for key, value in pairs(self.TowerMergeable[playerID]) do
 
 		self.TowerMergeable[playerID][key] = nil
+
+	end
+
+	for key, value in pairs(self.RoundTowerBases[playerID]) do
+
+		self.RoundTowerBases[playerID][key] = nil
 
 	end
 
@@ -964,16 +1015,20 @@ function Builder:WaveCreateMergedTower(playerID, caster, owner)
 			local position = value:GetAbsOrigin()
 			mergedtower = CreateUnitByName(value.MergesInto, position, false, nil, nil, DOTA_TEAM_GOODGUYS)
 			local eHandlemerge = mergedtower:GetEntityHandle()
-
+			mergedtower:SetAbsOrigin(position)
 			mergedtower:SetControllableByPlayer(playerID, true)
 			mergedtower:SetOwner(owner)
 			mergedtower:SetHullRadius(TOWER_HULL_RADIUS)
 
 			for i, j in pairs(self.GlobalTowers) do
 				if j:GetEntityIndex()==entityIndex then
-					self.GlobalTowers[i] = nil
+					
+					--self.DummyTowers=self.GlobalTowerBases[self.GlobalTowers[i]:GetEntityHandle()]
 					self.GlobalCount=self.GlobalCount+1
 					self.GlobalTowers[self.GlobalCount]=mergedtower
+					self.GlobalTowerBases[mergedtower:GetEntityHandle()]=self.GlobalTowerBases[self.GlobalTowers[i]:GetEntityHandle()]
+					self.GlobalTowerBases[self.GlobalTowers[i]:GetEntityHandle()] = nil
+					self.GlobalTowers[i] = nil
 				end
 			end
 
@@ -1052,16 +1107,23 @@ function Builder:WaveCreateMergedTower(playerID, caster, owner)
 		end
 
 		if entityIndex == value:GetEntityIndex() then 
-			value:Destroy()
+			
+			--local tower = self.GlobalTowerBases[value:GetEntityHandle()]
+			--self.GlobalTowerBases[value:GetEntityHandle()]=nil
+			--local eHandle = tower:GetEntityHandle()
+			--self.DummyTowers[eHandle] = tower
+			--tower:SetOwner(owner)
 			self.GlobalCount = self.GlobalCount-1
+			value:Destroy()
 		else
 			local position = value:GetAbsOrigin()
-			local tower = CreateUnitByName("gem_dummy", position, false, nil, nil, DOTA_TEAM_GOODGUYS)
+			local tower = self.GlobalTowerBases[value:GetEntityHandle()]
+			self.GlobalTowerBases[value:GetEntityHandle()]=nil
 			local eHandle = tower:GetEntityHandle()
 			self.DummyTowers[eHandle] = tower
 			tower:SetOwner(owner) 
 			tower:SetHullRadius(TOWER_HULL_RADIUS)
-			tower:SetAbsOrigin(position)
+
 			value:Destroy()
 			self.GlobalCount = self.GlobalCount-1
 		end
@@ -1112,16 +1174,19 @@ function Builder:WaveCreateMergedTower_2(playerID, caster, owner)
 			local position = value:GetAbsOrigin()
 			mergedtower = CreateUnitByName(value.MergesInto2, position, false, nil, nil, DOTA_TEAM_GOODGUYS)
 			local eHandlemerge = mergedtower:GetEntityHandle()
-
+			mergedtower:SetAbsOrigin(position)
 			mergedtower:SetControllableByPlayer(playerID, true)
 			mergedtower:SetOwner(owner)
 			mergedtower:SetHullRadius(TOWER_HULL_RADIUS)
 
 			for i, j in pairs(self.GlobalTowers) do
 				if j:GetEntityIndex()==entityIndex then
-					self.GlobalTowers[i] = nil
+					--self.DummyTowers=self.GlobalTowerBases[self.GlobalTowers[i]:GetEntityHandle()]
 					self.GlobalCount=self.GlobalCount+1
 					self.GlobalTowers[self.GlobalCount]=mergedtower
+					self.GlobalTowerBases[mergedtower:GetEntityHandle()]=self.GlobalTowerBases[self.GlobalTowers[i]:GetEntityHandle()]
+					self.GlobalTowerBases[self.GlobalTowers[i]:GetEntityHandle()] = nil
+					self.GlobalTowers[i] = nil
 				end
 			end
 
@@ -1199,17 +1264,23 @@ function Builder:WaveCreateMergedTower_2(playerID, caster, owner)
 			addingMVPlevels = addingMVPlevels + value.MVPLevel
 		end
 
-		if entityIndex == value:GetEntityIndex() then 
-			value:Destroy()
+		if entityIndex == value:GetEntityIndex() then
+			--local tower = self.GlobalTowerBases[value:GetEntityHandle()]
+			--self.GlobalTowerBases[value:GetEntityHandle()]=nil
+			--local eHandle = tower:GetEntityHandle()
+			--self.DummyTowers[eHandle] = tower
+			--tower:SetOwner(owner)
 			self.GlobalCount = self.GlobalCount-1
+			value:Destroy()
 		else
 			local position = value:GetAbsOrigin()
-			local tower = CreateUnitByName("gem_dummy", position, false, nil, nil, DOTA_TEAM_GOODGUYS)
+			local tower = self.GlobalTowerBases[value:GetEntityHandle()]
+			self.GlobalTowerBases[value:GetEntityHandle()]=nil
 			local eHandle = tower:GetEntityHandle()
 			self.DummyTowers[eHandle] = tower
 			tower:SetOwner(owner) 
 			tower:SetHullRadius(TOWER_HULL_RADIUS)
-			tower:SetAbsOrigin(position)
+
 			value:Destroy()
 			self.GlobalCount = self.GlobalCount-1
 		end
@@ -1259,6 +1330,16 @@ function Builder:ClearWaveAbilities()
 	for key, value in pairs(self.GlobalMergeable) do
 		self.GlobalMergeable[key] = nil
 	end
+
+	--[[Test Block
+	for key, value in pairs(self.DummyTowers) do
+		if not value:IsNull() then
+			print("tower in dummy")
+	    	local ModMasterMVP = CreateItem("item_modifier_master", nil, nil) 
+			ModMasterMVP:ApplyDataDrivenModifier(value, value, "modifier_merge_gem_Silver_Knight",{duration = 5.0})
+		end
+	end
+]]
 
 end
 

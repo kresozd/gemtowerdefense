@@ -102,6 +102,7 @@
 .test-container {
   flow-children: down;
   align: right center;
+  visibility: collapse;
 }
  
 .btn-test {

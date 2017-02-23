@@ -29,7 +29,6 @@ function Wave:Init(keyvalue)
 	self.TotalLeaked 		= 0
 	self.DelayBetweenSpawn 	= 1
 	self.Data 				= keyvalue
-	self.TowerDamage		= {}
 
 end
 
@@ -37,7 +36,7 @@ end
 function Wave:WaveInit()
 	
 	self.State = "WAVE"
-	self.TowerDamage	= {}
+	GameData.TowerDamage	= {}
 	CustomNetTables:SetTableValue( "game_state", "current_round", { value = tostring(self.RoundNumber) } )
 	GameRules:SetTimeOfDay(0.8)
 	if Wave:IsBoss() then
@@ -303,7 +302,7 @@ function Wave:AddMVPAbility()
 
 	local maxDamage = 0
 	local maxUnit = nil
-	for key, value in pairs(self.TowerDamage) do
+	for key, value in pairs(GameData.TowerDamage) do
 		if value>maxDamage then
 			maxDamage = value
 			for i , j in pairs(Builder.GlobalTowers) do

@@ -106,6 +106,7 @@ function GemTowerDefenseReborn:OnEntityKilled(keys)
 	EmitGlobalSound("General.Coins")
 end
 
+
 function string.trim(s)
 	return s:match "^%s*(.-)%s*$"
 end

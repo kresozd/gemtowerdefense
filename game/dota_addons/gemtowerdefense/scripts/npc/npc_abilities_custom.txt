@@ -274,8 +274,6 @@
 
 	}
 
-
-	
 	"REMOVE_HP_BAR"
 	{
 		"BaseClass"	"ability_datadriven"
@@ -293,6 +291,8 @@
 			}
 		}
 	}
+
+
 
 	"riki_permanent_invisibility"
 	{
@@ -430,30 +430,6 @@
 			{
 				"var_type"	"FIELD_FLOAT"
 				"stack_duration"	"30"
-			}
-		}
-	}
-
-	"damage_shown_enemy"
-	{
-		"BaseClass"	"ability_datadriven"
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-		"Modifiers"
-		{
-			"modifier_name"
-			{
-				"Passive"	"1"
-				"IsHidden"	"1"
-				"OnTakeDamage"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"scripts/vscripts/builder/towerAbilities.lua"
-						"Function"	"Ability_Show_Damage"
-						"DamageTaken"	"%attack_damage"
-						"Target"	"ATTACKER"
-					}
-				}
 			}
 		}
 	}
