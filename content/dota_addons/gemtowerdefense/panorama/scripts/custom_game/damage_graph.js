@@ -12,7 +12,7 @@ function updateStats(data) {
         var towerName = Entities.GetUnitName(+tower);
         var towerDamage = stats[index][tower];
         
-        createGraphPanel(tower)
+        // createGraphPanel(tower)
         // $.Msg(Entities.GetUnitName(+stats[tower]));
       }
     }
