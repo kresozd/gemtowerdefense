@@ -4043,7 +4043,7 @@
 			"Model"                 "models/items/hex/sheep_hex/sheep_hex.vmdl" // Model.
 			"BaseClass"             "npc_dota_creature"
 			"Level"                 "1"
-			"ModelScale"                "1.4"
+			"ModelScale"                "1.6"
 			"IsAncient"	"1"
 
 			"Ability1"		"damage_shown_enemy"
@@ -4075,7 +4075,7 @@
 			"Model"                 "models/creeps/lane_creeps/creep_bad_melee_diretide/creep_bad_melee_diretide.vmdl" // Model.
 			"BaseClass"             "npc_dota_creature"
 			"Level"                 "2"
-			"ModelScale"                "1.4"
+			"ModelScale"                "1.6"
 			
 			"Ability1"		"damage_shown_enemy"
 			
@@ -4102,7 +4102,7 @@
 			"Model"                 "models/items/courier/faceless_rex/faceless_rex.vmdl" // Model.
 			"BaseClass"             "npc_dota_creature"
 			"Level"                 "3"
-			"ModelScale"                "1.4"
+			"ModelScale"                "1.8"
 			
 			"Ability1"		"damage_shown_enemy"
 			
@@ -4128,7 +4128,7 @@
 			"Model"                 "models/items/courier/nexon_turtle_01_grey/nexon_turtle_01_grey.vmdl" // Model.
 			"BaseClass"             "npc_dota_creature"
 			"Level"                 "4"
-			"ModelScale"                "1.4"
+			"ModelScale"                "1.8"
 			
 			"Ability1"		"damage_shown_enemy"
 			
@@ -4155,7 +4155,7 @@
 			"Model"                 "models/items/courier/fei_lian_blue/fei_lian_blue_flying.vmdl" // Model.
 			"BaseClass"             "npc_dota_creature"
 			"Level"                 "5"
-			"ModelScale"                "1.4"
+			"ModelScale"                "1.8"
 			
 			"Ability1"		"damage_shown_enemy"
 			
@@ -4182,7 +4182,7 @@
 			"Model"                 "models/items/courier/snapjaw/snapjaw.vmdl" // Model.
 			"BaseClass"             "npc_dota_creature"
 			"Level"                 "6"
-			"ModelScale"                "1.4"
+			"ModelScale"                "2.4"
 			
 			"Ability1"		"damage_shown_enemy"
 			
@@ -4208,7 +4208,7 @@
 			"Model"                 "models/items/courier/snowl/snowl.vmdl" // Model.
 			"BaseClass"             "npc_dota_creature"
 			"Level"                 "7"
-			"ModelScale"                "1.4"
+			"ModelScale"                "1.8"
 			
 			"Ability1"		"damage_shown_enemy"
 			
@@ -4234,7 +4234,7 @@
 			"Model"                 "models/items/courier/catakeet/catakeet.vmdl" // Model.
 			"BaseClass"             "npc_dota_creature"
 			"Level"                 "8"
-			"ModelScale"                "1.4"
+			"ModelScale"                "1.8"
 			
 			"Ability1"		"damage_shown_enemy"
 			"Ability2"		"phantom_assassin_blur"
