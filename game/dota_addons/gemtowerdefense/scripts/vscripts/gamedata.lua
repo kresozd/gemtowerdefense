@@ -13,6 +13,7 @@ function GameData:Init()
     self.LeakCount = {}
     self.Killed = 0
     self.Round  = 0
+    self.FinalBossDamage = 0
 end
 
 
@@ -27,6 +28,45 @@ end
 
 function GameData:OnEntityHurt(keys)
 
-    CustomGameEventManager:Send_ServerToAllClients( "update_tower_stats_damage", {damageTable = Wave.TowerDamage} )
+    --DEBUG
+    local table = GameData:SortTopTenTowers(Wave.TowerDamage)
+    for k, v in pairs(table) do
+        print("tower", k, "damage", v)
+    end
+
+    -----------------------------------
+    CustomGameEventManager:Send_ServerToAllClients( "update_tower_stats_damage", {damageTable = GameData:SortTopTenTowers(Wave.TowerDamage)} )
     print("Entity hurt!")
+end
+
+
+
+function GameData:SortTopTenTowers(t)
+
+    local count = 0
+    t = getKeysSortedByValue(t, function(a, b) return a < b end)
+    local DamageData = {}
+    for key, value in pairs(t) do
+        
+        if count < 10 then
+            DamageData[key] = value
+        else
+            break
+        end
+        count = count + 1
+    end
+    return DamageData
+end
+
+function getKeysSortedByValue(tbl, sortFunction)
+  local keys = {}
+  for key in pairs(tbl) do
+    table.insert(keys, key)
+  end
+
+  table.sort(keys, function(a, b)
+    return sortFunction(tbl[a], tbl[b])
+  end)
+
+  return keys
 end
