@@ -27,6 +27,14 @@ function Wave:Init(keyvalue)
 	self.DelayBetweenSpawn 	= 1
 	self.Data 				= keyvalue
 	self.TowerDamage		= {}
+    self.topFiveTowers = 
+    {
+      [1]={},
+      [2]={},
+      [3]={},
+      [4]={},
+      [5]={}
+    }
 
 end
 
@@ -37,6 +45,7 @@ function Wave:WaveInit()
 	self.TowerDamage	= {}
 	CustomNetTables:SetTableValue( "game_state", "current_round", { value = tostring(self.RoundNumber) } )
 	GameRules:SetTimeOfDay(0.8)
+	GameRules:GetGameModeEntity():SetThink("TowerDamageToPan",self)
 	if Wave:IsBoss() then
 
 		Wave:SpawnBoss()
@@ -47,6 +56,43 @@ function Wave:WaveInit()
 
 	end
 
+end
+
+function Wave:TowerDamageToPan()
+	local allDamage = self.TowerDamage
+	local maxDamage={
+	  [1]=0,
+	  [2]=0,
+	  [3]=0,
+	  [4]=0,
+	  [5]=0
+	}
+	for i,j in pairs(allDamage) do
+	  if j>=maxDamage[1] then
+	    self.topFiveTowers[1]={[i]=j}
+	    maxDamage[1]=j
+	  elseif j>maxDamage[2] then
+	    self.topFiveTowers[2]={[i]=j}
+	    maxDamage[2]=j
+	  elseif j>maxDamage[3] then
+	    self.topFiveTowers[3]={[i]=j}
+	    maxDamage[3]=j
+	  elseif j>maxDamage[4] then
+	    self.topFiveTowers[4]={[i]=j}
+	    maxDamage[4]=j
+	  elseif j>maxDamage[5] then
+	    self.topFiveTowers[5]={[i]=j}
+	    maxDamage[5]=j        
+	  end
+	end
+	print("Damage table updated")
+
+    CustomGameEventManager:Send_ServerToAllClients( "update_tower_stats_damage", {damageTable = self.topFiveTowers} )
+    if self.State == "BUILD" then
+    	return nil
+    else
+    	return 1
+    end
 end
 
 function Wave:AddUnitProperties(unit)
