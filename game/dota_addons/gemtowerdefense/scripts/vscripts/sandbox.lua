@@ -12,6 +12,8 @@ function Sandbox:Init()
     CustomGameEventManager:RegisterListener( "sandbox_clear_wave", Dynamic_Wrap(Sandbox, 'KillAllEnemies'))
     CustomGameEventManager:RegisterListener( "sandbox_reset_level", Dynamic_Wrap(Sandbox, 'ResetLevel'))
     CustomGameEventManager:RegisterListener( "sandbox_level_up", Dynamic_Wrap(Sandbox, 'LevelUp'))
+    CustomGameEventManager:RegisterListener( "sandbox_hit_throne", Dynamic_Wrap(Sandbox, 'DamageThrone'))
+    CustomGameEventManager:RegisterListener( "sandbox_heal_throne", Dynamic_Wrap(Sandbox, 'HealThrone'))
 
     self.Enabled = false
 
@@ -25,23 +27,32 @@ function Sandbox:Init()
     end
 end
 
-function Sandbox:DamageThrone()
+function Sandbox:DamageThrone(keys)
+    local DAMAGE_VALUE = 10
+    local throne = Throne:GetThrone()
+    throne:SetHealth(throne:GetHealth() - DAMAGE_VALUE)
+    CustomNetTables:SetTableValue( "game_state", "gem_castle_health", { value = throne:GetHealth() } )
 
+    Throne:IsDead()
 end
 
-function Sandbox:HealThrone()
+function Sandbox:HealThrone(keys)
+    local HEAL_VALUE = 10
+    local throne = Throne:GetThrone()
+    throne:SetHealth(throne:GetHealth() + HEAL_VALUE)
+    CustomNetTables:SetTableValue( "game_state", "gem_castle_health", { value = throne:GetHealth() } )
 end
 
 
 function Sandbox:ResetLevel(keys)
 
-    local MAX_UNITS_ON_WAVE = 10
-    local unitCount = Containers.TableLength(Wave:GetEnemies())
-    if unitCount == MAX_UNITS_ON_WAVE and Wave:GetState() == "WAVE" then
+    --local MAX_UNITS_ON_WAVE = 10
+    --local unitCount = Containers.TableLength(Wave:GetEnemies())
+     if  Wave:GetState() == "WAVE" and Wave.AllSpawned == true then
         Wave:DeleteAllUnits()
         Wave:WaveInit()
     else
-        print("Wait for all to spawn!")
+        
     end
 end
 
@@ -56,16 +67,16 @@ end
 
 function Sandbox:KillAllEnemies(keys)
 
-    local MAX_UNITS_ON_WAVE = 10
+    
     local unitCount = Containers.TableLength(Wave:GetEnemies())
-    if unitCount == MAX_UNITS_ON_WAVE and Wave:GetState() == "WAVE" then
+    if  Wave:GetState() == "WAVE" and Wave.AllSpawned == true then
         local eventData = {state = "BUILD"}
 	    FireGameEvent("round_end", eventData)
 
         Wave:DeleteAllUnits()
         Wave:UpdateWaveData()
-    else
-        
+    else    
+        print("Can't use that while placing!")
 
     end
 end
