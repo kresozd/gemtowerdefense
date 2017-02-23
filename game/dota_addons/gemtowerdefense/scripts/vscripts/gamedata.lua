@@ -9,20 +9,16 @@ end
 
 function GameData:Init()
 
-	ListenToGameEvent("throne_touch",Dynamic_Wrap(GameData, 'OnLeaked'), self)
-	ListenToGameEvent("entity_killed", Dynamic_Wrap(GameData, 'OnEntityKilled'), self)
-	ListenToGameEvent("entity_hurt", Dynamic_Wrap(GameData, 'OnEntityHurt'), self)
+   ListenToGameEvent("throne_touch",Dynamic_Wrap(GameData, 'OnLeaked'), self)
+   ListenToGameEvent("entity_killed", Dynamic_Wrap(GameData, 'OnEntityKilled'), self)
+   ListenToGameEvent("entity_hurt", Dynamic_Wrap(GameData, 'OnEntityHurt'), self)
 
-	self.LeakCount = {}
+    self.LeakCount = {}
     self.Killed = 0
     self.Round  = 0
-
-    self.FinalBossDamage = 0
-
     self.DamageFromTowers = {}
 	self.TowerDamage = {}
 	self.topDamage = {}
-
 end
 
 
@@ -31,7 +27,7 @@ function GameData:OnLeaked(keys)
 end
 
 function GameData:OnEntityKilled(keys)
-	self.Killed = self.Killed + 1
+    self.Killed = self.Killed + 1
 end
 
 
@@ -72,30 +68,32 @@ function spairs(t, order)
 	local keys = {}
 	for k in pairs(t) do keys[#keys+1] = k end
 
-		if order then
-			table.sort(keys, function(a,b) return order(t, a, b) end)
-		else
-			table.sort(keys)
-		end
+	if order then
+		table.sort(keys, function(a,b) return order(t, a, b) end)
+	else
+		table.sort(keys)
+	end
 
-		local i = 0
-		return function()
-			i = i + 1
-			if keys[i] then
-				return keys[i], t[keys[i]]
-			end
+	local i = 0
+	return function()
+		i = i + 1
+		if keys[i] then
+			return keys[i], t[keys[i]]
+		end
 	end
 end
 
 
+
 function GameData:SortDamageTable()
 	local i = 1
+	local totalDmg = 0
 
 	for k, v in spairs(self.TowerDamage, function(t, a, b) return t[b] < t[a] end) do
 		print(k, v)
 		self.topDamage[i] = {}
 		self.topDamage[i][k] = v
-		
+		totalDmg = totalDmg + v
 		i = i + 1
 		
 		if i > MAX_TOP_TOWERS then
@@ -103,48 +101,5 @@ function GameData:SortDamageTable()
 		end
 	end
 
-
-    --DEBUG
-    local table = GameData:SortTopTenTowers(Wave.TowerDamage)
-    for k, v in pairs(table) do
-        print("tower", k, "damage", v)
-    end
-
-    -----------------------------------
-    CustomGameEventManager:Send_ServerToAllClients( "update_tower_stats_damage", {damageTable = GameData:SortTopTenTowers(Wave.TowerDamage)} )
-    print("Entity hurt!")
-end
-
-
-
-function GameData:SortTopTenTowers(t)
-
-    local count = 0
-    t = getKeysSortedByValue(t, function(a, b) return a < b end)
-    local DamageData = {}
-    for key, value in pairs(t) do
-        
-        if count < 10 then
-            DamageData[key] = value
-        else
-            break
-        end
-        count = count + 1
-    end
-    return DamageData
-end
-
-function getKeysSortedByValue(tbl, sortFunction)
-  local keys = {}
-  for key in pairs(tbl) do
-    table.insert(keys, key)
-  end
-
-  table.sort(keys, function(a, b)
-    return sortFunction(tbl[a], tbl[b])
-  end)
-
-  return keys
-
-
+    CustomGameEventManager:Send_ServerToAllClients( "update_tower_stats_damage", {damageTable = self.topDamage, totalDamage = totalDmg} )
 end
