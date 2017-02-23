@@ -7,5 +7,5 @@
 	"npc_dota_hero_vengefulspirit"	"1"
 	"npc_dota_hero_nevermore"	"1"
 	"npc_dota_hero_sniper"	"1"
-	" npc_dota_hero_enchantress"	"1"
+	"npc_dota_hero_enchantress"	"1"
 }

@@ -274,8 +274,6 @@
 
 	}
 
-
-	
 	"REMOVE_HP_BAR"
 	{
 		"BaseClass"	"ability_datadriven"
@@ -293,6 +291,8 @@
 			}
 		}
 	}
+
+
 
 	"riki_permanent_invisibility"
 	{
