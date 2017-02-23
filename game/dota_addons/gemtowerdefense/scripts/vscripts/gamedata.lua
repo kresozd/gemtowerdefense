@@ -103,7 +103,7 @@ function GameData:SortDamageTable()
 		end
 	end
 
-<<<<<<< HEAD
+
     --DEBUG
     local table = GameData:SortTopTenTowers(Wave.TowerDamage)
     for k, v in pairs(table) do
@@ -145,7 +145,6 @@ function getKeysSortedByValue(tbl, sortFunction)
   end)
 
   return keys
-=======
-    CustomGameEventManager:Send_ServerToAllClients( "update_tower_stats_damage", {damageTable = self.topDamage} )
->>>>>>> 8d310be5fbab3d533b0548161926017841c02f54
+
+
 end
