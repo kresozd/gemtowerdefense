@@ -5246,6 +5246,87 @@
 		"StatusHealth"	"100"
 		"StatusMana"	"100"
 	}
+		"gem_round46_fly_chirpy"
+	{                                       
+		"Model"                 "models/items/courier/bts_chirpy/bts_chirpy_flying.vmdl"
+		"BaseClass"             "npc_dota_creature"
+		"Level"                 "9"
+		"ModelScale"                "2.7"
+
+		"Ability1"		"enrage_enemy"
+		"Ability2"		""
+		
+		
+		"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_FLY"
+		"MovementSpeed"             "1200"
+
+		"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+		
+		"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"		// Hull type used for navigation/locomotion.
+		"ProjectileCollisionSize"	"50"
+		"RingRadius"				"1"
+		"HealthBarOffset"			"260"
+		"ArmorPhysical"	"20"
+		"MagicalResistance"	"0"
+		"StatusHealth"	"100"
+		"StatusMana"	"100"
+	}
+		"gem_round47_fly_chirpy"
+	{                                       
+		"Model"                 "models/items/courier/bts_chirpy/bts_chirpy_flying.vmdl"
+		"BaseClass"             "npc_dota_creature"
+		"Level"                 "9"
+		"ModelScale"                "2.7"
+
+		"Ability1"		"enrage_enemy"
+		"Ability2"		""
+		
+		
+		"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_FLY"
+		"MovementSpeed"             "1200"
+
+		"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+		
+		"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"		// Hull type used for navigation/locomotion.
+		"ProjectileCollisionSize"	"50"
+		"RingRadius"				"1"
+		"HealthBarOffset"			"260"
+		"ArmorPhysical"	"20"
+		"MagicalResistance"	"0"
+		"StatusHealth"	"100"
+		"StatusMana"	"100"
+	}
+		"gem_round48_nian"
+	{                                       
+		"Model"                 "models/creeps/nian/nian_journey.vmdl"
+		"BaseClass"             "npc_dota_creature"
+		"Level"                 "48"
+		"ModelScale"                "1"
+
+		"Ability1"		"enrage_enemy"
+		"Ability2"		""
+		
+		
+		"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"             "1200"
+
+		"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+		
+		"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"		// Hull type used for navigation/locomotion.
+		"ProjectileCollisionSize"	"50"
+		"RingRadius"				"1"
+		"HealthBarOffset"			"260"
+		"ArmorPhysical"	"20"
+		"MagicalResistance"	"0"
+		"StatusHealth"	"100"
+		"StatusMana"	"100"
+	}
 	"testward"
 	{                                       
 		"Model"                 "models/items/wards/jinnie_v2/jinnie_v2.vmdl" // Model.
