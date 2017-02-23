@@ -16,13 +16,13 @@ function GameData:Init()
 	self.LeakCount = {}
     self.Killed = 0
     self.Round  = 0
-<<<<<<< HEAD
+
     self.FinalBossDamage = 0
-=======
+
     self.DamageFromTowers = {}
 	self.TowerDamage = {}
 	self.topDamage = {}
->>>>>>> 8d310be5fbab3d533b0548161926017841c02f54
+
 end
 
 
