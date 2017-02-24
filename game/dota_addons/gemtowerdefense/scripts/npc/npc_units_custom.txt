@@ -4446,7 +4446,7 @@
 
 	"gem_round16_demon"
 	{                                      
-		"Model"                 "models/items/courier/dc_demon/dc_demon.vmdl " // Model.
+		"Model"                 "models/items/courier/dc_demon/dc_demon.vmdl" // Model.
 		"BaseClass"             "npc_dota_creature"
 		"Level"                 "16"
 		"ModelScale"                "1.4"
@@ -5246,15 +5246,15 @@
 		"StatusHealth"	"100"
 		"StatusMana"	"100"
 	}
-		"gem_round46_fly_chirpy"
+	"gem_round46_fly_demon"
 	{                                       
-		"Model"                 "models/items/courier/bts_chirpy/bts_chirpy_flying.vmdl"
+		"Model"                 "models/items/courier/dc_demon/dc_demon_flying.vmdl"
 		"BaseClass"             "npc_dota_creature"
 		"Level"                 "9"
 		"ModelScale"                "2.7"
 
-		"Ability1"		"enrage_enemy"
-		"Ability2"		""
+		"Ability1"		"riki_permanent_invisibility"
+		"Ability2"		"phantom_assassin_blur"
 		
 		
 		"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_FLY"
@@ -5273,15 +5273,15 @@
 		"StatusHealth"	"100"
 		"StatusMana"	"100"
 	}
-		"gem_round47_fly_chirpy"
+	"gem_round47_frog"
 	{                                       
-		"Model"                 "models/items/courier/bts_chirpy/bts_chirpy_flying.vmdl"
+		"Model"                 "models/courier/frog/frog.vmdl"
 		"BaseClass"             "npc_dota_creature"
 		"Level"                 "9"
 		"ModelScale"                "2.7"
 
-		"Ability1"		"enrage_enemy"
-		"Ability2"		""
+		"Ability1"		"tidehunter_kraken_shell"
+		"Ability2"		"healing_enemy"
 		
 		
 		"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_FLY"
@@ -5300,14 +5300,14 @@
 		"StatusHealth"	"100"
 		"StatusMana"	"100"
 	}
-		"gem_round48_nian"
+	"gem_round48_nian"
 	{                                       
 		"Model"                 "models/creeps/nian/nian_journey.vmdl"
 		"BaseClass"             "npc_dota_creature"
 		"Level"                 "48"
 		"ModelScale"                "1"
 
-		"Ability1"		"enrage_enemy"
+		"Ability1"		"tidehunter_kraken_shell"
 		"Ability2"		""
 		
 		
