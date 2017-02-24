@@ -2801,7 +2801,7 @@
 		"Level"	"2"
 		"AbilityLayout"	"6"
 		"Ability1"	"REMOVE_HP_BAR"
-		"Ability2"	"gem_Asteriated_Ruby_ability"
+		"Ability2"	"gem_Flame_Ruby_ability"
 
 		"AttackCapabilities"	"DOTA_UNIT_CAP_NO_ATTACK"
 		"AttackDamageMin"	"0"

@@ -9,6 +9,35 @@
 		"AbilityTextureName"	"dice"
 		"AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"MaxLevel"	"5"
+		"LevelsBetweenUpgrades" "1"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"chipped_gem"				"100 80 60 40 10"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"flawed_gem"				"0 20 20 30 30"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"normal_gem"				"0 0 20 20 30"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"flawless_gem"				"0 0 0 10 20"
+			}
+			"05"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"perfect_gem"				"0 0 0 0 10"
+			}			
+		}
 	}
 	
 	"gem_remove_tower"
@@ -2314,7 +2343,7 @@
 		}
 	}
 
-	"gem_Asteriated_Ruby_ability"
+	"gem_Flame_Ruby_ability"
 	{
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"lina_fiery_soul"
