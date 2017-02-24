@@ -2678,7 +2678,7 @@
 				{
 					"Random"
 					{
-						"Chance"	"10"
+						"Chance"	"2"
 						"OnSuccess"
 						{
 							"RunScript"
@@ -3002,6 +3002,27 @@
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"-75"
 				}
 			}
+			"modifier_Yellow_Sapphire_slow_piercing"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"Aura"	"modifier_Yellow_Sapphire_slow_target_piercing"
+				"Aura_Radius"	"300"
+				"Aura_Types"	"DOTA_UNIT_TARGET_BASIC"
+				"Aura_Teams"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Flags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+			}
+
+			"modifier_Yellow_Sapphire_slow_target_piercing"
+			{
+				"EffectName"	"particles/units/heroes/hero_winter_wyvern/wyvern_winters_curse_status_ice.vpcf"
+				"EffectAttachType"	"follow_origin"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"-75"
+				}
+			}
+			
 		}
 	}
 

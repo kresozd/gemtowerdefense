@@ -22,7 +22,7 @@ function Wave:Init(keyvalue)
 
     self.SpawnedCreeps 		= {}
 	self.AllSpawned = false
-    self.RoundNumber 		= 48
+    self.RoundNumber 		= 1
     self.SpawnPosition 		= Entities:FindByName(nil, "enemy_spawn"):GetAbsOrigin()
 
 	self.TotalKilled 		= 0
