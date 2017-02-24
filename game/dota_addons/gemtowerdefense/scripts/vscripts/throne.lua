@@ -32,19 +32,23 @@ function Throne:OnTouch(trigger)
 	
 	if unit and string.match(unit:GetUnitName(), "gem_round") then
 
-
-		local data = 
-		{	
+		if string.match(unit:GetUnitName(), "final") then
+			GameRules:SetGameWinner(DOTA_TEAM_GOODGUYS)
+		else
+			local data = 
+			{	
 			handle = tostring(handle)
-		}
-		FireGameEvent("throne_touch", data)
+			}
+			FireGameEvent("throne_touch", data)
 
-		locthrone:SetHealth(locthrone:GetHealth() - unit:GetBaseDamageMax())
-		print("Throne HP on touch:", locthrone:GetBaseMaxHealth())
-		CustomNetTables:SetTableValue( "game_state", "gem_castle_health", { value = locthrone:GetHealth() } )
-		EmitGlobalSound("BodyImpact_Common.Heavy")
-		Throne:IsDead()
-		unit:Destroy()
+			locthrone:SetHealth(locthrone:GetHealth() - unit:GetBaseDamageMax())
+			print("Throne HP on touch:", locthrone:GetBaseMaxHealth())
+			CustomNetTables:SetTableValue( "game_state", "gem_castle_health", { value = locthrone:GetHealth() } )
+			EmitGlobalSound("BodyImpact_Common.Heavy")
+			Throne:IsDead()
+			unit:Destroy()
+		end
+
 	else
 		print("Hero stepped in Throne!")
 	end

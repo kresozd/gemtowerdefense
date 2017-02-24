@@ -5300,7 +5300,7 @@
 		"StatusHealth"	"100"
 		"StatusMana"	"100"
 	}
-		"gem_round48_nian"
+		"gem_round48_nian_final"
 	{                                       
 		"Model"                 "models/creeps/nian/nian_journey.vmdl"
 		"BaseClass"             "npc_dota_creature"

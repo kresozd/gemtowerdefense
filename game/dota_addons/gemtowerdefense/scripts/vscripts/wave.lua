@@ -22,7 +22,7 @@ function Wave:Init(keyvalue)
 
     self.SpawnedCreeps 		= {}
 	self.AllSpawned = false
-    self.RoundNumber 		= 1
+    self.RoundNumber 		= 48
     self.SpawnPosition 		= Entities:FindByName(nil, "enemy_spawn"):GetAbsOrigin()
 
 	self.TotalKilled 		= 0
@@ -292,19 +292,11 @@ function Wave:IsRoundCleared()
 end
 
 function Wave:UpdateWaveData()
-
-	if self.RoundNumber == MAX_ROUND + 1 then
-		GameRules:SetGameWinner(DOTA_TEAM_GOODGUYS)
-	else
 		Wave:AddMVPAbility()
 		self.State = "BUILD"
 		self.AmountKilled = 0
 		self.RoundNumber = self.RoundNumber + 1
 		self.AllSpawned = false
-	end
-
-
-
 end
 
 function Wave:AddMVPAbility()
