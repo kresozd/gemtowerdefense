@@ -22,6 +22,14 @@
  
 		"Modifiers"
 		{
+			"modifier_stone_unselectable"
+			{
+				"IsHidden" "1"
+				"States"
+				{
+					"MODIFIER_STATE_UNSELECTABLE"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
 			"modifier_tower_pick_player_0"
 			{
 				"IsHidden" "1"

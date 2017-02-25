@@ -194,7 +194,7 @@ function Builder:Init()
 	
 	
 
-
+	self.StoneModMaster = CreateItem("item_modifier_master", nil, nil) 
 
 	self.PlayerCount = 0
 	self.RoundTowers =
@@ -315,6 +315,7 @@ function Builder:CreateTower(playerID, owner, position, caster)
 	local upPosition = Vector(0,0,52)+position
 
 	local towerbase = CreateUnitByName("gem_dummy", position, false, nil, nil, DOTA_TEAM_GOODGUYS)
+	self.StoneModMaster:ApplyDataDrivenModifier(towerbase, towerbase,"modifier_stone_unselectable",nil)
     local tower = CreateUnitByName(mergedName, position, false, nil, nil, DOTA_TEAM_GOODGUYS)
     CustomGameEventManager:Send_ServerToAllClients( "formula_update", {towerName = tower:GetUnitName(), state = "pulled"} )
 	tower:SetAbsOrigin(upPosition)
@@ -388,6 +389,7 @@ function Builder:ConfirmTower(caster, owner, playerID)
 
 			self.GlobalTowers[self.GlobalCount] = tower
 			self.GlobalTowerBases[tower:GetEntityHandle()] = self.RoundTowerBases[playerID][key]
+			
 
 		else
 			print(self.RoundTowerBases[playerID][key]:GetUnitName())
@@ -395,6 +397,7 @@ function Builder:ConfirmTower(caster, owner, playerID)
 			local eHandle = tower:GetEntityHandle()
 			--print(tower:GetName())
 			self.DummyTowers[eHandle] = tower
+			self.DummyTowers[eHandle]:RemoveModifierByName("modifier_stone_unselectable")
 --[[
 			tower:SetAbsOrigin(position)
 
@@ -458,6 +461,7 @@ function Builder:OneShotUpgradeTower(caster, owner, playerID)
 			self.GlobalTowers[self.GlobalCount] = tower
 			self.GlobalTowerBases[tower:GetEntityHandle()] = self.RoundTowerBases[playerID][key]
 
+
 		else
 
 			--local position = value:GetAbsOrigin()
@@ -465,6 +469,7 @@ function Builder:OneShotUpgradeTower(caster, owner, playerID)
 			local eHandle = tower:GetEntityHandle()
 
 			self.DummyTowers[eHandle] = tower
+			self.DummyTowers[eHandle]:RemoveModifierByName("modifier_stone_unselectable")
 --[[
 			tower:SetAbsOrigin(position)
 
@@ -535,6 +540,7 @@ function Builder:OneShotUpgradeTower_2(caster, owner, playerID)
 			local eHandle = tower:GetEntityHandle()
 
 			self.DummyTowers[eHandle] = tower
+			self.DummyTowers[eHandle]:RemoveModifierByName("modifier_stone_unselectable")
 --[[
 			tower:SetAbsOrigin(position)
 
@@ -607,6 +613,7 @@ function Builder:DowngradeTower(caster, owner, playerID)
 			local eHandle = tower:GetEntityHandle()
 
 			self.DummyTowers[eHandle] = tower
+			self.DummyTowers[eHandle]:RemoveModifierByName("modifier_stone_unselectable")
 --[[
 			tower:SetAbsOrigin(position)
 
@@ -704,6 +711,7 @@ function Builder:CreateMergeableTower(playerID, caster, owner)
 			local eHandle = tower:GetEntityHandle()
 
 			self.DummyTowers[eHandle] = tower
+			self.DummyTowers[eHandle]:RemoveModifierByName("modifier_stone_unselectable")
 --[[
 			tower:SetAbsOrigin(position)
 
@@ -729,6 +737,7 @@ function Builder:CreateMergeableTower(playerID, caster, owner)
 			local eHandle = tower:GetEntityHandle()
 
 			self.DummyTowers[eHandle] = tower
+			self.DummyTowers[eHandle]:RemoveModifierByName("modifier_stone_unselectable")
 --[[
 			tower:SetAbsOrigin(position)
 
@@ -797,6 +806,7 @@ function Builder:CreateMergeableTower_2(playerID, caster, owner)
 			local eHandle = tower:GetEntityHandle()
 
 			self.DummyTowers[eHandle] = tower
+			self.DummyTowers[eHandle]:RemoveModifierByName("modifier_stone_unselectable")
 --[[
 			tower:SetAbsOrigin(position)
 
@@ -822,6 +832,7 @@ function Builder:CreateMergeableTower_2(playerID, caster, owner)
 			local eHandle = tower:GetEntityHandle()
 
 			self.DummyTowers[eHandle] = tower
+			self.DummyTowers[eHandle]:RemoveModifierByName("modifier_stone_unselectable")
 --[[
 			tower:SetAbsOrigin(position)
 
@@ -1126,6 +1137,7 @@ function Builder:WaveCreateMergedTower(playerID, caster, owner)
 			self.GlobalTowerBases[value:GetEntityHandle()]=nil
 			local eHandle = tower:GetEntityHandle()
 			self.DummyTowers[eHandle] = tower
+			self.DummyTowers[eHandle]:RemoveModifierByName("modifier_stone_unselectable")
 			tower:SetOwner(owner) 
 			tower:SetHullRadius(TOWER_HULL_RADIUS)
 
@@ -1284,6 +1296,7 @@ function Builder:WaveCreateMergedTower_2(playerID, caster, owner)
 			self.GlobalTowerBases[value:GetEntityHandle()]=nil
 			local eHandle = tower:GetEntityHandle()
 			self.DummyTowers[eHandle] = tower
+			self.DummyTowers[eHandle]:RemoveModifierByName("modifier_stone_unselectable")
 			tower:SetOwner(owner) 
 			tower:SetHullRadius(TOWER_HULL_RADIUS)
 
