@@ -48,6 +48,11 @@ function createTowerPanel(container, tower, isFinal) {
 }
 
 
+function updateComponents(data) {
+  $.Msg(data);
+}
+
+
 function setUpTowerTooltip(towerPanel, towerName) {
   
   var showTooltip = function() {
@@ -74,5 +79,6 @@ function setUpTowerTooltip(towerPanel, towerName) {
 (function() {
   towersT = CustomNetTables.GetTableValue("game_state", "towers_table");
   $.Msg(towersT);
+  GameEvents.Subscribe("formula_update", updateComponents);
   initFormulaRows(towersT);
 })();

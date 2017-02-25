@@ -7,9 +7,8 @@ var towers = [];
 function updateStats(data) {
   var damageTable = data.damageTable || {};
   totalDamage = data.totalDamage;
-  $.Msg(data);
-  for (var index in damageTable) {
 
+  for (var index in damageTable) {
     if (index) {
       var tower = damageTable[index];
       var towerDamage = tower.damage;

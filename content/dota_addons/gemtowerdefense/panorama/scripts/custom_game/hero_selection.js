@@ -288,11 +288,12 @@ function updatePlayerState(data, isPicked) {
 
 // A bit of a hack due to lack of css property 'animation-fill-mode' in panorama 
 function switchButtons() {
-  $('#hero-selection-footer').AddClass('animation-run');
+  var footer = $('#hero-selection-footer');
+  footer.AddClass('animation-run');
 
   $.Schedule(.85, function() {
-    $('#hero-selection-footer').RemoveClass('animation-run');
-    $('#hero-selection-footer').AddClass('animation-end');
+    footer.RemoveClass('animation-run');
+    footer.AddClass('animation-end');
   });
 }
 
