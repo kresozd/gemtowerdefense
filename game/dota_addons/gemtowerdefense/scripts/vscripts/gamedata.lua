@@ -13,7 +13,8 @@ function GameData:Init()
 	ListenToGameEvent("entity_killed", Dynamic_Wrap(GameData, 'OnEntityKilled'), self)
 	ListenToGameEvent("entity_hurt", Dynamic_Wrap(GameData, 'OnEntityHurt'), self)
 
-	self.LeakCount = {}
+	self.TotalDamage = 0
+	self.Leaked = {}
 	self.Killed = 0
 	self.Round  = 0
 	self.TowerDamage = {}
@@ -21,11 +22,10 @@ function GameData:Init()
 
 end
 
-
 function GameData:OnLeaked(keys)
-    
+    local wave = Wave:GetRoundNumber()
+	self.Leaked[wave] = "LEAK"
 end
-
 
 function GameData:OnEntityKilled(keys)
     self.Killed = self.Killed + 1
@@ -39,6 +39,7 @@ function GameData:OnEntityHurt(keys)
 		local entity = EntIndexToHScript(keys.entindex_attacker)
 		local entityIndex = entity:GetEntityIndex()
 		local damage = math.floor(keys.damage)
+		self.TotalDamage = self.TotalDamage + damage
 
 		if damage <= 0 then
 			damage = 0
