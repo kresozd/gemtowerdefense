@@ -15,13 +15,13 @@ function Wave:Init(keyvalue)
 	ListenToGameEvent('throne_touch', Dynamic_Wrap(Wave, 'OnThroneTouch'), self)
 	ListenToGameEvent('kill_round', Dynamic_Wrap(Wave, 'OnForceKill'), self)
 
-	self.PlayerCount 	= 0
+	self.PlayerCount 		= 0 
 	self.AllPicked 			= false
 	self.State 				= "BUILD"  	--"BUILD" Build Phase, "WAVE" Wave Phase
-    self.AmountKilled 		= 0
+	self.AmountKilled 		= 0
 
     self.SpawnedCreeps 		= {}
-	self.AllSpawned = false
+	self.AllSpawned 		= false
     self.RoundNumber 		= 1
     self.SpawnPosition 		= Entities:FindByName(nil, "enemy_spawn"):GetAbsOrigin()
 
@@ -36,9 +36,11 @@ end
 function Wave:WaveInit()
 	
 	self.State = "WAVE"
-	GameData.TowerDamage	= {}
+	GameData.TowerDamage = {}
+	GameData.topDamage = {}
 	CustomNetTables:SetTableValue( "game_state", "current_round", { value = tostring(self.RoundNumber) } )
 	GameRules:SetTimeOfDay(0.8)
+
 	if Wave:IsBoss() then
 
 		if Wave:IsFinal() then
@@ -292,11 +294,13 @@ function Wave:IsRoundCleared()
 end
 
 function Wave:UpdateWaveData()
-		Wave:AddMVPAbility()
-		self.State = "BUILD"
-		self.AmountKilled = 0
-		self.RoundNumber = self.RoundNumber + 1
-		self.AllSpawned = false
+
+	Wave:AddMVPAbility()
+	self.State = "BUILD"
+	self.AmountKilled = 0
+	self.RoundNumber = self.RoundNumber + 1
+	self.AllSpawned = false
+
 end
 
 function Wave:AddMVPAbility()
@@ -308,7 +312,7 @@ function Wave:AddMVPAbility()
 			maxDamage = value
 			for i , j in pairs(Builder.GlobalTowers) do
 				if j:GetEntityIndex() == key then
-				maxUnit = j
+					maxUnit = j
 				end
 			end
 		end
@@ -442,8 +446,8 @@ function Wave:SpawnDamageTest()
 	local waveData = Wave:LoadWaveData()
  	local boss = CreateUnitByName(waveData.unitName, self.SpawnPosition, false, nil, nil, DOTA_TEAM_BADGUYS)
 
-	 Grid:MoveUnit(boss)
-	 Wave:AddCreepProperties(boss, waveData)
+	Grid:MoveUnit(boss)
+	Wave:AddCreepProperties(boss, waveData)
 	boss:AddAbility("gem_collision_movement"):SetLevel(1)
 
 end

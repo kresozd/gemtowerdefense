@@ -9,16 +9,16 @@ end
 
 function GameData:Init()
 
-   ListenToGameEvent("throne_touch",Dynamic_Wrap(GameData, 'OnLeaked'), self)
-   ListenToGameEvent("entity_killed", Dynamic_Wrap(GameData, 'OnEntityKilled'), self)
-   ListenToGameEvent("entity_hurt", Dynamic_Wrap(GameData, 'OnEntityHurt'), self)
+	ListenToGameEvent("throne_touch",Dynamic_Wrap(GameData, 'OnLeaked'), self)
+	ListenToGameEvent("entity_killed", Dynamic_Wrap(GameData, 'OnEntityKilled'), self)
+	ListenToGameEvent("entity_hurt", Dynamic_Wrap(GameData, 'OnEntityHurt'), self)
 
-    self.LeakCount = {}
-    self.Killed = 0
-    self.Round  = 0
-    self.DamageFromTowers = {}
+	self.LeakCount = {}
+	self.Killed = 0
+	self.Round  = 0
 	self.TowerDamage = {}
 	self.topDamage = {}
+
 end
 
 
@@ -26,13 +26,13 @@ function GameData:OnLeaked(keys)
     
 end
 
+
 function GameData:OnEntityKilled(keys)
     self.Killed = self.Killed + 1
 end
 
 
 function GameData:OnEntityHurt(keys)
-	self.topDamage = {}
 
 	if keys.entindex_attacker ~= nil then
 
@@ -57,14 +57,28 @@ function GameData:OnEntityHurt(keys)
 		totalDamage = totalDamage + damage
 		self.TowerDamage[entityIndex] = totalDamage
 
+		if GameData:isWorthToUpdate(totalDamage) then
+			GameData:SortDamageTable()
+		end
+
 	end
 
-	GameData:SortDamageTable()
+end
+
+
+function GameData:isWorthToUpdate(totalDamage)
+    if self.topDamage[#self.topDamage] == nil or #self.topDamage < MAX_TOP_TOWERS then
+		return true
+	elseif totalDamage > self.topDamage[#self.topDamage].damage then
+		return true
+	else
+		return false
+	end
 end
 
 
 function spairs(t, order)
-
+    
 	local keys = {}
 	for k in pairs(t) do keys[#keys+1] = k end
 
@@ -84,22 +98,22 @@ function spairs(t, order)
 end
 
 
-
 function GameData:SortDamageTable()
-	local i = 1
+	self.topDamage = {}
+	local i = 0
 	local totalDmg = 0
 
 	for k, v in spairs(self.TowerDamage, function(t, a, b) return t[b] < t[a] end) do
-		print(k, v)
 		self.topDamage[i] = {}
-		self.topDamage[i][k] = v
+		self.topDamage[i].index = k
+		self.topDamage[i].damage = v
 		totalDmg = totalDmg + v
 		i = i + 1
 		
-		if i > MAX_TOP_TOWERS then
+		if i > MAX_TOP_TOWERS - 1 then
 			break
 		end
 	end
 
-    CustomGameEventManager:Send_ServerToAllClients( "update_tower_stats_damage", {damageTable = self.topDamage, totalDamage = totalDmg} )
+	CustomGameEventManager:Send_ServerToAllClients( "update_tower_stats_damage", {damageTable = self.topDamage, totalDamage = totalDmg} )
 end
