@@ -1,5 +1,6 @@
 
 MAX_ROUND = 48
+START_WAVE = 1
 
 if Wave == nil then
 	Wave = class({})
@@ -19,6 +20,7 @@ function Wave:Init(keyvalue)
 	self.AllPicked 			= false
 	self.State 				= "BUILD"  	--"BUILD" Build Phase, "WAVE" Wave Phase
 	self.AmountKilled 		= 0
+	self.IsEnd 				= false
 
     self.SpawnedCreeps 		= {}
 	self.AllSpawned 		= false
@@ -294,12 +296,17 @@ function Wave:IsRoundCleared()
 end
 
 function Wave:UpdateWaveData()
+	if not self.IsEnd then
+		Wave:AddMVPAbility()
+		self.State = "BUILD"
+		self.AmountKilled = 0
+		self.RoundNumber = self.RoundNumber + 1
+		self.AllSpawned = false
+	else
+		GameRules:SetGameWinner(DOTA_TEAM_GOODGUYS)
+		--In post game we send data to server
+	end
 
-	Wave:AddMVPAbility()
-	self.State = "BUILD"
-	self.AmountKilled = 0
-	self.RoundNumber = self.RoundNumber + 1
-	self.AllSpawned = false
 
 end
 
@@ -435,6 +442,7 @@ end
 
 function Wave:IsFinal()
 	if self.RoundNumber == MAX_ROUND then
+		self.IsEnd = true
 		return true
 	else
 		return false
