@@ -4287,7 +4287,7 @@
 			"Model"                 "models/courier/venoling/venoling.vmdl" // Model.
 			"BaseClass"             "npc_dota_creature"
 			"Level"                 "10"
-			"ModelScale"                "5.4"
+			"ModelScale"                "1.8"
 			
 	
 			
@@ -4982,9 +4982,9 @@
 		"StatusMana"	"100"
 	}
 
-	"gem_round36_jumo"
+	"gem_round36_starladder_air"
 	{                                       
-		"Model"                 "models/items/courier/jumo/jumo.vmdl"
+		"Model"                 "models/items/courier/starladder_grillhound/starladder_grillhound_flying.vmdl"
 		"BaseClass"             "npc_dota_creature"
 		"Level"                 "9"
 		"ModelScale"                "2.5"
@@ -5308,7 +5308,7 @@
 		"Level"                 "48"
 		"ModelScale"                "1"
 
-		"Ability1"		"tidehunter_kraken_shell"
+		//"Ability1"		"tidehunter_kraken_shell"
 		"Ability2"		""
 		
 		
