@@ -14,6 +14,9 @@ function Grid:Init()
 
 end
 
+function Grid:GetVectorMap()
+	return self.VectorMap
+end
 
 function Grid:EvenSnapEntityToArrayGrid(coordinate)
 

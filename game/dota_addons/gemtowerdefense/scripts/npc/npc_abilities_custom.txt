@@ -3881,6 +3881,43 @@
 					}
 		}
 	}
+	"gem_teleport_units"
+	{
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	""
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_BOTH"
+		"AbilityUnitTargetFlags"	"DOTA_UNIT_TARGET_FLAG_NONE"
+		"HotKeyOverride"	"W"
+		"MaxLevel"	"1"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0.5"
+		"AbilityManaCost"	"0"
+		"AbilityCastRange"	"500"
+		"AbilityChannelTime"	"0.5"
+		"precache"
+		{
+			"soundfile"	"soundevents/game_sounds_ui.vsndevts"
+		}
+		"OnChannelSucceeded"
+		{
+			"RunScript"
+			{
+
+				"ScriptFile"	"scripts/vscripts/abilities/heroes/teleportunits.lua"
+
+				"Target"	"CASTER"
+
+				"Function"	"Teleport"
+			}
+			"FireSound"
+			{
+				"Target"	"CASTER"
+				"EffectName"	"ui.inv_equip_robes"	
+			}
+		}
+	}
 
 }
 

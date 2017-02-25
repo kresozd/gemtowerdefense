@@ -23,7 +23,9 @@ function HeroSelection:Init()
 	self.HeroAbilities = 
 	{
 		["npc_dota_hero_vengefulspirit"]="warlock_fatal_bonds",
-		["npc_dota_hero_sniper"]		="ogre_magi_bloodlust"
+		["npc_dota_hero_sniper"]		="ogre_magi_bloodlust",
+		["npc_dota_hero_sniper"]		="gem_teleport_units"
+		
 	}
 end
 
