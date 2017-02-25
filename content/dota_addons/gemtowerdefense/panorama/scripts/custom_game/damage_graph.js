@@ -54,11 +54,13 @@ function getPercentage(towerDamage) {
 }
 
 
-function clearGraph() {
-  $('#graph').RemoveAndDeleteChildren();
-  totalDamage = 0;
-  towers = [];
-  panels = [];
+function clearGraph(table, key) {
+  if (key == 'current_round') {
+    $('#graph').RemoveAndDeleteChildren();
+    totalDamage = 0;
+    towers = [];
+    panels = [];
+  }
 }
 
 
