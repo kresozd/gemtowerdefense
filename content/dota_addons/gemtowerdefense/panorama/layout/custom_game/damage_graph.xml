@@ -1,46 +1,46 @@
 <root>
   <styles>
-    <include src="file://{resources}/styles/custom_game/damage_graph.css"/>  
+    <include src="file://{resources}/styles/custom_game/damage_graph.css" />
   </styles>
   <scripts>
-    <include src="file://{resources}/scripts/custom_game/damage_graph.js"/>
+    <include src="file://{resources}/scripts/custom_game/damage_graph.js" />
   </scripts>
   <snippets>
     <snippet name="graph-item">
       <Panel class="graph-item">
-        <Label id="graph-damage-value" />
         <Panel id="graph-item-background" />
         <Image id="graph-tower" />
+        <Label id="graph-damage-value" />
       </Panel>
     </snippet>
   </snippets>
   <Panel class="damage-graph-root" hittest="false">
-    <Panel class="graph">
-      <Panel class="graph-item">
-        <Image id="graph-tower" src="file://{resources}/images/custom_game/gems/gem_Huge_Pink_Diamond.png"/>
+    <Panel id="graph">
+      <!--<Panel class="graph-item">
         <Panel id="graph-item-background" />
-        <Label id="graph-damage-value" text="155" />
+        <Image id="graph-tower" src="file://{resources}/images/custom_game/gems/gem_Antique_Bloodstone.png"/>
+        <Label id="graph-damage-value" text="1278" />
       </Panel>
       <Panel class="graph-item">
-        <Image id="graph-tower" src="file://{resources}/images/custom_game/gems/gem_Silver_Knight.png"/>
         <Panel id="graph-item-background" />
-        <Label id="graph-damage-value" text="155" />
+        <Image id="graph-tower" src="file://{resources}/images/custom_game/gems/gem_Antique_Bloodstone.png"/>
+        <Label id="graph-damage-value" text="1278" />
       </Panel>
       <Panel class="graph-item">
-        <Image id="graph-tower" src="file://{resources}/images/custom_game/gems/gem_Silver.png"/>
         <Panel id="graph-item-background" />
-        <Label id="graph-damage-value" text="155" />
+        <Image id="graph-tower" src="file://{resources}/images/custom_game/gems/gem_Antique_Bloodstone.png"/>
+        <Label id="graph-damage-value" text="1278" />
       </Panel>
       <Panel class="graph-item">
-        <Image id="graph-tower" src="file://{resources}/images/custom_game/gems/gem_Silver.png"/>
         <Panel id="graph-item-background" />
-        <Label id="graph-damage-value" text="155" />
+        <Image id="graph-tower" src="file://{resources}/images/custom_game/gems/gem_Antique_Bloodstone.png"/>
+        <Label id="graph-damage-value" text="1278" />
       </Panel>
       <Panel class="graph-item">
-        <Image id="graph-tower" src="file://{resources}/images/custom_game/gems/gem_Silver.png"/>
         <Panel id="graph-item-background" />
-        <Label id="graph-damage-value" text="155" />
-      </Panel>
+        <Image id="graph-tower" src="file://{resources}/images/custom_game/gems/gem_Antique_Bloodstone.png"/>
+        <Label id="graph-damage-value" text="1278" />
+      </Panel>-->
     </Panel>
   </Panel>
 </root>
