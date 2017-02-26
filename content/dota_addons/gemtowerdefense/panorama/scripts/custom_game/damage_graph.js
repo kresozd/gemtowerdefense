@@ -21,7 +21,6 @@ function updateStats(data) {
 
 function updateGraphPanel(entity, index) {
   var towerName = Entities.GetUnitName(+entity);
-
   var graphPanel = panels[index];
 
   if (!graphPanel) {

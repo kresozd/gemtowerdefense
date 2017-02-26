@@ -12,18 +12,39 @@ Label {
 }
 
 Button {
-  padding: 7px 10px;
+  padding: 7px 9px;
+  width: fill-parent-flow(1.0);
+  margin: 4px;
   background-color: #414159;
-  background-color: gradient( linear, 0% 0%, 0% 100%, from( #414159 ), to( #303040 ) );
-  border: 1px solid #737399;
+  background-color: gradient( linear, 0% 0%, 0% 100%, from( #474766 ), to( #303040 ) );
+  border: 1px solid #69698c;
   transition-property: background-color;
-  transition-duration: 0.1s;
+  transition-duration: 0.12s;
   transition-delay: 0.0s;
   transition-timing-function: linear;
 }
 
 Button:hover {
   background-color: gradient( linear, 0% 0%, 0% 100%, from( #545473 ), to( #434359 ) );
+}
+
+.category {
+  flow-children: down;
+  width: 100%;
+  margin-bottom: 18px;
+}
+
+.category-title {
+  font-size: 19px;
+  letter-spacing: 1px;
+  color: #ababcf;
+  horizontal-align: center;
+  text-transform: uppercase;
+}
+
+.row {
+  flow-children: right;
+  width: 100%;
 }
 
 #sandbox-toggle > Label {
@@ -36,6 +57,8 @@ Button:hover {
 #sandbox-toggle {
   box-shadow: fill #00000055 -2px -2px 5px 5px;
   padding: 6px 25px;
+  margin-top: 0;
+  width: fit-children;
   margin-right: 250px;
   border-top: 1px solid #545473;
   horizontal-align: right;
@@ -78,12 +101,75 @@ Button:hover {
 }
 
 #sandbox-panel {
-  flow-children: right-wrap;
+  flow-children: down;
   width: 345px;
-  padding: 15px 17px 15px 20px;
+  padding: 18px;
 }
 
 .sandbox-button {
-  width: 140px;
-  margin: 7px;
+  /*width: 130px;*/
+  horizontal-align: center;
+}
+
+.sandbox-round {
+  flow-children: right;
+  width: fill-parent-flow(1.4);
+  /*horizontal-align: center;*/
+}
+
+#round-buttons {
+  flow-children: down;
+  height: 37px;
+}
+
+.round-button {
+  border: 0;
+  padding: 2px;
+  margin: 0;
+  width: 15px;
+  height: fill-parent-flow(1.0);
+}
+
+.round-button-icon {
+  transform: rotateZ(90deg);
+  height: 100%;
+  width: 100%;
+  background-image: url("s2r://panorama/images/control_icons/arrow_solid_left_png.vtex");
+  background-size: contain;
+  background-position: 50% 50%;
+  wash-color: #b6b6db;
+  background-repeat: no-repeat;
+}
+
+.round-decrement .round-button-icon {
+  transform: rotateZ(-90deg);
+}
+
+#round {
+  flow-children: right;
+  vertical-align: middle;
+  margin-right: -3px;
+}
+
+TextEntry {
+  background-color: #43435955;
+  border: 1px solid #5f5f7888;
+  font-size: 20px;
+  padding-left: 5px;
+  padding-top: 6px;
+  color: #bebed4;
+  transition-property: background-color, border;
+  transition-duration: 0.15s;
+  transition-delay: 0.0s;  
+}
+
+#round-value {
+  width: 35px;
+  transition-timing-function: ease;
+  height: 100%;
+}
+
+TextEntry:hover {
+  border: 1px solid #5f5f78dd;
+  background-color: #43435999;
 }

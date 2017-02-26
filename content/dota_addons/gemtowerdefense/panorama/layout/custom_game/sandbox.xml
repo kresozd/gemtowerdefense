@@ -3,6 +3,7 @@
     <include src="file://{resources}/styles/custom_game/sandbox.css"/>  
   </styles>
   <scripts>
+    <include src="file://{resources}/scripts/custom_game/input.js"/>
     <include src="file://{resources}/scripts/custom_game/sandbox.js"/>
   </scripts>
   <Panel class="sandbox-root" hittest="false">
@@ -13,7 +14,59 @@
       <Panel class="sandbox-header">
         <Label class="sandbox-title" text="Sandbox" />
       </Panel>
-      <Panel id="sandbox-panel" />
+      <Panel id="sandbox-panel">
+        <Panel class="category">
+          <Label class="category-title" text="Round" />
+          <Panel class="row">
+            <Panel class="sandbox-round">
+              <Panel id="round">
+                <TextEntry id="round-value" maxchars="2" oninputsubmit="changeRound()" />
+                <Panel id="round-buttons">
+                  <Button class="round-increment round-button" onactivate="updateNumValue(1)">
+                    <Panel class="round-button-icon" />
+                  </Button>
+                  <Button class="round-decrement round-button" onactivate="updateNumValue(-1)">
+                    <Panel class="round-button-icon" />
+                  </Button>
+                </Panel>
+              </Panel>
+              <Button id="round-button" class="sandbox-button" onactivate="changeRound()">
+                <Label text="Change Round" />
+              </Button>
+            </Panel>
+            <Button class="sandbox-button"
+              onactivate="triggerEvent('sandbox_clear_wave')">
+              <Label text="Clear Wave" />
+            </Button>
+          </Panel>
+        </Panel>
+        <Panel class="category">
+          <Label class="category-title" text="Throne" />
+          <Panel class="row">
+            <Button class="sandbox-button"
+              onactivate="triggerEvent('sandbox_hit_throne')">
+              <Label text="Hit Throne" />
+            </Button>
+            <Button class="sandbox-button"
+              onactivate="triggerEvent('sandbox_heal_throne')">
+              <Label text="Heal Throne" />
+            </Button>
+          </Panel>
+        </Panel>
+        <Panel class="category">
+          <Label class="category-title" text="Builder" />
+          <Panel class="row">
+            <Button class="sandbox-button" 
+              onactivate="triggerEvent('sandbox_level_up')">
+              <Label text="Level Up" />
+            </Button>
+            <Button class="sandbox-button"
+              onactivate="triggerEvent('sandbox_reset_level')">
+              <Label text="Reset Level" />
+            </Button>
+          </Panel>
+        </Panel>
+      </Panel>
     </Panel>
   </Panel>
 </root>
