@@ -8,7 +8,6 @@ end
 
 function Sandbox:Init()
 
-
     CustomGameEventManager:RegisterListener( "sandbox_clear_wave", Dynamic_Wrap(Sandbox, 'KillAllEnemies'))
     CustomGameEventManager:RegisterListener( "sandbox_reset_level", Dynamic_Wrap(Sandbox, 'ResetLevel'))
     CustomGameEventManager:RegisterListener( "sandbox_level_up", Dynamic_Wrap(Sandbox, 'LevelUp'))
@@ -67,17 +66,17 @@ end
 
 function Sandbox:KillAllEnemies(keys)
 
-    
     local unitCount = Containers.TableLength(Wave:GetEnemies())
-    if  Wave:GetState() == "WAVE" and Wave.AllSpawned == true then
+
+    if  Wave:GetState() == "WAVE" then
         local eventData = {state = "BUILD"}
 	    FireGameEvent("round_end", eventData)
+        Wave.isRoundTerminated = true
 
         Wave:DeleteAllUnits()
         Wave:UpdateWaveData()
     else    
         print("Can't use that while placing!")
-
     end
 end
 
@@ -125,5 +124,3 @@ function string.split(s, sep)
         end
         return t
 end
-
-

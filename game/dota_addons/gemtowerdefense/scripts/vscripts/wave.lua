@@ -21,6 +21,7 @@ function Wave:Init(keyvalue)
 	self.State 				= "BUILD"  	--"BUILD" Build Phase, "WAVE" Wave Phase
 	self.AmountKilled 		= 0
 	self.IsEnd 				= false
+	self.isRoundTerminated = false
 
     self.SpawnedCreeps 		= {}
 	self.AllSpawned 		= false
@@ -38,6 +39,7 @@ end
 function Wave:WaveInit()
 	
 	self.State = "WAVE"
+	self.isRoundTerminated = false
 	GameData.TowerDamage = {}
 	GameData.topDamage = {}
 	CustomNetTables:SetTableValue( "game_state", "current_round", { value = tostring(self.RoundNumber) } )
@@ -87,6 +89,10 @@ function Wave:SpawnUnits()
 
 	Timers:CreateTimer( function()
 		
+		if self.isRoundTerminated then
+			return nil
+		end
+
 		local unit = CreateUnitByName(waveData.unitName, self.SpawnPosition, false, nil, nil, DOTA_TEAM_BADGUYS)
 		local eHandle = unit:GetEntityHandle()
 		amountSpawned = amountSpawned + 1
@@ -259,10 +265,6 @@ function Wave:OnEntityKilled(keys)
 		Wave:UpdateWaveData()
 		
 		FireGameEvent("round_end", data)
-
-		
-
-
 		
 	end
 end
@@ -315,23 +317,12 @@ function Wave:AddMVPAbility()
 	local maxDamage = 0
 	local maxUnit = nil
 	for key, value in pairs(GameData.TowerDamage) do
-		if EntIndexToHScript(key).MVPLevel == nil then
+		if EntIndexToHScript(key).MVPLevel == nil or EntIndexToHScript(key).MVPLevel < 10 then
 			if value>maxDamage then
 				maxDamage = value
 				for i , j in pairs(Builder.GlobalTowers) do
 					if j:GetEntityIndex() == key then
 						maxUnit = j
-					end
-				end
-			end
-		else
-			if EntIndexToHScript(key).MVPLevel<10 then
-				if value>maxDamage then
-					maxDamage = value
-					for i , j in pairs(Builder.GlobalTowers) do
-						if j:GetEntityIndex() == key then
-							maxUnit = j
-						end
 					end
 				end
 			end
