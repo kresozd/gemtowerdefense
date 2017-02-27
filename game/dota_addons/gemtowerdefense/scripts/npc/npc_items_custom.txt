@@ -261,7 +261,8 @@
 			
 				"ScriptFile"	"scripts/vscripts/custom_items/gem_items_Abilities.lua"
 		
-				"Function" 		"AbilityAddamethyst"
+				"Function" 		"AbilityAdd"
+				"Gem"					"Amethyst"
 			}
 			"FireSound"
 			{
@@ -307,7 +308,8 @@
 			
 				"ScriptFile"	"scripts/vscripts/custom_items/gem_items_Abilities.lua"
 		
-				"Function" 		"AbilityAdddiamond"
+				"Function" 		"AbilityAdd"
+				"Gem"					"Diamond"
 			}
 			"FireSound"
 			{
@@ -353,7 +355,8 @@
 			
 				"ScriptFile"	"scripts/vscripts/custom_items/gem_items_Abilities.lua"
 		
-				"Function" 		"AbilityAddemerald"
+				"Function" 		"AbilityAdd"
+				"Gem"					"Emerald"
 			}
 			"FireSound"
 			{
@@ -399,7 +402,8 @@
 			
 				"ScriptFile"	"scripts/vscripts/custom_items/gem_items_Abilities.lua"
 		
-				"Function" 		"AbilityAddopal"
+				"Function" 		"AbilityAdd"
+				"Gem"					"Opal"
 			}
 			"FireSound"
 			{
@@ -445,7 +449,8 @@
 			
 				"ScriptFile"	"scripts/vscripts/custom_items/gem_items_Abilities.lua"
 		
-				"Function" 		"AbilityAddaquamarine"
+				"Function" 		"AbilityAdd"
+				"Gem"					"Aquamarine"
 			}
 			"FireSound"
 			{
@@ -491,7 +496,8 @@
 			
 				"ScriptFile"	"scripts/vscripts/custom_items/gem_items_Abilities.lua"
 		
-				"Function" 		"AbilityAddruby"
+				"Function" 		"AbilityAdd"
+				"Gem"					"Ruby"
 			}
 			"FireSound"
 			{
@@ -537,7 +543,8 @@
 			
 				"ScriptFile"	"scripts/vscripts/custom_items/gem_items_Abilities.lua"
 		
-				"Function" 		"AbilityAddsapphire"
+				"Function" 		"AbilityAdd"
+				"Gem"					"Sapphire"
 			}
 			"FireSound"
 			{
@@ -583,7 +590,8 @@
 			
 				"ScriptFile"	"scripts/vscripts/custom_items/gem_items_Abilities.lua"
 		
-				"Function" 		"AbilityAddtopaz"
+				"Function" 		"AbilityAdd"
+				"Gem"					"Topaz"
 			}
 			"FireSound"
 			{
