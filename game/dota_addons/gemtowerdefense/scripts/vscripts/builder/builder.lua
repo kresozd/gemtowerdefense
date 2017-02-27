@@ -115,27 +115,13 @@ function Builder:Init()
             	for i, j in pairs(self.RoundTowers[playerID]) do
 
                 	local fullTower = j:GetUnitName()
-                	
-                    	if fullTower==checkTower["1"]  then
-
-	                    	mergeTest[1]=true
+					
+					for i = 0, 3 do
+                    	if fullTower == checkTower[tostring(i)]  then
+	                    	mergeTest[i] = true
 	                    	print("True for:", fullTower)
-
-                    	elseif fullTower==checkTower["2"] then
-
-	                    	mergeTest[2]=true
-	                    	print("True for:", fullTower)
-
-                    	elseif fullTower==checkTower["3"] then
-
-	                    	mergeTest[3]=true
-	                    	print("True for:", fullTower)
-
-                		else
-
-                    	print("Is not a part of this merging")
-
-                		end
+						end					
+					end
             	end
 				print("Requirement 1 ", mergeTest[1])
 		    	print("Requirement 2 ", mergeTest[2])
@@ -316,8 +302,8 @@ function Builder:CreateTower(playerID, owner, position, caster)
 
 	local towerbase = CreateUnitByName("gem_dummy", position, false, nil, nil, DOTA_TEAM_GOODGUYS)
 	self.StoneModMaster:ApplyDataDrivenModifier(towerbase, towerbase,"modifier_stone_unselectable",nil)
-    local tower = CreateUnitByName(mergedName, position, false, nil, nil, DOTA_TEAM_GOODGUYS)
-    CustomGameEventManager:Send_ServerToAllClients( "formula_update", {towerName = tower:GetUnitName(), state = "pulled"} )
+	local tower = CreateUnitByName(mergedName, position, false, nil, nil, DOTA_TEAM_GOODGUYS)
+	GameData:UpdateFormula(tower:GetUnitName(), "pulled")
 	tower:SetAbsOrigin(upPosition)
 	local eHandle = tower:GetEntityHandle()
 	--print(playerID)
@@ -326,7 +312,7 @@ function Builder:CreateTower(playerID, owner, position, caster)
 	tower:SetOwner(owner)
 	towerbase:SetOwner(owner)
 	towerbase.Name="tower_base"
-    tower:SetControllableByPlayer(playerID, true)
+	tower:SetControllableByPlayer(playerID, true)
 	
 	tower.Level = generatedLevel
 	tower.Name = mergedName
@@ -378,7 +364,7 @@ function Builder:ConfirmTower(caster, owner, playerID)
 
 			local position = value:GetAbsOrigin()
 			local tower = CreateUnitByName(entityName, position, false, nil, nil, DOTA_TEAM_GOODGUYS)
-			CustomGameEventManager:Send_ServerToAllClients( "formula_update", {towerName = tower:GetUnitName(),  state = "picked"} )
+			GameData:UpdateFormula(tower:GetUnitName(), "picked")
 			local eHandle = tower:GetEntityHandle()
 
 			value:Destroy()
@@ -693,7 +679,7 @@ function Builder:CreateMergeableTower(playerID, caster, owner)
 
 			local position = value:GetAbsOrigin()
 			local tower = CreateUnitByName(value.MergesInto, position, false, nil, nil, DOTA_TEAM_GOODGUYS)
-			CustomGameEventManager:Send_ServerToAllClients( "formula_update", {towerName = tower:GetUnitName(),  state = "merge"} )
+			GameData:UpdateFormula(tower:GetUnitName(), "picked")
 			local eHandle = tower:GetEntityHandle()
 			tower:SetAbsOrigin(position)
 			tower:SetControllableByPlayer(playerID, true)
@@ -788,7 +774,7 @@ function Builder:CreateMergeableTower_2(playerID, caster, owner)
 
 			local position = value:GetAbsOrigin()
 			local tower = CreateUnitByName(value.MergesInto2, position, false, nil, nil, DOTA_TEAM_GOODGUYS)
-			CustomGameEventManager:Send_ServerToAllClients( "formula_update", {towerName = tower:GetUnitName(),  state = "merge"} )
+			GameData:UpdateFormula(tower:GetUnitName(), "picked")
 			local eHandle = tower:GetEntityHandle()
 			tower:SetAbsOrigin(position)
 			tower:SetControllableByPlayer(playerID, true)
@@ -930,31 +916,18 @@ function Builder:WaveCheckIfMergeable()
         	for i, j in pairs(self.GlobalTowers) do
 
             	local fullTower = j:GetUnitName()
-            	
-                	if fullTower==checkTower["1"]  then
-
-                    	mergeTest[1]=true
-                    	print("True for:", fullTower)
-
-                	elseif fullTower==checkTower["2"] then
-
-                    	mergeTest[2]=true
-                    	print("True for:", fullTower)
-
-                	elseif fullTower==checkTower["3"] then
-
-                    	mergeTest[3]=true
-                    	print("True for:", fullTower)
-
-            		else
-
-                	print("Is not a part of this merging")
-
-            		end
+									
+				for i = 1, 3 do
+					if fullTower == checkTower[tostring(i)]  then
+						mergeTest[i] = true
+						print("True for:", fullTower)
+					end
+				end
         	end
 			print("Requirement 1 ", mergeTest[1])
 	    	print("Requirement 2 ", mergeTest[2])
 	    	print("Requirement 3 ", mergeTest[3])
+				
 	    	if mergeTest[1] and mergeTest[2] and mergeTest[3] then
 
 				if secondMerge then
@@ -1029,7 +1002,8 @@ function Builder:WaveCreateMergedTower(playerID, caster, owner)
 			towerPicked = value
 			local position = value:GetAbsOrigin()
 			mergedtower = CreateUnitByName(value.MergesInto, position, false, nil, nil, DOTA_TEAM_GOODGUYS)
-			CustomGameEventManager:Send_ServerToAllClients( "formula_update", {towerName = mergedtower:GetUnitName(),  state = "merge"} )
+
+			GameData:UpdateFormula(mergedtower:GetUnitName(), "picked")
 			local eHandlemerge = mergedtower:GetEntityHandle()
 			mergedtower:SetAbsOrigin(position)
 			mergedtower:SetControllableByPlayer(playerID, true)
@@ -1054,20 +1028,12 @@ function Builder:WaveCreateMergedTower(playerID, caster, owner)
 		end
 	end
 
-	if fullTower==checkTower["1"]  then
-			mergeTest[1]=true
-			towersDestroy[1]= towerPicked
-			print(towerPicked:GetUnitName()," chosen to change into ",caster.MergesInto)
-		elseif fullTower==checkTower["2"] then
-			mergeTest[2]=true
-			towersDestroy[2]= towerPicked
-			print(towerPicked:GetUnitName()," chosen to change into ",caster.MergesInto)
-		elseif fullTower==checkTower["3"] then
-			mergeTest[3]=true
-			towersDestroy[3]= towerPicked
-			print(towerPicked:GetUnitName()," chosen to change into ",caster.MergesInto)
-		else
-			print("Is not a part of this merging")
+	for i = 1, 3 do
+		if fullTower == checkTower[tostring(i)]  then
+				mergeTest[i] = true
+				towersDestroy[i] = towerPicked
+				print(towerPicked:GetUnitName()," chosen to change into ",caster.MergesInto)
+		end
 	end
 
 	for key, value in pairs(self.GlobalTowers) do
@@ -1083,26 +1049,15 @@ function Builder:WaveCreateMergedTower(playerID, caster, owner)
 
 		print("the towerName is ", towerName)
 		if mergeTest[1] and mergeTest[2] and mergeTest[3] then
-				print("Done merging")
+			print("Done merging")
 		else
-			if towerName==checkTower["1"] and not mergeTest[1] then
-				mergeTest[1]=true
-				towersDestroy[1]=value
-				print(towerName," merges into ",caster.MergesInto)
-				mergeSkip = false
-			end
-
-			if towerName==checkTower["2"] and not mergeTest[2] then
-				mergeTest[2]=true
-				towersDestroy[2]=value
-				print(towerName," merges into ",caster.MergesInto)
-				mergeSkip = false
-			end
-			if towerName==checkTower["3"] and not mergeTest[3] then
-				mergeTest[3]=true
-				towersDestroy[3]=value
-				print(towerName," merges into ",caster.MergesInto)
-				mergeSkip=false
+			for i = 1, 3 do
+				if towerName == checkTower[tostring(i)] and not mergeTest[i] then
+					mergeTest[i] = true
+					towersDestroy[i] = value
+					print(towerName," merges into ",caster.MergesInto)
+					mergeSkip = false
+				end
 			end
 		end
 
@@ -1190,7 +1145,7 @@ function Builder:WaveCreateMergedTower_2(playerID, caster, owner)
 			towerPicked = value
 			local position = value:GetAbsOrigin()
 			mergedtower = CreateUnitByName(value.MergesInto2, position, false, nil, nil, DOTA_TEAM_GOODGUYS)
-			CustomGameEventManager:Send_ServerToAllClients( "formula_update", {towerName = mergedtower:GetUnitName(),  state = "merge"} )
+			GameData:UpdateFormula(mergedtower:GetUnitName(), "picked")
 			local eHandlemerge = mergedtower:GetEntityHandle()
 			mergedtower:SetAbsOrigin(position)
 			mergedtower:SetControllableByPlayer(playerID, true)
@@ -1213,26 +1168,19 @@ function Builder:WaveCreateMergedTower_2(playerID, caster, owner)
 			self.GlobalMergeable[key]=nil
 		end
 	end
-
-	if fullTower==checkTower["1"]  then
-			mergeTest[1]=true
-			towersDestroy[1]= towerPicked
-			print(towerPicked:GetUnitName()," chosen to change into ",caster.MergesInto2)
-		elseif fullTower==checkTower["2"] then
-			mergeTest[2]=true
-			towersDestroy[2]= towerPicked
-			print(towerPicked:GetUnitName()," chosen to change into ",caster.MergesInto2)
-		elseif fullTower==checkTower["3"] then
-			mergeTest[3]=true
-			towersDestroy[3]= towerPicked
-			print(towerPicked:GetUnitName()," chosen to change into ",caster.MergesInto2)
-		else
-			print("Is not a part of this merging")
+	
+	for i = 1, 3 do
+		if fullTower == checkTower[tostring(i)]  then
+			mergeTest[i] = true
+			towersDestroy[i] = towerPicked
+			print(towerPicked:GetUnitName(), " chosen to change into ", caster.MergesInto2)
+		end
 	end
 
 	for key, value in pairs(self.GlobalTowers) do
 		print("GlobalTowers between ",key," ",value:GetUnitName())
 	end
+
 	local globalTest = {}
 	local newIt = 1
 
@@ -1245,24 +1193,13 @@ function Builder:WaveCreateMergedTower_2(playerID, caster, owner)
 		if mergeTest[1] and mergeTest[2] and mergeTest[3] then
 				print("Done merging")
 		else
-			if towerName==checkTower["1"] and not mergeTest[1] then
-				mergeTest[1]=true
-				towersDestroy[1]=value
-				print(towerName," merges into ",caster.MergesInto2)
-				mergeSkip = false
-			end
-
-			if towerName==checkTower["2"] and not mergeTest[2] then
-				mergeTest[2]=true
-				towersDestroy[2]=value
-				print(towerName," merges into ",caster.MergesInto2)
-				mergeSkip = false
-			end
-			if towerName==checkTower["3"] and not mergeTest[3] then
-				mergeTest[3]=true
-				towersDestroy[3]=value
-				print(towerName," merges into ",caster.MergesInto2)
-				mergeSkip=false
+			for i = 1, 3 do
+				if towerName == checkTower[tostring(i)] and not mergeTest[i] then
+					mergeTest[i] = true
+					towersDestroy[i] = value
+					print(towerName," merges into ",caster.MergesInto2)
+					mergeSkip = false
+				end
 			end
 		end
 
@@ -1313,6 +1250,7 @@ function Builder:WaveCreateMergedTower_2(playerID, caster, owner)
 	for key, value in pairs(self.GlobalMergeable) do
 		self.GlobalMergeable[key] = nil
 	end
+
 	for key, value in pairs(self.GlobalTowers) do
 		print("GlobalTowers after",key," ",value:GetUnitName())
 	end
@@ -1323,19 +1261,24 @@ function Builder:WaveCreateMergedTower_2(playerID, caster, owner)
 end
 
 function Builder:ClearWaveAbilities()
+
 	if ModMaster then
 		ModMaster:Destroy()
+
 	elseif ModMaster2 then
 		ModMaster2:Destroy()
 	end
 
 	for key, value in pairs(self.GlobalTowers) do
+
 		if value:FindAbilityByName("gem_merge_tower") then
 			value:RemoveAbility("gem_merge_tower")
 		end
+
 		if value:FindAbilityByName("gem_merge_tower_2") then
 			value:RemoveAbility("gem_merge_tower_2")
 		end
+
 		for i=0,value:GetModifierCount() do
 			if value:GetModifierNameByIndex(i) then
 				local modTest = value:GetModifierNameByIndex(i)
@@ -1344,6 +1287,7 @@ function Builder:ClearWaveAbilities()
 				end
 			end
 		end
+
 	end
 
 	for key, value in pairs(self.GlobalMergeable) do
@@ -1366,11 +1310,9 @@ end
 function Builder:OnRoundEnded(keys)
 
 	print("Round Ended.")
-	
 	self.State = keys.state
 	print("Printing self state in handler.", self.State)
 	Builder:InitBuild()
-
 
 end
 
