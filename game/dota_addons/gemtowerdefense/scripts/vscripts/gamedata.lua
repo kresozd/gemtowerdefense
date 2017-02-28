@@ -24,8 +24,8 @@ end
 
 
 function GameData:OnLeaked(keys)
-    local wave = Wave:GetRoundNumber()
-	self.Leaked[wave] = "LEAK"
+	local wave = Wave:GetRoundNumber()
+	self.Leaked[wave] = "LEAK"   
 end
 
 
@@ -64,6 +64,10 @@ function GameData:OnEntityHurt(keys)
 			GameData:SortDamageTable()
 		end
 
+	end
+	
+	if Wave:IsFinal() and Wave.FinalBoss ~= nil then
+		CustomGameEventManager:Send_ServerToAllClients( "final_boss_update", {health = Wave.FinalBoss:GetHealth()} )
 	end
 
 end
@@ -122,9 +126,8 @@ function GameData:SortDamageTable()
 end
 
 
-
 function GameData:UpdateFormula(tower, state)
 	-- FormulaTable[tower].State = state
-	print(tower, state)
-	-- CustomNetTables:SetTableValue( "game_state", "towers_table", FormulaTable )
+	-- print(tower, state)
+	CustomNetTables:SetTableValue( "game_state", "towers_table", tower )
 end
