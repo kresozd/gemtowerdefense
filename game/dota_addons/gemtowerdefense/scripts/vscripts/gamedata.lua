@@ -25,7 +25,7 @@ end
 
 function GameData:OnLeaked(keys)
 	local wave = Wave:GetRoundNumber()
-	self.Leaked[wave] = "LEAK"   
+	self.Leaked[wave] = "LEAK"
 end
 
 

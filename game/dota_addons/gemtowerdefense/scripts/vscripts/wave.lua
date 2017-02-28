@@ -15,23 +15,23 @@ function Wave:Init(keyvalue)
 	ListenToGameEvent('throne_touch', Dynamic_Wrap(Wave, 'OnThroneTouch'), self)
 	ListenToGameEvent('kill_round', Dynamic_Wrap(Wave, 'OnForceKill'), self)
 
-	self.PlayerCount 			 = 0 
-	self.AllPicked 				 = false
-	self.State 						 = "BUILD"  	--"BUILD" Build Phase, "WAVE" Wave Phase
-	self.AmountKilled 		 = 0
-	self.IsEnd 						 = false
+	self.PlayerCount = 0
+	self.AllPicked = false
+	self.State = "BUILD"  	--"BUILD" Build Phase, "WAVE" Wave Phase
+	self.AmountKilled = 0
+	self.IsEnd = false
 	self.isRoundTerminated = false
 
-	self.SpawnedCreeps 		 = {}
-	self.FinalBoss				 = nil
-	self.AllSpawned 			 = false
-	self.RoundNumber 			 = 1
-	self.SpawnPosition 		 = Entities:FindByName(nil, "enemy_spawn"):GetAbsOrigin()
+	self.SpawnedCreeps = {}
+	self.FinalBoss = nil
+	self.AllSpawned = false
+	self.RoundNumber = 1
+	self.SpawnPosition = Entities:FindByName(nil, "enemy_spawn"):GetAbsOrigin()
 
-	self.TotalKilled 			 = 0
-	self.TotalLeaked 			 = 0
+	self.TotalKilled = 0
+	self.TotalLeaked = 0
 	self.DelayBetweenSpawn = 1
-	self.Data 						 = keyvalue
+	self.Data = keyvalue
 
 end
 
