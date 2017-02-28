@@ -129,5 +129,5 @@ end
 function GameData:UpdateFormula(tower, state)
 	-- FormulaTable[tower].State = state
 	-- print(tower, state)
-	CustomNetTables:SetTableValue( "game_state", "towers_table", tower )
+	-- CustomNetTables:SetTableValue( "game_state", "towers_table", tower )
 end

@@ -36,7 +36,7 @@
 		<CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/info_tabs.xml" />
 		<CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/sandbox.xml" />
 		<CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/damage_graph.xml" />
-		<CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/game_end_screen.xml" />
+		<CustomUIElement type="EndScreen" layoutfile="file://{resources}/layout/custom_game/game_end_screen.xml" />
 		<CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/final_boss_healthbar.xml" />
 	</Panel>
 </root>
