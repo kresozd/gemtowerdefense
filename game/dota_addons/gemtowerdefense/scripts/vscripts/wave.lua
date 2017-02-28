@@ -3,8 +3,7 @@ MAX_ROUND = 48
 START_WAVE = 1
 
 if Wave == nil then
-	Wave = class({})
-	
+	Wave = class({})	
 end
 
 
@@ -16,22 +15,23 @@ function Wave:Init(keyvalue)
 	ListenToGameEvent('throne_touch', Dynamic_Wrap(Wave, 'OnThroneTouch'), self)
 	ListenToGameEvent('kill_round', Dynamic_Wrap(Wave, 'OnForceKill'), self)
 
-	self.PlayerCount 		= 0 
-	self.AllPicked 			= false
-	self.State 				= "BUILD"  	--"BUILD" Build Phase, "WAVE" Wave Phase
-	self.AmountKilled 		= 0
-	self.IsEnd 				= false
+	self.PlayerCount 			 = 0 
+	self.AllPicked 				 = false
+	self.State 						 = "BUILD"  	--"BUILD" Build Phase, "WAVE" Wave Phase
+	self.AmountKilled 		 = 0
+	self.IsEnd 						 = false
 	self.isRoundTerminated = false
 
-    self.SpawnedCreeps 		= {}
-	self.AllSpawned 		= false
-    self.RoundNumber 		= 1
-    self.SpawnPosition 		= Entities:FindByName(nil, "enemy_spawn"):GetAbsOrigin()
+	self.SpawnedCreeps 		 = {}
+	self.FinalBoss				 = nil
+	self.AllSpawned 			 = false
+	self.RoundNumber 			 = 1
+	self.SpawnPosition 		 = Entities:FindByName(nil, "enemy_spawn"):GetAbsOrigin()
 
-	self.TotalKilled 		= 0
-	self.TotalLeaked 		= 0
-	self.DelayBetweenSpawn 	= 1
-	self.Data 				= keyvalue
+	self.TotalKilled 			 = 0
+	self.TotalLeaked 			 = 0
+	self.DelayBetweenSpawn = 1
+	self.Data 						 = keyvalue
 
 end
 
@@ -144,6 +144,7 @@ function Wave:RemoveTalents(hero)
 	end
 
 end
+
 function GetState()
 	return self.State
 end
@@ -347,14 +348,15 @@ function Wave:Ability_MVP_Level_Up(unit,upLevel)
     end
     local a_name = "gem_MVP_"..unit.MVPLevel
     local m_name = "modifier_MVP_aura_"..unit.MVPLevel
-    if unit:FindAbilityByName(a_name) then
-	    unit:RemoveAbility(a_name)
-	    unit:RemoveModifierByName(m_name)
+
+	if unit:FindAbilityByName(a_name) then
+		unit:RemoveAbility(a_name)
+		unit:RemoveModifierByName(m_name)
 	end
 
     unit.MVPLevel = unit.MVPLevel + upLevel
-    if unit.MVPLevel > 10 then
-        unit.MVPLevel = 10
+	if unit.MVPLevel > 10 then
+    	unit.MVPLevel = 10
     end
     unit:AddAbility("gem_MVP_"..unit.MVPLevel)
     unit:FindAbilityByName("gem_MVP_"..unit.MVPLevel):SetLevel(1)
@@ -430,14 +432,7 @@ function Wave:OnThroneTouch(keys)
 	local tLength = Containers.TableLength(self.SpawnedCreeps)
 	print("Tlength on throne touch:", tLength)
 
-	if Wave:IsBoss() then
-		
-		Wave:UpdateWaveData()
-		local data = {state = "BUILD"}
-		FireGameEvent("round_end", data)
-	
-	elseif Wave:IsRoundCleared() then
-
+	if Wave:IsBoss() or Wave:IsRoundCleared() then
 		Wave:UpdateWaveData()
 		local data = {state = "BUILD"}
 		FireGameEvent("round_end", data)
@@ -456,10 +451,12 @@ end
 function Wave:SpawnDamageTest()
 
 	local waveData = Wave:LoadWaveData()
- 	local boss = CreateUnitByName(waveData.unitName, self.SpawnPosition, false, nil, nil, DOTA_TEAM_BADGUYS)
+ 	self.FinalBoss = CreateUnitByName(waveData.unitName, self.SpawnPosition, false, nil, nil, DOTA_TEAM_BADGUYS)
 
-	Grid:MoveUnit(boss)
-	Wave:AddCreepProperties(boss, waveData)
-	boss:AddAbility("gem_collision_movement"):SetLevel(1)
+	Grid:MoveUnit(self.FinalBoss)
+	Wave:AddCreepProperties(self.FinalBoss, waveData)
+	self.FinalBoss:AddAbility("gem_collision_movement"):SetLevel(1)
+	
+	CustomGameEventManager:Send_ServerToAllClients( "final_boss", {health = self.FinalBoss:GetHealth(), name = self.FinalBoss:GetUnitName()} )
 
 end
