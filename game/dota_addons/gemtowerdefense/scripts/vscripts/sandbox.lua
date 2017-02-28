@@ -13,6 +13,7 @@ function Sandbox:Init()
     CustomGameEventManager:RegisterListener( "sandbox_level_up", Dynamic_Wrap(Sandbox, 'LevelUp'))
     CustomGameEventManager:RegisterListener( "sandbox_hit_throne", Dynamic_Wrap(Sandbox, 'DamageThrone'))
     CustomGameEventManager:RegisterListener( "sandbox_heal_throne", Dynamic_Wrap(Sandbox, 'HealThrone'))
+    CustomGameEventManager:RegisterListener( "sandbox_change_round", Dynamic_Wrap(Sandbox, 'ChangeRound'))
 
     self.Enabled = false
 
@@ -56,6 +57,15 @@ function Sandbox:ResetLevel(keys)
 end
 
 
+function Sandbox:ChangeRound(keys)
+    if  Wave:GetState() == "WAVE" then
+        Sandbox:KillAllEnemies()
+    end
+    Wave:SetRoundNumber(keys.round - 1)
+    Wave:UpdateWaveData()
+end
+
+
 function Sandbox:LevelUp(keys)
 
     local playerID = keys.PlayerID
@@ -63,6 +73,7 @@ function Sandbox:LevelUp(keys)
 	local hero = player:GetAssignedHero()
     hero:HeroLevelUp(true)
 end
+
 
 function Sandbox:KillAllEnemies(keys)
 
@@ -80,14 +91,6 @@ function Sandbox:KillAllEnemies(keys)
     end
 end
 
-function Sandbox:OnRoundChanged()
-
-    if Wave:GetState() == "BUILD" then
-        Wave:SetRoundNumber(value)
-    else
-        --error cant build during wave phase
-    end
-end
 
 function Sandbox:OnPlayerChat(keys)
     
