@@ -3,12 +3,10 @@ var currentPage = 0;
 
 
 function initTutorial() {
-
   var content = $('#tutorial-content');
   var menu = $('#menu-list');
 
   for (var page in tutorialPages) {
-
     var pageName = tutorialPages[page];
     var menuItem = $.CreatePanel('Panel', menu, 'menu-item-' + page);
 
@@ -18,7 +16,6 @@ function initTutorial() {
     addMenuEvent(menuItem, page);
 
     var tutorialPage = $.CreatePanel('Panel', content, 'content-' + page);
-
     tutorialPage.BLoadLayout('file://{resources}/layout/custom_game/tutorial_pages/tutorial_' + pageName + '.xml', false, false);
   }
 
@@ -37,7 +34,6 @@ function addMenuEvent(menu, page) {
 function showPage(page) {
 
   if (page >= 0 && page < tutorialPages.length) {
-
     var currentMenuItem = $('#menu-item-' + currentPage);
     var currentPageContent = $('#content-' + currentPage);
 

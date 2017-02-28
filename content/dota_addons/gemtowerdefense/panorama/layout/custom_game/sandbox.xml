@@ -6,7 +6,7 @@
     <include src="file://{resources}/scripts/custom_game/input.js"/>
     <include src="file://{resources}/scripts/custom_game/sandbox.js"/>
   </scripts>
-  <Panel class="sandbox-root" hittest="false">
+  <Panel class="sandbox-root">
     <Button id="sandbox-toggle" onactivate="toggleSandboxTab()">
       <Label text="sandbox" />
     </Button>
@@ -14,7 +14,7 @@
       <Panel class="sandbox-header">
         <Label class="sandbox-title" text="Sandbox" />
       </Panel>
-      <Panel id="sandbox-panel">
+      <Panel id="sandbox-panel"  hittest="true">
         <Panel class="category">
           <Label class="category-title" text="Round" />
           <Panel class="row">

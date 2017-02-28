@@ -1,21 +1,25 @@
-var health = 100;
+var health;
+var healthbar = {};
 
 
 function updateThroneHealth(table, key, data) {
   if (key == 'gem_castle_health') {
-    showDistinction(health, data.value);
+    
+    if (health != data.value) {
+      showDistinction(health, data.value);
+    }
+
     health = data.value;
 
     if (health > 100) health = 100;
     var healthStr = health > 0 ? health + '%' : '0%';
-    $("#throne-health-value").text = healthStr;
-    $("#throne-health-progress").style.width = healthStr;
+    healthbar.value.text = healthStr;
+    healthbar.progress.style.width = healthStr;
   }
 }
 
 
 function showDistinction(oldHealth, updHealth) {
-  
   var isPositive = false;
   var parent = $("#health-changed");
   var distinction = updHealth - oldHealth;
@@ -38,18 +42,34 @@ function showDistinction(oldHealth, updHealth) {
   }); 
 }
 
-function triggerHealth(min, max) {
+ 
+ function initThroneHealthbar() {
+  var container = $('#throne-health-container');
+  var panel = $.CreatePanel('Panel', container, 'throne-healthbar');
+  panel.BLoadLayout("file://{resources}/layout/custom_game/healthbar.xml", false, false);
 
-  var random = Math.floor(Math.random() * (max - min + 1)) + min;
+  var title = panel.FindChildInLayoutFile("healthbar-title");
+  title.text = 'Throne'.toUpperCase();
 
-  var data = {
-    value: Number(health) + random
+  container.MoveChildBefore(panel, $('#throne-health-status'));
+
+  healthbarValue = panel.FindChildInLayoutFile('healthbar-value');
+  healthbarProgress = panel.FindChildInLayoutFile('healthbar-progress');
+
+  healthbar = {
+    panel: panel,
+    value: healthbarValue,
+    progress: healthbarProgress,
   }
-
-  updateThroneHealth('table', 'gem_castle_health', data)
- }
+  
+  var data = CustomNetTables.GetTableValue('game_state', 'gem_castle_health');
+  health = data ? data.value : 100;
+  
+  updateThroneHealth('', 'gem_castle_health', {value: health});
+  CustomNetTables.SubscribeNetTableListener( 'game_state', updateThroneHealth );
+}
 
 
 (function() {
-  CustomNetTables.SubscribeNetTableListener( 'game_state', updateThroneHealth );
+  initThroneHealthbar();
 })();

@@ -29,13 +29,13 @@
         </Panel>
       </Panel>
     </Panel>
-    <Panel id="tab-about" class="info-tab tab-hidden" hittest="false">
+    <Panel id="tab-about" class="info-tab tab-hidden" hittest="true">
       <Label class="tab-title" text="#addon_game_name" />
     </Panel>
-    <Panel id="tab-profile" class="info-tab tab-hidden" hittest="false">
+    <Panel id="tab-profile" class="info-tab tab-hidden" hittest="true">
       <Label class="tab-title" text="Profile" />
     </Panel>
-    <Panel id="tab-leaderboard" class="info-tab tab-hidden" hittest="false">
+    <Panel id="tab-leaderboard" class="info-tab tab-hidden" hittest="true">
       <Label class="tab-title" text="Leaderboard" />
     </Panel>
     <Panel id="tab-formula" class="info-tab tab-hidden" hittest="true">

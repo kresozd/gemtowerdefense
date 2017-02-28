@@ -7,5 +7,5 @@ function updateEndScreen() {
 
 
 (function() {
-  updateEndScreen();
+  // updateEndScreen();
 })();
