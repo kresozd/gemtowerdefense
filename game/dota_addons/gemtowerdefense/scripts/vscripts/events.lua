@@ -79,13 +79,16 @@ function GemTowerDefenseReborn:OnStateChange(keys)
 		print(locthrone:GetUnitName())
 	end
 
-
 		
     if state == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
 
 		--local pAmount = PlayerResource:GetTeamPlayerCount()
 		
 		--Builder:SetPlayerCount(pAmount)
+	end
+
+	if STATE == DOTA_GAMERULES_STATE_POST_GAME then
+
 	end
 
 end
