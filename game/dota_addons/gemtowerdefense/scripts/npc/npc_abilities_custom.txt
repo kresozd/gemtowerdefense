@@ -3884,7 +3884,7 @@
 	"gem_teleport_units"
 	{
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	""
+		"AbilityTextureName"	"abyssal_underlord_dark_rift"
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_BOTH"

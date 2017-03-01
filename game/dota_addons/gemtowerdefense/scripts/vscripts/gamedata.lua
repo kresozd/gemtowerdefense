@@ -31,6 +31,9 @@ function GameData:OnEntityKilled(keys)
     self.Killed = self.Killed + 1
 end
 
+function GetStats()
+	
+end
 
 function GameData:OnEntityHurt(keys)
 
