@@ -64,7 +64,7 @@ function GameData:OnEntityHurt(keys)
 		self.TowerDamage[entityIndex] = totalDamage
 
 		if GameData:isWorthToUpdate(totalDamage) then
-			GameData:SortDamageTable()
+			GameData:SortDamageTable(entityIndex)
 		end
 
 	end
@@ -108,24 +108,39 @@ function spairs(t, order)
 end
 
 
-function GameData:SortDamageTable()
+function GameData:SortDamageTable(entityIndex)
 	self.topDamage = {}
 	local i = 0
-	local totalDmg = 0
+	local totalDamage = 0
+	local place = nil
 
 	for k, v in spairs(self.TowerDamage, function(t, a, b) return t[b] < t[a] end) do
 		self.topDamage[i] = {}
 		self.topDamage[i].index = k
 		self.topDamage[i].damage = v
-		totalDmg = totalDmg + v
+		totalDamage = totalDamage + v
 		i = i + 1
-		
+
+		if k == entityIndex then
+			place = i - 1
+		end
+
 		if i > MAX_TOP_TOWERS - 1 then
 			break
 		end
 	end
 
-	CustomGameEventManager:Send_ServerToAllClients( "update_tower_stats_damage", {damageTable = self.topDamage, totalDamage = totalDmg} )
+	if place == nil then
+		return
+	end
+
+	local data = {
+		entity = entityIndex,
+		damage = self.TowerDamage[entityIndex],
+		place = place
+	}
+
+	CustomGameEventManager:Send_ServerToAllClients( "update_tower_stats_damage", {tower = data, totalDamage = totalDamage} )
 end
 
 

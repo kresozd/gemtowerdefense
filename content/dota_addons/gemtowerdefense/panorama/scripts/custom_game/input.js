@@ -6,11 +6,11 @@ function updateNumValue(value) {
   var textEntry = $('#round-value');
   textEntry.text = textEntry.text.replace(/\D/g,'');
 
-  var oldValue = textEntry.text ? parseInt(textEntry.text) : 0;
+  var oldValue = textEntry.text ? parseInt(textEntry.text) : MIN_ROUND;
   var newValue = oldValue + parseInt(value);
 
   if (newValue <= MIN_ROUND) {
-    newValue = 1;
+    newValue = MIN_ROUND;
   } else if (newValue > MAX_ROUND) {
     return;
   }
