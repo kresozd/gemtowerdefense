@@ -7,22 +7,9 @@
   </scripts>
   <Panel class="throne-health-root" hittest="false">
     <Panel id="throne-health-container" hittest="false">
-      <Label id="throne-health-title" text="Throne" />
-      <Panel id="throne-health">
-        <Label id="throne-health-value" text="100%"/>
-        <Panel id="throne-health-progress" />
-      </Panel>
       <Panel id="throne-health-status" hittest="false">
         <Panel id="health-changed" class="health-changed" hittest="false" />
       </Panel>
     </Panel>
-     <Panel class="test-container">
-       <Button class="btn-test" id="button-dmg" onactivate="triggerHealth(-1, -15)">
-         <Label text="dmg" />
-       </Button>
-       <Button class="btn-test" id="button-heal" onactivate="triggerHealth(1, 15)">
-         <Label text="heal" />
-       </Button>
-     </Panel>
   </Panel>
 </root>

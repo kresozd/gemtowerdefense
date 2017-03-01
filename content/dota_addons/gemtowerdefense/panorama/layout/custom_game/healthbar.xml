@@ -1,0 +1,12 @@
+<root>
+  <styles>
+    <include src="file://{resources}/styles/custom_game/healthbar.css"/>  
+  </styles>
+  <Panel class="healthbar-root" hittest="false">
+    <Label id="healthbar-title" text="unit name" />
+    <Panel id="healthbar">
+      <Label id="healthbar-value" text="100/100"/>
+      <Panel id="healthbar-progress" />
+    </Panel>
+  </Panel>
+</root>

@@ -114,6 +114,7 @@ Button:hover {
 .sandbox-round {
   flow-children: right;
   width: fill-parent-flow(1.4);
+  margin-left: 4px;
   /*horizontal-align: center;*/
 }
 
@@ -148,7 +149,7 @@ Button:hover {
 #round {
   flow-children: right;
   vertical-align: middle;
-  margin-right: -3px;
+  margin-right: -4px;
 }
 
 TextEntry {

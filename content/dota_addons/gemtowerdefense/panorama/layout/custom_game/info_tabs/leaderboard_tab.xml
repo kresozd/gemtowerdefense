@@ -66,7 +66,7 @@
       </Panel>
     </snippet>
   </snippets>
-  <Panel class="leaderboard-root" hittest="false">
+  <Panel class="leaderboard-root">
     <Panel id="leaderboard-nav">
       <Button id="one-player-button"
         class="leaderboard-button leaderboard-button-active"

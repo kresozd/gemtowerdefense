@@ -22,10 +22,12 @@ function GameData:Init()
 
 end
 
+
 function GameData:OnLeaked(keys)
-    local wave = Wave:GetRoundNumber()
+	local wave = Wave:GetRoundNumber()
 	self.Leaked[wave] = "LEAK"
 end
+
 
 function GameData:OnEntityKilled(keys)
     self.Killed = self.Killed + 1
@@ -66,12 +68,16 @@ function GameData:OnEntityHurt(keys)
 		end
 
 	end
+	
+	if Wave:IsFinal() and Wave.FinalBoss ~= nil then
+		CustomGameEventManager:Send_ServerToAllClients( "final_boss_update", {health = Wave.FinalBoss:GetHealth()} )
+	end
 
 end
 
 
 function GameData:isWorthToUpdate(totalDamage)
-    if self.topDamage[#self.topDamage] == nil or #self.topDamage < MAX_TOP_TOWERS then
+	if self.topDamage[#self.topDamage] == nil or #self.topDamage < MAX_TOP_TOWERS then
 		return true
 	elseif totalDamage > self.topDamage[#self.topDamage].damage then
 		return true
@@ -120,4 +126,11 @@ function GameData:SortDamageTable()
 	end
 
 	CustomGameEventManager:Send_ServerToAllClients( "update_tower_stats_damage", {damageTable = self.topDamage, totalDamage = totalDmg} )
+end
+
+
+function GameData:UpdateFormula(tower, state)
+	-- FormulaTable[tower].State = state
+	-- print(tower, state)
+	-- CustomNetTables:SetTableValue( "game_state", "towers_table", tower )
 end

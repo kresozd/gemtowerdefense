@@ -1,0 +1,9 @@
+<root>
+  <styles>
+    <include src="file://{resources}/styles/custom_game/final_boss_healthbar.css"/>
+  </styles>
+  <scripts>
+    <include src="file://{resources}/scripts/custom_game/final_boss_healthbar.js"/>  
+  </scripts>
+  <Panel class="boss-healthbar-root" hittest="false" />
+</root>
