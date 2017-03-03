@@ -1037,7 +1037,7 @@
 	"gem_true_sight"
 	{
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"modifier_item_gem_of_true_sight"
+		"AbilityTextureName"	"item_gem_of_true_sight"
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		"Modifiers"

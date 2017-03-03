@@ -300,6 +300,14 @@ end
 
 function Wave:UpdateWaveData()
 	if not self.IsEnd then
+		if Wave:IsBoss() then
+			for i = 0, PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_GOODGUYS) - 1 do
+				local player = PlayerResource:GetPlayer(i)
+				local hero = player:GetAssignedHero()
+				local playerID = player:GetPlayerID()
+				hero:GiveMana(6)
+			end
+		end
 		Wave:AddMVPAbility()
 		self.State = "BUILD"
 		self.AmountKilled = 0
