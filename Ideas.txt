@@ -46,6 +46,23 @@ Hero Abilities
 	Disable passives aura
 	Warlock ability to split damage
 	Stun ability
+
+Bloodrage
+Nasal Goo
+Glimpse
+Devour
+Alacrity
+Open Wounds
+Empower
+Repel
+Macropyre
+Wave of terror
+Kinetic Field
+Kunkka Return
+Howl
+Heartstopper aura
+
+
 	
 	
 	
