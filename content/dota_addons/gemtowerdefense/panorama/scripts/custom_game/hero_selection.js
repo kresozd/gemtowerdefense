@@ -24,6 +24,44 @@ var allHeroes = {
     name: 'npc_dota_hero_enchantress',
     level: 1
   },
+  abaddon: {
+    name: 'npc_dota_hero_abaddon',
+    level: 1
+  },
+  puck: {
+    name: 'npc_dota_hero_puck',
+    level: 1
+  },
+  warlock: {
+    name: 'npc_dota_hero_warlock',
+    level: 1
+  },
+  bristleback: {
+    name: 'npc_dota_hero_bristleback',
+    level: 1
+  },
+  disruptor: {
+    name: 'npc_dota_hero_disruptor',
+    level: 1
+  },
+  bloodseeker: {
+    name: 'npc_dota_hero_bloodseeker',
+    level: 1
+  },
+  magnataur: {
+    name: 'npc_dota_hero_magnataur',
+    level: 1
+  },
+  lycan: {
+    name: 'npc_dota_hero_lycan',
+    level: 1
+  },
+  ogre_magi: {
+    name: 'npc_dota_hero_ogre_magi',
+    level: 1
+  },
+
+
   invoker: {
     name: 'npc_dota_hero_invoker',
     level: 1
