@@ -5,13 +5,53 @@
     //Courier
     "warlock_fatal_bonds"
     {
-    "MaxLevel"  "4"
+    "MaxLevel"  "1"
     "AbilityManaCost"  "3"
     }
     "ogre_magi_bloodlust"
     {
-    "MaxLevel"  "4"
+    "MaxLevel"  "1"
     "AbilityManaCost"  "3"
+    }
+    "bristleback_viscous_nasal_goo"
+    {
+    "MaxLevel"  "1"
+    "AbilityManaCost"  "1"
+    }
+    "disruptor_kinetic_field"
+    {
+    "MaxLevel"  "1"
+    "AbilityManaCost"  "6"
+    }
+    "bloodseeker_bloodrage"
+    {
+        "MaxLevel"  "1"
+        "AbilityManaCost"   "2"
+    }
+    "magnataur_empower"
+    {
+        "MaxLevel"  "1"
+        "AbilityManaCost"   "2"
+    }
+    "lycan_howl"
+    {
+        "MaxLevel"  "1"
+        "AbilityManaCost"   "3"
+        "AbilityCooldown"   "25"
+    }
+    "nevermore_dark_lord"
+    {
+        "MaxLevel"  "1"
+    }
+    "vengefulspirit_wave_of_terror"
+    {
+        "MaxLevel"  "1"
+        "AbilityManaCost"   "2" 
+    }
+    "puck_dream_coil"
+    {
+        "MaxLevel"  "1"
+        "AbilityManaCost"   "6" 
     }
     "item_courier"
     {

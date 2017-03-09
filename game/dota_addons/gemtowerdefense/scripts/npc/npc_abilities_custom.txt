@@ -39,7 +39,332 @@
 			}			
 		}
 	}
+
+	// Rewrite of Crystal Maiden Arcane Aura
+	// Author: kritth
+	// Date: December 31, 2015
+	// Version: 6.86
+	// Type: Datadriven
+	"brilliance_aura_datadriven"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityTextureName"			"crystal_maiden_brilliance_aura"
+		"MaxLevel"  "1"
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"mana_increase"		"3"
+			}
+			// Extra variables
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"global_radius"		"9000"
+			}
+		}
+		
+		// Data driven
+		//-------------------------------------------------------------------------------------------------------------
+		"Modifiers"
+		{
+			"modifier_brilliance_aura_caster_datadriven"
+			{
+				"Passive"				"1"
+				"IsPurgable"			"0"
+				"IsHidden"				"1"
+				"Aura"					"modifier_brilliance_aura_effect_datadriven"
+				"Aura_Radius"			"%global_radius"
+				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+				"Aura_Types"			"DOTA_UNIT_TARGET_HERO"
+				
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MANA_BONUS"		"%mana_increase"
+				}
+			}
+			
+			"modifier_brilliance_aura_effect_datadriven"
+			{
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MANA_BONUS"	"%mana_increase"
+				}
+			}
+		}
+	}
+
+	// Rewrite of Abaddon Curse of Avernus
+	// Author: Noya
+	// Date: October 13, 2015
+	// Version: 6.85
+	// Type: Datadriven
+	"frostmourne_datadriven"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"abaddon_frostmourne"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"AbilityManaCost"				"2"
+		"AbilityCastRange"				"750"
+		"MaxLevel"  "1"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"debuff_duration"				"20"
+			}
+			"02"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"buff_duration"					"4.5"
+			}
+			"03"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"slow_pct"						"-15"
+			}
+			"04"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"attack_slow_tooltip"			"-20"
+			}
+			"05"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"move_speed_pct"				"0"
+			}
+			"06"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"attack_speed"					"40"
+			}
+		}
+
+		"precache"
+		{
+			"particle" 	"particles/units/heroes/hero_abaddon/abaddon_frost_slow.vpcf"
+			"particle"  "particles/units/heroes/hero_abaddon/abaddon_frost_buff.vpcf"
+		}
+
+
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target"
+				{
+					"Center"	"TARGET"
+					"Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				}
+				"ModifierName"		"modifier_frostmourne_debuff"
+				"Duration"			"%debuff_duration"
+			}
+			"ApplyModifier"
+			{
+				"Target"			"CASTER"
+				"ModifierName"		"modifier_frostmourne_buff"
+				"Duration"			"%buff_duration"
+			}
+		}
+
+
+		"Modifiers"
+		{
+
+
+			"modifier_frostmourne_debuff"
+			{
+				"IsDebuff"	"1"
+				"EffectName"	"particles/units/heroes/hero_abaddon/abaddon_frost_slow.vpcf"
+				"EffectAttachType"	"follow_origin"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%slow_pct"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%attack_slow_tooltip"
+				}
+				
+				"OnAttacked"
+				{
+					"ApplyModifier"
+					{
+						"Target"			"ATTACKER"
+						"ModifierName"		"modifier_frostmourne_buff"
+						"Duration"			"%buff_duration"
+					}
+				}
+			}
+
+			"modifier_frostmourne_buff"
+			{
+				"IsBuff"		"1"
+				"EffectName"	"particles/units/heroes/hero_abaddon/abaddon_frost_buff.vpcf"
+				"EffectAttachType"	"follow_origin"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%move_speed_pct"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%attack_speed"
+				}
+			}
+		}
+	}
+
+// Rewrite of Magnus Empower
+// Author: YOLOSPAGHETTI
+// Date: July 15, 2016
+// Version: 6.88
+// Type: Datadriven
+"empower_datadriven"
+{
+	// General
+	//-------------------------------------------------------------------------------------------------------------
+	"BaseClass"				"ability_datadriven"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+	"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+	"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_MECHANICAL"
+	"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_MAGIC_IMMUNE_ALLIES"
+	"SpellImmunityType"				"SPELL_IMMUNITY_ALLIES_NO"
+	"AbilityTextureName"			"magnataur_empower"
+	"MaxLevel"						"1"
 	
+	"precache"
+	{
+		"particle" 		"particles/units/heroes/hero_magnataur/magnataur_empower.vpcf"
+		"particle" 		"particles/units/heroes/hero_magnataur/magnataur_empower_cleave_effect.vpcf"
+		"soundfile" 	"sounds/weapons/hero/magnataur/empower_cast.vsnd"
+		"soundfile" 	"sounds/weapons/hero/magnataur/empower_target.vsnd"
+	}
+	
+	// Casting
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityCastRange"				"800"
+	"AbilityCastPoint"				"0.3"
+
+	// Time		
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityCooldown"				"8.0"
+
+	// Cost
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityManaCost"				"2"
+
+	// Stats
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityModifierSupportValue"	"0.3"	// Easy to spam 
+
+	// Special
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type"				"FIELD_FLOAT"
+			"empower_duration"		"40.0"
+		}
+		"02"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"bonus_damage_pct"		"30"
+		}
+		"03"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"cleave_damage_pct"		"30"
+		}
+		"04"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"cleave_radius"			"400"
+		}
+	}
+	
+	"OnSpellStart"
+	{
+		"FireSound"
+		{
+			"EffectName"	"Hero_Magnataur.Empower.Cast"
+			"Target"		"CASTER"
+		}
+		
+		"FireSound"
+		{
+			"EffectName"	"Hero_Magnataur.Empower.Target"
+			"Target"		"TARGET"
+		}
+		
+		"ApplyModifier"
+		{
+			"Target"		"TARGET"
+			"ModifierName"	"modifier_empower_datadriven"
+		}
+	}
+	
+	"Modifiers"
+	{
+		"modifier_empower_datadriven"
+		{
+			"Duration"	"%empower_duration"
+			
+			"OnCreated"
+			{
+				"AttachEffect"
+				{
+					"Target"					"TARGET"
+					"EffectName"				"particles/units/heroes/hero_magnataur/magnataur_empower.vpcf"
+					"EffectAttachType"			"start_at_customorigin"
+					"ControlPointEntities"
+					{
+						"TARGET"				"attach_attack1"
+					}
+				}
+				
+				"AttachEffect"
+				{
+					"Target"					"TARGET"
+					"EffectName"				"particles/units/heroes/hero_magnataur/magnataur_empower.vpcf"
+					"EffectAttachType"			"start_at_customorigin"
+					"ControlPointEntities"
+					{
+						"TARGET"				"attach_attack2"
+					}
+				}
+			}
+			
+			"OnAttackLanded"
+			{
+				"CleaveAttack"
+				{
+					"CleavePercent"		"%cleave_damage_pct"
+					"CleaveRadius"		"%cleave_radius"
+					"CleaveEffect"		"particles/units/heroes/hero_magnataur/magnataur_empower_cleave_effect.vpcf"
+				}
+			}
+			
+			"Properties"
+			{
+				"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"	"%bonus_damage_pct"
+			}
+		}
+	}
+}
+
 	"gem_remove_tower"
 	{
 		"BaseClass"	"ability_datadriven"
@@ -347,13 +672,13 @@
 
 	"phantom_assassin_blur"
 	{
-		"MaxLevel"	"4"
+		"MaxLevel"	"1"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"bonus_evasion"	"40 50 60 70"
+				"bonus_evasion"	"40"
 			}
 			"02"
 			{
@@ -363,7 +688,7 @@
 			"03"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"radius"	"1600 1600 1600 1600"
+				"radius"	"1600"
 			}
 		}
 	}
@@ -414,13 +739,13 @@
 
 	"tidehunter_kraken_shell"
 	{
-		"MaxLevel"	"4"
+		"MaxLevel"	"1"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"damage_reduction"	"20 30 40 50"
+				"damage_reduction"	"20"
 			}
 			"02"
 			{
@@ -437,23 +762,23 @@
 
 	"shredder_reactive_armor"
 	{
-		"MaxLevel"	"4"
+		"MaxLevel"	"1"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"bonus_armor"	"2 3 4 5"
+				"bonus_armor"	"2"
 			}
 			"02"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"bonus_hp_regen"	"2 3 4 5"
+				"bonus_hp_regen"	"2"
 			}
 			"03"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"stack_limit"	"20 30 40 50"
+				"stack_limit"	"30"
 			}
 			"04"
 			{
