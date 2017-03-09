@@ -22,9 +22,20 @@ function HeroSelection:Init()
 
 	self.HeroAbilities = 
 	{
-		["npc_dota_hero_vengefulspirit"]="warlock_fatal_bonds",
-		["npc_dota_hero_sniper"]		="ogre_magi_bloodlust",
-		["npc_dota_hero_sniper"]		="gem_teleport_units"
+		["npc_dota_hero_vengefulspirit"]="vengefulspirit_wave_of_terror",
+		["npc_dota_hero_sniper"]		="gem_teleport_units",
+		["npc_dota_hero_abaddon"]		="abaddon_frostmourne",
+		["npc_dota_hero_puck"]			="puck_dream_coil",
+		["npc_dota_hero_crystal_maiden"]="crystal_maiden_brilliance_aura",
+		["npc_dota_hero_nevermore"]		="nevermore_dark_lord",
+		["npc_dota_hero_enchantress"]	="enchantress_natures_attendants",
+		["npc_dota_hero_warlock"]		="warlock_fatal_bonds",
+		["npc_dota_hero_bristleback"]	="bristleback_viscous_nasal_goo",
+		["npc_dota_hero_disruptor"]		="disruptor_static_storm",
+		["npc_dota_hero_bloodseeker"]	="bloodseeker_bloodrage",
+		["npc_dota_hero_magnataur"]		="magnataur_empower",
+		["npc_dota_hero_lycan"]			="lycan_howl",
+		["npc_dota_hero_ogre_magi"]		="ogre_magi_bloodlust"
 		
 	}
 end

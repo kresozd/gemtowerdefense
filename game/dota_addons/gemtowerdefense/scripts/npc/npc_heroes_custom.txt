@@ -271,9 +271,9 @@
 		"AttributeAgilityGain"	"0"
 	}
 
-		"npc_dota_hero_enchantress"
+	"npc_dota_hero_enchantress"
 	{
-		"override_hero"					"npc_dota_hero_vengefulspirit"			// Hero to override
+		"override_hero"					"npc_dota_hero_enchantress"			// Hero to override
 		"Ability1"					""		// Ability 1
 		"Ability2"					""		// Ability 1
 		"Ability3"					""		// Ability 1
@@ -304,4 +304,229 @@
 		"AttributeAgilityGain"	"0"
 	}
 
+	"npc_dota_hero_warlock"
+	{
+		"override_hero"					"npc_dota_hero_warlock"		// Hero to override
+		"Ability1"					""		// Ability 1
+		"Ability2"					""		// Ability 1
+		"Ability3"					""		// Ability 1
+		"Ability4"					""		// Ability 1
+		"VisionNighttimeRange"		"100000"										// Range of vision at night time.
+		"VisionDaytimeRange"		"100000"
+		"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_FLY"
+		"ModelScale"	"1.4"
+		"StatusHealth"	"100"
+		"StatusHealthRegen"	"0"
+		"StatusMana"	"6"
+		"StatusManaRegen"	"0"
+		"AttackCapabilities"	"DOTA_UNIT_CAP_NO_ATTACK"
+		"AttackDamageMin"	"0"
+		"AttackDamageMax"	"0"
+		"ArmorPhysical"	"0"
+		"MagicalResistance"	"0"
+		// Hull type used for navigation/locomotion.
+		"BoundsHullName"	"DOTA_HULL_SIZE_SMALL"
+		"MovementSpeed"	"550"
+		"HasInventory"	"1"
+		"MinimapIconSize"	"1000"
+		"AttributeBaseStrength"	"0"
+		"AttributeStrengthGain"	"0"
+		"AttributeBaseIntelligence"	"0"
+		"AttributeIntelligenceGain"	"0"
+		"AttributeBaseAgility"	"0"
+		"AttributeAgilityGain"	"0"
+	}
+	"npc_dota_hero_bristleback"
+	{
+		"override_hero"					"npc_dota_hero_bristleback"		// Hero to override
+		"Ability1"					""		// Ability 1
+		"Ability2"					""		// Ability 1
+		"Ability3"					""		// Ability 1
+		"Ability4"					""		// Ability 1
+		"VisionNighttimeRange"		"100000"										// Range of vision at night time.
+		"VisionDaytimeRange"		"100000"
+		"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_FLY"
+		"ModelScale"	"1.4"
+		"StatusHealth"	"100"
+		"StatusHealthRegen"	"0"
+		"StatusMana"	"6"
+		"StatusManaRegen"	"0"
+		"AttackCapabilities"	"DOTA_UNIT_CAP_NO_ATTACK"
+		"AttackDamageMin"	"0"
+		"AttackDamageMax"	"0"
+		"ArmorPhysical"	"0"
+		"MagicalResistance"	"0"
+		// Hull type used for navigation/locomotion.
+		"BoundsHullName"	"DOTA_HULL_SIZE_SMALL"
+		"MovementSpeed"	"550"
+		"HasInventory"	"1"
+		"MinimapIconSize"	"1000"
+		"AttributeBaseStrength"	"0"
+		"AttributeStrengthGain"	"0"
+		"AttributeBaseIntelligence"	"0"
+		"AttributeIntelligenceGain"	"0"
+		"AttributeBaseAgility"	"0"
+		"AttributeAgilityGain"	"0"
+	}
+	"npc_dota_hero_disruptor"
+	{
+		"override_hero"					"npc_dota_hero_disruptor"		// Hero to override
+		"Ability1"					""		// Ability 1
+		"Ability2"					""		// Ability 1
+		"Ability3"					""		// Ability 1
+		"Ability4"					""		// Ability 1
+		"VisionNighttimeRange"		"100000"										// Range of vision at night time.
+		"VisionDaytimeRange"		"100000"
+		"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_FLY"
+		"ModelScale"	"1.4"
+		"StatusHealth"	"100"
+		"StatusHealthRegen"	"0"
+		"StatusMana"	"6"
+		"StatusManaRegen"	"0"
+		"AttackCapabilities"	"DOTA_UNIT_CAP_NO_ATTACK"
+		"AttackDamageMin"	"0"
+		"AttackDamageMax"	"0"
+		"ArmorPhysical"	"0"
+		"MagicalResistance"	"0"
+		// Hull type used for navigation/locomotion.
+		"BoundsHullName"	"DOTA_HULL_SIZE_SMALL"
+		"MovementSpeed"	"550"
+		"HasInventory"	"1"
+		"MinimapIconSize"	"1000"
+		"AttributeBaseStrength"	"0"
+		"AttributeStrengthGain"	"0"
+		"AttributeBaseIntelligence"	"0"
+		"AttributeIntelligenceGain"	"0"
+		"AttributeBaseAgility"	"0"
+		"AttributeAgilityGain"	"0"
+	}
+	"npc_dota_hero_bloodseeker"
+	{
+		"override_hero"					"npc_dota_hero_bloodseeker"		// Hero to override
+		"Ability1"					""		// Ability 1
+		"Ability2"					""		// Ability 1
+		"Ability3"					""		// Ability 1
+		"Ability4"					""		// Ability 1
+		"VisionNighttimeRange"		"100000"										// Range of vision at night time.
+		"VisionDaytimeRange"		"100000"
+		"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_FLY"
+		"ModelScale"	"1.4"
+		"StatusHealth"	"100"
+		"StatusHealthRegen"	"0"
+		"StatusMana"	"6"
+		"StatusManaRegen"	"0"
+		"AttackCapabilities"	"DOTA_UNIT_CAP_NO_ATTACK"
+		"AttackDamageMin"	"0"
+		"AttackDamageMax"	"0"
+		"ArmorPhysical"	"0"
+		"MagicalResistance"	"0"
+		// Hull type used for navigation/locomotion.
+		"BoundsHullName"	"DOTA_HULL_SIZE_SMALL"
+		"MovementSpeed"	"550"
+		"HasInventory"	"1"
+		"MinimapIconSize"	"1000"
+		"AttributeBaseStrength"	"0"
+		"AttributeStrengthGain"	"0"
+		"AttributeBaseIntelligence"	"0"
+		"AttributeIntelligenceGain"	"0"
+		"AttributeBaseAgility"	"0"
+		"AttributeAgilityGain"	"0"
+	}
+	"npc_dota_hero_magnataur"
+	{
+		"override_hero"					"npc_dota_hero_magnataur"	// Hero to override
+		"Ability1"					""		// Ability 1
+		"Ability2"					""		// Ability 1
+		"Ability3"					""		// Ability 1
+		"Ability4"					""		// Ability 1
+		"VisionNighttimeRange"		"100000"										// Range of vision at night time.
+		"VisionDaytimeRange"		"100000"
+		"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_FLY"
+		"ModelScale"	"1.4"
+		"StatusHealth"	"100"
+		"StatusHealthRegen"	"0"
+		"StatusMana"	"6"
+		"StatusManaRegen"	"0"
+		"AttackCapabilities"	"DOTA_UNIT_CAP_NO_ATTACK"
+		"AttackDamageMin"	"0"
+		"AttackDamageMax"	"0"
+		"ArmorPhysical"	"0"
+		"MagicalResistance"	"0"
+		// Hull type used for navigation/locomotion.
+		"BoundsHullName"	"DOTA_HULL_SIZE_SMALL"
+		"MovementSpeed"	"550"
+		"HasInventory"	"1"
+		"MinimapIconSize"	"1000"
+		"AttributeBaseStrength"	"0"
+		"AttributeStrengthGain"	"0"
+		"AttributeBaseIntelligence"	"0"
+		"AttributeIntelligenceGain"	"0"
+		"AttributeBaseAgility"	"0"
+		"AttributeAgilityGain"	"0"
+	}
+	"npc_dota_hero_lycan"
+	{
+		"override_hero"					"npc_dota_hero_lycan"	// Hero to override
+		"Ability1"					""		// Ability 1
+		"Ability2"					""		// Ability 1
+		"Ability3"					""		// Ability 1
+		"Ability4"					""		// Ability 1
+		"VisionNighttimeRange"		"100000"										// Range of vision at night time.
+		"VisionDaytimeRange"		"100000"
+		"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_FLY"
+		"ModelScale"	"1.4"
+		"StatusHealth"	"100"
+		"StatusHealthRegen"	"0"
+		"StatusMana"	"6"
+		"StatusManaRegen"	"0"
+		"AttackCapabilities"	"DOTA_UNIT_CAP_NO_ATTACK"
+		"AttackDamageMin"	"0"
+		"AttackDamageMax"	"0"
+		"ArmorPhysical"	"0"
+		"MagicalResistance"	"0"
+		// Hull type used for navigation/locomotion.
+		"BoundsHullName"	"DOTA_HULL_SIZE_SMALL"
+		"MovementSpeed"	"550"
+		"HasInventory"	"1"
+		"MinimapIconSize"	"1000"
+		"AttributeBaseStrength"	"0"
+		"AttributeStrengthGain"	"0"
+		"AttributeBaseIntelligence"	"0"
+		"AttributeIntelligenceGain"	"0"
+		"AttributeBaseAgility"	"0"
+		"AttributeAgilityGain"	"0"
+	}
+
+	"npc_dota_hero_ogre_magi"
+	{
+		"override_hero"					"npc_dota_hero_ogre_magi"	// Hero to override
+		"Ability1"					""		// Ability 1
+		"Ability2"					""		// Ability 1
+		"Ability3"					""		// Ability 1
+		"Ability4"					""		// Ability 1
+		"VisionNighttimeRange"		"100000"										// Range of vision at night time.
+		"VisionDaytimeRange"		"100000"
+		"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_FLY"
+		"ModelScale"	"1.4"
+		"StatusHealth"	"100"
+		"StatusHealthRegen"	"0"
+		"StatusMana"	"6"
+		"StatusManaRegen"	"0"
+		"AttackCapabilities"	"DOTA_UNIT_CAP_NO_ATTACK"
+		"AttackDamageMin"	"0"
+		"AttackDamageMax"	"0"
+		"ArmorPhysical"	"0"
+		"MagicalResistance"	"0"
+		// Hull type used for navigation/locomotion.
+		"BoundsHullName"	"DOTA_HULL_SIZE_SMALL"
+		"MovementSpeed"	"550"
+		"HasInventory"	"1"
+		"MinimapIconSize"	"1000"
+		"AttributeBaseStrength"	"0"
+		"AttributeStrengthGain"	"0"
+		"AttributeBaseIntelligence"	"0"
+		"AttributeIntelligenceGain"	"0"
+		"AttributeBaseAgility"	"0"
+		"AttributeAgilityGain"	"0"
+	}
 }
