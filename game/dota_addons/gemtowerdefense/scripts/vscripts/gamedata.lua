@@ -146,6 +146,7 @@ end
 
 function GameData:UpdateFormula(tower, state)
 	-- FormulaTable[tower].State = state
-	-- print(tower, state)
+	print(tower, state)
+	CustomGameEventManager:Send_ServerToAllClients( "formula_update", {towerNameupdate = tower, updatestate = state} )
 	-- CustomNetTables:SetTableValue( "game_state", "towers_table", tower )
 end

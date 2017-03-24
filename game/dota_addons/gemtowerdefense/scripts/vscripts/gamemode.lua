@@ -82,6 +82,8 @@ function GetTowerTable()
 
 	for key, value in pairs(towersKV) do
 
+		if key ~= "gem_Null" then
+
 			towersT[key] = {}
 
 			for tkey, value in pairs(towersKV[key]) do
@@ -98,6 +100,7 @@ function GetTowerTable()
 			end
 
 			towersT[key].State = 'initial'
+		end
 	end
 
 end

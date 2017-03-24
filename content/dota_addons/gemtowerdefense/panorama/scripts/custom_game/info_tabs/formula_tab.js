@@ -1,4 +1,5 @@
 var towersT = {};
+var towerPanelList = {};
 
 function initFormulaRows(data) {
   var towers = data || {};
@@ -45,11 +46,44 @@ function createTowerPanel(container, tower, isFinal) {
     towerPanel.AddClass('tower-result');
     setUpTowerTooltip(towerPanel, tower);
   }
+
+  towerPanelList[tower]=towerPanel;
 }
 
 
 function updateComponents(data) {
   $.Msg(data);
+  var updatetower = data.towerNameupdate || {};
+  //$.Msg(updatetower);
+  var pickstate = data.updatestate;
+  if (pickstate == "pulled") {
+    if (towerPanelList[updatetower]) {
+      //$.Msg("true");
+    towerPanelList[updatetower].BLoadLayoutSnippet('tower-pulled');
+    var towerLabel = towerPanelList[updatetower].FindChildTraverse('tower-name');
+    towerLabel.text = $.Localize('#' + updatetower); 
+
+    }
+  }
+  if (pickstate == "picked") {
+    if (towerPanelList[updatetower]) {
+      //$.Msg("true");
+    towerPanelList[updatetower].BLoadLayoutSnippet('tower-picked');
+    var towerLabel = towerPanelList[updatetower].FindChildTraverse('tower-name');
+    towerLabel.text = $.Localize('#' + updatetower); 
+
+    }
+  }
+  if (pickstate == "removed") {
+    if (towerPanelList[updatetower]) {
+      //$.Msg("true");
+    towerPanelList[updatetower].BLoadLayoutSnippet('formula-item');
+    var towerLabel = towerPanelList[updatetower].FindChildTraverse('tower-name');
+    towerLabel.text = $.Localize('#' + updatetower); 
+
+    }
+  }
+
 }
 
 

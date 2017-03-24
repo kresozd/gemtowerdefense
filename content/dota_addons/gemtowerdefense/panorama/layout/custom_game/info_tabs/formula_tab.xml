@@ -17,6 +17,29 @@
         <Label id="tower-name" text="tower name" />
       </Panel>
     </snippet>
+    <snippet name="tower-pulled">
+      <Panel class="tower-pulled">
+        <Panel id="tower">
+          <Panel id="tower-inner">
+            <Image id="tower-image" />
+          </Panel>
+          <Label id="tower-tier" text="X" />
+        </Panel>
+        <Label id="tower-name" text="tower name" />
+      </Panel>
+    </snippet>
+        <snippet name="tower-picked">
+      <Panel class="tower-picked">
+        <Panel id="tower">
+          <Panel id="tower-inner">
+            <Image id="tower-image" />
+          </Panel>
+          <Label id="tower-tier" text="X" />
+        </Panel>
+        <Label id="tower-name" text="tower name" />
+      </Panel>
+    </snippet>
+
   </snippets>
   <Panel class="formula-root" hittest="false" />
 </root>

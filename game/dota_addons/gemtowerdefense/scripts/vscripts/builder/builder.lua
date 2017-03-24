@@ -364,7 +364,7 @@ function Builder:ConfirmTower(caster, owner, playerID)
 
 			local position = value:GetAbsOrigin()
 			local tower = CreateUnitByName(entityName, position, false, nil, nil, DOTA_TEAM_GOODGUYS)
-			GameData:UpdateFormula(tower:GetUnitName(), "picked")
+			GameData:UpdateFormula(entityName, "picked")
 			local eHandle = tower:GetEntityHandle()
 
 			value:Destroy()
@@ -375,6 +375,7 @@ function Builder:ConfirmTower(caster, owner, playerID)
 
 			self.GlobalTowers[self.GlobalCount] = tower
 			self.GlobalTowerBases[tower:GetEntityHandle()] = self.RoundTowerBases[playerID][key]
+			
 			
 
 		else
@@ -391,7 +392,10 @@ function Builder:ConfirmTower(caster, owner, playerID)
 			tower:SetHullRadius(TOWER_HULL_RADIUS)
 			tower:SetOwner(owner) 
 			tower:SetHullRadius(TOWER_HULL_RADIUS)
+
 ]]
+			
+			GameData:UpdateFormula(value:GetUnitName(), "removed")
 			value:Destroy()
 
 			--Builder:CallibrateTreePosition(position)
