@@ -6,11 +6,11 @@
     <include src="file://{resources}/scripts/custom_game/input.js"/>
     <include src="file://{resources}/scripts/custom_game/sandbox.js"/>
   </scripts>
-  <Panel class="sandbox-root">
+  <Panel class="sandbox-root"  hittest="false">
     <Button id="sandbox-toggle" onactivate="toggleSandboxTab()">
       <Label text="sandbox" />
     </Button>
-    <Panel id="sandbox-tab" class="sandbox-tab-hidden">
+    <Panel id="sandbox-tab" class="sandbox-tab-hidden" hittest="false">
       <Panel class="sandbox-header">
         <Label class="sandbox-title" text="Sandbox" />
       </Panel>

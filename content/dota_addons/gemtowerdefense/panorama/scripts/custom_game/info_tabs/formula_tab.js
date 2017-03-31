@@ -3,11 +3,18 @@ var towerPanelList = {};
 
 function initFormulaRows(data) {
   var towers = data || {};
-  for (var tower in towers) {
-    if (towers[tower].Requirements) {
-      initComponents(towers[tower], tower)
+  var it1 = 0;
+  while(it1<27){
+    it1 = it1 + 1
+    for (var tower in towers) {
+      if (towers[tower].UINum == it1) {
+        if (towers[tower].Requirements) {
+          initComponents(towers[tower], tower)
+        }
+      } 
     }
   }
+
 }
 
 
@@ -36,6 +43,7 @@ function createTowerPanel(container, tower, isFinal) {
   towerPanel.AddClass(tower);
 
   var imageName = tower.length > 6 ? tower : tower.slice(0, 5);
+  //$.Msg(imageName)
   var towerImage = towerPanel.FindChildTraverse('tower-image');
   towerImage.SetImage("file://{resources}/images/custom_game/gems/" + imageName + ".png");
 
@@ -59,27 +67,42 @@ function updateComponents(data) {
   if (pickstate == "pulled") {
     if (towerPanelList[updatetower]) {
       //$.Msg("true");
-    towerPanelList[updatetower].BLoadLayoutSnippet('tower-pulled');
-    var towerLabel = towerPanelList[updatetower].FindChildTraverse('tower-name');
-    towerLabel.text = $.Localize('#' + updatetower); 
+      if (!towerPanelList[updatetower].BHasClass('tower-pulled')) {
+        towerPanelList[updatetower].ToggleClass('tower-pulled');
+      }
+    
+    //var towerLabel = towerPanelList[updatetower].FindChildTraverse('tower-name');
+    //towerLabel.text = $.Localize('#' + updatetower); 
 
     }
   }
   if (pickstate == "picked") {
     if (towerPanelList[updatetower]) {
       //$.Msg("true");
-    towerPanelList[updatetower].BLoadLayoutSnippet('tower-picked');
-    var towerLabel = towerPanelList[updatetower].FindChildTraverse('tower-name');
-    towerLabel.text = $.Localize('#' + updatetower); 
+      if (towerPanelList[updatetower].BHasClass('tower-pulled')) 
+      {
+        towerPanelList[updatetower].ToggleClass('tower-pulled')
+      }
+      towerPanelList[updatetower].ToggleClass('tower-picked');
+    //var towerLabel = towerPanelList[updatetower].FindChildTraverse('tower-name');
+    //towerLabel.text = $.Localize('#' + updatetower); 
 
     }
   }
   if (pickstate == "removed") {
     if (towerPanelList[updatetower]) {
       //$.Msg("true");
-    towerPanelList[updatetower].BLoadLayoutSnippet('formula-item');
-    var towerLabel = towerPanelList[updatetower].FindChildTraverse('tower-name');
-    towerLabel.text = $.Localize('#' + updatetower); 
+      if (towerPanelList[updatetower].BHasClass('tower-pulled')) 
+      {
+        towerPanelList[updatetower].ToggleClass('tower-pulled')
+      }
+      if (towerPanelList[updatetower].BHasClass('tower-picked')) 
+      {
+        towerPanelList[updatetower].ToggleClass('tower-picked')
+      }
+    //towerPanelList[updatetower].ToggleClass('formula-item');
+   // var towerLabel = towerPanelList[updatetower].FindChildTraverse('tower-name');
+    //towerLabel.text = $.Localize('#' + updatetower); 
 
     }
   }

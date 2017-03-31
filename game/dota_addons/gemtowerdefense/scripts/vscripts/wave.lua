@@ -325,13 +325,15 @@ function Wave:AddMVPAbility()
 
 	local maxDamage = 0
 	local maxUnit = nil
-	for key, value in pairs(GameData.TowerDamage) do
-		if EntIndexToHScript(key).MVPLevel == nil or EntIndexToHScript(key).MVPLevel < 10 then
-			if value>maxDamage then
-				maxDamage = value
-				for i , j in pairs(Builder.GlobalTowers) do
-					if j:GetEntityIndex() == key then
-						maxUnit = j
+	if GameData.TowerDamage then
+		for key, value in pairs(GameData.TowerDamage) do
+			if EntIndexToHScript(key).MVPLevel == nil or EntIndexToHScript(key).MVPLevel < 10 then
+				if value>maxDamage then
+					maxDamage = value
+					for i , j in pairs(Builder.GlobalTowers) do
+						if j:GetEntityIndex() == key then
+							maxUnit = j
+						end
 					end
 				end
 			end

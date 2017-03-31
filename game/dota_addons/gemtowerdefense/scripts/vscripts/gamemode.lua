@@ -88,7 +88,7 @@ function GetTowerTable()
 
 			for tkey, value in pairs(towersKV[key]) do
 
-					if tkey == 'Requirements' or tkey == 'Type' then
+					if tkey == 'Requirements' or tkey == 'Type' or tkey == 'UINum' then
 
 							towersT[key][tkey] = value
 
