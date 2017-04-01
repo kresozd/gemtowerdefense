@@ -67,6 +67,8 @@ function updateComponents(data) {
   if (pickstate == "pulled") {
     if (towerPanelList[updatetower]) {
       //$.Msg("true");
+      towersT[updatetower].BoardPulled += 1;
+      $.Msg("pull test ", towersT[updatetower].BoardPulled) 
       if (!towerPanelList[updatetower].BHasClass('tower-pulled')) {
         towerPanelList[updatetower].ToggleClass('tower-pulled');
       }
@@ -79,11 +81,21 @@ function updateComponents(data) {
   if (pickstate == "picked") {
     if (towerPanelList[updatetower]) {
       //$.Msg("true");
+      towersT[updatetower].BoardPicked += 1;
+      $.Msg("pick selected ",towersT[updatetower].BoardPicked)
       if (towerPanelList[updatetower].BHasClass('tower-pulled')) 
       {
-        towerPanelList[updatetower].ToggleClass('tower-pulled')
+        towersT[updatetower].BoardPulled -= 1;
+        if (towersT[updatetower].BoardPulled <2) 
+        {
+          towerPanelList[updatetower].ToggleClass('tower-pulled');
+        }
       }
-      towerPanelList[updatetower].ToggleClass('tower-picked');
+
+      if (!towerPanelList[updatetower].BHasClass('tower-picked')) 
+      {
+        towerPanelList[updatetower].ToggleClass('tower-picked');
+      }
     //var towerLabel = towerPanelList[updatetower].FindChildTraverse('tower-name');
     //towerLabel.text = $.Localize('#' + updatetower); 
 
@@ -92,14 +104,31 @@ function updateComponents(data) {
   if (pickstate == "removed") {
     if (towerPanelList[updatetower]) {
       //$.Msg("true");
+      
       if (towerPanelList[updatetower].BHasClass('tower-pulled')) 
       {
-        towerPanelList[updatetower].ToggleClass('tower-pulled')
+        towersT[updatetower].BoardPulled -= 1;
+        $.Msg(towersT[updatetower].BoardPulled)
+        if (towersT[updatetower].BoardPulled <1) 
+        {
+          towerPanelList[updatetower].ToggleClass('tower-pulled');
+        }
       }
-      if (towerPanelList[updatetower].BHasClass('tower-picked')) 
+      else 
       {
-        towerPanelList[updatetower].ToggleClass('tower-picked')
+        if (towerPanelList[updatetower].BHasClass('tower-picked')) 
+        {
+          towersT[updatetower].BoardPicked -= 1;
+          $.Msg("pick removed ",towersT[updatetower].BoardPicked)
+          if (towersT[updatetower].BoardPicked < 1)
+          {
+            towerPanelList[updatetower].ToggleClass('tower-picked');
+          }
+        }
       }
+
+      
+
     //towerPanelList[updatetower].ToggleClass('formula-item');
    // var towerLabel = towerPanelList[updatetower].FindChildTraverse('tower-name');
     //towerLabel.text = $.Localize('#' + updatetower); 

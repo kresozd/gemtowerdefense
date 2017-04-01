@@ -91,6 +91,8 @@ function GetTowerTable()
 					if tkey == 'Requirements' or tkey == 'Type' or tkey == 'UINum' then
 
 							towersT[key][tkey] = value
+							towersT[key]['BoardPulled'] = 0
+							towersT[key]['BoardPicked'] = 0
 
 							if tkey == 'Requirements' and towersT[key][tkey]['Count'] then
 									towersT[key][tkey]['Count'] = nil
